@@ -19,7 +19,7 @@ inputStream.readLines( 'UTF-8' ).findAll{ it }.each
     String[] commands = line.split( /\s*;\s*/ )
 
     tempFile.write( commands.join( "\r\n" ) )
-    nTimes.times { tempFilePath.execute() }
+    2.times { tempFilePath.execute() }
 
     long t = System.currentTimeMillis()
     nTimes.times { tempFilePath.execute() }
