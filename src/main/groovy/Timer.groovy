@@ -12,7 +12,7 @@ final def tempFilePath = tempFile.absolutePath
 /**
  * Executes each line
  */
-inputStream.eachLine( 'UTF-8' )
+inputStream.readLines( 'UTF-8' ).findAll{ it }.each
 {
     String command ->
 
