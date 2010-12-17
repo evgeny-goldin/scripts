@@ -1,4 +1,9 @@
 
+/**
+ * Takes care of MediaWiki spacing between the sections: leaves two empty lines after each /=(+) section =(+)/.
+ * Usage: groovy MW.groovy < input.txt > output.txt
+ */
+
 def lines = []
 System.in.eachLine( 'UTF-8' ) { lines << it }
 
