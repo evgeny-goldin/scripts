@@ -14,14 +14,16 @@ final def tempFilePath = tempFile.absolutePath
  */
 inputStream.readLines( 'UTF-8' ).findAll{ it }.each
 {
-    String command ->
+    String line ->
 
-    tempFile.write( command )
+    String[] commands = line.split( /\s*;\s*/ )
+
+    tempFile.write( commands.join( "\r\n" ) )
     nTimes.times { tempFilePath.execute() }
 
     long t = System.currentTimeMillis()
     nTimes.times { tempFilePath.execute() }
-    println "[$command],${( System.currentTimeMillis() - t ) / ( nTimes )}"
+    println "\"${ commands[ -1 ] }\",${( System.currentTimeMillis() - t ) / ( nTimes )}"
 }
 
 inputStream.close()
