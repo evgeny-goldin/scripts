@@ -8,6 +8,10 @@ final def inputStream  = System.in
 final def tempFile     = File.createTempFile( "timer-temp", ".bat" )
 final def tempFilePath = tempFile.absolutePath
 
+/**
+ * Executes temp batch file
+ */
+def exec = { def p = tempFilePath.execute(); p.waitFor(); p.destroy() }
 
 /**
  * Executes each line
@@ -21,11 +25,11 @@ inputStream.readLines( 'UTF-8' ).findAll{ it }.each
     print "\"${ commands[ -1 ] }\","
 
     tempFile.write( commands.join( "\r\n" ) )
-    2.times { tempFilePath.execute() }
+    2.times { exec() }
 
     nTimes.times { 
         long t = System.currentTimeMillis()
-        tempFilePath.execute()
+        exec()
         print "${( System.currentTimeMillis() - t )},"
     }
     
