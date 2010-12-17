@@ -21,9 +21,11 @@ inputStream.readLines( 'UTF-8' ).findAll{ it }.each
     tempFile.write( commands.join( "\r\n" ) )
     2.times { tempFilePath.execute() }
 
-    long t = System.currentTimeMillis()
-    nTimes.times { tempFilePath.execute() }
-    println "\"${ commands[ -1 ] }\",${( System.currentTimeMillis() - t ) / ( nTimes )}"
+    nTimes.times { 
+        long t = System.currentTimeMillis()
+        tempFilePath.execute()
+        println "\"${ commands[ -1 ] }\",${ System.currentTimeMillis() - t }"
+    }
 }
 
 inputStream.close()
