@@ -3,8 +3,8 @@
  * Reads commands to execute from stdin, outputs their average run time to stdout
  */
 
-final def nTimes       = 10
-final def inputStream  = args.length ? new File( args[ 0 ] ).newInputStream() : System.in
+final def nTimes       = ( args ? args[ 0 ] as int : 10 )
+final def inputStream  = System.in
 final def tempFile     = File.createTempFile( "timer-temp", ".bat" )
 final def tempFilePath = tempFile.absolutePath
 
