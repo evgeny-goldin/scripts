@@ -21,7 +21,7 @@ inputStream.eachLine( 'UTF-8' )
 
     long t = System.currentTimeMillis()
     nTimes.times { tempFilePath.execute() }
-    println "[$command]\t${( System.currentTimeMillis() - t ) / ( nTimes )}"
+    println "[$command],${( System.currentTimeMillis() - t ) / ( nTimes )}"
 }
 
 inputStream.close()
