@@ -1,10 +1,12 @@
 
 /**
- * Performs action on SVN repositories recursively
+ * Performs action on all SVN repositories checked out locally, recursively.
+ * Helpful when a large number of repos are checked out and all of them need to be kept updated.
+ *
  * Usage:
- * - groovy svnOp.groovy directory
- * - groovy svnOp.groovy directory update status
- * - groovy svnOp.groovy directory status
+ * - groovy svnOp.groovy <directory>                // "svn status"
+ * - groovy svnOp.groovy <directory> update status  // "svn update" + "svn status"
+ * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
 def root           = new File( args[ 0 ] )
