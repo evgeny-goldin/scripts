@@ -8,7 +8,7 @@
  */
 
 def root        = new File( args[ 0 ] )
-def ops         = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'update' ]
+def ops         = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
 def directories = [] // List of top-level SVN directories
 
 println "Runing SVN operations $ops starting from [$root.canonicalPath]"
