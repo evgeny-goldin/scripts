@@ -7,23 +7,24 @@
  * - groovy svnOp.groovy directory status
  */
 
-def root        = new File( args[ 0 ] )
-def ops         = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
-def directories = [] // List of top-level SVN directories
+def root           = new File( args[ 0 ] )
+def ops            = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
+def topDirectories = []        // List of top-level SVN directories
+def allDirectories = [ root ]  // List of all directories, starting with "root"
 
 println "Runing SVN operations $ops starting from [$root.canonicalPath]"
 
-new File( args[ 0 ] ).eachDirRecurse {
+root.eachDirRecurse { allDirectories << it }
 
-    File directory ->
-
+for ( directory in allDirectories )
+{
     def path = directory.canonicalPath
 
-    if ( ! directories.any{ path.startsWith( it ) } )
+    if ( ! topDirectories.any{ path.startsWith( it ) } )
     {
         if ( new File( directory, '.svn' ).isDirectory())
         {
-            directories << path
+            topDirectories << path
             ops.each {
                 def command = "svn $it $path"
                 println "[$command]"
