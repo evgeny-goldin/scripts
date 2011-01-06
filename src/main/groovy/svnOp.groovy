@@ -12,7 +12,7 @@ def ops            = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
 def topDirectories = []        // List of top-level SVN directories
 def allDirectories = [ root ]  // List of all directories, starting with "root"
 
-println "Runing SVN operations $ops starting from [$root.canonicalPath]"
+println "Runing SVN operation${ ( ops.size() == 1 ) ? '' : 's' } $ops starting from [$root.canonicalPath]"
 
 root.eachDirRecurse { allDirectories << it }
 
