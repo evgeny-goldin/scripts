@@ -1,5 +1,11 @@
 
-/**
+@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/libs-snapshots/' )
+@Grab( group='com.goldin', module='gcommons', version='0.5-SNAPSHOT' )
+import com.goldin.gcommons.GCommons
+import groovy.io.FileType
+
+
+ /**
  * Performs action on all SVN repositories checked out locally, recursively.
  * Helpful when a large number of repos are checked out and all of them need to be kept updated.
  *
@@ -9,29 +15,24 @@
  * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
-def root           = new File( args[ 0 ] )
-def ops            = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
-def topDirectories = []        // List of top-level SVN directories
-def allDirectories = [ root ]  // List of all directories, starting with "root"
+def root       = new File( args[ 0 ] )
+def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
+def hasSvn     = { File[] dirs -> dirs.every { File dir -> dir.listFiles().any{ File f -> ( f.name == '.svn' ) }}}
 
-println "Runing SVN operation${ ( ops.size() == 1 ) ? '' : 's' } $ops starting from [$root.canonicalPath]"
+println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
 
-root.eachDirRecurse { allDirectories << it }
-
-for ( directory in allDirectories )
-{
-    def path = directory.canonicalPath
-
-    if ( ! topDirectories.any{ path.startsWith( it ) } )
+GCommons.file().recurse( root, [ filterType   : FileType.DIRECTORIES,
+                                 type         : FileType.DIRECTORIES,
+                                 stopOnFilter : true,
+                                 filter       : { File dir -> (( dir.name != '.svn' ) && ( ! hasSvn( dir, dir.parentFile ))) } ] ) {
+    File directory ->
+    if ( hasSvn( directory ))
     {
-        if ( new File( directory, '.svn' ).isDirectory())
+        for ( operation in operations )
         {
-            topDirectories << path
-            ops.each {
-                def command = "svn $it $path"
-                println "[$command]"
-                println command.execute().text
-            }
+            def command = "svn $operation $directory.canonicalPath"
+            println "[$command]"
+            println command.execute().text
         }
     }
 }
