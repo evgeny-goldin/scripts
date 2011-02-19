@@ -7,7 +7,7 @@ GCommons.general() // To trigger MOP updates
 
 
 /**
- * Takes care of MediaWiki spacing between the sections: leaves two empty lines after each /=(+) section =(+)/.
+ * Takes care of MediaWiki spacing between the sections: leaves two empty lines before each /=(+) section =(+)/.
  * Usage: groovy MW.groovy < input.txt > output.txt
  */
 
