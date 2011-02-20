@@ -18,6 +18,7 @@ GCommons.general() // Trigger MOP updates
 
 def root       = new File( args[ 0 ] )
 def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
+def t          = System.currentTimeMillis()
 
 println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
 
@@ -26,7 +27,7 @@ root.recurse([ type        : FileType.DIRECTORIES,
                detectLoops : true ] ) {
 
     File directory ->
-    println "[$directory.canonicalPath]"
+    println "==> [$directory.canonicalPath]"
     if ( directory.listFiles().any{ it.name == '.svn' } )
     {
         for ( operation in operations )
@@ -42,3 +43,5 @@ root.recurse([ type        : FileType.DIRECTORIES,
         true  // Continue recursion
     }
 }
+
+println "Done, [${ ( System.currentTimeMillis() - t ).intdiv( 1000 ) }] sec"
