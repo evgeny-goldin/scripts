@@ -4,6 +4,7 @@
 import com.goldin.gcommons.GCommons
 import groovy.io.FileType
 
+GCommons.general() // Trigger MOP updates
 
  /**
  * Performs action on all SVN repositories checked out locally, recursively.
