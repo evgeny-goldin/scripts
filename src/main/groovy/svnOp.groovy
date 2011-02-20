@@ -21,7 +21,8 @@ def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
 println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
 
 root.recurse([ type        : FileType.DIRECTORIES,
-               stopOnFalse : true ] ) {
+               stopOnFalse : true,
+               detectLoops : true ] ) {
 
     File directory ->
     println "[$directory.canonicalPath]"
