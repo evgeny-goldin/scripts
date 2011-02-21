@@ -4,7 +4,6 @@
 import com.goldin.gcommons.GCommons
 import groovy.io.FileType
 
-GCommons.general() // Trigger MOP updates
 
  /**
  * Performs action on all SVN repositories checked out locally, recursively.
@@ -18,6 +17,8 @@ GCommons.general() // Trigger MOP updates
 
 assert GroovySystem.version.startsWith( '1.8.0' ), \
        "Only Groovy version \"1.8.0-beta-4\" and higher is supported. Current version is [${ GroovySystem.version }]"
+GCommons.general() // Trigger MOP updates
+
 
 def root       = new File( args[ 0 ] )
 def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
