@@ -4,6 +4,7 @@
 import com.goldin.gcommons.GCommons
 import groovy.io.FileType
 
+GCommons.general() // Trigger MOP updates
 
  /**
  * Performs action on all SVN repositories checked out locally, recursively.
@@ -20,16 +21,17 @@ assert GroovySystem.version.startsWith( '1.8.0' ), \
 
 def root       = new File( args[ 0 ] )
 def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
-def hasSvn     = { File[] dirs -> dirs.every { File dir -> dir.listFiles().any{ File f -> ( f.name == '.svn' ) }}}
+def t          = System.currentTimeMillis()
 
 println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
 
-GCommons.file().recurse( root, [ filterType   : FileType.DIRECTORIES,
-                                 type         : FileType.DIRECTORIES,
-                                 stopOnFilter : true,
-                                 filter       : { File dir -> (( dir.name != '.svn' ) && ( ! hasSvn( dir, dir.parentFile ))) } ] ) {
+root.recurse([ type        : FileType.DIRECTORIES,
+               stopOnFalse : true,
+               detectLoops : true ] ) {
+
     File directory ->
-    if ( hasSvn( directory ))
+    println "==> [$directory.canonicalPath]"
+    if ( directory.listFiles().any{ it.name == '.svn' } )
     {
         for ( operation in operations )
         {
@@ -37,5 +39,12 @@ GCommons.file().recurse( root, [ filterType   : FileType.DIRECTORIES,
             println "[$command]"
             println command.execute().text
         }
+        false // Stop recursion at this point
+    }
+    else
+    {
+        true  // Continue recursion
     }
 }
+
+println "Done, [${ ( System.currentTimeMillis() - t ).intdiv( 1000 ) }] sec"
