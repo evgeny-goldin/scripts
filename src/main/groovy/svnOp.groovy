@@ -15,6 +15,9 @@ import groovy.io.FileType
  * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
+assert GroovySystem.version.startsWith( '1.8.0' ), \
+       "Only Groovy version \"1.8.0-beta-4\" and higher is supported. Current version is [${ GroovySystem.version }]"
+
 def root       = new File( args[ 0 ] )
 def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
 def hasSvn     = { File[] dirs -> dirs.every { File dir -> dir.listFiles().any{ File f -> ( f.name == '.svn' ) }}}
