@@ -1,9 +1,11 @@
 
-@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/libs-releases/' )
-@Grab( group='com.goldin', module='gcommons', version='0.5' )
+@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
+@Grab( group='com.goldin', module='gcommons', version='0.5.2-SNAPSHOT' )
 import com.goldin.gcommons.GCommons
+
 import groovy.io.FileType
 
+GCommons.general() // Trigger MOP updates
 
  /**
  * Performs action on all SVN repositories checked out locally, recursively.
@@ -15,22 +17,12 @@ import groovy.io.FileType
  * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
-assert GroovySystem.version.startsWith( '1.8.0' ), \
-       "Only Groovy version \"1.8.0-beta-4\" and higher is supported. Current version is [${ GroovySystem.version }]"
-GCommons.general() // Trigger MOP updates
-
-
 def root       = new File( args[ 0 ] )
 def operations = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'status' ]
 def t          = System.currentTimeMillis()
-
-println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
-
-root.recurse([ type        : FileType.DIRECTORIES,
-               stopOnFalse : true,
-               detectLoops : true ] ) {
-
+def callback   = {
     File directory ->
+
     println "==> [$directory.canonicalPath]"
     if ( directory.listFiles().any{ it.name == '.svn' } )
     {
@@ -46,6 +38,15 @@ root.recurse([ type        : FileType.DIRECTORIES,
     {
         true  // Continue recursion
     }
+}
+
+println "Runing SVN operation${ GCommons.general().s( operations.size()) } $operations starting from [$root.canonicalPath]"
+
+if ( callback( root ))
+{
+    root.recurse([ type        : FileType.DIRECTORIES,
+                   stopOnFalse : true,
+                   detectLoops : true ], callback )
 }
 
 println "Done, [${ ( System.currentTimeMillis() - t ).intdiv( 1000 ) }] sec"
