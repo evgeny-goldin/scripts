@@ -1,6 +1,6 @@
 
-@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/libs-releases/' )
-@Grab( group='com.goldin', module='gcommons', version='0.5' )
+@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
+@Grab( group='com.goldin', module='gcommons', version='0.5.2' )
 import com.goldin.gcommons.GCommons
 
 GCommons.general() // To trigger MOP updates
