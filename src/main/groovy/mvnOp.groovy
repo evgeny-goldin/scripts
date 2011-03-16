@@ -37,7 +37,7 @@ def callback   = {
     }
 }
 
-println "Runing Maven operation${ GCommons.general().s( mavenGoals.size()) } $mavenGoals starting from [$root.canonicalPath]"
+println "Runing Maven goal${ GCommons.general().s( mavenGoals.size()) } $mavenGoals starting from [$root.canonicalPath]"
 
 if ( callback( root ))
 {
