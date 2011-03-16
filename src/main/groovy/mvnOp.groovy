@@ -25,12 +25,10 @@ def callback   = {
     println "==> [$directory.canonicalPath]"
     if ( directory.listFiles().any{ it.name == 'pom.xml' } )
     {
-        for ( mavenGoal in mavenGoals )
-        {
-            def command = "${ System.getenv( 'M2_HOME' ) }/bin/mvn.bat $mavenGoal"
-            println "[$command]"
-            println command.execute( null, directory ).text
-        }
+        def command = "${ System.getenv( 'M2_HOME' ) }/bin/mvn.bat ${mavenGoals.join( ' ' )}"
+        println "[$command]"
+        println command.execute( null, directory ).text
+
         false // Stop recursion at this point
     }
     else
