@@ -14,7 +14,7 @@ GCommons.general() // Trigger MOP updates
  * - groovy mvnOp.groovy <root directory> <Maven goals>
  */
 
-assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment property should be defined"
+assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment variable should be defined"
 
 def root       = new File( args[ 0 ] )
 def mavenGoals = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'clean' ]
