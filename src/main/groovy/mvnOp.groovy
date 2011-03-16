@@ -11,7 +11,7 @@ GCommons.general() // Trigger MOP updates
  * Performs action on all Maven projects recursively.
  *
  * Usage:
- * - groovy mvnOp.groovy <root directory> <Maven home> <Maven goals>
+ * - groovy mvnOp.groovy <root directory> <Maven goals>
  */
 
 assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment property should be defined"
