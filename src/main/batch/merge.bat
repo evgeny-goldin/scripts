@@ -2,6 +2,8 @@
 
 call git checkout dev
 call git status
+pause
+
 call git rebase master
 call git checkout master
 call git status
