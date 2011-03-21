@@ -1,0 +1,2 @@
+svn update
+svn status

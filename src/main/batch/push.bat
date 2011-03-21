@@ -1,0 +1,3 @@
+cls
+git push origin %*
+

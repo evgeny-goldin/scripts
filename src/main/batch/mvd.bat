@@ -1,0 +1,1 @@
+mvnDebug -e clean install %*

@@ -1,0 +1,3 @@
+gradle -S --no-color %*
+
+
