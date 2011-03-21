@@ -1,5 +1,6 @@
 @echo off
 
+cls
 call git checkout dev
 call git status
 pause
