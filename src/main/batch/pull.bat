@@ -1,3 +1,8 @@
+@echo off
+
 cls
-git pull origin %*
+call git status
+pause
+
+pause git pull origin %*
 

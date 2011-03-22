@@ -1,3 +1,9 @@
+@echo off
+
 cls
-git push origin %*
+call git status
+pause
+
+call git push origin %*
+
 
