@@ -4,5 +4,5 @@ cls
 call git status
 pause
 
-pause git pull origin %*
+call git pull origin %*
 
