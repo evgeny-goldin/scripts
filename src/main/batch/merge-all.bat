@@ -6,6 +6,7 @@ e:
 echo "=========> gcommons"
 cd \projects\gcommons
 call update
+call gr ideaModule
 call merge
 
 echo "=========> maven-plugins"
