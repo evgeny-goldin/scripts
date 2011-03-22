@@ -15,12 +15,10 @@ call merge
 
 echo "=========> scripts"
 cd \projects\scripts
-call git status
-call git pull origin master
-call git push origin master
+call pull master
+call push master
 
 echo "=========> maven-plugins-test"
 cd \projects\maven-plugins-test
-call git status
-call git pull origin master
-call git push origin master
+call pull master
+call push master
