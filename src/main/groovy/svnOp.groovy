@@ -1,6 +1,6 @@
 
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
-@Grab( group='com.goldin', module='gcommons', version='0.5.2' )
+@Grab( group='com.goldin', module='gcommons', version='0.5.3-SNAPSHOT' )
 import com.goldin.gcommons.GCommons
 
 import groovy.io.FileType
