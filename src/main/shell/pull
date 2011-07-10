@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cls
+git status
+echo Press Enter to continue ..
+read
+
+git pull origin $*
+
