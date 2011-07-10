@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cls
+clear
 git checkout dev
 git status
 echo Press Enter to continue ..

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cls
+clear
 git status
 
 echo "Are you sure you want to PUSH?! You won't be able to amend or rebase your commits!"
