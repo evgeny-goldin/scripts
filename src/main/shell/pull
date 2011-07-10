@@ -5,5 +5,6 @@ git status
 echo Press Enter to continue ..
 read
 
-git pull origin $*
+git pull origin "$*"
+
 
