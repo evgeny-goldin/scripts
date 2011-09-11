@@ -1,0 +1,8 @@
+#!/bin/bash
+
+clear
+git status
+echo Press Enter to continue ..
+read
+
+git pull origin "$*"

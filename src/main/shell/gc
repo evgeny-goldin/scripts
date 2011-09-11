@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$GROOVY_HOME/bin/groovyConsole &
