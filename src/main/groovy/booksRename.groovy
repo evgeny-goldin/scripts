@@ -2,8 +2,8 @@
 def publishers = 'Oreilly Packtpub No.Starch Pragmatic'.tokenize()
 def months     = 'May Jul Aug'.tokenize()
 
-new File( '.' ).listFiles().findAll{ it.file && it.name.endsWith( '.pdf' ) }.
-                            each {
+new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
+                            each    {
                                 File f ->
                                 def newName = f.name.
                                               replaceAll  ( /\d{4}/, ''    ).
