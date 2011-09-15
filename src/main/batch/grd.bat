@@ -1,0 +1,3 @@
+gradleDebug -S --no-color %*
+
+
