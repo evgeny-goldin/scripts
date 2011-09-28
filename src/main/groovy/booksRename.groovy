@@ -1,5 +1,5 @@
 
-def publishers = 'Oreilly Packtpub No.Starch Pragmatic FT.Press Sams.Teach.Yourself'.tokenize()
+def publishers = 'QUE Oreilly Packtpub No.Starch Pragmatic FT.Press Sams.Teach.Yourself'.tokenize()
 def months     = 'May Jul Aug'.tokenize()
 
 new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
