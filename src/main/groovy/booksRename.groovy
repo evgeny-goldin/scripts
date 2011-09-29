@@ -9,7 +9,7 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                                               replaceAll  ( /\d{4}/, ''    ).
                                               replaceFirst( /pdf$/,  ''    ).
                                               replaceAll  (( publishers + months ).collect{ /\Q$it\E/ }.join( '|' ), '' ).
-                                              replaceAll  ( /\s*(\d+)th Edition/, ', $1Ed' ).
+                                              replaceAll  ( /\s*(\d+)(th|rd) Edition/, ', $1Ed' ).
                                               replace     ( '.',    ' '    ).
                                               trim()
 
