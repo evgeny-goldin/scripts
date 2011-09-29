@@ -17,12 +17,12 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
 
                                 if ( newFile.file )
                                 {
-                                    println "! [$newFile.name] already exists, [$f.name] is not renamed"
+                                    println "!  [$f.name] is not renamed, [$newFile.name] already exists"
                                 }
                                 else
                                 {
                                     assert   f.renameTo ( newFile )
-                                    println "[$f.name] => [$newFile.name]"
+                                    println "=> [$f.name] renamed to [$newFile.name]"
                                 }
 
                             }
