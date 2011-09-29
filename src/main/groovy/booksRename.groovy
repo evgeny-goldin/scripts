@@ -1,5 +1,5 @@
 
-def publishers = 'QUE Oreilly Packtpub No.Starch Pragmatic FT.Press Sams.Teach.Yourself'.tokenize()
+def publishers = 'QUE Oreilly Packtpub No.Starch Pragmatic FT.Press Sams.Teach.Yourself Big.Nerd Prentice.Hall'.tokenize()
 def months     = 'May Jul Aug'.tokenize()
 
 new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
@@ -9,6 +9,7 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                                               replaceAll  ( /\d{4}/, ''    ).
                                               replaceFirst( /pdf$/,  ''    ).
                                               replaceAll  (( publishers + months ).collect{ /\Q$it\E/ }.join( '|' ), '' ).
+                                              replaceAll  ( /\s*(\d+)th Edition/, ', $1Ed' ).
                                               replace     ( '.',    ' '    ).
                                               trim()
 
@@ -17,7 +18,7 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                                 if ( newFile.file )
                                 {
                                     println "! [$newFile.name] already exists, [$f.name] is not renamed"
-                                }    
+                                }
                                 else
                                 {
                                     assert   f.renameTo ( newFile )
