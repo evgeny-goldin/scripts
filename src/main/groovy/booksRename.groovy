@@ -1,6 +1,6 @@
 
-def publishers = 'QUE Oreilly Packtpub No.Starch Pragmatic FT.Press Sams.Teach.Yourself Big.Nerd Prentice.Hall'.tokenize()
-def months     = 'May Jul Aug'.tokenize()
+def publishers = 'Addison.Wesley QUE Prentice.Hall Oreilly Packtpub No.Starch.Press Pragmatic FT.Press Sams Big.Nerd Prentice.Hall Apress IBM.Press'.tokenize()
+def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
 
 new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                             each    {
@@ -8,9 +8,9 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                                 def newName = f.name.
                                               replaceAll  ( /\d{4}/, ''    ).
                                               replaceFirst( /pdf$/,  ''    ).
-                                              replaceAll  (( publishers + months ).collect{ /\Q$it\E/ }.join( '|' ), '' ).
-                                              replaceAll  ( /\s*(\d+)(th|rd) Edition/, ', $1Ed' ).
+                                              replaceAll  (( publishers + months ).collect{ /\Q$it.\E/ }.join( '|' ), '' ).
                                               replace     ( '.',    ' '    ).
+                                              replaceAll  ( /\s*(\d+)(nd|rd|th) Edition/, ', $1Ed' ).
                                               trim()
 
                                 def newFile = new File( "${newName}.pdf" )
