@@ -6,8 +6,8 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                             each    {
                                 File f ->
                                 def newName = f.name.
-                                              replaceAll  ( /\d{4}/, ''    ).
-                                              replaceFirst( /pdf$/,  ''    ).
+                                              replaceAll  ( /20\d\d\./, '' ).
+                                              replaceFirst( /pdf$/,     '' ).
                                               replaceAll  (( publishers + months ).collect{ /\Q$it.\E/ }.join( '|' ), '' ).
                                               replace     ( '.',    ' '    ).
                                               replaceAll  ( /\s*(\d+)(nd|rd|th) Edition/, ', $1Ed' ).
