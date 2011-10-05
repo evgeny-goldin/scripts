@@ -1,1 +1,0 @@
-start C:\Users\evgeny\AppData\Local\Google\Chrome\Application\chrome.exe https://mail.google.com http://www.google.com/calendar/render http://www.slideshare.net/evgenyg/newsfeed http://news.ycombinator.com/ http://goo.gl/BE9e4 http://www.google.com/reader/view/ https://plus.google.com/
