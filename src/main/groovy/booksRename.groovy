@@ -24,6 +24,5 @@ new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
                                     assert   f.renameTo ( newFile )
                                     println "=> [$f.name] renamed to [$newFile.name]"
                                 }
-
                             }
 
