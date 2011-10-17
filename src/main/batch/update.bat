@@ -1,6 +1,7 @@
 @echo off
 
 cls
+call git remote update
 call git checkout dev
 call git status
 pause

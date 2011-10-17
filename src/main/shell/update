@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+git remote update
 git checkout dev
 git status
 echo Press Enter to continue ..
