@@ -4,7 +4,9 @@ clear
 git remote update
 git checkout dev
 git status
+
 echo Press Enter to continue ..
+
 read
 
 git pull origin dev
@@ -12,3 +14,4 @@ git checkout master
 git status
 git pull origin master
 git checkout dev
+
