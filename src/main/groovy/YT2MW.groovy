@@ -1,6 +1,10 @@
 @Grab( 'net.sf.opencsv:opencsv:2.3' )
 import au.com.bytecode.opencsv.CSVReader
 
+def idHeader      = 'Issue Id'
+def typeHeader    = 'Type'
+def summaryHeader = 'Summary'
+
 assert args.length == 2, "Usage: groovy YT2MW.groovy <YouTrack URL> <CSV file>"
 String youTrackUrl = args[ 0 ]
 File   f           = new File( args[ 1 ] ).canonicalFile
@@ -10,22 +14,36 @@ CSVReader      reader = new CSVReader( new FileReader( f ))
 List<String[]> lines  = reader.readAll()
 assert         lines?.size() > 1 , "No data found in [$f]"
 
+/**
+ * Mapping of titles to their corresponding indices in String[], representing each data line.
+ */
 Map<String, Integer> headers = [:]
 lines[ 0 ].eachWithIndex { String header, int index -> headers[ header ] = index }
 
-assert headers.keySet().containsAll( [ 'Issue Id', 'Type', 'Summary' ] ), \
-       "CSV file should contain data for 'Issue Id', 'Type', and 'Summary' fields."
+assert headers.keySet().containsAll( [ idHeader, typeHeader, summaryHeader ] ), \
+       "CSV file should contain data for '$idHeader', '$typeHeader', and '$summaryHeader' fields."
+
+/**
+ * Mapping of issue type, like 'Feature' or 'Bug', to list of lines.
+ * Each String[] in the list represents a single issue of the corresponding type.
+ */
+Map<String, List<String[]>> linesMap = lines[ 1 .. -1 ].inject( [:].withDefault { [] } ){
+    Map m, String[] line ->
+    String type = line[ headers[ typeHeader ]]
+    m[ type ] << line
+    m
+}
 
 String template = '''
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-
-! width="8%"  | Issue #
-! width="8%"  | Type
-! width="54%" | Summary<%
+! width="8%"  | <%= idHeader %>
+! width="8%"  | <%= typeHeader %>
+! width="54%" | <%= summaryHeader %><%
 for ( line in lines ) {
-    String id      = line[ headers[ 'Issue Id' ]]
-    String type    = line[ headers[ 'Type'     ]]
-    String summary = line[ headers[ 'Summary'  ]]
+    String id      = line[ headers[ idHeader      ]]
+    String type    = line[ headers[ typeHeader    ]]
+    String summary = line[ headers[ summaryHeader ]]
  %>
 |-
 | align="center" | [<%= baseUrl %>/issue/$id $id]
@@ -35,8 +53,11 @@ for ( line in lines ) {
 
 println new groovy.text.GStringTemplateEngine().
         createTemplate( template ).
-        make([ baseUrl : youTrackUrl,
-               lines   : lines[ 1 .. -1 ],
-               headers : headers ])
+        make([ idHeader      : idHeader,
+               typeHeader    : typeHeader,
+               summaryHeader : summaryHeader,
+               baseUrl       : youTrackUrl,
+               lines         : linesMap.values().inject( [] ){ List l, List data -> l.addAll( data ); l },
+               headers       : headers ])
 
 
