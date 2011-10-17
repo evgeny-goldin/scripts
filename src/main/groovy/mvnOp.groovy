@@ -1,6 +1,6 @@
 /**
  * http://groovy.codehaus.org/Grape
- */ 
+ */
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
 @Grab('com.goldin:gcommons:0.5.3.4')
 @GrabExclude('commons-net:commons-net')
@@ -23,13 +23,14 @@ assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment variable should be def
 def root       = new File( args[ 0 ] )
 def mavenGoals = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'clean' ]
 def t          = System.currentTimeMillis()
+def isWindows  = System.getProperty( 'os.name' ).contains( 'windows' )
 def callback   = {
     File directory ->
 
     println "==> [$directory.canonicalPath]"
     if ( directory.listFiles().any{ it.name == 'pom.xml' } )
     {
-        def command = "${ System.getenv( 'M2_HOME' ) }/bin/mvn.bat ${mavenGoals.join( ' ' )}"
+        def command = "${ System.getenv( 'M2_HOME' ) }/bin/mvn${ isWindows ? '.bat' : '' } ${ mavenGoals.join( ' ' )}"
         println "[$command]"
         println command.execute( null, directory ).text
 
