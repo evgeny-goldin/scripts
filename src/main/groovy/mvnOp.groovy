@@ -1,6 +1,10 @@
-
+/**
+ * http://groovy.codehaus.org/Grape
+ */ 
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
-@Grab( group='com.goldin', module='gcommons', version='0.5.2' )
+@Grab('com.goldin:gcommons:0.5.3.4')
+@GrabExclude('commons-net:commons-net')
+@GrabExclude('org.codehaus.groovy:groovy-all')
 import com.goldin.gcommons.GCommons
 
 import groovy.io.FileType
