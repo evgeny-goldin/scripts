@@ -34,6 +34,17 @@ Map<String, List<String[]>> linesMap = lines[ 1 .. -1 ].inject( [:].withDefault 
     m
 }
 
+/**
+ * List of lines, created by iterating over sorted issue types.
+ */
+List<String[]> linesGrouped = (( Set<String> ) linesMap.keySet()).sort().inject( [] ){
+    List result, String issueType -> result.addAll( linesMap[ issueType ] )
+    result
+}
+
+/**
+ * MediaWiki table template
+ */
 String template = '''
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-
@@ -57,7 +68,5 @@ println new groovy.text.GStringTemplateEngine().
                typeHeader    : typeHeader,
                summaryHeader : summaryHeader,
                baseUrl       : youTrackUrl,
-               lines         : linesMap.values().inject( [] ){ List l, List data -> l.addAll( data ); l },
+               lines         : linesGrouped,
                headers       : headers ])
-
-
