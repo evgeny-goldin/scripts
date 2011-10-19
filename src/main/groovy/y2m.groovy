@@ -155,7 +155,7 @@ String convertWikiSyntax( String s )
     // {{ .. }} => <code> .. </code>
     replaceAll( /\{\{(.+?)\}\}/ ) { "<code>${ it[ 1 ] }</code>" }.
     // * .. * => ''' .. '''
-    replaceAll( /\*(.+?)\*/ ) { "'''${ it[ 1 ] }'''" }.
+    replaceAll( /\*(\S+?)\*/ )    { "'''${ it[ 1 ] }'''" }.
     // https:// => http://
-    replaceAll( /https:\/\// ) { 'http://' }
+    replaceAll( /https:\/\// )    { 'http://' }
 }
