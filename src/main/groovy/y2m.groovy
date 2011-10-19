@@ -152,10 +152,7 @@ String convertWikiSyntax( String s )
     s.
     // {code} .. {code} => <syntaxhighlight> .. </syntaxhighlight>
     replaceAll( /\{code(:lang=(\w+))?\}(.+?)\{code\}/ ) {
-            """
-            |<syntaxhighlight lang="${ it[ 2 ] ?: 'text' }">
-            |${ it[ 3 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )).trim() }
-            |</syntaxhighlight>""".stripMargin()
+            """<syntaxhighlight lang="${ it[ 2 ] ?: 'text' }">${ it[ 3 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )) }</syntaxhighlight>"""
     }.
     // {{ .. }} => <code> .. </code>
     replaceAll( /\{\{(.+?)\}\}/ ) { "<code>${ it[ 1 ] }</code>" }.
