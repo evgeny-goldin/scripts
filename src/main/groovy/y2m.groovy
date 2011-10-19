@@ -38,14 +38,17 @@ assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fiel
 List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.text )))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
 
-// https://sourceforge.net/tracker/?func=detail&aid=3425997&group_id=148905&atid=773541
+/**
+ * Filtering out lines with incorrect number of entries:
+ * https://sourceforge.net/tracker/?func=detail&aid=3425997&group_id=148905&atid=773541
+ */
 lines = lines.findAll{ it.size() == lines[ 0 ].size() }
 lines.each{ String[] line -> assert ( line.size() == lines[ 0 ].size()) }
 
 /**
  * Mapping of fields to their corresponding indices in each String[]:  "Issue Id" => 0, "Project" => 1, "Tags" => 2, etc.
  */
-Map<String, Integer> fieldsMapped = lines[ 0 ].inject( [:] ){ Map m, String field -> m[ field ] = m.size(); m }
+final Map<String, Integer> fieldsMapped = lines[ 0 ].inject( [:] ){ Map m, String field -> m[ field ] = m.size(); m }
 fieldsMapped.keySet().with {
     assert containsAll( fields ), "CSV file [$f] contains $delegate fields, but doesn't contain ${ fields - intersect( fields )} fields"
 }
@@ -56,7 +59,7 @@ assert lines && lines.every{ it.size() == lines[ 0 ].size() }
 /**
  * MediaWiki table template
  */
-String template = '''
+final String tableTemplate = '''
 <!-- Generated with http://goo.gl/7WHjH -->
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-<%= addCounter ? '\\n!#' : '' %><% for ( field in fields ){ %>
@@ -72,7 +75,7 @@ for ( line in lines ){ %><%= addCounter? '\\n|' + ( lineCounter++ ) : '' %><% fo
 |}'''
 
 println new groovy.text.GStringTemplateEngine().
-        createTemplate( template ).
+        createTemplate( tableTemplate ).
         make([ youTrackUrl  : youTrackUrl,
                addCounter   : addCounter,
                fields       : fields,
@@ -152,7 +155,7 @@ String convertWikiSyntax( String s )
     s.
     // {code} .. {code} => <syntaxhighlight> .. </syntaxhighlight>
     replaceAll( /\{code(:lang=(\w+))?\}(.+?)\{code\}/ ) {
-            """<syntaxhighlight lang="${ it[ 2 ] ?: 'text' }">${ it[ 3 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )) }</syntaxhighlight>"""
+        """<syntaxhighlight lang="${ it[ 2 ] ?: 'text' }">${ it[ 3 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )) }</syntaxhighlight>"""
     }.
     // {{ .. }} => <code> .. </code>
     replaceAll( /\{\{(.+?)\}\}/ ) { "<code>${ it[ 1 ] }</code>" }.
