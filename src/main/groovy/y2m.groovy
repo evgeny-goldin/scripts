@@ -6,32 +6,32 @@ import au.com.bytecode.opencsv.CSVReader
  * Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Field>]
  */
 
-List<String> defaultFields       = [ 'Issue Id', 'Type', 'Summary' ]
-String       defaultGroupByField = 'Type'
+List<String> defaultFields        = [ 'Issue Id', 'Type', 'Summary' ]
+List<String> defaultGroupByFields = [ 'Type', 'Summary' ]
 
 if ( args.length < 2 )
 {
     System.err.println """
 ------------------------------------------------------------------------------------------------------------------------------
-Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Field>]
+Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Fields>]
 ------------------------------------------------------------------------------------------------------------------------------
-YouTrack URL   - Base URL of YouTrack application, like "http://youtrack.jetbrains.net" or "http://evgeny-goldin.org/youtrack"
-CSV file       - "Issues in CSV"-exported file from YouTrack
-Fields         - (optional) Comma-separated list of fields to use in MediaWiki table, "${ defaultFields.join( ',' )}" by default
-Group-By-Field - (optional) Group MediaWiki table rows by this field, "$defaultGroupByField" if default 'Fields' are used
+YouTrack URL    - Base URL of YouTrack application, like "http://youtrack.jetbrains.net" or "http://evgeny-goldin.org/youtrack"
+CSV file        - "Issues in CSV"-exported file from YouTrack
+Fields          - (optional) comma-separated list of fields to use in MediaWiki table, "${ defaultFields.join( ', ' )}" by default
+Group-By-Fields - (optional) comma-separated list of fields to group table rows by, "${ defaultGroupByFields.join( ', ' )}" for the default fields
 ------------------------------------------------------------------------------------------------------------------------------
 """
     System.exit( 1 )
 }
 
-String       youTrackUrl  = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
-File         f            = new File( args[ 1 ] ).canonicalFile
-List<String> fields       = ( args.size() > 2 ) ? args[ 2 ].split( ',' )*.trim().grep() : defaultFields
-String       groupByField = ( args.size() > 3 )          ? args[ 3 ]           :
-                            ( fields.is( defaultFields ))? defaultGroupByField :
-                                                           ''
+final String       youTrackUrl   = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
+final File         f             = new File( args[ 1 ] ).canonicalFile
+final List<String> fields        = ( args.size() > 2          ) ? args[ 2 ].split( ',' )*.trim().grep() : defaultFields
+final List<String> groupByFields = ( args.size() > 3          ) ? args[ 3 ].split( ',' )*.trim().grep() :
+                                   ( fields.is( defaultFields ))? defaultGroupByFields                  :
+                                                                  []
 assert youTrackUrl && f.file && fields
-assert ( ! groupByField ) || fields.contains( groupByField ), "Fields $fields don't contain \"$groupByField\" field"
+assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
 
 List<String[]> lines  = new CSVReader( new StringReader( convertMultilines( f.text ))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
@@ -48,9 +48,8 @@ fieldsMapped.keySet().with {
     assert containsAll( fields ), "CSV file [$f] contains $delegate fields, but doesn't contain ${ fields - intersect( fields )} fields"
 }
 
-List<String[]> linesGrouped = groupLines( lines[ 1 .. -1 ], groupByField, fieldsMapped )
-assert         linesGrouped && ( linesGrouped.size() == lines.size() - 1 )
-linesGrouped.each{ String[] line -> assert ( line.size() == lines[ 0 ].size()) }
+lines = reorderLines( lines[ 1 .. -1 ], groupByFields, fieldsMapped )
+assert lines && lines.every{ it.size() == lines[ 0 ].size() }
 
 /**
  * MediaWiki table template
@@ -73,40 +72,37 @@ println new groovy.text.GStringTemplateEngine().
         make([ youTrackUrl  : youTrackUrl,
                fields       : fields,
                fieldsMapped : fieldsMapped,
-               lines        : linesGrouped ])
+               lines        : lines ])
 
 /**
- * Groups lines specified by the field provided.
+ * Re-orders lines specified by the fields provided.
  *
- * @param lines        lines to group
- * @param groupByField field to group the lines by, lines are not grouped if empty
- * @param fieldsMapped mapping of fields to their indices
- * @return             lines re-ordered by the groupByField
+ * @param lines         lines to group
+ * @param groupByFields fields to group the lines by, lines are not grouped if empty
+ * @param fieldsMapped  mapping of fields to their indices in each String[] line
+ * @return              lines re-ordered by the groupByFields
  */
-List<String[]> groupLines ( List<String[]> lines, String groupByField, Map<String, Integer> fieldsMapped )
+List<String[]> reorderLines ( List<String[]> lines, List<String> groupByFields, Map<String, Integer> fieldsMapped )
 {
-    assert lines
-    if ( ! groupByField ) { return lines }
+    assert lines && fieldsMapped
 
-    int fieldIndex = fieldsMapped[ groupByField ]
-    assert groupByField && ( fieldIndex > -1 ) && ( fieldIndex < lines[ 0 ].size())
+    groupByFields ? lines.sort {
+                        String[] line1, String[] line2 ->
 
-    /**
-     * Mapping of issue field, like 'Feature' or 'Bug' type, to the list of corresponding lines.
-     * Each String[] in the list represents a single issue.
-     */
-    Map<String, List<String[]>> linesMapped = lines.inject( [:].withDefault { [] } ) {
-        Map m, String[] line ->
-        String fieldValue = line[ fieldIndex ]
-        assert fieldValue, "Field \"$groupByField\" is not defined in line $line"
-        m[ fieldValue ] << line
-        m
-    }
+                        for ( field in groupByFields )
+                        {
+                            String fieldValue1 = line1[ fieldsMapped[ field ]]
+                            String fieldValue2 = line2[ fieldsMapped[ field ]]
 
-    /**
-     * List of lines, created by iterating over sorted issue fields to group by.
-     */
-    linesMapped.keySet().sort().inject( [] ){ List l, String field -> l + linesMapped[ field ] }
+                            if ( fieldValue1 != fieldValue2 )
+                            {
+                                return fieldValue1.compareTo( fieldValue2 )
+                            }
+                        }
+
+                        0
+                    } :
+                    lines
 }
 
 
