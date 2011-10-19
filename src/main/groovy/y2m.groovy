@@ -33,7 +33,7 @@ final List<String> groupByFields = ( args.size() > 3          ) ? args[ 3 ].spli
 assert youTrackUrl && f.file && fields
 assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
 
-List<String[]> lines  = new CSVReader( new StringReader( convertMultilines( f.text ))).readAll()
+List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.text )))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
 
 // https://sourceforge.net/tracker/?func=detail&aid=3425997&group_id=148905&atid=773541
@@ -57,13 +57,13 @@ assert lines && lines.every{ it.size() == lines[ 0 ].size() }
 String template = '''
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-<% for ( field in fields ){ %>
-| $field<% } %>
+!$field<% } %>
 |-<% for ( line in lines ){ for ( field in fields ){
     String fieldValue = line[ fieldsMapped[ field ]].with {
         ( field == 'Issue Id' ) ? "[$youTrackUrl/issue/$delegate $delegate]" : delegate
     }
 %>
-| $fieldValue<% } %>
+|${ fieldValue.trim().with{ startsWith( '*' ) || startsWith( '#' ) ? '\\n' + delegate : delegate }}<% } %>
 |-<% } %>
 |}'''
 
@@ -132,4 +132,30 @@ String convertMultilines ( String s )
     }
 
     result.join( System.getProperty( 'line.separator' ))
+}
+
+
+/**
+ * Converts Wiki syntax of YouTrack to that of MediaWiki
+ * @param s YouTrack field value
+ * @return  MediaWiki value
+ */
+String convertWikiSyntax( String s )
+{
+    assert s
+
+    s.
+    // {code} .. {code} => <syntaxhighlight> .. </syntaxhighlight>
+    replaceAll( /\{code\}(.+?)\{code\}/ ) {
+        """
+        |<syntaxhighlight lang="text">
+        |${ it[ 1 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )).trim() }
+        |</syntaxhighlight>""".stripMargin()
+    }.
+    // {{ .. }} => <code> .. </code>
+    replaceAll( /\{\{(.+?)\}\}/ ) { "<code>${ it[ 1 ] }</code>" }.
+    // * .. * => ''' .. '''
+    replaceAll( /\*(.+?)\*/ ) { "'''${ it[ 1 ] }'''" }.
+    // https:// => http://
+    replaceAll( /https:\/\// ) { 'http://' }
 }
