@@ -3,7 +3,7 @@ import au.com.bytecode.opencsv.CSVReader
 
 /**
  * Groovy script converting YouTrack CVS export results into MediaWiki tables.
- * Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Field>]
+ * Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Fields>] [<Add #>]
  */
 
 List<String> defaultFields        = [ 'Issue Id', 'Type', 'Summary' ]
