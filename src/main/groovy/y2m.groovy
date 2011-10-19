@@ -63,7 +63,7 @@ String template = '''
         ( field == 'Issue Id' ) ? "[$youTrackUrl/issue/$delegate $delegate]" : delegate
     }
 %>
-|${ fieldValue.split( '<br/>' ).collect{ it.trim().with{ startsWith( '*' ) || startsWith( '#' ) ? '\\n' + delegate : delegate }}.join( '<br/>' )}<% } %>
+|${ fieldValue.split( '<br/>' ).collect{ it.trim().with{ [ '*', '#', '<syntaxhighlight' ].any{ startsWith( it ) } ? '\\n' + delegate : delegate }}.join( '<br/>' )}<% } %>
 |-<% } %>
 |}'''
 
@@ -146,11 +146,11 @@ String convertWikiSyntax( String s )
 
     s.
     // {code} .. {code} => <syntaxhighlight> .. </syntaxhighlight>
-    replaceAll( /\{code\}(.+?)\{code\}/ ) {
-        """
-        |<syntaxhighlight lang="text">
-        |${ it[ 1 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )).trim() }
-        |</syntaxhighlight>""".stripMargin()
+    replaceAll( /\{code(:lang=(\w+))?\}(.+?)\{code\}/ ) {
+            """
+            |<syntaxhighlight lang="${ it[ 2 ] ?: 'text' }">
+            |${ it[ 3 ].replaceAll( '<br/>', System.getProperty( 'line.separator' )).trim() }
+            |</syntaxhighlight>""".stripMargin()
     }.
     // {{ .. }} => <code> .. </code>
     replaceAll( /\{\{(.+?)\}\}/ ) { "<code>${ it[ 1 ] }</code>" }.
