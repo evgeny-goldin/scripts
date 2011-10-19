@@ -88,14 +88,18 @@ String template = '''
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-<% for ( field in fields ){ %>
 | $field<% } %>
-|-<% for ( line in lines ){ for ( field in fields ){ %>
-| <%= line[ fieldsMapped[ field ]] %><% } %>
+|-<% for ( line in lines ){ for ( field in fields ){
+    String fieldValue = line[ fieldsMapped[ field ]].with {
+        ( field == 'Issue Id' ) ? "[$youTrackUrl/issue/$delegate $delegate]" : delegate
+    }
+%>
+| $fieldValue<% } %>
 |-<% } %>
 |}'''
 
 println new groovy.text.GStringTemplateEngine().
         createTemplate( template ).
-        make([ baseUrl      : youTrackUrl,
+        make([ youTrackUrl  : youTrackUrl,
                fields       : fields,
                fieldsMapped : fieldsMapped,
                lines        : linesGrouped ])
