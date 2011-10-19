@@ -24,7 +24,6 @@ Group-By-Field - (optional) Group MediaWiki table rows by this field, "$defaultG
     System.exit( 1 )
 }
 
-
 String       youTrackUrl  = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
 File         f            = new File( args[ 1 ] ).canonicalFile
 List<String> fields       = ( args.size() > 2 ) ? args[ 2 ].split( ',' )*.trim().grep() : defaultFields
@@ -34,11 +33,12 @@ String       groupByField = ( args.size() > 3 )          ? args[ 3 ]           :
 assert youTrackUrl && f.file && fields
 assert ( ! groupByField ) || fields.contains( groupByField ), "Fields $fields don't contain \"$groupByField\" field"
 
-List<String[]> lines  = new CSVReader( new FileReader( f )).readAll()
+List<String[]> lines  = new CSVReader( new StringReader( convertMultilines( f.text ))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
 
 // https://sourceforge.net/tracker/?func=detail&aid=3425997&group_id=148905&atid=773541
 lines = lines.findAll{ it.size() == lines[ 0 ].size() }
+lines.each{ String[] line -> assert ( line.size() == lines[ 0 ].size()) }
 
 /**
  * Mapping of fields to their corresponding indices in each String[]:  "Issue Id" => 0, "Project" => 1, "Tags" => 2, etc.
@@ -48,38 +48,9 @@ fieldsMapped.keySet().with {
     assert containsAll( fields ), "CSV file [$f] contains $delegate fields, but doesn't contain ${ fields - intersect( fields )} fields"
 }
 
-List<String[]> linesGrouped = lines[ 1 .. -1 ]
-assert         linesGrouped
+List<String[]> linesGrouped = groupLines( lines[ 1 .. -1 ], groupByField, fieldsMapped )
+assert         linesGrouped && ( linesGrouped.size() == lines.size() - 1 )
 linesGrouped.each{ String[] line -> assert ( line.size() == lines[ 0 ].size()) }
-
-if ( groupByField )
-{
-    int fieldIndex = fieldsMapped[ groupByField ]
-    assert (( fieldIndex > -1 ) && ( fieldIndex < lines[ 0 ].size()))
-
-    /**
-     * Mapping of issue field, like 'Feature' or 'Bug' type, to list of lines.
-     * Each String[] in the list represents a single issue of the corresponding type.
-     */
-    Map<String, List<String[]>> linesMapped = linesGrouped.inject( [:].withDefault { [] } ){
-        Map m, String[] line ->
-        String fieldValue = line[ fieldIndex ]
-        assert fieldValue, "Field \"$groupByField\" is not defined in line $line"
-        m[ fieldValue ] << line
-        m
-    }
-
-    /**
-     * List of lines, created by iterating over sorted issue types.
-     */
-    linesGrouped = (( Set<String> ) linesMapped.keySet()).sort().inject( [] ){
-        List result, String fieldValue -> result.addAll( linesMapped[ fieldValue ] )
-        result
-    }
-
-    assert linesGrouped && linesGrouped.every { String[] line -> line.size() == lines[ 0 ].size() }
-}
-
 
 /**
  * MediaWiki table template
@@ -103,3 +74,48 @@ println new groovy.text.GStringTemplateEngine().
                fields       : fields,
                fieldsMapped : fieldsMapped,
                lines        : linesGrouped ])
+
+/**
+ * Groups lines specified by the field provided.
+ *
+ * @param lines        lines to group
+ * @param groupByField field to group the lines by, lines are not grouped if empty
+ * @param fieldsMapped mapping of fields to their indices
+ * @return             lines re-ordered by the groupByField
+ */
+List<String[]> groupLines ( List<String[]> lines, String groupByField, Map<String, Integer> fieldsMapped )
+{
+    assert lines
+    if ( ! groupByField ) { return lines }
+
+    int fieldIndex = fieldsMapped[ groupByField ]
+    assert groupByField && ( fieldIndex > -1 ) && ( fieldIndex < lines[ 0 ].size())
+
+    /**
+     * Mapping of issue field, like 'Feature' or 'Bug' type, to the list of corresponding lines.
+     * Each String[] in the list represents a single issue.
+     */
+    Map<String, List<String[]>> linesMapped = lines.inject( [:].withDefault { [] } ) {
+        Map m, String[] line ->
+        String fieldValue = line[ fieldIndex ]
+        assert fieldValue, "Field \"$groupByField\" is not defined in line $line"
+        m[ fieldValue ] << line
+        m
+    }
+
+    /**
+     * List of lines, created by iterating over sorted issue fields to group by.
+     */
+    linesMapped.keySet().sort().inject( [] ){ List l, String field -> l + linesMapped[ field ] }
+}
+
+
+/**
+ *
+ * @param s
+ * @return
+ */
+String convertMultilines ( String s )
+{
+    s
+}
