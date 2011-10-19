@@ -63,7 +63,7 @@ String template = '''
         ( field == 'Issue Id' ) ? "[$youTrackUrl/issue/$delegate $delegate]" : delegate
     }
 %>
-|${ fieldValue.trim().with{ startsWith( '*' ) || startsWith( '#' ) ? '\\n' + delegate : delegate }}<% } %>
+|${ fieldValue.split( '<br/>' ).collect{ it.trim().with{ startsWith( '*' ) || startsWith( '#' ) ? '\\n' + delegate : delegate }}.join( '<br/>' )}<% } %>
 |-<% } %>
 |}'''
 
@@ -72,7 +72,7 @@ println new groovy.text.GStringTemplateEngine().
         make([ youTrackUrl  : youTrackUrl,
                fields       : fields,
                fieldsMapped : fieldsMapped,
-               lines        : lines ])
+               lines        : lines ]).toString().trim()
 
 /**
  * Re-orders lines specified by the fields provided.
