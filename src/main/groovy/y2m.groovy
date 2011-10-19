@@ -107,11 +107,29 @@ List<String[]> reorderLines ( List<String[]> lines, List<String> groupByFields, 
 
 
 /**
- *
- * @param s
- * @return
+ * Converts multi-line entries to a single String by joining them with {@code '&lt;br/&gt;'}
+ * @param s CSV file data
+ * @return same data with multi-line entries joined with '&lt;br/&gt;'
  */
 String convertMultilines ( String s )
 {
-    s
+    assert s
+
+    List<String> result = []
+    List<String> lines  = s.readLines()
+    assert       lines
+
+    for ( int j = 0; j < lines.size(); j++ )
+    {
+        String line = lines[ j ]
+
+        while((( j + 1 ) < lines.size()) && ( ! ( line.endsWith( '"' ) && lines[ j + 1 ].startsWith( '"' ))))
+        {
+            line += ( '<br/>' + lines[ ++j ] )
+        }
+
+        result << line
+    }
+
+    result.join( System.getProperty( 'line.separator' ))
 }
