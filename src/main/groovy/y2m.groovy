@@ -13,12 +13,13 @@ if ( args.length < 2 )
 {
     System.err.println """
 ------------------------------------------------------------------------------------------------------------------------------
-Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Fields>]
+Usage: groovy y2m.groovy <YouTrack URL> <CSV file> [<Fields>] [<Group-By-Fields>] [<Add #>]
 ------------------------------------------------------------------------------------------------------------------------------
 YouTrack URL    - Base URL of YouTrack application, like "http://youtrack.jetbrains.net" or "http://evgeny-goldin.org/youtrack"
 CSV file        - "Issues in CSV"-exported file from YouTrack
 Fields          - (optional) comma-separated list of fields to use in MediaWiki table, "${ defaultFields.join( ', ' )}" by default
 Group-By-Fields - (optional) comma-separated list of fields to group table rows by, "${ defaultGroupByFields.join( ', ' )}" for the default fields
+Add #           - (optional) true/false, whether to add a '#' column with a running counter for each issue, false by default
 ------------------------------------------------------------------------------------------------------------------------------
 """
     System.exit( 1 )
@@ -28,8 +29,9 @@ final String       youTrackUrl   = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
 final File         f             = new File( args[ 1 ] ).canonicalFile
 final List<String> fields        = ( args.size() > 2          ) ? args[ 2 ].split( ',' )*.trim().grep() : defaultFields
 final List<String> groupByFields = ( args.size() > 3          ) ? args[ 3 ].split( ',' )*.trim().grep() :
-                                   ( fields.is( defaultFields ))? defaultGroupByFields                  :
-                                                                  []
+                                   ( fields.is( defaultFields ))? defaultGroupByFields                  : []
+final boolean      addCounter    = ( args.size() > 4          ) ? Boolean.valueOf( args[ 4 ] )          : false
+
 assert youTrackUrl && f.file && fields
 assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
 
@@ -55,14 +57,16 @@ assert lines && lines.every{ it.size() == lines[ 0 ].size() }
  * MediaWiki table template
  */
 String template = '''
+<!-- Generated with http://goo.gl/7WHjH -->
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
-|-<% for ( field in fields ){ %>
+|-<%= addCounter ? '\\n!#' : '' %><% for ( field in fields ){ %>
 !$field<% } %>
-|-<% for ( line in lines ){ for ( field in fields ){
+|-<%
+int lineCounter = 1
+for ( line in lines ){ %><%= addCounter? '\\n|' + ( lineCounter++ ) : '' %><% for ( field in fields ){
     String fieldValue = line[ fieldsMapped[ field ]].with {
         ( field == 'Issue Id' ) ? "[$youTrackUrl/issue/$delegate $delegate]" : delegate
-    }
-%>
+    }%>
 |${ fieldValue.split( '<br/>' ).collect{ it.trim().with{ [ '*', '#', '<syntaxhighlight' ].any{ startsWith( it ) } ? '\\n' + delegate : delegate }}.join( '<br/>' )}<% } %>
 |-<% } %>
 |}'''
@@ -70,6 +74,7 @@ String template = '''
 println new groovy.text.GStringTemplateEngine().
         createTemplate( template ).
         make([ youTrackUrl  : youTrackUrl,
+               addCounter   : addCounter,
                fields       : fields,
                fieldsMapped : fieldsMapped,
                lines        : lines ]).toString().trim()
