@@ -45,9 +45,8 @@ def runTest( File y2m, File testData, List<String> args, String testResultPath )
     final PrintStream           out  = System.out
     final ByteArrayOutputStream baos = new ByteArrayOutputStream()
 
-    System.out = new PrintStream( baos, true, 'UTF-8' )
+    System.out = new PrintStream( baos, true )
     new GroovyShell().run( y2m, ([ 'http://youtrack.jetbrains.net/', testData.path ] + args ) as List )
-    System.out.flush()
     String output = baos.toString( 'UTF-8' )
 
     if ( output != testResult.getText( 'UTF-8' ))
