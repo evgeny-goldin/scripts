@@ -36,7 +36,7 @@ final boolean      addCounter    = ( args.size() > 4          ) ? Boolean.valueO
 assert youTrackUrl && f.file && fields
 assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
 
-List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.text )))).readAll()
+List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.getText( 'UTF-8' ))))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
 
 /**
