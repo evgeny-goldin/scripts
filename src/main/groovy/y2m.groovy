@@ -7,6 +7,7 @@ import au.com.bytecode.opencsv.CSVReader
  * See http://evgeny-goldin.com/wiki/Y2m
  */
 
+final String encoding             = 'UTF-8'
 List<String> defaultFields        = [ 'Issue Id', 'Type', 'Summary' ]
 List<String> defaultGroupByFields = [ 'Type', 'Summary' ]
 
@@ -36,7 +37,7 @@ final boolean      addCounter    = ( args.size() > 4          ) ? Boolean.valueO
 assert youTrackUrl && f.file && fields
 assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
 
-List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.getText( 'UTF-8' ))))).readAll()
+List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.getText( encoding ))))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
 
 /**
@@ -75,13 +76,26 @@ for ( line in lines ){ %><%= addCounter? '\\n|' + ( lineCounter++ ) : '' %><% fo
 |-<% } %>
 |}'''
 
-println new groovy.text.GStringTemplateEngine().
-        createTemplate( tableTemplate ).
-        make([ youTrackUrl  : youTrackUrl,
-               addCounter   : addCounter,
-               fields       : fields,
-               fieldsMapped : fieldsMapped,
-               lines        : lines ]).toString().trim()
+def y2mFile = System.getProperty( 'y2mFile' )
+def result  = new groovy.text.GStringTemplateEngine().
+              createTemplate( tableTemplate ).
+              make([ youTrackUrl  : youTrackUrl,
+                     addCounter   : addCounter,
+                     fields       : fields,
+                     fieldsMapped : fieldsMapped,
+                     lines        : lines ]).toString().trim()
+if ( y2mFile )
+{
+    new File( y2mFile ).with {
+        assert ( ! file ) || delete()
+        setText( result, encoding )
+    }
+}
+else
+{
+    println result
+}
+
 
 /**
  * Re-orders lines specified by the fields provided.
