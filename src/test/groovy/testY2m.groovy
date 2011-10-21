@@ -48,12 +48,12 @@ def runTest( File y2m, File testData, List<String> args, String testResultPath )
     System.out = new PrintStream( baos )
     new GroovyShell().run( y2m, ([ 'http://youtrack.jetbrains.net/', testData.path ] + args ) as List )
     System.out.flush()
-    String output = baos.toString()
+    String output = baos.toString( 'UTF-8' )
 
-    if ( output != testResult.text )
+    if ( output != testResult.getText( 'UTF-8' ))
     {
         File copyResult = new File( testResult.path + '-actual' )
-        copyResult.text = output
+        copyResult.setText( output, 'UTF-8' )
         assert false, "Running $args produced result different from [$testResult], result copied to [$copyResult]"
     }
 
