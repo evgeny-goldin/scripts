@@ -1,0 +1,2026 @@
+<!-- Generated with http://goo.gl/7WHjH -->
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
+|-
+!#
+!Issue Id
+!Type
+!State
+!Summary
+|-
+|1
+|[http://youtrack.jetbrains.net/issue/RSRP-276879 RSRP-276879]
+|Bug
+|Can't Reproduce
+|'Namespace provider' option doesn't get saved
+|-
+|2
+|[http://youtrack.jetbrains.net/issue/RSRP-276828 RSRP-276828]
+|Bug
+|Can't Reproduce
+|Analysis becomes turned on in the files from the Items to Skip list after solution is closed
+|-
+|3
+|[http://youtrack.jetbrains.net/issue/IDEA-75762 IDEA-75762]
+|Bug
+|Can't Reproduce
+|Can't complete break statement in switch case
+|-
+|4
+|[http://youtrack.jetbrains.net/issue/WI-6944 WI-6944]
+|Bug
+|Duplicate
+|"Static member is not accessible" error message for valid code
+|-
+|5
+|[http://youtrack.jetbrains.net/issue/OC-2145 OC-2145]
+|Bug
+|Duplicate
+|Allow executing any targets
+|-
+|6
+|[http://youtrack.jetbrains.net/issue/JT-11449 JT-11449]
+|Bug
+|Duplicate
+|Can't login with google OpenID
+|-
+|7
+|[http://youtrack.jetbrains.net/issue/RSRP-276525 RSRP-276525]
+|Bug
+|Duplicate
+|Code completion misbehaves (VB)
+|-
+|8
+|[http://youtrack.jetbrains.net/issue/MPS-14520 MPS-14520]
+|Bug
+|Duplicate
+|Exception in the console on an attempt to close the diff dialog
+|-
+|9
+|[http://youtrack.jetbrains.net/issue/IDEA-75740 IDEA-75740]
+|Bug
+|Duplicate
+|inspection: stringbuilder is updated but never queried - false positive
+|-
+|10
+|[http://youtrack.jetbrains.net/issue/IDEA-66578 IDEA-66578]
+|Bug
+|Fixed
+|A JS function defined in the GSP should be available for resolve/completion in the templates that GSP uses
+|-
+|11
+|[http://youtrack.jetbrains.net/issue/JT-11567 JT-11567]
+|Bug
+|Fixed
+|Add colors to Issue states
+|-
+|12
+|[http://youtrack.jetbrains.net/issue/RSRP-276305 RSRP-276305]
+|Bug
+|Fixed
+|Adjust Namespaces adds x:class attributes to xaml files
+|-
+|13
+|[http://youtrack.jetbrains.net/issue/RSRP-187189 RSRP-187189]
+|Bug
+|Fixed
+|Adjust namespaces and Silverlight 4
+|-
+|14
+|[http://youtrack.jetbrains.net/issue/TW-16436 TW-16436]
+|Bug
+|Fixed
+|Agent service cannot be restarted under limited account
+|-
+|15
+|[http://youtrack.jetbrains.net/issue/TW-18677 TW-18677]
+|Bug
+|Fixed
+|Agent upgrade may hung if too long path was used
+|-
+|16
+|[http://youtrack.jetbrains.net/issue/OC-1581 OC-1581]
+|Bug
+|Fixed
+|AppCode becomes unresponsive/slow
+|-
+|17
+|[http://youtrack.jetbrains.net/issue/OC-2080 OC-2080]
+|Bug
+|Fixed
+|AppCode beta 3 locks up during editing
+|-
+|18
+|[http://youtrack.jetbrains.net/issue/OC-2085 OC-2085]
+|Bug
+|Fixed
+|AppCode incorrectly reports that 'assert(NO)' is unreachable code
+|-
+|19
+|[http://youtrack.jetbrains.net/issue/OC-2087 OC-2087]
+|Bug
+|Fixed
+|AppCode incorrectly showing variables not released in dealloc
+|-
+|20
+|[http://youtrack.jetbrains.net/issue/OC-2086 OC-2086]
+|Bug
+|Fixed
+|AppCode shouldn't report Enum declarations as unused
+|-
+|21
+|[http://youtrack.jetbrains.net/issue/TW-17167 TW-17167]
+|Bug
+|Fixed
+|Build might have "... is not fully resolved, using as is." warning with values with percentage signs that are reported from previous builds (e.g. NLSPATH case)
+|-
+|22
+|[http://youtrack.jetbrains.net/issue/MPS-14488 MPS-14488]
+|Bug
+|Fixed
+|Can't close "Difference for model" modal dialog
+|-
+|23
+|[http://youtrack.jetbrains.net/issue/OC-1969 OC-1969]
+|Bug
+|Fixed
+|Can't complete the local variable of type void*
+|-
+|24
+|[http://youtrack.jetbrains.net/issue/OC-2089 OC-2089]
+|Bug
+|Fixed
+|Code completion: Invalid completion for protocol
+|-
+|25
+|[http://youtrack.jetbrains.net/issue/OC-1866 OC-1866]
+|Bug
+|Fixed
+|Debugger: cannot get stack frames when hitting breakpoint.
+|-
+|26
+|[http://youtrack.jetbrains.net/issue/OC-2119 OC-2119]
+|Bug
+|Fixed
+|Debugger: watches view: after some watch is edited, the previous version is not deleted
+|-
+|27
+|[http://youtrack.jetbrains.net/issue/OC-1927 OC-1927]
+|Bug
+|Fixed
+|Don't allow to create classes with duplicate class name
+|-
+|28
+|[http://youtrack.jetbrains.net/issue/OC-1791 OC-1791]
+|Bug
+|Fixed
+|Drag-and-drop a XIB file in Project window failed if Autoscroll to source is enabled
+|-
+|29
+|[http://youtrack.jetbrains.net/issue/OC-1777 OC-1777]
+|Bug
+|Fixed
+|Encodings: Localizable.strings corrupted
+|-
+|30
+|[http://youtrack.jetbrains.net/issue/OC-1984 OC-1984]
+|Bug
+|Fixed
+|Encodings: New File from XCode Template -> iOS -> Resource -> Setting Bundle: encoding of Root.strings is incorrectly detected
+|-
+|31
+|[http://youtrack.jetbrains.net/issue/OC-2102 OC-2102]
+|Bug
+|Fixed
+|Erroneous warning "not implemented"
+|-
+|32
+|[http://youtrack.jetbrains.net/issue/OC-1942 OC-1942]
+|Bug
+|Fixed
+|Expression expected message in '#if DEBUG' line
+|-
+|33
+|[http://youtrack.jetbrains.net/issue/KT-156 KT-156]
+|Bug
+|Fixed
+|Fix the this<Super> syntax
+|-
+|34
+|[http://youtrack.jetbrains.net/issue/OC-499 OC-499]
+|Bug
+|Fixed
+|Frameworks view must me refreshed when build configuration changes.
+|-
+|35
+|[http://youtrack.jetbrains.net/issue/IDEA-75683 IDEA-75683]
+|Bug
+|Fixed
+|Grails: GSP: IDEA incorrectly removes closed tag.
+|-
+|36
+|[http://youtrack.jetbrains.net/issue/RSRP-189016 RSRP-189016]
+|Bug
+|Fixed
+|INotifyCollectionChanged is unresolved in external sources
+|-
+|37
+|[http://youtrack.jetbrains.net/issue/RSRP-276947 RSRP-276947]
+|Bug
+|Fixed
+|Incorrect behavior of Add new format item...
+|-
+|38
+|[http://youtrack.jetbrains.net/issue/OC-2079 OC-2079]
+|Bug
+|Fixed
+|Incorrect memory leak warning in custom object creation methods.
+|-
+|39
+|[http://youtrack.jetbrains.net/issue/RSRP-276614 RSRP-276614]
+|Bug
+|Fixed
+|Invalid reported error when using global alias
+|-
+|40
+|[http://youtrack.jetbrains.net/issue/IDEA-74186 IDEA-74186]
+|Bug
+|Fixed
+|JavaScript: Good code is red: Incorrect "Static member is not accessible"
+|-
+|41
+|[http://youtrack.jetbrains.net/issue/WI-5829 WI-5829]
+|Bug
+|Fixed
+|Javascript inspection sees assignment in place of comparison
+|-
+|42
+|[http://youtrack.jetbrains.net/issue/OC-2069 OC-2069]
+|Bug
+|Fixed
+|Localize String intention: after Localizable.strings file is created it is not recognized until project reopening
+|-
+|43
+|[http://youtrack.jetbrains.net/issue/IDEA-75441 IDEA-75441]
+|Bug
+|Fixed
+|Mercurial: not able to clone repository from remote repository which requires authentication
+|-
+|44
+|[http://youtrack.jetbrains.net/issue/RSRP-274982 RSRP-274982]
+|Bug
+|Fixed
+|NUnit test runner ignores test cases with typeof attributes on generic types
+|-
+|45
+|[http://youtrack.jetbrains.net/issue/OC-2116 OC-2116]
+|Bug
+|Fixed
+|New Category creation: some framework classes are considered to be invalid (missing)
+|-
+|46
+|[http://youtrack.jetbrains.net/issue/OC-2125 OC-2125]
+|Bug
+|Fixed
+|New File from Xcode Template: 'iOS->Settings Bundle' creates different layout than Xcode does
+|-
+|47
+|[http://youtrack.jetbrains.net/issue/OC-1994 OC-1994]
+|Bug
+|Fixed
+|New file from Template: not all the template are suggested
+|-
+|48
+|[http://youtrack.jetbrains.net/issue/OC-2074 OC-2074]
+|Bug
+|Fixed
+|On attempt to remove orphaned reference Appcode deletes project file
+|-
+|49
+|[http://youtrack.jetbrains.net/issue/SCL-1966 SCL-1966]
+|Bug
+|Fixed
+|Paths like 'C.super' are unresolved
+|-
+|50
+|[http://youtrack.jetbrains.net/issue/IDEA-74852 IDEA-74852]
+|Bug
+|Fixed
+|PostgreSQL: unsupported syntax for SELECT INTO ... in stored procedures
+|-
+|51
+|[http://youtrack.jetbrains.net/issue/RUBY-9497 RUBY-9497]
+|Bug
+|Fixed
+|Provide reference topic for Spork DRb run/debug configuration
+|-
+|52
+|[http://youtrack.jetbrains.net/issue/OC-2070 OC-2070]
+|Bug
+|Fixed
+|Rename a non-empty directory doesn't take effect until expanding the directory
+|-
+|53
+|[http://youtrack.jetbrains.net/issue/IDEA-75769 IDEA-75769]
+|Bug
+|Fixed
+|SQL: PostgreSQL: CONSTRAINT clause with PRIMARY KEY is red
+|-
+|54
+|[http://youtrack.jetbrains.net/issue/IDEA-75765 IDEA-75765]
+|Bug
+|Fixed
+|SQL: PostgreSQL: FOREIGN KEY is red
+|-
+|55
+|[http://youtrack.jetbrains.net/issue/IDEA-75711 IDEA-75711]
+|Bug
+|Fixed
+|SQL: PostgreSQL: contain/contained (<@, @>) array operators are red
+|-
+|56
+|[http://youtrack.jetbrains.net/issue/IDEA-75709 IDEA-75709]
+|Bug
+|Fixed
+|SQL: PostgreSQL: overlap (&&) operator for arrays is yellow
+|-
+|57
+|[http://youtrack.jetbrains.net/issue/JT-11501 JT-11501]
+|Bug
+|Fixed
+|Shorten message about access to removed  entities
+|-
+|58
+|[http://youtrack.jetbrains.net/issue/OC-2098 OC-2098]
+|Bug
+|Fixed
+|Show error in case of method call with too many arguments (not variadic method)
+|-
+|59
+|[http://youtrack.jetbrains.net/issue/RSRP-215668 RSRP-215668]
+|Bug
+|Fixed
+|String format placeholder highlightings and matching elements highlightings don't work when method is not resolved (has candidates)
+|-
+|60
+|[http://youtrack.jetbrains.net/issue/IDEA-75758 IDEA-75758]
+|Bug
+|Fixed
+|Tab focus change doesn't work on Mac Snow Leopard
+|-
+|61
+|[http://youtrack.jetbrains.net/issue/IDEA-75565 IDEA-75565]
+|Bug
+|Fixed
+|Test output is not automatically scrolled to the end
+|-
+|62
+|[http://youtrack.jetbrains.net/issue/OC-1839 OC-1839]
+|Bug
+|Fixed
+|The message "instance variable is not released in dealloc" is wrong if the variable is released in the super class
+|-
+|63
+|[http://youtrack.jetbrains.net/issue/OC-2110 OC-2110]
+|Bug
+|Fixed
+|Unable to debug on device on 32bit system
+|-
+|64
+|[http://youtrack.jetbrains.net/issue/OC-1805 OC-1805]
+|Bug
+|Fixed
+|Unused test methods
+|-
+|65
+|[http://youtrack.jetbrains.net/issue/RSRP-275219 RSRP-275219]
+|Bug
+|Fixed
+|VB: MyBase keyword shouldn't be shown in completion of Shared methods
+|-
+|66
+|[http://youtrack.jetbrains.net/issue/WI-7764 WI-7764]
+|Bug
+|Fixed
+|console.log highlights as warning
+|-
+|67
+|[http://youtrack.jetbrains.net/issue/OC-1921 OC-1921]
+|Bug
+|Fixed
+|missing auto-complete for members of property when .h file is not included
+|-
+|68
+|[http://youtrack.jetbrains.net/issue/WI-7982 WI-7982]
+|Bug
+|In Progress
+|Add examples
+|-
+|69
+|[http://youtrack.jetbrains.net/issue/OC-1330 OC-1330]
+|Bug
+|In Progress
+|Debugger:LLDB: error output is reported as stdout.
+|-
+|70
+|[http://youtrack.jetbrains.net/issue/TW-14803 TW-14803]
+|Bug
+|In Progress
+|RVM + Command line runner
+|-
+|71
+|[http://youtrack.jetbrains.net/issue/IDEA-75712 IDEA-75712]
+|Bug
+|Incomplete
+|Understanding public method in MXML
+|-
+|72
+|[http://youtrack.jetbrains.net/issue/OC-2128 OC-2128]
+|Bug
+|Obsolete
+|Debugger: High CPU usage with detached debugger pane
+|-
+|73
+|[http://youtrack.jetbrains.net/issue/DMRY-128 DMRY-128]
+|Bug
+|Obsolete
+|Profiler fails
+|-
+|74
+|[http://youtrack.jetbrains.net/issue/RUBY-8539 RUBY-8539]
+|Bug
+|Obsolete
+|Provide reference page for the new project wizard screen "Specify the Ruby SDK"
+|-
+|75
+|[http://youtrack.jetbrains.net/issue/IDEA-75194 IDEA-75194]
+|Bug
+|Obsolete
+|current build 108.1421 of phpstorm will not load a second project
+|-
+|76
+|[http://youtrack.jetbrains.net/issue/IDEA-23040 IDEA-23040]
+|Bug
+|Obsolete
+|plugin manager mismatches "newness" between Installed and Available
+|-
+|77
+|[http://youtrack.jetbrains.net/issue/OC-2139 OC-2139]
+|Bug
+|Open
+|@catch argument is reported as 'always nil'
+|-
+|78
+|[http://youtrack.jetbrains.net/issue/IDEA-66933 IDEA-66933]
+|Bug
+|Open
+|CVS +ssh: :ext: connection method: impossible to connect using password authentication
+|-
+|79
+|[http://youtrack.jetbrains.net/issue/TW-14103 TW-14103]
+|Bug
+|Open
+|Errors accessing buildAgent.zip by the server can result in all agents marked as "outdated"
+|-
+|80
+|[http://youtrack.jetbrains.net/issue/TW-18674 TW-18674]
+|Bug
+|Open
+|Function "Run selected tests locally using JUnit" only runs one test and not all selected tests.
+|-
+|81
+|[http://youtrack.jetbrains.net/issue/TW-13053 TW-13053]
+|Bug
+|Open
+|FxCop runner results page will not show source code line number or open in IDE
+|-
+|82
+|[http://youtrack.jetbrains.net/issue/TW-8427 TW-8427]
+|Bug
+|Open
+|FxCop: Incorrect handling of doublequotes in "Additional FxCopCmd options"
+|-
+|83
+|[http://youtrack.jetbrains.net/issue/TW-11466 TW-11466]
+|Bug
+|Open
+|FxCop: InspectionsMessageProcessor - Error while updating inspection details (FxCop plugin registers inspections with concrete descriptions instead of their names)
+|-
+|84
+|[http://youtrack.jetbrains.net/issue/RSRP-272387 RSRP-272387]
+|Bug
+|Open
+|Generate new Class doesn't work at all in RAZOR project
+|-
+|85
+|[http://youtrack.jetbrains.net/issue/IDEA-26138 IDEA-26138]
+|Bug
+|Open
+|Import hint while typing: be more smart in "extends" - context
+|-
+|86
+|[http://youtrack.jetbrains.net/issue/TW-12522 TW-12522]
+|Bug
+|Open
+|Problem setting custom ruleset for fxcop (vs2010)
+|-
+|87
+|[http://youtrack.jetbrains.net/issue/OC-2141 OC-2141]
+|Bug
+|Open
+|Report error for @throw directive without parameters (rethrow) outside @catch block
+|-
+|88
+|[http://youtrack.jetbrains.net/issue/OC-2140 OC-2140]
+|Bug
+|Open
+|Show error for @throw directive with empty parentheses
+|-
+|89
+|[http://youtrack.jetbrains.net/issue/TW-14599 TW-14599]
+|Bug
+|Open
+|Some FxCop inspections are shown with full path
+|-
+|90
+|[http://youtrack.jetbrains.net/issue/RSRP-273950 RSRP-273950]
+|Bug
+|Open
+|VB.NET code completion doesn't list 'Case' keyword
+|-
+|91
+|[http://youtrack.jetbrains.net/issue/TW-18671 TW-18671]
+|Bug
+|Open
+|Wrong "Build agent distribution has changed on disk." in the logs
+|-
+|92
+|[http://youtrack.jetbrains.net/issue/JT-11604 JT-11604]
+|Bug
+|Open
+|email integration should trim out email thread to make comments shorter
+|-
+|93
+|[http://youtrack.jetbrains.net/issue/IDEA-68242 IDEA-68242]
+|Bug
+|Open
+|incorrect position of maximized window
+|-
+|94
+|[http://youtrack.jetbrains.net/issue/IDEA-75490 IDEA-75490]
+|Bug
+|Reopened
+|Git status never ends. nobody is alive to wake up semaphore in git handler
+|-
+|95
+|[http://youtrack.jetbrains.net/issue/IDEA-75178 IDEA-75178]
+|Bug
+|Reopened
+|Good code marked bad in JUnit 4.8.2 org.junit.Assert class
+|-
+|96
+|[http://youtrack.jetbrains.net/issue/IDEA-52283 IDEA-52283]
+|Bug
+|Reopened
+|IU-94.273 Autoscroll to/from source do not work
+|-
+|97
+|[http://youtrack.jetbrains.net/issue/OC-2143 OC-2143]
+|Bug
+|Submitted
+|"Disable attribute 'readonly'  for property" quick fix could show conflict dialog if property is redeclared as readwrite in class extension
+|-
+|98
+|[http://youtrack.jetbrains.net/issue/IDEA-74501 IDEA-74501]
+|Bug
+|Submitted
+|"Find usage" does not work across modules in spring config
+|-
+|99
+|[http://youtrack.jetbrains.net/issue/IDEA-75774 IDEA-75774]
+|Bug
+|Submitted
+|"I/O Resource opened but not safely closed" false negative
+|-
+|100
+|[http://youtrack.jetbrains.net/issue/RSRP-277343 RSRP-277343]
+|Bug
+|Submitted
+|"Property hides enum from outer class" appears to be incorrect
+|-
+|101
+|[http://youtrack.jetbrains.net/issue/IDEA-75717 IDEA-75717]
+|Bug
+|Submitted
+|"Referenced checked for null not used inside if" false positive
+|-
+|102
+|[http://youtrack.jetbrains.net/issue/MPS-14522 MPS-14522]
+|Bug
+|Submitted
+|"check" keyword not shown for :==: operator
+|-
+|103
+|[http://youtrack.jetbrains.net/issue/OC-2137 OC-2137]
+|Bug
+|Submitted
+|'Go to' a NIB file without having the current project opened in Xcode results in missing images and references in Interface Builder
+|-
+|104
+|[http://youtrack.jetbrains.net/issue/SCL-3719 SCL-3719]
+|Bug
+|Submitted
+|A spec2 class using @Test with companion object cannot find any tests
+|-
+|105
+|[http://youtrack.jetbrains.net/issue/OC-2148 OC-2148]
+|Bug
+|Submitted
+|AppCode hangs when trying to show dialog
+|-
+|106
+|[http://youtrack.jetbrains.net/issue/OC-2147 OC-2147]
+|Bug
+|Submitted
+|AppCode still handles edits to project files incorrectly
+|-
+|107
+|[http://youtrack.jetbrains.net/issue/IDEA-75696 IDEA-75696]
+|Bug
+|Submitted
+|Bad interpretation when resources has custom delimiter
+|-
+|108
+|[http://youtrack.jetbrains.net/issue/IDEA-75766 IDEA-75766]
+|Bug
+|Submitted
+|Bulk svn annotate
+|-
+|109
+|[http://youtrack.jetbrains.net/issue/AS-165 AS-165]
+|Bug
+|Submitted
+|Cannot find source file for class in "test" folder of library project
+|-
+|110
+|[http://youtrack.jetbrains.net/issue/IDEA-75742 IDEA-75742]
+|Bug
+|Submitted
+|Clear read-only status dialog: OK button does nothing on Mac OS if a file is locked
+|-
+|111
+|[http://youtrack.jetbrains.net/issue/RSRP-274944 RSRP-274944]
+|Bug
+|Submitted
+|Code Analysis Errors in jquery templates
+|-
+|112
+|[http://youtrack.jetbrains.net/issue/RUBY-9652 RUBY-9652]
+|Bug
+|Submitted
+|Code completion and code navigation not working in Rubmine
+|-
+|113
+|[http://youtrack.jetbrains.net/issue/RUBY-9654 RUBY-9654]
+|Bug
+|Submitted
+|CoffeeScript provides tabulation where not required
+|-
+|114
+|[http://youtrack.jetbrains.net/issue/IDEA-75771 IDEA-75771]
+|Bug
+|Submitted
+|Create Patch: create patch dialog resizes several time when displayed.
+|-
+|115
+|[http://youtrack.jetbrains.net/issue/OC-2135 OC-2135]
+|Bug
+|Submitted
+|Debugger: stdout/stderr synchronization
+|-
+|116
+|[http://youtrack.jetbrains.net/issue/OC-2142 OC-2142]
+|Bug
+|Submitted
+|Debugger:GDB: stopping on a breakpoint and quickly stepping into hangs program
+|-
+|117
+|[http://youtrack.jetbrains.net/issue/IDEA-75755 IDEA-75755]
+|Bug
+|Submitted
+|Do Statment not supported in evaluate expression for Java.
+|-
+|118
+|[http://youtrack.jetbrains.net/issue/IDEA-75772 IDEA-75772]
+|Bug
+|Submitted
+|ERROR -  #com.intellij.util.Alarm - null java.util.ConcurrentModificationException
+|-
+|119
+|[http://youtrack.jetbrains.net/issue/IDEA-75749 IDEA-75749]
+|Bug
+|Submitted
+|Editor Search: pressing 'multiline' twice erases all buttons from the search stripe
+|-
+|120
+|[http://youtrack.jetbrains.net/issue/IDEA-75770 IDEA-75770]
+|Bug
+|Submitted
+|Enter key does not do anything on an item in TODO window
+|-
+|121
+|[http://youtrack.jetbrains.net/issue/RSRP-277341 RSRP-277341]
+|Bug
+|Submitted
+|Error in ASPX.NET parser
+|-
+|122
+|[http://youtrack.jetbrains.net/issue/MPS-14511 MPS-14511]
+|Bug
+|Submitted
+|Errors during generation when tuples involed
+|-
+|123
+|[http://youtrack.jetbrains.net/issue/IDEA-75720 IDEA-75720]
+|Bug
+|Submitted
+|False positive on "contents of StringBuilder are never queried"
+|-
+|124
+|[http://youtrack.jetbrains.net/issue/AS-162 AS-162]
+|Bug
+|Submitted
+|Flex Modules not compiling
+|-
+|125
+|[http://youtrack.jetbrains.net/issue/AS-158 AS-158]
+|Bug
+|Submitted
+|Flex UI Designer: NullPointerException at SwcDependenciesSorter.injectFrameworkSwc() if used library has different SDK
+|-
+|126
+|[http://youtrack.jetbrains.net/issue/IDEA-75776 IDEA-75776]
+|Bug
+|Submitted
+|Good code is red - LESS file
+|-
+|127
+|[http://youtrack.jetbrains.net/issue/IDEA-73952 IDEA-73952]
+|Bug
+|Submitted
+|Good code is red, override toString is not allowed
+|-
+|128
+|[http://youtrack.jetbrains.net/issue/IDEA-61092 IDEA-61092]
+|Bug
+|Submitted
+|Goto Class dialog is dismissed when the list of matched classes reduces and causes loss of mouse focus
+|-
+|129
+|[http://youtrack.jetbrains.net/issue/IDEA-75713 IDEA-75713]
+|Bug
+|Submitted
+|Hang
+|-
+|130
+|[http://youtrack.jetbrains.net/issue/IDEA-75745 IDEA-75745]
+|Bug
+|Submitted
+|IDEA gives false parsing error after typing a comment (reporoducable!)
+|-
+|131
+|[http://youtrack.jetbrains.net/issue/IDEA-75705 IDEA-75705]
+|Bug
+|Submitted
+|Illegal domain attribute ".tv.jetbrains.net" WARN in console while running idea
+|-
+|132
+|[http://youtrack.jetbrains.net/issue/AS-164 AS-164]
+|Bug
+|Submitted
+|Import FlashBuilder Library project does not import include assets correctly.
+|-
+|133
+|[http://youtrack.jetbrains.net/issue/MPS-14521 MPS-14521]
+|Bug
+|Submitted
+|Improvement in Error Message Rendering
+|-
+|134
+|[http://youtrack.jetbrains.net/issue/MPS-14516 MPS-14516]
+|Bug
+|Submitted
+|Improvement in Error Message Rendering
+|-
+|135
+|[http://youtrack.jetbrains.net/issue/MPS-14507 MPS-14507]
+|Bug
+|Submitted
+|In Data Flow Graph use Label Names instead of numbers
+|-
+|136
+|[http://youtrack.jetbrains.net/issue/AS-159 AS-159]
+|Bug
+|Submitted
+|Incorrect highlighting of good code as bad
+|-
+|137
+|[http://youtrack.jetbrains.net/issue/RUBY-9655 RUBY-9655]
+|Bug
+|Submitted
+|Indentation missing where required
+|-
+|138
+|[http://youtrack.jetbrains.net/issue/IDEA-75763 IDEA-75763]
+|Bug
+|Submitted
+|Inherited attributes not recognized for task defined by presetdef
+|-
+|139
+|[http://youtrack.jetbrains.net/issue/IDEA-75719 IDEA-75719]
+|Bug
+|Submitted
+|Intellij hanged while checking out project from CVS
+|-
+|140
+|[http://youtrack.jetbrains.net/issue/IDEA-75407 IDEA-75407]
+|Bug
+|Submitted
+|JDK 1.7 not recognized as valid JSDK on Mac
+|-
+|141
+|[http://youtrack.jetbrains.net/issue/IDEA-75714 IDEA-75714]
+|Bug
+|Submitted
+|JDK 7 project language level 7 gives red code in editor 10.5.2 where it shouldn't
+|-
+|142
+|[http://youtrack.jetbrains.net/issue/IDEA-75464 IDEA-75464]
+|Bug
+|Submitted
+|Jumping selection bug in Commit Changes Dialog
+|-
+|143
+|[http://youtrack.jetbrains.net/issue/OC-2104 OC-2104]
+|Bug
+|Submitted
+|Long pause when loading index
+|-
+|144
+|[http://youtrack.jetbrains.net/issue/IDEA-75716 IDEA-75716]
+|Bug
+|Submitted
+|Maven overlays disappeared from web app projects
+|-
+|145
+|[http://youtrack.jetbrains.net/issue/IDEA-75511 IDEA-75511]
+|Bug
+|Submitted
+|Maven plugin launches plenty concurrent processes and goes crazy
+|-
+|146
+|[http://youtrack.jetbrains.net/issue/IDEA-75768 IDEA-75768]
+|Bug
+|Submitted
+|Mercurial not saved checks in Update dialog
+|-
+|147
+|[http://youtrack.jetbrains.net/issue/RSRP-277332 RSRP-277332]
+|Bug
+|Submitted
+|Missing meaning of placeholders
+|-
+|148
+|[http://youtrack.jetbrains.net/issue/AS-166 AS-166]
+|Bug
+|Submitted
+|Navigate -> Test says Test class doesn't exit, but trying to create Test class generates error because it already exists.
+|-
+|149
+|[http://youtrack.jetbrains.net/issue/SCL-3717 SCL-3717]
+|Bug
+|Submitted
+|Nil is red
+|-
+|150
+|[http://youtrack.jetbrains.net/issue/WI-7998 WI-7998]
+|Bug
+|Submitted
+|PhpStorm does not suggest method names for a variable received from a method that provided method type in docblock
+|-
+|151
+|[http://youtrack.jetbrains.net/issue/WI-6095 WI-6095]
+|Bug
+|Submitted
+|Private key password — if you incorrectly entered it the first time, it will not accept the correct passwords until restart
+|-
+|152
+|[http://youtrack.jetbrains.net/issue/KT-377 KT-377]
+|Bug
+|Submitted
+|Prohibit 'super' as a receiver argument to extension functions
+|-
+|153
+|[http://youtrack.jetbrains.net/issue/TW-16945 TW-16945]
+|Bug
+|Submitted
+|Property Picker does not display without adding Build Properties and Environment Variables
+|-
+|154
+|[http://youtrack.jetbrains.net/issue/IDEA-75735 IDEA-75735]
+|Bug
+|Submitted
+|REST Client should have a link to Proxy settings
+|-
+|155
+|[http://youtrack.jetbrains.net/issue/IDEA-75668 IDEA-75668]
+|Bug
+|Submitted
+|Run java to test Android functions
+|-
+|156
+|[http://youtrack.jetbrains.net/issue/IDEA-25983 IDEA-25983]
+|Bug
+|Submitted
+|Scope not showing in Freemarker file
+|-
+|157
+|[http://youtrack.jetbrains.net/issue/MPS-14528 MPS-14528]
+|Bug
+|Submitted
+|Scopes are not recalculated when node is moved
+|-
+|158
+|[http://youtrack.jetbrains.net/issue/RUBY-9657 RUBY-9657]
+|Bug
+|Submitted
+|Simplify boolean breaks logic
+|-
+|159
+|[http://youtrack.jetbrains.net/issue/RUBY-9656 RUBY-9656]
+|Bug
+|Submitted
+|Simplify boolean generates red code
+|-
+|160
+|[http://youtrack.jetbrains.net/issue/RSRP-277350 RSRP-277350]
+|Bug
+|Submitted
+|Smart completion for methods doesn't suggest creating delegate and named method in some generic cases
+|-
+|161
+|[http://youtrack.jetbrains.net/issue/IDEA-75773 IDEA-75773]
+|Bug
+|Submitted
+|Spellchecker: don't highlight XML entities
+|-
+|162
+|[http://youtrack.jetbrains.net/issue/IDEA-75760 IDEA-75760]
+|Bug
+|Submitted
+|SpellcheckingStrategy does not respect injection content
+|-
+|163
+|[http://youtrack.jetbrains.net/issue/RSRP-277344 RSRP-277344]
+|Bug
+|Submitted
+|Structural Search and Replace doesn't want to replace something with extension methods
+|-
+|164
+|[http://youtrack.jetbrains.net/issue/OC-2144 OC-2144]
+|Bug
+|Submitted
+|Switching targets now reindexes/loads index in a blocking fashion
+|-
+|165
+|[http://youtrack.jetbrains.net/issue/TW-18676 TW-18676]
+|Bug
+|Submitted
+|TeamCity Failed Tests view: disable Run Test locally for tests not available in workspace.
+|-
+|166
+|[http://youtrack.jetbrains.net/issue/TW-18672 TW-18672]
+|Bug
+|Submitted
+|TeamCity Patches view: Download Patch action provides no result.
+|-
+|167
+|[http://youtrack.jetbrains.net/issue/MPS-14524 MPS-14524]
+|Bug
+|Submitted
+|The ExtractMethod refactoring doesn't extract parameters correctly
+|-
+|168
+|[http://youtrack.jetbrains.net/issue/MPS-14523 MPS-14523]
+|Bug
+|Submitted
+|Thw XYZTableModel stops working properly
+|-
+|169
+|[http://youtrack.jetbrains.net/issue/SCL-3718 SCL-3718]
+|Bug
+|Submitted
+|Tuple2[Tuple1, A] type not recognized in method_=(..)
+|-
+|170
+|[http://youtrack.jetbrains.net/issue/RSRP-277347 RSRP-277347]
+|Bug
+|Submitted
+|Update syntax higlighters after choosing recent pattern
+|-
+|171
+|[http://youtrack.jetbrains.net/issue/AS-161 AS-161]
+|Bug
+|Submitted
+|VerifyError #1053 when opening Flex Design View
+|-
+|172
+|[http://youtrack.jetbrains.net/issue/MPS-14509 MPS-14509]
+|Bug
+|Submitted
+|When I copy-pasted statement from one model to another, reference to local variable was not auto-resolved
+|-
+|173
+|[http://youtrack.jetbrains.net/issue/IDEA-72193 IDEA-72193]
+|Bug
+|Submitted
+|[ENCODING] Problem with compilation of modules with different encodings
+|-
+|174
+|[http://youtrack.jetbrains.net/issue/IDEA-75739 IDEA-75739]
+|Bug
+|Submitted
+|batch quickfix "stringbuffer can be stringbuilder" can break code
+|-
+|175
+|[http://youtrack.jetbrains.net/issue/SCL-3697 SCL-3697]
+|Bug
+|Submitted
+|cannot open idea or project settings anymore
+|-
+|176
+|[http://youtrack.jetbrains.net/issue/WI-8008 WI-8008]
+|Bug
+|Submitted
+|debug have probles with non utf-8 encoded string literal
+|-
+|177
+|[http://youtrack.jetbrains.net/issue/IDEA-75651 IDEA-75651]
+|Bug
+|Submitted
+|idea should allow to shelve even in detached HEAD
+|-
+|178
+|[http://youtrack.jetbrains.net/issue/IDEA-75751 IDEA-75751]
+|Bug
+|Submitted
+|module removal does not clean it from modules.xml
+|-
+|179
+|[http://youtrack.jetbrains.net/issue/IDEA-75752 IDEA-75752]
+|Bug
+|Submitted
+|module removal does not remove it as dependency and as compile output from artifacts
+|-
+|180
+|[http://youtrack.jetbrains.net/issue/IDEA-75750 IDEA-75750]
+|Bug
+|Submitted
+|select multiply lines
+|-
+|181
+|[http://youtrack.jetbrains.net/issue/MPS-14514 MPS-14514]
+|Bug
+|Submitted
+|set<node<>> and Set<SNode> etc. not assignment-compatible
+|-
+|182
+|[http://youtrack.jetbrains.net/issue/IDEA-75775 IDEA-75775]
+|Bug
+|Submitted
+|spring testing: good code red: erroneous "no beans of 'SessionFactory' type found"
+|-
+|183
+|[http://youtrack.jetbrains.net/issue/RSRP-276796 RSRP-276796]
+|Bug
+|Won't fix
+|External Sources page is "broken" if more than one context tabs are opened
+|-
+|184
+|[http://youtrack.jetbrains.net/issue/RSRP-277331 RSRP-277331]
+|Bug
+|Won't fix
+|Placeholders disappear if you change languages
+|-
+|185
+|[http://youtrack.jetbrains.net/issue/RUBY-9632 RUBY-9632]
+|Bug
+|Won't fix
+|RSpec test suite automatically starts againg while file is edited
+|-
+|186
+|[http://youtrack.jetbrains.net/issue/JT-11349 JT-11349]
+|Cosmetics
+|Fixed
+|Badly aligned checkboxes in "Settings" dialog
+|-
+|187
+|[http://youtrack.jetbrains.net/issue/JT-11548 JT-11548]
+|Cosmetics
+|Fixed
+|Make text under "more" link more white
+|-
+|188
+|[http://youtrack.jetbrains.net/issue/JT-9909 JT-9909]
+|Cosmetics
+|Fixed
+|New issue creation: All values are shown as dropped to defaults on issue submit for a while.
+|-
+|189
+|[http://youtrack.jetbrains.net/issue/DTRC-6400 DTRC-6400]
+|Cosmetics
+|Open
+|Wrong error message if cancel downloading pdb file
+|-
+|190
+|[http://youtrack.jetbrains.net/issue/IDEA-75737 IDEA-75737]
+|Cosmetics
+|Submitted
+|Available Plugins window UI problem
+|-
+|191
+|[http://youtrack.jetbrains.net/issue/IDEA-75748 IDEA-75748]
+|Cosmetics
+|Submitted
+|Graphical miscoloring on dark color scheme
+|-
+|192
+|[http://youtrack.jetbrains.net/issue/IDEA-75747 IDEA-75747]
+|Cosmetics
+|Submitted
+|Problems with 2 or more windows
+|-
+|193
+|[http://youtrack.jetbrains.net/issue/RSRP-277318 RSRP-277318]
+|Exception
+|Can't Reproduce
+|Value cannot be null. Parameter name: key
+|-
+|194
+|[http://youtrack.jetbrains.net/issue/RSRP-277169 RSRP-277169]
+|Exception
+|Can't Reproduce
+|myDependencySet == null
+|-
+|195
+|[http://youtrack.jetbrains.net/issue/RSRP-277177 RSRP-277177]
+|Exception
+|Duplicate
+|An exception has occurred during action 'CompleteStatement' execution. block != null (IUnsafeCodeFixedStatement)
+|-
+|196
+|[http://youtrack.jetbrains.net/issue/AS-157 AS-157]
+|Exception
+|Duplicate
+|Flex UI Designer: exception on attempt to drag Properties button
+|-
+|197
+|[http://youtrack.jetbrains.net/issue/RSRP-277340 RSRP-277340]
+|Exception
+|Duplicate
+|OutOfMemoryException when trying to allocate 875377988 items Exception of type 'System.OutOfMemoryException' was thrown.
+|-
+|198
+|[http://youtrack.jetbrains.net/issue/DOTP-3449 DOTP-3449]
+|Exception
+|Duplicate
+|The 'string' start tag on line 1 position 34 does not match the end tag of 'body'. Line 1, position 43.
+|-
+|199
+|[http://youtrack.jetbrains.net/issue/DOTP-1096 DOTP-1096]
+|Exception
+|Duplicate
+|The JetBrains.Annotations assembly could not be located in the D:InstallDevelopment directory.
+|-
+|200
+|[http://youtrack.jetbrains.net/issue/RSRP-277336 RSRP-277336]
+|Exception
+|Duplicate
+|The condition (myLoadStarted) is false.
+|-
+|201
+|[http://youtrack.jetbrains.net/issue/RSRP-277164 RSRP-277164]
+|Exception
+|Duplicate
+|The given key was not present in the dictionary.
+|-
+|202
+|[http://youtrack.jetbrains.net/issue/RSRP-277335 RSRP-277335]
+|Exception
+|Duplicate
+|Unable to read beyond the end of the stream.
+|-
+|203
+|[http://youtrack.jetbrains.net/issue/RSRP-277334 RSRP-277334]
+|Exception
+|Duplicate
+|You cannot add the same listener twice
+|-
+|204
+|[http://youtrack.jetbrains.net/issue/RSRP-200190 RSRP-200190]
+|Exception
+|Fixed
+|An exception has occurred during action 'CompleteStatement' execution. block != null (IExpressionStatement)
+|-
+|205
+|[http://youtrack.jetbrains.net/issue/OC-2077 OC-2077]
+|Exception
+|Fixed
+|AssertionError at XcodeProjectModificationTracker$MyModificationTracker$1.run() is sometimes thrown on project reloading
+|-
+|206
+|[http://youtrack.jetbrains.net/issue/OC-2120 OC-2120]
+|Exception
+|Fixed
+|Debugger:Watches: AE at com.jetbrains.objc.psi.types.visitors.OCTypeResolveVisitor.<init>
+|-
+|207
+|[http://youtrack.jetbrains.net/issue/RSRP-277109 RSRP-277109]
+|Exception
+|Fixed
+|Exception has been thrown by the target of an invocation. Object reference not set to an instance of an object.
+|-
+|208
+|[http://youtrack.jetbrains.net/issue/IDEA-73007 IDEA-73007]
+|Exception
+|Fixed
+|Flex UI Designer: Error at InteractiveGraphicsRendererManager.setSelecting()
+|-
+|209
+|[http://youtrack.jetbrains.net/issue/OC-2014 OC-2014]
+|Exception
+|Fixed
+|GDB Debugger: ExecutionException at GDBDriver.executeCommand() on Step Over when stack frames reaches UIApplicationMain
+|-
+|210
+|[http://youtrack.jetbrains.net/issue/OC-2075 OC-2075]
+|Exception
+|Fixed
+|InvalidSpecException at Dictionary.checked() on New -> Group from Selection from a localized resource
+|-
+|211
+|[http://youtrack.jetbrains.net/issue/RSRP-277108 RSRP-277108]
+|Exception
+|Fixed
+|Object reference not set to an instance of an object.
+|-
+|212
+|[http://youtrack.jetbrains.net/issue/RSRP-277337 RSRP-277337]
+|Exception
+|Fixed
+|Processing file <csClassLib>Class1.cs Value cannot be null. Parameter name: definition
+|-
+|213
+|[http://youtrack.jetbrains.net/issue/IDEA-75759 IDEA-75759]
+|Exception
+|Fixed
+|SQL: PostgreSQL: Throwable at PsiElementBase.notNullChild() on attempt in CREATE OPERATOR for containment
+|-
+|214
+|[http://youtrack.jetbrains.net/issue/DOTP-2119 DOTP-2119]
+|Exception
+|Fixed
+|The ',' character, hexadecimal value 0x2C, cannot be included in a name. Line 1, position 150.
+|-
+|215
+|[http://youtrack.jetbrains.net/issue/RSRP-277328 RSRP-277328]
+|Exception
+|Fixed
+|There is no Application Shell running.
+|-
+|216
+|[http://youtrack.jetbrains.net/issue/OC-2094 OC-2094]
+|Exception
+|Fixed
+|Throwable at com.jetbrains.cidr.execution.debugger.OCDebugProcess$OCSuspendContext.<init>
+|-
+|217
+|[http://youtrack.jetbrains.net/issue/RSRP-276694 RSRP-276694]
+|Exception
+|Fixed
+|Unable to read beyond the end of the stream.
+|-
+|218
+|[http://youtrack.jetbrains.net/issue/OC-2073 OC-2073]
+|Exception
+|Fixed
+|VFAE at com.intellij.openapi.vfs.newvfs.persistent.PersistentFS.getFileId
+|-
+|219
+|[http://youtrack.jetbrains.net/issue/IDEA-75746 IDEA-75746]
+|Exception
+|Open
+|(NavBar:) AE at com.intellij.openapi.components.impl.ComponentManagerImpl.getPicoContainer
+|-
+|220
+|[http://youtrack.jetbrains.net/issue/DTRC-6401 DTRC-6401]
+|Exception
+|Open
+|Invalid URI: The format of the URI could not be determined.
+|-
+|221
+|[http://youtrack.jetbrains.net/issue/DOTP-3448 DOTP-3448]
+|Exception
+|Open
+|Item with the same name 'ISettingsOptimization.cs' already exists in destination folder
+|-
+|222
+|[http://youtrack.jetbrains.net/issue/RSRP-276565 RSRP-276565]
+|Exception
+|Open
+|You cannot add the same listener twice
+|-
+|223
+|[http://youtrack.jetbrains.net/issue/JT-11524 JT-11524]
+|Exception
+|Open
+|com.jetbrains.teamsys.dnq.database.PersistentEntityIterableWrapper cannot be cast to jetbrains.exodus.database.Entity
+|-
+|224
+|[http://youtrack.jetbrains.net/issue/JT-11649 JT-11649]
+|Exception
+|Open
+|java.util.ConcurrentModificationException
+|-
+|225
+|[http://youtrack.jetbrains.net/issue/RSRP-80754 RSRP-80754]
+|Exception
+|Reopened
+|OutOfMemoryException
+|-
+|226
+|[http://youtrack.jetbrains.net/issue/DTRC-6402 DTRC-6402]
+|Exception
+|Submitted
+|An exception has occurred during action 'UI.PropagateSignatureInViewerAction' execution. Not rendered JetBrains.Metadata.Reader.API.MethodSignature in
+|-
+|227
+|[http://youtrack.jetbrains.net/issue/OC-2138 OC-2138]
+|Exception
+|Submitted
+|ClassCastException at OCClassSymbol$6.process() on Find method Usages
+|-
+|228
+|[http://youtrack.jetbrains.net/issue/RSRP-277351 RSRP-277351]
+|Exception
+|Submitted
+|Concurrent modification
+|-
+|229
+|[http://youtrack.jetbrains.net/issue/IDEA-75761 IDEA-75761]
+|Exception
+|Submitted
+|Data Sources: NPE at SimpleColoredComponent.doPaintText() on (occasional) dragging schema item
+|-
+|230
+|[http://youtrack.jetbrains.net/issue/RSRP-274476 RSRP-274476]
+|Exception
+|Submitted
+|Der angegebene Schlüssel war nicht im Wörterbuch angegeben.
+|-
+|231
+|[http://youtrack.jetbrains.net/issue/MPS-14529 MPS-14529]
+|Exception
+|Submitted
+|Failed assertion from ref checker
+|-
+|232
+|[http://youtrack.jetbrains.net/issue/MPS-14525 MPS-14525]
+|Exception
+|Submitted
+|Failed assertion in DefaultSModelDescriptor
+|-
+|233
+|[http://youtrack.jetbrains.net/issue/DCVR-3158 DCVR-3158]
+|Exception
+|Submitted
+|Failed to merge snapshots. Exception of type 'System.OutOfMemoryException' was thrown.
+|-
+|234
+|[http://youtrack.jetbrains.net/issue/MPS-14506 MPS-14506]
+|Exception
+|Submitted
+|Illegal model access from GenerationSession (can't generate models)
+|-
+|235
+|[http://youtrack.jetbrains.net/issue/RSRP-277176 RSRP-277176]
+|Exception
+|Submitted
+|Non dynamic NUnit element can not be set to state Dynamic
+|-
+|236
+|[http://youtrack.jetbrains.net/issue/JT-11651 JT-11651]
+|Exception
+|Submitted
+|State: id = 35-17[up-to-date] (Saved)' cannot be cast to Entity of type 'SavedQuery'
+|-
+|237
+|[http://youtrack.jetbrains.net/issue/RSRP-277276 RSRP-277276]
+|Exception
+|Submitted
+|The condition (myLoadStarted) is false.
+|-
+|238
+|[http://youtrack.jetbrains.net/issue/RSRP-277274 RSRP-277274]
+|Exception
+|Submitted
+|Unable to read beyond the end of the stream.
+|-
+|239
+|[http://youtrack.jetbrains.net/issue/RSRP-277349 RSRP-277349]
+|Exception
+|Submitted
+|Value cannot be null. Parameter name: textControl
+|-
+|240
+|[http://youtrack.jetbrains.net/issue/MPS-14493 MPS-14493]
+|Exception
+|Submitted
+|[build:IU-99.SNAPSHOT] Error during dispatching of java.awt.event.InvocationEvent[INVOCATION_DEFAULT,runnable=jetbrains.mps.ide.messages.MessagesViewTool$2@6405f6f6,notifier=null,catchExceptions=false,when=1319030799571] on sun.awt.X11.XToolkit@d837603
+|-
+|241
+|[http://youtrack.jetbrains.net/issue/MPS-14496 MPS-14496]
+|Exception
+|Submitted
+|[build:MPS-20.7642] Intention's isApplicable method failed null
+|-
+|242
+|[http://youtrack.jetbrains.net/issue/MPS-14515 MPS-14515]
+|Exception
+|Submitted
+|[build:MPS-20.7651] Error during dispatching of java.awt.event.KeyEvent[KEY_TYPED,keyCode=0,keyText=Unknown keyCode: 0x0,keyChar='.',keyLocation=KEY_LOCATION_UNKNOWN,rawCode=0,primaryLevelUnicode=0,scancode=0] on jetbrains.mps.nodeEditor.NodeEditorComponent[,0,0,441x315,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=321,maximumSize=,minimumSize=,preferredSize=]: can't find cell for node 997518674094069419 r:6997efc5-d9d5-4f50-886f-24afe31e825e(projectModel0@$internal$)
+|-
+|243
+|[http://youtrack.jetbrains.net/issue/MPS-14500 MPS-14500]
+|Exception
+|Submitted
+|[build:MPS-20.7651] jetbrains.mps.baseLanguage.unitTest.runtime.TestRunParameters cannot be cast to jetbrains.mps.baseLanguage.unitTest.runtime.TestRunParameters: jetbrains.mps.baseLanguage.unitTest.runtime.TestRunParameters cannot be cast to jetbrains.mps.baseLanguage.unitTest.runtime.TestRunParameters
+|-
+|244
+|[http://youtrack.jetbrains.net/issue/IDEA-75744 IDEA-75744]
+|Exception
+|Submitted
+|java.lang.NullPointerException
+|-
+|245
+|[http://youtrack.jetbrains.net/issue/DOTP-3450 DOTP-3450]
+|Exception
+|Submitted
+|未将对象引用设置到对象的实例。
+|-
+|246
+|[http://youtrack.jetbrains.net/issue/MPS-14378 MPS-14378]
+|Feature
+|Fixed
+|"global completion" action needed
+|-
+|247
+|[http://youtrack.jetbrains.net/issue/IDEA-75632 IDEA-75632]
+|Feature
+|Fixed
+|Console folding: additional patterns
+|-
+|248
+|[http://youtrack.jetbrains.net/issue/WI-7567 WI-7567]
+|Feature
+|Fixed
+|Support HTML5 new "History" interface
+|-
+|249
+|[http://youtrack.jetbrains.net/issue/IDEA-68828 IDEA-68828]
+|Feature
+|Fixed
+|struts.xml: support params passed to results
+|-
+|250
+|[http://youtrack.jetbrains.net/issue/JT-3672 JT-3672]
+|Feature
+|In Progress
+|Can't delete user: error messages should be more friendly.
+|-
+|251
+|[http://youtrack.jetbrains.net/issue/IDEA-53476 IDEA-53476]
+|Feature
+|In Progress
+|Gradle integration (Maven's level - dependencies, modules, repositories)
+|-
+|252
+|[http://youtrack.jetbrains.net/issue/WI-5789 WI-5789]
+|Feature
+|In Progress
+|recogenise relative class names in PhpDoc
+|-
+|253
+|[http://youtrack.jetbrains.net/issue/TW-2527 TW-2527]
+|Feature
+|Open
+|Ability to have TeamCity server online 24/7
+|-
+|254
+|[http://youtrack.jetbrains.net/issue/TW-13623 TW-13623]
+|Feature
+|Open
+|Ability to restrict a user only to download build artifacts and see no other build details (no web UI access necessary case)
+|-
+|255
+|[http://youtrack.jetbrains.net/issue/TW-18646 TW-18646]
+|Feature
+|Open
+|Add audit history for build templates
+|-
+|256
+|[http://youtrack.jetbrains.net/issue/RSRP-238699 RSRP-238699]
+|Feature
+|Open
+|Add support for code contracts
+|-
+|257
+|[http://youtrack.jetbrains.net/issue/RSRP-47805 RSRP-47805]
+|Feature
+|Open
+|Externalize all settings to a file so they can be shared
+|-
+|258
+|[http://youtrack.jetbrains.net/issue/RSRP-159792 RSRP-159792]
+|Feature
+|Open
+|Extract Class
+|-
+|259
+|[http://youtrack.jetbrains.net/issue/TW-12434 TW-12434]
+|Feature
+|Open
+|FxCop: allow absolute paths in dll wildcards
+|-
+|260
+|[http://youtrack.jetbrains.net/issue/TW-13197 TW-13197]
+|Feature
+|Open
+|Fxcop - on the Fly Project file - Excluding Rules
+|-
+|261
+|[http://youtrack.jetbrains.net/issue/WI-6375 WI-6375]
+|Feature
+|Open
+|Implement Format source feature for  Twig templates
+|-
+|262
+|[http://youtrack.jetbrains.net/issue/IDEA-71141 IDEA-71141]
+|Feature
+|Open
+|Parameter name completion for Groovy DSL support
+|-
+|263
+|[http://youtrack.jetbrains.net/issue/TW-4300 TW-4300]
+|Feature
+|Open
+|Running NUnit tests in parallel
+|-
+|264
+|[http://youtrack.jetbrains.net/issue/RSRP-276960 RSRP-276960]
+|Feature
+|Open
+|Silverlight - Incorrectly suggesting to convert property to private when used in binding expression
+|-
+|265
+|[http://youtrack.jetbrains.net/issue/RSRP-274380 RSRP-274380]
+|Feature
+|Open
+|Support compiler option per webPage.
+|-
+|266
+|[http://youtrack.jetbrains.net/issue/TW-4429 TW-4429]
+|Feature
+|Open
+|TeamCity server statistics subscription
+|-
+|267
+|[http://youtrack.jetbrains.net/issue/JT-10169 JT-10169]
+|Feature
+|Open
+|When generating comment from email reply, don't include quoted text
+|-
+|268
+|[http://youtrack.jetbrains.net/issue/TW-12605 TW-12605]
+|Feature
+|Reopened
+|Detect FxCop 10.0 (from Windows SDK)
+|-
+|269
+|[http://youtrack.jetbrains.net/issue/IDEA-75733 IDEA-75733]
+|Feature
+|Submitted
+|"Concurrency annotation issues": support JSR 305 javax.annotation.concurrent
+|-
+|270
+|[http://youtrack.jetbrains.net/issue/JT-11335 JT-11335]
+|Feature
+|Submitted
+|Ability to Vote on own issue
+|-
+|271
+|[http://youtrack.jetbrains.net/issue/IDEA-75736 IDEA-75736]
+|Feature
+|Submitted
+|Add Company Nexus Repository
+|-
+|272
+|[http://youtrack.jetbrains.net/issue/AS-163 AS-163]
+|Feature
+|Submitted
+|Add PHP support
+|-
+|273
+|[http://youtrack.jetbrains.net/issue/IDEABKL-6110 IDEABKL-6110]
+|Feature
+|Submitted
+|Add Presets to Console Folding
+|-
+|274
+|[http://youtrack.jetbrains.net/issue/RSRP-277348 RSRP-277348]
+|Feature
+|Submitted
+|Add ability to clear Recent Patterns list
+|-
+|275
+|[http://youtrack.jetbrains.net/issue/MPS-14441 MPS-14441]
+|Feature
+|Submitted
+|Add javadoc language into a 'general purpose' devkit
+|-
+|276
+|[http://youtrack.jetbrains.net/issue/TW-18675 TW-18675]
+|Feature
+|Submitted
+|Add predefined build property for build step name
+|-
+|277
+|[http://youtrack.jetbrains.net/issue/AS-146 AS-146]
+|Feature
+|Submitted
+|Allow me to create real pure actionscript app
+|-
+|278
+|[http://youtrack.jetbrains.net/issue/IDEA-75767 IDEA-75767]
+|Feature
+|Submitted
+|Android layout preview: custom views.
+|-
+|279
+|[http://youtrack.jetbrains.net/issue/IDEA-75730 IDEA-75730]
+|Feature
+|Submitted
+|Auto population of the semi colon at the end of a line
+|-
+|280
+|[http://youtrack.jetbrains.net/issue/IDEA-75731 IDEA-75731]
+|Feature
+|Submitted
+|Available parameters in a pop up
+|-
+|281
+|[http://youtrack.jetbrains.net/issue/WI-6325 WI-6325]
+|Feature
+|Submitted
+|Behat support for phpStorm
+|-
+|282
+|[http://youtrack.jetbrains.net/issue/MPS-14526 MPS-14526]
+|Feature
+|Submitted
+|Create intention which surrounds statement with unhandled exception with try-catch
+|-
+|283
+|[http://youtrack.jetbrains.net/issue/IDEA-75718 IDEA-75718]
+|Feature
+|Submitted
+|Create new Inspection to report throws clauses that declare RuntimeExceptions
+|-
+|284
+|[http://youtrack.jetbrains.net/issue/IDEA-74629 IDEA-74629]
+|Feature
+|Submitted
+|Fully implement the Console API
+|-
+|285
+|[http://youtrack.jetbrains.net/issue/MPS-14508 MPS-14508]
+|Feature
+|Submitted
+|If an exception is reported in the red-exclamation-mark field at the lower right, make it analyzable
+|-
+|286
+|[http://youtrack.jetbrains.net/issue/TW-17809 TW-17809]
+|Feature
+|Submitted
+|Import existing inspection xml report into FXCop runner
+|-
+|287
+|[http://youtrack.jetbrains.net/issue/JT-8894 JT-8894]
+|Feature
+|Submitted
+|Is it possible to return some metrics on a filter result rather than the full dump of the issues?
+|-
+|288
+|[http://youtrack.jetbrains.net/issue/MPS-14512 MPS-14512]
+|Feature
+|Submitted
+|Make the Execution language work in facets
+|-
+|289
+|[http://youtrack.jetbrains.net/issue/WI-6226 WI-6226]
+|Feature
+|Submitted
+|New inspection: Highlight unused use statements
+|-
+|290
+|[http://youtrack.jetbrains.net/issue/MPS-14513 MPS-14513]
+|Feature
+|Submitted
+|Performance issues with Type System rules
+|-
+|291
+|[http://youtrack.jetbrains.net/issue/IDEA-75470 IDEA-75470]
+|Feature
+|Submitted
+|Provide 64-bit version of IdeaWin32.dll
+|-
+|292
+|[http://youtrack.jetbrains.net/issue/IDEA-75710 IDEA-75710]
+|Feature
+|Submitted
+|Replicate Eclipse-like behavior for Editor Tabs
+|-
+|293
+|[http://youtrack.jetbrains.net/issue/OC-1017 OC-1017]
+|Feature
+|Submitted
+|Run Configurations: for non-executable targets (e.g. aggregative)
+|-
+|294
+|[http://youtrack.jetbrains.net/issue/MPS-14527 MPS-14527]
+|Feature
+|Submitted
+|Surround with try-catch and try-catch-finally should automatically fill exception types and exception variable names
+|-
+|295
+|[http://youtrack.jetbrains.net/issue/RSRP-275090 RSRP-275090]
+|Feature
+|Submitted
+|Unable to find path of shared javascript / css elements, where these elements reside in a different project.
+|-
+|296
+|[http://youtrack.jetbrains.net/issue/RSRP-277342 RSRP-277342]
+|Feature
+|Submitted
+|Warning for delegate instance creation from base.-referenced method group inside closure/iterator
+|-
+|297
+|[http://youtrack.jetbrains.net/issue/WI-6112 WI-6112]
+|Feature
+|Submitted
+|some bugs in twig templates
+|-
+|298
+|[http://youtrack.jetbrains.net/issue/IDEA-15881 IDEA-15881]
+|Feature
+|Won't fix
+|Supplying support for caching
+|-
+|299
+|[http://youtrack.jetbrains.net/issue/PY-4763 PY-4763]
+|Feature
+|Won't fix
+|Support OpenJDK
+|-
+|300
+|[http://youtrack.jetbrains.net/issue/TW-18581 TW-18581]
+|Performance Problem
+|Open
+|Server continually crashes: ERROR - verSide.impl.BuildServerRunner - java.lang.OutOfMemoryError: GC overhead limit exceeded
+|-
+|301
+|[http://youtrack.jetbrains.net/issue/RSRP-277322 RSRP-277322]
+|Performance Problem
+|Open
+|Visual Studio 2010 Crashes Repeatedly During Solution Analysis
+|-
+|302
+|[http://youtrack.jetbrains.net/issue/RSRP-277268 RSRP-277268]
+|Performance Problem
+|Open
+|Visual Studio 2010 Slow Typing Response
+|-
+|303
+|[http://youtrack.jetbrains.net/issue/IDEA-75753 IDEA-75753]
+|Performance Problem
+|Submitted
+|Incredible slow indexing
+|-
+|304
+|[http://youtrack.jetbrains.net/issue/IDEA-75697 IDEA-75697]
+|Performance Problem
+|Submitted
+|Intellij is consuming CPU for unknown reason
+|-
+|305
+|[http://youtrack.jetbrains.net/issue/RSRP-277339 RSRP-277339]
+|Performance Problem
+|Submitted
+|Reading SSR patterns from settings is slow, especially on slow machines
+|-
+|306
+|[http://youtrack.jetbrains.net/issue/JT-11601 JT-11601]
+|Task
+|Fixed
+|Add link to JetBrains TV YouTrack channel to Help menu
+|-
+|307
+|[http://youtrack.jetbrains.net/issue/IDEA-74985 IDEA-74985]
+|Task
+|In Progress
+|Provide documentation on config dialog
+|-
+|308
+|[http://youtrack.jetbrains.net/issue/IDEA-75581 IDEA-75581]
+|Task
+|In Progress
+|Update registering procedure
+|-
+|309
+|[http://youtrack.jetbrains.net/issue/TW-14594 TW-14594]
+|Task
+|Open
+|FxCop properties should be converted to configuration parameters
+|-
+|310
+|[http://youtrack.jetbrains.net/issue/TW-5645 TW-5645]
+|Task
+|Open
+|Upgrade to new version of Java Service Wrapper
+|-
+|311
+|[http://youtrack.jetbrains.net/issue/TW-7098 TW-7098]
+|Task
+|Open
+|Zip FxCop xml results
+|-
+|312
+|[http://youtrack.jetbrains.net/issue/IDEA-74898 IDEA-74898]
+|Task
+|Submitted
+|SDK r14 support
+|-
+|313
+|[http://youtrack.jetbrains.net/issue/IDEA-75757 IDEA-75757]
+|Task
+|Submitted
+|Update documentation on plugins
+|-
+|314
+|[http://youtrack.jetbrains.net/issue/RSRP-276559 RSRP-276559]
+|Unspecified
+|Fixed
+|Cannot disable code analysis
+|-
+|315
+|[http://youtrack.jetbrains.net/issue/RSRP-276203 RSRP-276203]
+|Unspecified
+|Fixed
+|Create Import old-formart shared code style settings
+|-
+|316
+|[http://youtrack.jetbrains.net/issue/RSRP-273751 RSRP-273751]
+|Unspecified
+|Open
+|Cannot resolve resource item
+|-
+|317
+|[http://youtrack.jetbrains.net/issue/RSRP-277338 RSRP-277338]
+|Unspecified
+|Open
+|Extract method does not add func(of ) as returntype.
+|-
+|318
+|[http://youtrack.jetbrains.net/issue/RSRP-277345 RSRP-277345]
+|Unspecified
+|Open
+|When I run on of test cases, all the others from the fixture are duplicated in the tree
+|-
+|319
+|[http://youtrack.jetbrains.net/issue/RSRP-277346 RSRP-277346]
+|Unspecified
+|Submitted
+|Don't save duplicate patterns in Pattern Catalog
+|-
+|320
+|[http://youtrack.jetbrains.net/issue/OC-989 OC-989]
+|Usability Problem
+|Fixed
+|Add Files/Frameworks/* Menu: place right after 'New->' menu
+|-
+|321
+|[http://youtrack.jetbrains.net/issue/OC-2057 OC-2057]
+|Usability Problem
+|Fixed
+|Create folder in Xcode view do not appear
+|-
+|322
+|[http://youtrack.jetbrains.net/issue/OC-1991 OC-1991]
+|Usability Problem
+|Fixed
+|New File from Template: allow file creation when build configuration is invalid.
+|-
+|323
+|[http://youtrack.jetbrains.net/issue/OC-1718 OC-1718]
+|Usability Problem
+|Fixed
+|New File: Creating a new Window/UI resource automatically opens Xcode that is quite unexpected
+|-
+|324
+|[http://youtrack.jetbrains.net/issue/OC-1988 OC-1988]
+|Usability Problem
+|Fixed
+|New File: allow file creation if nothing selected in project view or selected something outside the project
+|-
+|325
+|[http://youtrack.jetbrains.net/issue/OC-1820 OC-1820]
+|Usability Problem
+|Fixed
+|Right click on .xib file in project view should not launch Interface Builder
+|-
+|326
+|[http://youtrack.jetbrains.net/issue/MPS-12126 MPS-12126]
+|Usability Problem
+|In Progress
+|F4/double-click on mps file in commit dialog/Changes view opens text editor
+|-
+|327
+|[http://youtrack.jetbrains.net/issue/TW-9895 TW-9895]
+|Usability Problem
+|Open
+|Brush up Not found error for pom.xml
+|-
+|328
+|[http://youtrack.jetbrains.net/issue/IDEA-75754 IDEA-75754]
+|Usability Problem
+|Submitted
+|"Looking for new and edited TODO items" before commit doesn't update progress
+|-
+|329
+|[http://youtrack.jetbrains.net/issue/WI-7657 WI-7657]
+|Usability Problem
+|Submitted
+|Debugger displays "Console" view when dropped into debugger
+|-
+|330
+|[http://youtrack.jetbrains.net/issue/IDEA-75703 IDEA-75703]
+|Usability Problem
+|Submitted
+|Exception Analyzer link should not be shown to user
+|-
+|331
+|[http://youtrack.jetbrains.net/issue/IDEA-75656 IDEA-75656]
+|Usability Problem
+|Submitted
+|It is impossible to find how to hide coverage highlighting
+|-
+|332
+|[http://youtrack.jetbrains.net/issue/OC-2136 OC-2136]
+|Usability Problem
+|Submitted
+|Pressing 'enter' after opening '{' adds an extra closing '}' despite one already exists
+|-
+|333
+|[http://youtrack.jetbrains.net/issue/IDEA-75756 IDEA-75756]
+|Usability Problem
+|Submitted
+|Problems to place caret using mouse, when error popup (on syntax error) appears in this place
+|-
+|334
+|[http://youtrack.jetbrains.net/issue/TW-18673 TW-18673]
+|Usability Problem
+|Submitted
+|Provide more details in "TeamCity Code Coverage is outdated" message.
+|-
+|335
+|[http://youtrack.jetbrains.net/issue/OC-2146 OC-2146]
+|Usability Problem
+|Submitted
+|Select Target -> Project View sub menu does not show when using mouse
+|-
+|336
+|[http://youtrack.jetbrains.net/issue/OC-444 OC-444]
+|Usability Problem
+|Won't fix
+|Do not automatically place '*' when I complete a class name
+|-
+|}
