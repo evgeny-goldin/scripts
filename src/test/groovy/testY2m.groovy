@@ -6,8 +6,7 @@
 import com.goldin.gcommons.GCommons
 import com.goldin.gcommons.beans.ExecOption
 
-final String encoding    = 'UTF-8'
-final File   testArchive = new File( '../resources/y2m/jetbrains-issues.zip' ).canonicalFile
+final File   testArchive = new File( '../resources/y2m/jetbrains/issues.zip' ).canonicalFile
 final File   y2m         = new File( '../../main/groovy/y2m.groovy' ).canonicalFile
 
 assert [ testArchive, y2m ].every{ it.file }
@@ -22,11 +21,11 @@ GCommons.file().with { GCommons.general().with {
         unpack( testArchive, tempDir )
         assert testData.file
 
-        runTest( encoding, y2m, testData, [],                                                                   'jetbrains-issues-1.txt' )
-        runTest( encoding, y2m, testData, [ "Issue Id, Subsystem, Type, State" ],                               'jetbrains-issues-2.txt' )
-        runTest( encoding, y2m, testData, [ "Issue Id, Subsystem, Summary, Description" ],                      'jetbrains-issues-3.txt' )
-        runTest( encoding, y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'jetbrains-issues-4.txt' )
-        runTest( encoding, y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'jetbrains-issues-5.txt' )
+        runJetBrainsTest( y2m, testData, [],                                                                   'table-1.txt' )
+        runJetBrainsTest( y2m, testData, [ "Issue Id, Subsystem, Type, State" ],                               'table-2.txt' )
+        runJetBrainsTest( y2m, testData, [ "Issue Id, Subsystem, Summary, Description" ],                      'table-3.txt' )
+        runJetBrainsTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'table-4.txt' )
+        runJetBrainsTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'table-5.txt' )
     }
     finally
     {
@@ -36,10 +35,11 @@ GCommons.file().with { GCommons.general().with {
 
 
 
-def runTest( String encoding, File y2m, File testData, List<String> args, String testResultPath )
+def runJetBrainsTest ( File y2m, File testData, List<String> args, String testResultPath )
 {
-    def    t          = System.currentTimeMillis()
-    File   testResult = new File( "../resources/y2m/$testResultPath" ).canonicalFile
+    final String encoding   = 'UTF-8'
+    final long   t          = System.currentTimeMillis()
+    final File   testResult = new File( "../resources/y2m/jetbrains/$testResultPath" ).canonicalFile
     assert testResult.file
 
     File y2mFile = new File( testData.path + ".result.txt" )
