@@ -23,7 +23,7 @@ GCommons.file().with { GCommons.general().with {
         assert testData.file
 
         runTest( y2m, testData, [],                                                                   'jetbrains-issues-1.txt' )
-        runTest( y2m, testData, [ "Issue Id, Subsystem, Type, State, Summary" ],                      'jetbrains-issues-2.txt' )
+        runTest( y2m, testData, [ "Issue Id, Subsystem, Type, State" ],                               'jetbrains-issues-2.txt' )
         runTest( y2m, testData, [ "Issue Id, Subsystem, Summary, Description" ],                      'jetbrains-issues-3.txt' )
         runTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'jetbrains-issues-4.txt' )
         runTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'jetbrains-issues-5.txt' )
@@ -47,8 +47,16 @@ def runTest( File y2m, File testData, List<String> args, String testResultPath )
 
     System.out = new PrintStream( baos )
     new GroovyShell().run( y2m, ([ 'http://youtrack.jetbrains.net/', testData.path ] + args ) as List )
-    assert baos.toString() == testResult.text
-    System.out = out
+    System.out.flush()
+    String output = baos.toString()
 
-    println "$testResultPath - Ok ([${ System.currentTimeMillis() - t }] ms)"
+    if ( output != testResult.text )
+    {
+        File copyResult = new File( testResult.path + '-actual' )
+        copyResult.text = output
+        assert false, "Running $args produced result different from [$testResult], result copied to [$copyResult]"
+    }
+
+    System.out = out
+    println "$testResult - Ok, [${ System.currentTimeMillis() - t }] ms"
 }
