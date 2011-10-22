@@ -29,8 +29,9 @@ Add #           - (optional) true/false, whether to add a '#' column with a runn
 
 final String       youTrackUrl   = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
 final File         f             = new File( args[ 1 ] ).canonicalFile
-final List<String> fields        = ( args.size() > 2          ) ? args[ 2 ].split( ',' )*.trim().grep() : defaultFields
-final List<String> groupByFields = ( args.size() > 3          ) ? args[ 3 ].split( ',' )*.trim().grep() :
+final def          split         = { String s -> s.split( ',' )*.trim().grep().collect{ it.replace( '"', '' ) }}
+final List<String> fields        = ( args.size() > 2          ) ? split( args[ 2 ] ) : defaultFields
+final List<String> groupByFields = ( args.size() > 3          ) ? split( args[ 3 ] ) :
                                    ( fields.is( defaultFields ))? defaultGroupByFields                  : []
 final boolean      addCounter    = ( args.size() > 4          ) ? Boolean.valueOf( args[ 4 ] )          : false
 
