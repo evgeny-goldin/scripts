@@ -12,7 +12,7 @@ GCommons.file().with { GCommons.general().with {
      * Run automatic tests
      */
 
-    new File( '../resources/y2m/auto' ).canonicalFile.listFiles().with {
+    new File( '../resources/y2m/auto' ).canonicalFile.listFiles().sort().with {
         assert delegate && delegate.every { it.name.endsWith( '.txt' ) }
         delegate.each { autoTest( it ) }
     }
