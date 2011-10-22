@@ -1,0 +1,291 @@
+http://evgeny-goldin.org/youtrack/issues/pl?q=Fix+versions%3A+0.2.3.1%2C+0.2.3.4+Subsystem%3A+maven-copy-plugin+
+http://evgeny-goldin.org/youtrack/export/exportCsvQuery/xml?projectKey=pl&query=Fix+versions%3A+0.2.3.1%2C+0.2.3.4+Subsystem%3A+maven-copy-plugin
+http://evgeny-goldin.com/wiki/Y2m#Maven_Plugins:_Fix_versions:_0.2.3.1.2C_0.2.3.4_Subsystem:_maven-copy-plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","State","Assignee","Subsystem","Fix versions","Affected versions","Fixed in build","Description"
+"pl-302","Maven Plugins","","Merge explicit <dependency> and filtered dependencies","Evgeny Goldin","Friday, February 11, 2011 2:10:24 AM IST","Friday, October 21, 2011 1:41:12 AM IST","Sunday, October 2, 2011 4:59:03 AM IST","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","588","Previously, when specifying resource *{{<dependency>}}* there were two ways to do so:
+
+* Explicit *{{<dependency>}}* using {{<groupId>}} and {{<artifactId>}}.
+* Filtered *{{<dependency>}}* using {{<includeScope>}}, {{<excludeTransitive>}}, {{<includeGroupIds>}} and [http://evgeny-goldin.com/wiki/Maven-copy-plugin#.3Cdependency.3E_reference other tags].
+
+It was not possible to merge the two, one either had to go explicit with a single dependency or filter ''all'' project dependencies. It is now possible to mix both options:
+
+*1* - Bring a specific *{{<dependency>}}* and all its transitive dependencies:
+
+{code}
+<dependency>
+    <groupId> .. </groupId>
+    <artifactId> .. </artifactId>
+    <version> .. </version>
+    <excludeTransitive>false</excludeTransitive>
+</dependency>
+{code}
+*2* - Bring a specific *{{<dependency>}}* and all its transitive dependencies, filtered on some condition:
+
+{code}
+<dependency>
+    <groupId> .. </groupId>
+    <artifactId> .. </artifactId>
+    <version> .. </version>
+    <excludeTransitive>false</excludeTransitive>
+    <includeGroupIds> .. </includeGroupIds>
+    <includeClassifiers> .. </includeClassifiers>
+</dependency>
+{code}
+See this [https://github.com/evgeny-goldin/maven-plugins-test/blob/330561c381dde5195ac6a7808d2aabf56cadc7d8/maven-copy-plugin/issues/0.2.3.4/a/pom.xml#L68 *test*] for more examples."
+"pl-465","Maven Plugins","","Packing non-existing file to tar.gz archive does not fail","Evgeny Goldin","Wednesday, September 14, 2011 3:57:46 AM IDT","Monday, October 17, 2011 11:28:47 PM IST","Monday, October 17, 2011 11:28:39 PM IST","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","Next Build","{code}
+<resource>
+    <targetPath>pack.tar.gz</targetPath>
+    <file>does-not-exist.txt</file>
+    <pack>true</pack>
+</resource>
+{code}
+
+{code}
+[09/14/2011 03:53:59.265] Packing [/Users/evgenyg/Projects/maven-plugins-test/maven-copy-plugin/issues/0.2.4/target/classes/pl-463/1 ([test1.sh])] to [/Users/evgenyg/Projects/maven-plugins-test/maven-copy-plugin/issues/0.2.4/target/classes/pl-463/pack.tar.gz]
+      [tar] Nothing to do: /Users/evgenyg/Projects/maven-plugins-test/maven-copy-plugin/issues/0.2.4/target/classes/pl-463/pack.tar.gz is up to date.
+[09/14/2011 03:53:59.292] [/Users/evgenyg/Projects/maven-plugins-test/maven-copy-plugin/issues/0.2.4/target/classes/pl-463/1 ([test1.sh])] packed to [/Users/evgenyg/Projects/maven-plugins-test/maven-copy-plugin/issues/0.2.4/target/classes/pl-463/pack.tar.gz] (0 sec)
+{code}
+
+"
+"pl-127","Maven Plugins","","If unable to unpack (unknown extension) - doesn't do anything silently","Evgeny Goldin","Thursday, July 22, 2010 12:05:52 AM IDT","Monday, October 17, 2011 11:27:23 PM IST","Monday, October 17, 2011 11:27:20 PM IST","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","Next Build",""
+"pl-233","Maven Plugins","","<filtering>true</filtering> doesn't filter *.bat file ?","Evgeny Goldin","Wednesday, December 15, 2010 11:57:43 AM IST","Saturday, October 15, 2011 2:36:22 AM IST","Saturday, October 15, 2011 2:35:21 AM IST","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","0.2-beta-1","595","It is now possible to limit the plugin to use a *{{""${ .. }""}}* expressions only for filtering, allowing to use {{""@""}} characters in files being filtered, like in {{""*.bat""}} files.
+
+It can be done using *{{""<filterWithDollarOnly>""}}* flag, per-{{<resource>}}:
+
+{code}
+<resource>
+    <targetPath> .. </targetPath>
+    <file> .. </file>
+    <filtering>true</filtering>
+    <filterWithDollarOnly>true</filterWithDollarOnly>
+</resource>
+{code}
+or per-{{<configuration>}}:
+
+{code}
+<configuration>
+    <filterWithDollarOnly>true</filterWithDollarOnly>
+    <resources>
+        <resource>
+            <targetPath> .. </targetPath>
+            <file> .. </file>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
+</configuration>
+{code}
+Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/a36e84411fc6ef0389fe011efc2f289828410bf6/maven-copy-plugin/issues/0.2.3.4/b/pom.xml#L194 available].
+"
+"pl-473","Maven Plugins","","Add ""/**"" to directory <include> if pattern is not specified","Evgeny Goldin","Thursday, October 6, 2011 3:10:12 AM IST","Saturday, October 15, 2011 1:40:26 AM IST","Saturday, October 15, 2011 1:40:26 AM IST","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","595","Convert
+
+{code}
+<resource> .. </resource>
+<directory> .. </directory>
+<include>path</include>
+{code}
+to
+
+{code}
+<resource> .. </resource>
+<directory> .. </directory>
+<include>path/**</include>
+{code}
+if {{""path""}} is name of an existing directory.
+
+Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/d967543b925115800ff4a92fd0661e1d49a6430a/maven-copy-plugin/issues/0.2.3.4/b/pom.xml#L150 available]."
+"pl-446","Maven Plugins","","If some <include>s have no files matched - do not fail if others had files matched","Evgeny Goldin","Wednesday, July 27, 2011 12:38:36 PM IDT","Friday, October 14, 2011 10:56:12 PM IST","Friday, October 14, 2011 10:51:11 PM IST","Normal","Task","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","595","The following resources will work if at least some include patterns, like {{""*.xml""}}, were matched:
+
+{code}
+<resource>
+    <targetPath> .. </targetPath>
+    <directory> .. </directory>
+    <include>*.xml, *.pdf, *.ppt</include>
+</resource>
+<resource>
+    <targetPath> .. </targetPath>
+    <directory> .. </directory>
+    <includes>
+        <include>*.xml</include>
+        <include>*.pdf</include>
+        <include>*.ppt</include>
+    </includes>
+</resource>
+{code}
+Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/6881607c7aef7a33dc4335ac75bf5a8c0f6d7c79/maven-copy-plugin/issues/0.2.3.4/b/pom.xml#L121 available]."
+"pl-477","Maven Plugins","","Add support for <nonFilteredExtensions>","Evgeny Goldin","Monday, October 10, 2011 3:07:20 PM IST","Thursday, October 13, 2011 2:10:48 AM IST","Thursday, October 13, 2011 2:05:06 AM IST","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","594","Similar to http://maven.apache.org/plugins/maven-resources-plugin/examples/binaries-filtering.html.
+One can specify comma-separated list of non-filtered extensions using *{{<nonFilteredExtensions>}}* per-{{<resource>}}:
+
+{code}
+<resource>
+    <targetPath> .. </targetPath>
+    <directory> .. </directory>
+    <nonFilteredExtensions>pdf, exe</nonFilteredExtensions>
+    <filtering>true</filtering>
+</resource>
+{code}
+And per-{{<configuration>}}:
+
+{code}
+<configuration>
+    <nonFilteredExtensions>pdf</nonFilteredExtensions>
+    <resource>
+        <targetPath> .. </targetPath>
+        <directory> .. </directory>
+        <filtering>true</filtering>
+    </resource>
+</configuration>
+
+{code}
+Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/d6cc207ef8a43db540b19889a1ee898dcb8a1a92/maven-copy-plugin/issues/0.2.3.4/b/pom.xml#L68 available]."
+"pl-466","Maven Plugins","","Support ""destFileName"", ""prefix"" for all archives, ""filemode"" for tar.gz archives","Evgeny Goldin","Wednesday, September 14, 2011 1:58:04 PM IDT","Tuesday, October 11, 2011 7:54:05 PM IST","Tuesday, October 11, 2011 7:34:26 PM IST","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","591","""destFileName"":
+
+{code}
+<resource>
+    <targetPath>file.tar.gz</targetPath>
+    <file>..</file>
+    <destFileName>1/2/3/4.txt</destFileName>
+    <pack>true</pack>
+</resource>
+{code}
+""prefix""
+
+{code}
+<resource>
+    <targetPath>file.zip</targetPath>
+    <file>...</file>
+    <prefix>a/bb/ccc/dddd</prefix>
+    <pack>true</pack>
+</resource>
+{code}
+""filemode""
+
+{code}
+<resource>
+    <targetPath>file.tar.gz</targetPath>
+    <directory>...</directory>
+    <include>*.xml|731, *.bat|755, *.txt|700</include>
+    <pack>true</pack>
+    <!-- Unpacking should be done by running command-line -->
+    <process>{{ ""tar -xzf file.tar.gz -C unpackDirectory"".execute().text }}</process>
+</resource>
+{code}
+See ""destFileName"" and ""prefix"" tests for [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L318 TrueZip] and [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L377 Ant] + ""filemode"" [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L441 test] for ""tar.gz"" archives packed with Ant."
+"pl-478","Maven Plugins","","Provide an option to control whether TrueZip or Ant is used for packing and unpacking archives","Evgeny Goldin","Monday, October 10, 2011 4:43:36 PM IST","Tuesday, October 11, 2011 7:52:43 PM IST","Tuesday, October 11, 2011 7:25:37 PM IST","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","591","One can use *{{<useTrueZipForUnpack>}}* and *{{<useTrueZipForPack>}}* per-{{<resource>}} or per-{{<configuration>}}.
+
+See examples: [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L44 1], [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L199 2], [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L324 3], [https://github.com/evgeny-goldin/maven-plugins-test/blob/46f5cdc290c879eaa2de40ae8c4d347aeaa70094/maven-copy-plugin/pack-unpack/pom.xml#L383 4]."
+"pl-468","Maven Plugins","","Provide an option to avoid copying hidden files","Evgeny Goldin","Saturday, September 17, 2011 2:03:35 PM IDT","Monday, October 10, 2011 12:06:26 AM IST","Monday, October 10, 2011 12:06:26 AM IST","Normal","Feature","Won't fix","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","Next Build",""
+"pl-463","Maven Plugins","","Executable permission bits are not preserved after packing a kit into .tar.gz","Evgeny Goldin","Tuesday, September 13, 2011 1:27:29 AM IDT","Sunday, October 9, 2011 4:03:23 PM IST","Wednesday, September 14, 2011 4:07:00 AM IDT","Normal","Bug","Duplicate","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","591",""
+"pl-451","Maven Plugins","","Switch to TrueZip unpacking by default","Evgeny Goldin","Tuesday, August 16, 2011 5:38:25 PM IDT","Thursday, October 6, 2011 3:06:32 AM IST","Thursday, October 6, 2011 3:06:32 AM IST","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","589",""
+"pl-470","Maven Plugins","","Fail the build if <includeScope>compile</includeScope> (or any other filtered dependencies) retrieves 0 results","Evgeny Goldin","Tuesday, September 20, 2011 3:45:41 PM IDT","Sunday, October 2, 2011 1:21:18 AM IDT","Sunday, October 2, 2011 1:20:41 AM IDT","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","586",""
+"pl-469","Maven Plugins","","Filtered dependency comes from module's ""dist"" instead of local Maven repo, file name assertion fails","Evgeny Goldin","Tuesday, September 20, 2011 3:44:03 PM IDT","Sunday, October 2, 2011 12:56:06 AM IDT","Sunday, October 2, 2011 12:54:07 AM IDT","Normal","Bug","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","585","Started to happen in {{""0.2.3.2""}}."
+"pl-467","Maven Plugins","","Treat ""sar"" extension as zip archive","Evgeny Goldin","Thursday, September 15, 2011 9:53:53 PM IDT","Saturday, October 1, 2011 9:18:49 PM IDT","Saturday, October 1, 2011 9:17:56 PM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","585","Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/ca45858c41a9e4b10af9971b196bbc655280c988/maven-copy-plugin/issues/0.2.3.4/pom.xml#L40 available]."
+"pl-429","Maven Plugins","","Support ""prefix"" and ""destFileName"" when archives are updated or created","Evgeny Goldin","Monday, June 20, 2011 3:56:04 AM IDT","Saturday, September 17, 2011 8:30:57 PM IDT","Sunday, July 24, 2011 6:08:37 PM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","559","* [http://evgeny-goldin.org/javadoc/ant/Types/zipfileset.html {{ZipFileSet}}]
+* http://maven-plugins.994461.n3.nabble.com/Update-war-td3084295.html
+
+Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/1c1606b66c0b8373758fddce113ced8f3fcac3ea/maven-copy-plugin/issues/0.2.4/pom.xml#L215 available]."
+"pl-441","Maven Plugins","","Support <dependency>  ""destFileName""","Evgeny Goldin","Wednesday, July 20, 2011 3:07:52 PM IDT","Saturday, September 17, 2011 8:30:57 PM IDT","Sunday, July 24, 2011 12:40:24 AM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","558","Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/9a89ea5242b6e21a47c3acbc80aabdfc20b2eecd/maven-copy-plugin/issues/0.2.4/pom.xml#L80 available]."
+"pl-442","Maven Plugins","","Support <replace> and <filtering> when files are packed or unpacked","Evgeny Goldin","Wednesday, July 20, 2011 6:51:20 PM IDT","Saturday, September 17, 2011 8:30:57 PM IDT","Monday, July 25, 2011 1:10:36 AM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","559","Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/7573760f33e1769d555fd0756a35be87a9fe370c/maven-copy-plugin/issues/0.2.4/pom.xml#L324 available]."
+"pl-350","Maven Plugins","","Support for <move>true/false</move> when files are copied or archived","Evgeny Goldin","Sunday, February 27, 2011 4:10:17 PM IST","Saturday, September 17, 2011 8:30:57 PM IDT","Monday, July 25, 2011 3:04:44 PM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","561","Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/a8d6d856b480d781edbfce44451a4bc70e05c416/maven-copy-plugin/issues/0.2.4/pom.xml#L41 available]."
+"pl-444","Maven Plugins","","When archive is unpacked <process> should contain  files unpacked","Evgeny Goldin","Sunday, July 24, 2011 8:15:16 PM IDT","Saturday, September 17, 2011 8:30:57 PM IDT","Monday, July 25, 2011 1:10:42 AM IDT","Normal","Task","Fixed","evgenyg","maven-copy-plugin","0.2.3.4","No Affected versions","559","Tests are available: [https://github.com/evgeny-goldin/maven-plugins-test/blob/7573760f33e1769d555fd0756a35be87a9fe370c/maven-copy-plugin/issues/0.2.4/pom.xml#L315 1], [https://github.com/evgeny-goldin/maven-plugins-test/blob/7573760f33e1769d555fd0756a35be87a9fe370c/maven-copy-plugin/issues/0.2.4/pom.xml#L345 2], [https://github.com/evgeny-goldin/maven-plugins-test/blob/7573760f33e1769d555fd0756a35be87a9fe370c/maven-copy-plugin/issues/0.2.4/pom.xml#L362 3]."
+"pl-436","Maven Plugins","","Set <dependenciesAtM2> to ""true"" when possible","Evgeny Goldin","Tuesday, July 19, 2011 3:03:06 PM IDT","Tuesday, July 19, 2011 6:32:00 PM IDT","Tuesday, July 19, 2011 5:43:18 PM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.1","No Affected versions","555","When {{<dependenciesAtM2>}} is not defined and {{<resource>}} makes no use of {{<stripVersion>}}, {{<filter>}}, or {{<process>}} - it is possible to behave as if {{<dependenciesAtM2>}} was set to {{true}} to speed up working with dependencies by not copying them to temp folder first."
+"pl-434","Maven Plugins","","Provide <targetRoots> property with comma-separated list of target roots ","Evgeny Goldin","Monday, July 18, 2011 5:36:51 PM IDT","Tuesday, July 19, 2011 6:02:53 PM IDT","Monday, July 18, 2011 7:24:22 PM IDT","Normal","Feature","Fixed","evgenyg","maven-copy-plugin","0.2.3.1","No Affected versions","554","Test is [https://github.com/evgeny-goldin/maven-plugins-test/blob/e822665ae8abe38213d8495c95325a2a471dcc2b/maven-copy-plugin/issues/0.2.3/pom.xml#L76 available]."
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://evgeny-goldin.org/youtrack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!-- Generated with http://goo.gl/7WHjH -->
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
+|-
+!Issue Id
+!Type
+!Summary
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-233 pl-233]
+|Bug
+|<filtering>true</filtering> doesn't filter *.bat file ?
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-477 pl-477]
+|Bug
+|Add support for <nonFilteredExtensions>
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-463 pl-463]
+|Bug
+|Executable permission bits are not preserved after packing a kit into .tar.gz
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-470 pl-470]
+|Bug
+|Fail the build if <includeScope>compile</includeScope> (or any other filtered dependencies) retrieves 0 results
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-469 pl-469]
+|Bug
+|Filtered dependency comes from module's "dist" instead of local Maven repo, file name assertion fails
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-127 pl-127]
+|Bug
+|If unable to unpack (unknown extension) - doesn't do anything silently
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-465 pl-465]
+|Bug
+|Packing non-existing file to tar.gz archive does not fail
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-473 pl-473]
+|Feature
+|Add "/**" to directory <include> if pattern is not specified
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-302 pl-302]
+|Feature
+|Merge explicit <dependency> and filtered dependencies
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-434 pl-434]
+|Feature
+|Provide <targetRoots> property with comma-separated list of target roots
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-468 pl-468]
+|Feature
+|Provide an option to avoid copying hidden files
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-478 pl-478]
+|Feature
+|Provide an option to control whether TrueZip or Ant is used for packing and unpacking archives
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-436 pl-436]
+|Feature
+|Set <dependenciesAtM2> to "true" when possible
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-466 pl-466]
+|Feature
+|Support "destFileName", "prefix" for all archives, "filemode" for tar.gz archives
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-429 pl-429]
+|Feature
+|Support "prefix" and "destFileName" when archives are updated or created
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-441 pl-441]
+|Feature
+|Support <dependency>  "destFileName"
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-442 pl-442]
+|Feature
+|Support <replace> and <filtering> when files are packed or unpacked
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-350 pl-350]
+|Feature
+|Support for <move>true/false</move> when files are copied or archived
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-451 pl-451]
+|Feature
+|Switch to TrueZip unpacking by default
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-467 pl-467]
+|Feature
+|Treat "sar" extension as zip archive
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-446 pl-446]
+|Task
+|If some <include>s have no files matched - do not fail if others had files matched
+|-
+|[http://evgeny-goldin.org/youtrack/issue/pl-444 pl-444]
+|Task
+|When archive is unpacked <process> should contain  files unpacked
+|-
+|}

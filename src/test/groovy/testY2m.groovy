@@ -6,26 +6,37 @@
 import com.goldin.gcommons.GCommons
 import com.goldin.gcommons.beans.ExecOption
 
-final File   testArchive = new File( '../resources/y2m/jetbrains/issues.zip' ).canonicalFile
-final File   y2m         = new File( '../../main/groovy/y2m.groovy' ).canonicalFile
 
-assert [ testArchive, y2m ].every{ it.file }
+final File[] autoTests        = new File( '../resources/y2m/auto' ).canonicalFile.listFiles()
+final File   jetBrainsArchive = new File( '../resources/y2m/jetbrains/issues.zip' ).canonicalFile
+
+assert autoTests && autoTests.every { it.name.endsWith( '.txt' ) } && jetBrainsArchive.file
 
 GCommons.file().with { GCommons.general().with {
+
+    /**
+     * Run automatic tests
+     */
+
+    autoTests.each { autoTest( it ) }
+
+    /**
+     * Run JetBrains tests
+     */
 
     File tempDir  = tempDirectory()
     File testData = new File( tempDir, 'jetbrains-issues.csv' ).canonicalFile
 
     try
     {
-        unpack( testArchive, tempDir )
+        unpack( jetBrainsArchive, tempDir )
         assert testData.file
 
-        runJetBrainsTest( y2m, testData, [],                                                                   'table-1.txt' )
-        runJetBrainsTest( y2m, testData, [ "Issue Id, Subsystem, Type, State" ],                               'table-2.txt' )
-        runJetBrainsTest( y2m, testData, [ "Issue Id, Subsystem, Summary, Description" ],                      'table-3.txt' )
-        runJetBrainsTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'table-4.txt' )
-        runJetBrainsTest( y2m, testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'table-5.txt' )
+        runJetBrainsTest( testData, [],                                                                   'table-1.txt' )
+        runJetBrainsTest( testData, [ "Issue Id, Subsystem, Type, State" ],                               'table-2.txt' )
+        runJetBrainsTest( testData, [ "Issue Id, Subsystem, Summary, Description" ],                      'table-3.txt' )
+        runJetBrainsTest( testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'table-4.txt' )
+        runJetBrainsTest( testData, [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'table-5.txt' )
     }
     finally
     {
@@ -34,27 +45,65 @@ GCommons.file().with { GCommons.general().with {
 }}
 
 
-
-def runJetBrainsTest ( File y2m, File testData, List<String> args, String testResultPath )
+/**
+ *
+ * @param f
+ */
+def autoTest( File f )
 {
-    final String encoding   = 'UTF-8'
-    final long   t          = System.currentTimeMillis()
-    final File   testResult = new File( "../resources/y2m/jetbrains/$testResultPath" ).canonicalFile
-    assert testResult.file
+    assert f.file
+    final String encoding = 'UTF-8'
+    def ( String csv, String query, String expectedResult ) = f.getText( encoding ).findAll( /a/ ){}
+}
 
-    File y2mFile = new File( testData.path + ".result.txt" )
-    System.setProperty( 'y2mFile', y2mFile.canonicalPath )
-    new GroovyShell().run( y2m, ([ 'http://youtrack.jetbrains.net/', testData.path ] + args ) as List )
 
-    String output         = y2mFile.getText( encoding )
-    String expectedOutput = testResult.getText( encoding )
+/**
+ *
+ * @param y2m
+ * @param testData
+ * @param args
+ * @param expectedOutputName
+ */
+def runJetBrainsTest ( File testData, List<String> args, String expectedOutputName )
+{
+    final String encoding       = 'UTF-8'
+    final String output         = y2m(( [ 'http://youtrack.jetbrains.net/', testData.path ] + args ) as List )
+    final File   expectedOutput = new File( "../resources/y2m/jetbrains/$expectedOutputName" ).canonicalFile
 
-    if ( output != expectedOutput )
+    if ( output != expectedOutput.getText( encoding ))
     {
-        File copyResult = new File( testResult.path + '.result.txt' )
-        assert y2mFile.renameTo( copyResult )
-        assert false, "Running $args produced result different from [$testResult], result copied to [$copyResult]"
+        File copyResult = new File( expectedOutput.path + '.actual.txt' )
+        copyResult.setText( output, encoding )
+        assert false, "Running $args produced result different from [$expectedOutput], copied to [$copyResult]"
     }
+}
 
-    println "$testResult - Ok, [${ System.currentTimeMillis() - t }] ms"
+
+/**
+ * Runs "y2m" script with arguments provided.
+ *
+ * @param args arguments to run "y2m" with
+ * @return script result
+ */
+String y2m ( List<String> args )
+{
+    final long   t         = System.currentTimeMillis()
+    final String encoding  = 'UTF-8'
+    final File   y2mScript = new File( '../../main/groovy/y2m.groovy' ).canonicalFile
+    final File   y2mFile   = GCommons.file().tempFile()
+
+    System.setProperty( 'y2mFile', y2mFile.canonicalPath )
+
+    try
+    {
+        print   "Running $args - "
+        new GroovyShell().run( y2mScript, args )
+        String result = y2mFile.getText( encoding )
+        println "[${ System.currentTimeMillis() - t }] ms"
+        return result
+    }
+    finally
+    {
+        GCommons.file().delete( y2mFile )
+    }
 }

@@ -1,0 +1,1404 @@
+http://youtrack.jetbrains.net/issues?q=project%3A+TeamCity+Subsystem%3A+{Version+Control%3A+Git}+Priority%3A+Critical+State%3A+Fixed
+http://youtrack.jetbrains.net/export/exportCsvQuery/xml?query=project%3A+TeamCity+Subsystem%3A+%7BVersion+Control%3A+Git%7D+Priority%3A+Critical+State%3A+Fixed
+http://evgeny-goldin.com/wiki/Y2m#JetBrains:_project:_TeamCity_Subsystem:_.7BVersion_Control:_Git.7D_Priority:_Critical_State:_Fixed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","Fix versions","State","Assignee","Subsystem","Affected versions","Fixed in build","Description"
+"TW-10741","TeamCity","","Agent-side checkout for Git","Yegor Yarko","Wednesday, January 13, 2010 8:58:09 PM MSK","Tuesday, October 4, 2011 7:29:02 PM MSD","Thursday, April 29, 2010 7:03:36 PM MSD","Critical","Feature","Darjeeling 5.1.1 (13398), Eluru EAP (15193)","Fixed","const","Version Control: Git","No Affected versions","15024","Pros:
+- it should be faster
+- can work with git in the build (e.g. Maven buildnumber plugin)
+
+Cons:
+- all agents can require manual git-aware configuration (e.g. ssh certificates)
+- excluding checkout rules cannot be handled effectively"
+"TW-10401","TeamCity","","Occasional TransportException: Remote does not have refs/heads/master available for fetch.","Yegor Yarko","Monday, November 30, 2009 7:36:49 PM MSK","Tuesday, September 20, 2011 10:40:47 PM MSD","Monday, August 15, 2011 11:53:19 AM MSD","Critical","Bug","Eluru 6.5.4 (18046), 6.5.x","Fixed","neverov","Version Control: Git","No Affected versions","15070","Occurred on buildserver: all the git roots got the error below and the server was displaying the error for some time after which normal functioning returned.
+
+[2009-11-30 17:59:50,273]   WARN -   jetbrains.buildServer.SERVER - Exception occured during changes collecting
+jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.processException(GitVcsSupport.java:159)
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:827)
+	at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:451)
+	at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1146)
+	at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1100)
+	at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+	at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+	at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+	at org.eclipse.jgit.transport.FetchProcess.expandSingle(FetchProcess.java:313)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:125)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:807)
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:864)
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:815)
+	... 11 more"
+"TW-14104","TeamCity","","""Searching for suitable configurations"" is too slow","Dmitry Avdeev","Tuesday, November 2, 2010 12:40:01 PM MSK","Thursday, July 7, 2011 2:39:13 PM MSD","Monday, July 4, 2011 11:43:23 AM MSD","Critical","Performance Problem","Eluru 6.5 (17795)","Fixed","neverov","Version Control: Git","No Affected versions","20010","I have to wait several minutes to submit a remote run"
+"TW-9574","TeamCity","","Git : Build hangs forever during stage called ""Checking for changes""","Alex B","Friday, September 25, 2009 12:03:16 PM MSD","Wednesday, December 1, 2010 12:21:43 PM MSK","Friday, September 24, 2010 3:32:45 PM MSD","Critical","Bug","Darjeeling 5.1.3 (13506), Eluru EAP (15509), Eluru 6.0 (15772)","Fixed","neverov","Version Control: Git","Calcutta 4.5.4 (9071)","15466","Hi.
+
+I am running "" TeamCity Enterprise Version 4.5.4 (build 9071)  "" and the Jetbrains Git plugin.
+
+When running git builds, they hang (indefinetly) untill i manually stop them:
+
+[04:00:01]: Checking for changes
+[09:52:14]: Build cancelled
+
+
+Two issues :
+
+1)Other builds can never run on that particular agent since it is busy
+2)The git plugin does not appear to work all the time.
+
+Mind you, I have had a couple of successfull builds with the git plugin.
+
+What other info can I provide ?
+"
+"TW-14606","TeamCity","","Git should not start several fetch processes for collect/fetch changes from same repository","Eugene Petrenko","Thursday, November 25, 2010 4:46:44 PM MSK","Friday, November 26, 2010 6:18:59 PM MSK","Friday, November 26, 2010 6:18:59 PM MSK","Critical","Bug","Eluru 6.0 (15772)","Fixed","pavel.sher","Version Control: Git","No Affected versions","15743","It started two process:
+{code}
+""c:\Team City 6\jre\bin\java"" -Xmx512M -cp *** jetbrains.buildServer.buildTriggers.vcs.git.Fetcher git://git.jetbrains.org/idea/community.git
+{code}
+for *same* git url.
+
+One process was started 29 minutes earlier than second one.
+Note, I got in the build log:
+{code}
+[2010-11-25 16:11:29,132]   WARN [loader 2 {id=2}] - Triggers.vcs.git.GitVcsSupport - 'git fetch' command failed.
+exception: Timeout exception
+[2010-11-25 16:11:29,148]   WARN [loader 2 {id=2}] -      jetbrains.buildServer.VCS - Error while loading vcs version for root 'git://git.jetbrains.org/idea/community.git#master {id=2}', id=2: 'git fetch' command failed.
+exception: Timeout exception
+[2010-11-25 16:11:29,148]   WARN [loader 2 {id=2}] -      jetbrains.buildServer.VCS - Error while loading changes for root git://git.jetbrains.org/idea/community.git#master {id=2}, cause: 'git fetch' command failed.
+exception: Timeout exception
+{code}
+
+I saw more detailed exception in system problems dialog, but, system problem has gone with this stacktrace.
+
+Possible issues:
+- On checking for changes timeout it should kill/reuse fetcher process
+- It should never start new fetcher process for same git repository
+
+Note, there could be several git VCS roots pointing to the same repository, I believe it should reuse one checkout folder for them (because waiting for an hour four each would be too long)"
+"TW-11291","TeamCity","","Confusing ""Unsupported version of Git is detected"" message on agent","Yegor Yarko","Monday, March 15, 2010 11:15:27 AM MSK","Sunday, October 17, 2010 9:14:23 PM MSD","Tuesday, September 28, 2010 4:12:37 PM MSD","Critical","Bug","Darjeeling 5.1.5 (13602), Eluru EAP (15509)","Fixed","neverov","Version Control: Git","No Affected versions","15480","{quote}
+[2010-03-15 11:10:44,014]  ERROR - s.git.agent.GitAgentVcsSupport - Unsupported version of Git is detected at (/usr/bin/git): 1.5.4.3
+{quote}
+
+Why is it unsupported?
+What versions are supported?"
+"TW-13330","TeamCity","","git fetch fails with unspecific error","Alexander Groß","Friday, September 10, 2010 8:09:18 PM MSD","Tuesday, September 14, 2010 9:35:13 AM MSD","Tuesday, September 14, 2010 9:35:04 AM MSD","Critical","Bug","Darjeeling 5.1.5 (13602), Eluru EAP (15509)","Fixed","neverov","Version Control: Git","Eluru EAP (15400)","15431","{code}
+[2010-09-10 18:02:28,913]   WARN [oader 1 {id=31}] -      jetbrains.buildServer.VCS - Error while loading changes for root git://github.com/agross/netopenspace.git#karlsruhe {id=31}, cause: 'git fetch' command failed.
+stderr: Exception in thread ""main"" java.lang.IllegalArgumentException: No enum const class jetbrains.buildServer.buildTriggers.vcs.git.Settings$UserNameStyle.U
+	at java.lang.Enum.valueOf(Unknown Source)
+	at jetbrains.buildServer.buildTriggers.vcs.git.Settings.<init>(Settings.java:106)
+	at jetbrains.buildServer.buildTriggers.vcs.git.Fetcher.fetch(Fetcher.java:66)
+	at jetbrains.buildServer.buildTriggers.vcs.git.Fetcher.main(Fetcher.java:44)
+{code}"
+"TW-13009","TeamCity","","Exception on git submodule update on windows","Yuriy Solodkyy","Tuesday, August 10, 2010 7:41:35 PM MSD","Monday, August 23, 2010 9:37:16 PM MSD","Monday, August 23, 2010 10:54:08 AM MSD","Critical","Bug","Darjeeling 5.1.4 (13550), Eluru EAP (15400)","Fixed","neverov","Version Control: Git","No Affected versions","15354","This exception appeared (I believe) after we added submodules to our project.  The checkout is from git on agent.  The same VCS configuration works fine on the second build agent which runs under linux. the cloned git repository in the work folder looks correct and submodules look are cloned and their working trees are checked out correctly.
+
+
+[2010-08-10 08:29:18,886]   WARN - ch.UpdateSourcesBuildStageBase - Error while checkout on agent: String index out of range: 1
+java.lang.StringIndexOutOfBoundsException: String index out of range: 1
+	at java.lang.String.charAt(Unknown Source)
+	at java.util.regex.Matcher.appendReplacement(Unknown Source)
+	at java.util.regex.Matcher.replaceAll(Unknown Source)
+	at java.lang.String.replaceAll(Unknown Source)
+	at jetbrains.buildServer.buildTriggers.vcs.git.agent.GitCommandUpdateProcess.doSubmoduleUpdate(GitCommandUpdateProcess.java:295)
+	at jetbrains.buildServer.buildTriggers.vcs.git.agent.GitUpdateProcess.updateSources(GitUpdateProcess.java:179)
+	at jetbrains.buildServer.buildTriggers.vcs.git.agent.GitAgentVcsSupport.updateSources(GitAgentVcsSupport.java:108)
+	at jetbrains.buildServer.agent.impl.patch.ProjectSourcesOnAgent.checkoutSources(ProjectSourcesOnAgent.java:72)
+	at jetbrains.buildServer.agent.impl.patch.UpdateSourcesFromAgent.updateSources(UpdateSourcesFromAgent.java:58)
+	at jetbrains.buildServer.agent.impl.patch.UpdateSourcesBuildStageBase.doSourceUpdate(UpdateSourcesBuildStageBase.java:87)
+	at jetbrains.buildServer.agent.impl.patch.UpdateSourcesBuildStageBase.doRecoverableStage(UpdateSourcesBuildStageBase.java:55)
+	at jetbrains.buildServer.agent.impl.runStages.RecoverableBuildStage.doBuildStage(RecoverableBuildStage.java:62)
+	at jetbrains.buildServer.agent.impl.BuildRunAction.callRunStage(BuildRunAction.java:115)
+	at jetbrains.buildServer.agent.impl.BuildRunAction.doStages(BuildRunAction.java:77)
+	at jetbrains.buildServer.agent.impl.BuildRunAction.access$000(BuildRunAction.java:17)
+	at jetbrains.buildServer.agent.impl.BuildRunAction$1.run(BuildRunAction.java:53)
+	at java.lang.Thread.run(Unknown Source)
+"
+"TW-10489","TeamCity","","Long builds Git checking for changes stage","Yegor Yarko","Thursday, December 3, 2009 1:23:22 PM MSK","Friday, May 21, 2010 11:28:21 PM MSD","Friday, May 21, 2010 2:56:50 PM MSD","Critical","Bug","Darjeeling 5.1.2 (13430), Eluru EAP (15193)","Fixed","neverov","Version Control: Git","Darjeeling 5.0 (10669)","15070","After single TW-10401, many configurations sit and check for changes (see thread dump at the bottom). The process then breaks with:
+
+Maia::Main (3 git roots ul+com+contrib)::
+[12:28:54]: Checking for changes
+[12:59:04]: java.util.concurrent.ExecutionException: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+java.util.concurrent.ExecutionException: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:222)
+at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:141)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:25)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:79)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:89)
+at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:87)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:78)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:74)
+at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+at java.lang.Thread.run(Thread.java:619)
+Caused by: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.processException(GitVcsSupport.java:159)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:827)
+at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:451)
+at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1146)
+at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1100)
+at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+... 5 more
+Caused by: org.eclipse.jgit.errors.TransportException: Remote does not have refs/heads/master available for fetch.
+at org.eclipse.jgit.transport.FetchProcess.expandSingle(FetchProcess.java:313)
+at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:125)
+at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+at org.eclipse.jgit.transport.Transport.fetch(Transport.java:807)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:864)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:815)
+... 11 more
+[12:59:04]: Build finished
+
+PyCharm::Gant Tests (3 git roots ul+com+contrib):
+[12:44:45]: Checking for changes
+[13:11:50]: Clearing temporary directory: C:\Agent\temp\buildTmp
+
+Ruby :: Plugin for IDEA trunk (2 git roots ul+com):
+[12:28:54]: Checking for changes
+[13:10:21]: jetbrains.buildServer.serverSide.ExecutionException: Changes collecting process was interrupted
+jetbrains.buildServer.serverSide.ExecutionException: Changes collecting process was interrupted
+at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:54)
+at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+at java.lang.Thread.run(Thread.java:619)
+[13:10:21]: Build cancelled
+
+
+Thread dump with idle threads removed:
+
+2009-12-03 12:39:59
+Full thread dump Java HotSpot(TM) Server VM (11.0-b16 mixed mode):
+
+""Connect thread git.labs.intellij.net session"" prio=6 tid=0x62ea7400 nid=0x16c8 runnable [0x5b6ff000..0x5b6ffa14]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at com.jcraft.jsch.IO.getByte(IO.java:82)
+        at com.jcraft.jsch.Session.read(Session.java:795)
+        at com.jcraft.jsch.Session.run(Session.java:1160)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 431"" prio=6 tid=0x5efbc400 nid=0xc08 waiting on condition [0x66a3f000..0x66a3fb94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x472a8a90> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:55)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:49)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 430"" prio=6 tid=0x5f282400 nid=0x1324 in Object.wait() [0x669ef000..0x669efc14]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x477d7630> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x477d7630> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x477d7630> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.FilterInputStream.read(FilterInputStream.java:116)
+        at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:102)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+        at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+        - locked <0x47827c28> (a java.io.BufferedInputStream)
+        at org.eclipse.jgit.util.IO.readFully(IO.java:122)
+        at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:120)
+        at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:92)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:163)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:144)
+        at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:321)
+        at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:92)
+        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:113)
+        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:807)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:864)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:815)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:451)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1146)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1100)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 429"" prio=6 tid=0x5eb0e400 nid=0x1064 waiting on condition [0x668ff000..0x668ffd94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x472500d8> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:141)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:25)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:79)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:89)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:87)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:7
+8)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:7
+4)
+        at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+        at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 426"" prio=6 tid=0x5f993400 nid=0x6b8 waiting on condition [0x6526f000..0x6526fa94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d0270> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 425"" prio=6 tid=0x5e8c6400 nid=0xf8 waiting on condition [0x6521f000..0x6521fb14]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x41b089d8> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:55)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:49)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 424"" prio=6 tid=0x5faae400 nid=0xce0 waiting on condition [0x651cf000..0x651cfb94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x41b08398> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:141)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:25)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:79)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:89)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:87)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:7
+8)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:7
+4)
+        at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+        at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 423"" prio=6 tid=0x6450a400 nid=0x3f8 waiting on condition [0x6512f000..0x6512fd14]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x4729ee00> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:55)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:49)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 422"" prio=6 tid=0x5ef6b400 nid=0x1678 waiting on condition [0x64d1f000..0x64d1fb94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d3270> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 420"" prio=6 tid=0x63649800 nid=0x10b4 waiting on condition [0x6009f000..0x6009fc94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d1288> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:124)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:123)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 419"" prio=6 tid=0x5f039400 nid=0x1fc waiting on condition [0x5d9df000..0x5d9dfc94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x41b605d0> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:55)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$1.call(VcsChangesCollectorImpl.java:49)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 418"" prio=6 tid=0x5ed0b400 nid=0xf80 waiting on condition [0x5d98f000..0x5d98fd14]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x472a8b70> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:141)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:25)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:79)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:89)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:87)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:78)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:74)
+        at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+        at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Cached pool executor 417"" prio=6 tid=0x63799800 nid=0xebc waiting on condition [0x5d93f000..0x5d93fd94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x41b07300> (a java.util.concurrent.FutureTask$Sync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:905)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1217)
+        at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:218)
+        at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+        at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:141)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:25)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:79)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:89)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:87)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:78)
+        at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:74)
+        at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+        at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:87)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/community#rubymine20 {id=295}; Changes loader 5 {id=295}-Timer"" daemon prio=6 ti
+d=0x62e63400 nid=0xa1c in Object.wait() [0x6699f000..0x6699fb14]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x37987238> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at org.eclipse.jgit.util.io.InterruptTimer$AlarmState.run(InterruptTimer.java:177)
+        - locked <0x37987238> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/community#rubymine20 {id=295}; Changes loader 5 {id=295}-Output"" prio=6 tid=0x5e
+bff400 nid=0x77c in Object.wait() [0x668af000..0x668afa94]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x37987598> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x37987598> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x37987598> (a java.io.PipedInputStream)
+        at java.io.InputStream.read(InputStream.java:85)
+        at org.eclipse.jgit.transport.TransportGitSsh$CopyThread.run(TransportGitSsh.java:272)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/contrib#rubymine20 {id=301}; Changes loader 1 {id=301}-Timer"" daemon prio=6 tid=
+0x6096d400 nid=0xcc0 in Object.wait() [0x66d0f000..0x66d0fd14]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x37987cf0> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at org.eclipse.jgit.util.io.InterruptTimer$AlarmState.run(InterruptTimer.java:177)
+        - locked <0x37987cf0> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/contrib#rubymine20 {id=301}; Changes loader 1 {id=301}-Output"" prio=6 tid=0x62c2
+8800 nid=0x1ec in Object.wait() [0x66b7f000..0x66b7fd94]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x37988048> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x37988048> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x37988048> (a java.io.PipedInputStream)
+        at java.io.InputStream.read(InputStream.java:85)
+        at org.eclipse.jgit.transport.TransportGitSsh$CopyThread.run(TransportGitSsh.java:272)
+
+""Connect thread git.labs.intellij.net session"" prio=6 tid=0x633f4400 nid=0xbe8 runnable [0x6694f000..0x6694fc14]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at com.jcraft.jsch.IO.getByte(IO.java:82)
+        at com.jcraft.jsch.Session.read(Session.java:795)
+        at com.jcraft.jsch.Session.run(Session.java:1160)
+        at java.lang.Thread.run(Thread.java:619)
+
+""Connect thread git.labs.intellij.net session"" prio=6 tid=0x5f17f800 nid=0x1454 runnable [0x66cbf000..0x66cbfd94]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at com.jcraft.jsch.IO.getByte(IO.java:82)
+        at com.jcraft.jsch.Session.read(Session.java:795)
+        at com.jcraft.jsch.Session.run(Session.java:1160)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/community#rubymine20 {id=295}; Changes loader 5 {id=295}"" prio=6 tid=0x5e6f1800
+nid=0x680 in Object.wait() [0x64c2f000..0x64c2fb94]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x37987a98> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x37987a98> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x37987a98> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.FilterInputStream.read(FilterInputStream.java:116)
+        at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:102)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+        at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+        - locked <0x379af1e0> (a java.io.BufferedInputStream)
+        at org.eclipse.jgit.util.IO.readFully(IO.java:122)
+        at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:120)
+        at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:92)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:163)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:144)
+        at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:321)
+        at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:92)
+        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:113)
+        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:807)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:864)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:815)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:451)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1146)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1100)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:167)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:29:41 Loading VCS changes for git@git.labs.intellij.net:idea/community#master {id=265}; Changes loader 4 {id=265}"" prio=6 tid=0x5e789400 nid=
+0x76c waiting on condition [0x64bdf000..0x64bdfb14]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d2dd0> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:167)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:31:13 Loading VCS changes for git@git.labs.intellij.net:idea/ultimate#master {id=266}; Changes loader 3 {id=266}"" prio=6 tid=0x5af4f400 nid=0
+x143c waiting on condition [0x64b8f000..0x64b8fc14]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d3270> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:167)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:29:13 Loading VCS changes for git@git.labs.intellij.net:idea/contrib#master {id=267}; Changes loader 2 {id=267}"" prio=6 tid=0x5ad31400 nid=0x
+934 waiting on condition [0x64b3f000..0x64b3fc94]
+   java.lang.Thread.State: WAITING (parking)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x127d3020> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:747)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:778)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1114)
+        at java.util.concurrent.locks.ReentrantLock$NonfairSync.lock(ReentrantLock.java:186)
+        at java.util.concurrent.locks.ReentrantLock.lock(ReentrantLock.java:262)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.lockChangesCollecting(VcsChangesLoader.java:505)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.lockChangesLoading(VcsManagerImpl.java:1126)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1097)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:167)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:13:06 Loading VCS changes for git@git.labs.intellij.net:idea/contrib#rubymine20 {id=301}; Changes loader 1 {id=301}"" prio=6 tid=0x59cb6c00 ni
+d=0x98 in Object.wait() [0x64aef000..0x64aefd14]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x379971c0> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x379971c0> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x379971c0> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.FilterInputStream.read(FilterInputStream.java:116)
+        at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:102)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+        at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+        - locked <0x37997240> (a java.io.BufferedInputStream)
+        at org.eclipse.jgit.util.IO.readFully(IO.java:122)
+        at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:120)
+        at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:92)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:163)
+        at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:144)
+        at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:321)
+        at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:92)
+        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:113)
+        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:807)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:864)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:815)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:451)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1146)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1100)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:167)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+""17:14:15 http-80-97 /diffView.html?id=579425&vcsFileName=svn%3a%2f%2fed0594e5-7722-0410-9c76-949374689613%7ctrunk%2fProfiler%2fSrc%2fRsPluginMan
+ager%2fSrc%2fPluginManager.cs&personal=true "" daemon prio=6 tid=0x598fac00 nid=0x15bc runnable [0x5d4de000..0x5d4dfa94]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:237)
+        - locked <0x1fc399b0> (a java.io.BufferedInputStream)
+        at org.tmatesoft.svn.core.internal.util.ChunkedInputStream.getChunkSizeFromInputStream(ChunkedInputStream.java:106)
+        at org.tmatesoft.svn.core.internal.util.ChunkedInputStream.nextChunk(ChunkedInputStream.java:92)
+        at org.tmatesoft.svn.core.internal.util.ChunkedInputStream.read(ChunkedInputStream.java:64)
+        at org.tmatesoft.svn.core.internal.util.SVNLogInputStream.read(SVNLogInputStream.java:55)
+        at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:264)
+        at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:306)
+        at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:158)
+        - locked <0x1fc39940> (a java.io.InputStreamReader)
+        at java.io.InputStreamReader.read(InputStreamReader.java:167)
+        at org.tmatesoft.svn.core.internal.io.dav.http.XMLReader.read(XMLReader.java:39)
+        at org.apache.xerces.impl.XMLEntityScanner.load(Unknown Source)
+        at org.apache.xerces.impl.XMLEntityScanner.skipChar(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+        at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+        at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+        at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+        at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+        at org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPConnection.readData(HTTPConnection.java:738)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPConnection.readData(HTTPConnection.java:703)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPRequest.dispatch(HTTPRequest.java:216)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPConnection.request(HTTPConnection.java:348)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPConnection.request(HTTPConnection.java:274)
+        at org.tmatesoft.svn.core.internal.io.dav.http.HTTPConnection.request(HTTPConnection.java:262)
+        at org.tmatesoft.svn.core.internal.io.dav.DAVConnection.doReport(DAVConnection.java:266)
+        at org.tmatesoft.svn.core.internal.io.dav.DAVRepository.runReport(DAVRepository.java:1261)
+        at org.tmatesoft.svn.core.internal.io.dav.DAVRepository.status(DAVRepository.java:803)
+        at org.tmatesoft.svn.core.io.SVNRepository.status(SVNRepository.java:2034)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsContentProvider.loadAllExternals(ExternalsContentProvider.java:108)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsContentProvider.loadExternals(ExternalsContentProvider.java:70)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsContentProvider.loadExternals(ExternalsContentProvider.java:60)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsContentProvider.calcExternals(ExternalsContentProvider.java:49)
+        - locked <0x1fc28680> (a jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsContentProvider)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.ExternalsProvider.collectExternals(ExternalsProvider.java:43)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.SvnConnection.processWithExternals(SvnConnection.java:689)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.SvnConnection.processPath(SvnConnection.java:659)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.SvnConnection.getContent(SvnConnection.java:643)
+        at jetbrains.buildServer.buildTriggers.vcs.svn.SvnSupport.getContent(SvnSupport.java:106)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getContentForVcsRoot(VcsManagerImpl.java:422)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getFileContent(VcsManagerImpl.java:489)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getFileContent(VcsManagerImpl.java:448)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.getFileContent(SecuredVcsManager.java:159)
+        at jetbrains.buildServer.serverSide.impl.personal.PersonalBuildManagerImpl.getCurrentRepositoryContentForPersonallyChangedFile(PersonalBuildManagerImpl.java:507)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredPersonalBuildManager.getCurrentRepositoryContentForPersonallyChangedFile(SecuredPersonalBuildManager.java:197)
+        at jetbrains.buildServer.vcs.impl.VcsModificationFactoryImpl$PersonalVcsModification.getContentBefore(VcsModificationFactoryImpl.java:176)
+        at jetbrains.buildServer.vcs.impl.ServerSideVcsFileModificationImpl.getContentBefore(ServerSideVcsFileModificationImpl.java:48)
+        at jetbrains.buildServer.controllers.changes.DiffViewUtil.fillDiffModel(DiffViewUtil.java:59)
+        at jetbrains.buildServer.controllers.changes.DiffViewController.doHandle(DiffViewController.java:44)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:61)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:51)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:39:59 http-80-84 /RPC2 "" daemon prio=6 tid=0x59863c00 nid=0xefc runnable [0x5d0cf000..0x5d0cfd94]
+   java.lang.Thread.State: RUNNABLE
+        at org.apache.xerces.impl.XMLEntityScanner.skipSpaces(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentScannerImpl$TrailingMiscDispatcher.dispatch(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+        at org.apache.xerces.parsers.NonValidatingConfiguration.parse(Unknown Source)
+        at org.apache.xerces.parsers.NonValidatingConfiguration.parse(Unknown Source)
+        at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+        at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+        at jetbrains.buildServer.TCNonValidatedSAXParser.parse(TCNonValidatedSAXParser.java:36)
+        at org.apache.xmlrpc.XmlRpc.parse(XmlRpc.java:472)
+        - locked <0x53ca21b8> (a org.apache.xmlrpc.XmlRpcRequestProcessor)
+        at org.apache.xmlrpc.XmlRpcRequestProcessor.decodeRequest(XmlRpcRequestProcessor.java:65)
+        at org.apache.xmlrpc.XmlRpcWorker.execute(XmlRpcWorker.java:143)
+        at jetbrains.buildServer.controllers.XmlRpcController$1$1.execute(XmlRpcController.java:80)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:139)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:114)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:146)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:145)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcSessionManager.executeRequest(XmlRpcSessionManager.java:131)
+        at jetbrains.buildServer.controllers.XmlRpcController.handleRequestInternal(XmlRpcController.java:142)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:39:59 http-80-60 /RPC2 "" daemon prio=6 tid=0x59556800 nid=0x1770 waiting on condition [0x5c94e000..0x5c94fc14]
+   java.lang.Thread.State: RUNNABLE
+        at org.apache.xerces.impl.XMLEntityScanner.skipSpaces(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentScannerImpl$TrailingMiscDispatcher.dispatch(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+        at org.apache.xerces.parsers.NonValidatingConfiguration.parse(Unknown Source)
+        at org.apache.xerces.parsers.NonValidatingConfiguration.parse(Unknown Source)
+        at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+        at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+        at jetbrains.buildServer.TCNonValidatedSAXParser.parse(TCNonValidatedSAXParser.java:36)
+        at org.apache.xmlrpc.XmlRpc.parse(XmlRpc.java:472)
+        - locked <0x54e51120> (a org.apache.xmlrpc.XmlRpcRequestProcessor)
+        at org.apache.xmlrpc.XmlRpcRequestProcessor.decodeRequest(XmlRpcRequestProcessor.java:65)
+        at org.apache.xmlrpc.XmlRpcWorker.execute(XmlRpcWorker.java:143)
+        at jetbrains.buildServer.controllers.XmlRpcController$1$1.execute(XmlRpcController.java:80)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:139)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:114)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:146)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:145)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcSessionManager.executeRequest(XmlRpcSessionManager.java:131)
+        at jetbrains.buildServer.controllers.XmlRpcController.handleRequestInternal(XmlRpcController.java:142)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:38:18 http-80-54 /repository/download/bt219/607429:id/ReSharperSetup.5.0.1547.3.msi "" daemon prio=6 tid=0x59535800 nid=0xc80 runnable [0x5c76
+f000..0x5c76fd14]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketOutputStream.socketWrite0(Native Method)
+        at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:92)
+        at java.net.SocketOutputStream.write(SocketOutputStream.java:136)
+        at org.apache.coyote.http11.InternalOutputBuffer.realWriteBytes(InternalOutputBuffer.java:740)
+        at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:354)
+        at org.apache.coyote.http11.InternalOutputBuffer$OutputStreamOutputBuffer.doWrite(InternalOutputBuffer.java:764)
+        at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:118)
+        at org.apache.coyote.http11.InternalOutputBuffer.doWrite(InternalOutputBuffer.java:573)
+        at org.apache.coyote.Response.doWrite(Response.java:560)
+        at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:353)
+        at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:434)
+        at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:349)
+        at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:381)
+        at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:370)
+        at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:89)
+        at jetbrains.buildServer.util.TCStreamUtil.writeBinary(TCStreamUtil.java:73)
+        at jetbrains.buildServer.util.FileUtil.copyFilePart(FileUtil.java:343)
+        at jetbrains.buildServer.controllers.artifacts.RepositoryDownloadController.doHandle(RepositoryDownloadController.java:222)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:61)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:39:59 http-80-34 /RPC2 "" daemon prio=6 tid=0x59565000 nid=0x8d4 runnable [0x5c12e000..0x5c12fb14]
+   java.lang.Thread.State: RUNNABLE
+        at jetbrains.buildServer.util.EventDispatcher.dispatch(EventDispatcher.java:115)
+        at jetbrains.buildServer.serverSide.ServerSideEventDispatcher.access$000(ServerSideEventDispatcher.java:14)
+        at jetbrains.buildServer.serverSide.ServerSideEventDispatcher$1$1.run(ServerSideEventDispatcher.java:35)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl$2.run(SecurityContextImpl.java:105)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:103)
+        at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:95)
+        at jetbrains.buildServer.serverSide.ServerSideEventDispatcher$1.invoke(ServerSideEventDispatcher.java:33)
+        at $Proxy4.messageReceived(Unknown Source)
+        at jetbrains.buildServer.serverSide.impl.RunningBuildImpl.processMessage(RunningBuildImpl.java:318)
+        at jetbrains.buildServer.serverSide.impl.RunningBuildImpl.addBuildMessage(RunningBuildImpl.java:293)
+        at jetbrains.buildServer.serverSide.impl.RunningBuildImpl.addBuildMessages(RunningBuildImpl.java:286)
+        at jetbrains.buildServer.serverSide.impl.RunningBuildImpl$$FastClassByCGLIB$$97f19efe.invoke(<generated>)
+        at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+        at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+        at jetbrains.buildServer.serverSide.impl.auth.TeamCityMethodSecurityInterceptor.invoke(TeamCityMethodSecurityInterceptor.java:40)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+        at org.springframework.aop.framework.Cglib2AopProxy$FixedChainStaticTargetInterceptor.intercept(Cglib2AopProxy.java:582)
+        at jetbrains.buildServer.serverSide.impl.RunningBuildImpl$$EnhancerByCGLIB$$45db0dad.addBuildMessages(<generated>)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcBasedServer$1.doInTransactionWithoutResult(XmlRpcBasedServer.java:236)
+        at org.springframework.transaction.support.TransactionCallbackWithoutResult.doInTransaction(TransactionCallbackWithoutResult.java:33)
+        at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:128)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcBasedServer.doAddMessages(XmlRpcBasedServer.java:233)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcBasedServer.log(XmlRpcBasedServer.java:195)
+        at sun.reflect.GeneratedMethodAccessor88.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+        at java.lang.reflect.Method.invoke(Method.java:597)
+        at jetbrains.buildServer.serverSide.impl.ExceptionCollectorWrapper.execute(ExceptionCollectorWrapper.java:83)
+        at jetbrains.buildServer.controllers.XmlRpcController$2.execute(XmlRpcController.java:130)
+        at jetbrains.buildServer.serverSide.impl.MonitoringWrapper.execute(MonitoringWrapper.java:25)
+        at org.apache.xmlrpc.XmlRpcWorker.invokeHandler(XmlRpcWorker.java:84)
+        at org.apache.xmlrpc.XmlRpcWorker.execute(XmlRpcWorker.java:146)
+        at jetbrains.buildServer.controllers.XmlRpcController$1$1.execute(XmlRpcController.java:80)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:139)
+        at org.apache.xmlrpc.XmlRpcServer.execute(XmlRpcServer.java:114)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:146)
+        at jetbrains.buildServer.controllers.XmlRpcController$3.apply(XmlRpcController.java:145)
+        at jetbrains.buildServer.serverSide.impl.XmlRpcSessionManager.executeRequest(XmlRpcSessionManager.java:131)
+        at jetbrains.buildServer.controllers.XmlRpcController.handleRequestInternal(XmlRpcController.java:142)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:39:59 http-80-9 /repository/download/bt520/590156:id/coverage.ec "" daemon prio=6 tid=0x59929000 nid=0x15e8 runnable [0x5b95e000..0x5b95fc94]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.PlainSocketImpl.socketAvailable(Native Method)
+        at java.net.PlainSocketImpl.available(PlainSocketImpl.java:448)
+        - locked <0x0bcf94d8> (a java.net.SocksSocketImpl)
+        at java.net.SocketInputStream.available(SocketInputStream.java:217)
+        at com.mysql.jdbc.util.ReadAheadInputStream.available(ReadAheadInputStream.java:231)
+        at com.mysql.jdbc.MysqlIO.clearInputStream(MysqlIO.java:937)
+        at com.mysql.jdbc.MysqlIO.readAllResults(MysqlIO.java:1798)
+        at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2159)
+        at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2554)
+        - locked <0x0bd07920> (a java.lang.Object)
+        at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1761)
+        at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1017)
+        - locked <0x0bd07920> (a java.lang.Object)
+        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:169)
+        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:169)
+        at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:169)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery$7.action(GenericQuery.java:331)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery$8.apply(GenericQuery.java:372)
+        at jetbrains.buildServer.serverSide.db.DBFunctions.withDB(DBFunctions.java:760)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery.underPreparedStatement(GenericQuery.java:368)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery.doExecuteQuery(GenericQuery.java:329)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery.access$100(GenericQuery.java:27)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery$2.run(GenericQuery.java:118)
+        at jetbrains.buildServer.serverSide.impl.DBFacade$5.doInConnection(DBFacade.java:587)
+        at jetbrains.buildServer.serverSide.impl.DBFacade$6.doInConnection(DBFacade.java:609)
+        at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+        at jetbrains.buildServer.serverSide.impl.DBFacade._runSql(DBFacade.java:605)
+        at jetbrains.buildServer.serverSide.impl.DBFacade.runSql(DBFacade.java:585)
+        at jetbrains.buildServer.serverSide.impl.query.GenericQuery.execute(GenericQuery.java:115)
+        at jetbrains.buildServer.serverSide.impl.query.AbstractQueryRunner.processItems(AbstractQueryRunner.java:82)
+        at jetbrains.buildServer.serverSide.impl.query.AbstractQueryRunner.getItems(AbstractQueryRunner.java:88)
+        at jetbrains.buildServer.serverSide.impl.history.HistoryQueryRunner.getBuilds(HistoryQueryRunner.java:77)
+        at jetbrains.buildServer.serverSide.impl.history.DBBuildHistory.findEntry(DBBuildHistory.java:262)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredBuildHistory.findEntry(SecuredBuildHistory.java:148)
+        at jetbrains.buildServer.serverSide.impl.BuildServerImpl.findBuildInstanceById(BuildServerImpl.java:1032)
+        at jetbrains.buildServer.controllers.artifacts.RepositoryDownloadController.getBuild(RepositoryDownloadController.java:439)
+        at jetbrains.buildServer.controllers.artifacts.RepositoryDownloadController.doHandle(RepositoryDownloadController.java:147)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:61)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+        at javax.servlet.http.HttpServlet.doHead(HttpServlet.java:241)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        at jetbrains.buildServer.rootDispatcher.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:222)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at jetbrains.buildServer.web.SetThreadNameFilter.runChainWithModifiedThreadName(SetThreadNameFilter.java:41)
+        at jetbrains.buildServer.web.SetThreadNameFilter.doFilter(SetThreadNameFilter.java:28)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+        at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+        at java.lang.Thread.run(Thread.java:619)
+"
+"TW-12143","TeamCity","","Git checking for changes threads can hang (patched jgit 0.7.1 case)","Yegor Yarko","Friday, May 14, 2010 10:43:59 PM MSD","Friday, May 21, 2010 2:47:37 PM MSD","Friday, May 21, 2010 2:41:58 PM MSD","Critical","Bug","Darjeeling 5.1.2 (13430)","Fixed","neverov","Version Control: Git","No Affected versions","15070","buildserver, git plugin 15000 (BTW, please include revision/date in the version for snapshot builds) built 2010-05-13 12:36
+
+
+Thread dump at 2010-05-14 22:33:59:
+""12:41:08 Loading VCS changes for ssh://git@git.labs.intellij.net/teamcity/git-plugin.git#master {id=268}; Changes loade
+r 3 {id=268}-Timer"" daemon prio=6 tid=0x0000000008dae800 nid=0x1630 in Object.wait() [0x000000001e0df000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000badc3f60> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at org.eclipse.jgit.util.io.InterruptTimer$AlarmState.run(InterruptTimer.java:186)
+        - locked <0x00000000badc3f60> (a org.eclipse.jgit.util.io.InterruptTimer$AlarmState)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:41:08 Loading VCS changes for ssh://git@git.labs.intellij.net/teamcity/git-plugin.git#master {id=268}; Changes loade
+r 3 {id=268}-StreamCopy-OUT_STREAM"" prio=6 tid=0x0000000008dad800 nid=0xa5c in Object.wait() [0x000000001dfdf000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000badc44c8> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x00000000badc44c8> (a java.io.PipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x00000000badc44c8> (a java.io.PipedInputStream)
+        at java.io.InputStream.read(InputStream.java:85)
+        at org.eclipse.jgit.util.io.StreamCopyThread.run(StreamCopyThread.java:102)
+
+""12:41:08 Loading VCS changes for ssh://git@git.labs.intellij.net/teamcity/git-plugin.git#master {id=268}; Changes loade
+r 3 {id=268}-StreamCopy-ERROR_STREAM"" prio=6 tid=0x0000000008dad000 nid=0x1a24 in Object.wait() [0x000000001dbdf000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000badd4960> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x00000000badd4960> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x00000000badd4960> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.InputStream.read(InputStream.java:85)
+        at org.eclipse.jgit.util.io.StreamCopyThread.run(StreamCopyThread.java:102)
+
+""Connect thread git.labs.intellij.net session"" prio=6 tid=0x0000000008b13000 nid=0x9e4 runnable [0x000000001cedf000]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.read(SocketInputStream.java:129)
+        at com.jcraft.jsch.IO.getByte(IO.java:82)
+        at com.jcraft.jsch.Session.read(Session.java:809)
+        at com.jcraft.jsch.Session.run(Session.java:1193)
+        at java.lang.Thread.run(Thread.java:619)
+
+""12:41:08 Loading VCS changes for ssh://git@git.labs.intellij.net/teamcity/git-plugin.git#master {id=268}; Changes loade
+r 3 {id=268}"" prio=6 tid=0x000000000927d800 nid=0x1700 in Object.wait() [0x000000001a62e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000badd49a0> (a org.eclipse.jgit.util.io.StreamCopyThread)
+        at java.lang.Thread.join(Thread.java:1143)
+        - locked <0x00000000badd49a0> (a org.eclipse.jgit.util.io.StreamCopyThread)
+        at java.lang.Thread.join(Thread.java:1196)
+        at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.close(TransportGitSsh.java:278)
+        at org.eclipse.jgit.transport.FetchProcess.closeConnection(FetchProcess.java:215)
+        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:173)
+        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:109)
+        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:814)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:885)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:834)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:471)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1147)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1099)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:50)
+        at jetbrains.buildServer.serverSide.impl.VcsModificationChecker$1.run(VcsModificationChecker.java:174)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)"
+"TW-8056","TeamCity","","Remote Run for Git in IDEA","Yegor Yarko","Wednesday, April 22, 2009 9:41:40 PM MSD","Friday, October 30, 2009 7:10:11 PM MSK","Thursday, October 1, 2009 2:46:21 PM MSD","Critical","Feature","Darjeeling 5.0 EAP (10522)","Fixed","maxim.manuylov","Version Control: Git","No Affected versions","10427",""
+"TW-9611","TeamCity","","Ensure git repository communications have timeout","Yegor Yarko","Tuesday, September 29, 2009 6:04:15 PM MSD","Friday, October 30, 2009 7:09:48 PM MSK","Wednesday, October 7, 2009 8:55:00 PM MSD","Critical","Bug","Darjeeling 5.0 EAP (10522)","Fixed","const","Version Control: Git","No Affected versions","10435","e.g. we have a thread that hanged for about two hours:
+""Cached pool executor 386"" prio=6 tid=0x5bb09400 nid=0xbb0 in Object.wait() [0x64a9f000..0x64a9fc94]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x2af56750> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:310)
+        - locked <0x2af56750> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.PipedInputStream.read(PipedInputStream.java:361)
+        - locked <0x2af56750> (a com.jcraft.jsch.Channel$MyPipedInputStream)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+        at java.io.BufferedInputStream.read1(BufferedInputStream.java:258)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:317)
+        - locked <0x2af2b1e8> (a java.io.BufferedInputStream)
+        at org.spearce.jgit.util.NB.readFully(NB.java:119)
+        at org.spearce.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:120)
+        at org.spearce.jgit.transport.PacketLineIn.readString(PacketLineIn.java:92)
+        at org.spearce.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:161)
+        at org.spearce.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:142)
+        at org.spearce.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:321)
+        at org.spearce.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:92)
+        at org.spearce.jgit.transport.FetchProcess.executeImp(FetchProcess.java:113)
+        at org.spearce.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+        at org.spearce.jgit.transport.Transport.fetch(Transport.java:807)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:861)
+        at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:812)
+        at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:439)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1051)
+        at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1005)
+        at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:47)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:122)
+        at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:121)
+        at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:619)
+
+
+build log:
+[15:48:05]: Checking for changes
+[17:52:08]: java.util.concurrent.ExecutionException: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.spearce.jgit.errors.NoRemoteRepositoryException: git@git.labs.intellij.net:idea/ultimate: not found.
+java.util.concurrent.ExecutionException: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.spearce.jgit.errors.NoRemoteRepositoryException: git@git.labs.intellij.net:idea/ultimate: not found.
+at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:222)
+at java.util.concurrent.FutureTask.get(FutureTask.java:83)
+at jetbrains.buildServer.serverSide.impl.CancelableTaskHolder.waitForTaskToComplete(CancelableTaskHolder.java:29)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.doCollectChanges(TopBuildDependencyGraphImpl.java:140)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.access$000(TopBuildDependencyGraphImpl.java:26)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:81)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$3.run(TopBuildDependencyGraphImpl.java:80)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl$4.run(TopBuildDependencyGraphImpl.java:90)
+at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAs(SecurityContextImpl.java:115)
+at jetbrains.buildServer.serverSide.impl.auth.SecurityContextImpl.runAsSystem(SecurityContextImpl.java:99)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.runAsSystem(TopBuildDependencyGraphImpl.java:88)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:79)
+at jetbrains.buildServer.serverSide.impl.dependency.TopBuildDependencyGraphImpl.collectChangesForGraph(TopBuildDependencyGraphImpl.java:75)
+at jetbrains.buildServer.serverSide.impl.BuildChangesCollector.collectChangesForBuild(BuildChangesCollector.java:49)
+at jetbrains.buildServer.serverSide.impl.BuildStarter$1.run(BuildStarter.java:88)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+at java.lang.Thread.run(Thread.java:619)
+Caused by: jetbrains.buildServer.vcs.VcsException: The retrieving current version failed:
+org.spearce.jgit.errors.NoRemoteRepositoryException: git@git.labs.intellij.net:idea/ultimate: not found.
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.processException(GitVcsSupport.java:164)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:824)
+at jetbrains.buildServer.buildTriggers.vcs.VcsChangesLoader.getCurrentVersion(VcsChangesLoader.java:439)
+at jetbrains.buildServer.vcs.impl.VcsManagerImpl.getVersionsForAllRoots(VcsManagerImpl.java:1051)
+at jetbrains.buildServer.vcs.impl.VcsManagerImpl.loadChanges(VcsManagerImpl.java:1005)
+at jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager.loadChanges(SecuredVcsManager.java:47)
+at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:122)
+at jetbrains.buildServer.vcs.impl.VcsChangesCollectorImpl$3.call(VcsChangesCollectorImpl.java:121)
+... 5 more
+Caused by: org.spearce.jgit.errors.NoRemoteRepositoryException: git@git.labs.intellij.net:idea/ultimate: not found.
+at org.spearce.jgit.transport.BasePackConnection.noRepository(BasePackConnection.java:223)
+at org.spearce.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:164)
+at org.spearce.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:142)
+at org.spearce.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:321)
+at org.spearce.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:92)
+at org.spearce.jgit.transport.FetchProcess.executeImp(FetchProcess.java:113)
+at org.spearce.jgit.transport.FetchProcess.execute(FetchProcess.java:103)
+at org.spearce.jgit.transport.Transport.fetch(Transport.java:807)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.fetchBranchData(GitVcsSupport.java:861)
+at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.getCurrentVersion(GitVcsSupport.java:812)
+... 11 more
+[17:52:08]: Build finished"
+"TW-8979","TeamCity","","Teamcity, when building a merge commit, is only including changes from one side of the merge","Russell Egan","Monday, July 27, 2009 1:14:23 AM MSD","Saturday, September 26, 2009 2:19:54 AM MSD","Wednesday, September 9, 2009 9:08:57 PM MSD","Critical","Bug","Calcutta 4.5.5 (9103)","Fixed","pavel.sher","Version Control: Git","Calcutta 4.5.4 (9071)","10358","I had pushed a series of changes to our central repo.  These were included in our builds correctly.  However, a colleague pushed a merge commit to the repo, merging his changes with mine.  On the next incremental build, his changes were included, but mine were not.  Interestingly, this build was performed on the same build agent, in the same working directory, so the change patch TeamCity sent from the build agent must have actually reverted my changes as well as applying his.
+
+I can see from the teamcity log that teamcity build from the last commit on his branch, but ignored the merge commit that brought his and my changes together.  Checking pending changes isn't helping: the merge commit is not displayed in the pending changes.
+
+I've attached a screen shot of gitk and the teamcity change log.  I'm running TeamCity 4.5.4 with the #pub-37 build of the git plugin."
+"TW-8259","TeamCity","","Cannot select private key when adding a new Git VCS root to build","Geoffrey Arnold","Tuesday, May 19, 2009 3:43:52 PM MSD","Monday, June 8, 2009 4:17:04 PM MSD","Wednesday, May 20, 2009 5:05:40 PM MSD","Critical","Bug","Calcutta 4.5.2 (9029)","Fixed","const","Version Control: Git","Calcutta 4.5.1 (8975)","No Fixed in build","When you initially select ""Create and attach new VCS root"" and choose ""Git (JetBrains)"" as the ""Type of VCS"", you are presented with the option to choose the ""Authentication Method"".  If you select ""Private Key"", you are not able to select the location of the private key.  Instead, you must fill out the rest of the form, click ""Save"", and then go back and edit the VCS root configuration to select the private key.
+
+I've tested this on TeamCity 4.5.1 with the latest Git EAP plugin on Safari/OS X 3.2.3."
+"TW-7949","TeamCity","","NPE on manual labeling","Yegor Yarko","Thursday, April 16, 2009 3:01:07 PM MSD","Thursday, April 16, 2009 4:57:23 PM MSD","Thursday, April 28, 2011 9:50:23 PM MSD","Critical","Bug","Medium Priority Pool","Fixed","const","Version Control: Git","No Affected versions","17577","f30d37de929bcc149532ea81bc8a5f8d8b8bf227
+
+[2009-04-16 14:58:47,268]   WARN -      jetbrains.buildServer.VCS - Failed to set label 'git.plugin.build-4'
+java.lang.NullPointerException
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.processException(GitVcsSupport.java:103)
+	at jetbrains.buildServer.buildTriggers.vcs.git.GitVcsSupport.label(GitVcsSupport.java:777)
+	at jetbrains.buildServer.vcs.impl.VcsLabeler.setLabel(VcsLabeler.java:130)
+	at jetbrains.buildServer.vcs.impl.VcsLabeler.setLabel(VcsLabeler.java:208)
+	at jetbrains.buildServer.serverSide.impl.FinishedBuildImpl.setLabel(FinishedBuildImpl.java:250)
+	at jetbrains.buildServer.serverSide.impl.auth.SecuredBuildFactory$1.setLabel(SecuredBuildFactory.java:166)
+	at jetbrains.buildServer.controllers.SetLabelAction.doProcess(SetLabelAction.java:36)
+	at jetbrains.buildServer.controllers.OneParamAction.process(OneParamAction.java:40)
+	at jetbrains.buildServer.controllers.BaseActionController.doAction(BaseActionController.java:37)
+	at jetbrains.buildServer.controllers.BaseAjaxActionController$1.handleRequest(BaseAjaxActionController.java:30)
+	at jetbrains.buildServer.controllers.AjaxRequestProcessor.processRequest(AjaxRequestProcessor.java:29)
+	at jetbrains.buildServer.controllers.BaseAjaxActionController.doHandle(BaseAjaxActionController.java:28)
+	at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:60)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:809)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:523)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:463)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at jetbrains.spring.web.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:46)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:286)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:845)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:447)
+	at java.lang.Thread.run(Thread.java:619)
+"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://youtrack.jetbrains.net/ "Issue Id, Type, Priority, State, Summary" "Type, Summary" true
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!-- Generated with http://goo.gl/7WHjH -->
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
+|-
+!#
+!Issue Id
+!Type
+!Priority
+!State
+!Summary
+|-
+|1
+|[http://youtrack.jetbrains.net/issue/TW-8259 TW-8259]
+|Bug
+|Critical
+|Fixed
+|Cannot select private key when adding a new Git VCS root to build
+|-
+|2
+|[http://youtrack.jetbrains.net/issue/TW-11291 TW-11291]
+|Bug
+|Critical
+|Fixed
+|Confusing "Unsupported version of Git is detected" message on agent
+|-
+|3
+|[http://youtrack.jetbrains.net/issue/TW-9611 TW-9611]
+|Bug
+|Critical
+|Fixed
+|Ensure git repository communications have timeout
+|-
+|4
+|[http://youtrack.jetbrains.net/issue/TW-13009 TW-13009]
+|Bug
+|Critical
+|Fixed
+|Exception on git submodule update on windows
+|-
+|5
+|[http://youtrack.jetbrains.net/issue/TW-9574 TW-9574]
+|Bug
+|Critical
+|Fixed
+|Git : Build hangs forever during stage called "Checking for changes"
+|-
+|6
+|[http://youtrack.jetbrains.net/issue/TW-12143 TW-12143]
+|Bug
+|Critical
+|Fixed
+|Git checking for changes threads can hang (patched jgit 0.7.1 case)
+|-
+|7
+|[http://youtrack.jetbrains.net/issue/TW-14606 TW-14606]
+|Bug
+|Critical
+|Fixed
+|Git should not start several fetch processes for collect/fetch changes from same repository
+|-
+|8
+|[http://youtrack.jetbrains.net/issue/TW-10489 TW-10489]
+|Bug
+|Critical
+|Fixed
+|Long builds Git checking for changes stage
+|-
+|9
+|[http://youtrack.jetbrains.net/issue/TW-7949 TW-7949]
+|Bug
+|Critical
+|Fixed
+|NPE on manual labeling
+|-
+|10
+|[http://youtrack.jetbrains.net/issue/TW-10401 TW-10401]
+|Bug
+|Critical
+|Fixed
+|Occasional TransportException: Remote does not have refs/heads/master available for fetch.
+|-
+|11
+|[http://youtrack.jetbrains.net/issue/TW-8979 TW-8979]
+|Bug
+|Critical
+|Fixed
+|Teamcity, when building a merge commit, is only including changes from one side of the merge
+|-
+|12
+|[http://youtrack.jetbrains.net/issue/TW-13330 TW-13330]
+|Bug
+|Critical
+|Fixed
+|git fetch fails with unspecific error
+|-
+|13
+|[http://youtrack.jetbrains.net/issue/TW-10741 TW-10741]
+|Feature
+|Critical
+|Fixed
+|Agent-side checkout for Git
+|-
+|14
+|[http://youtrack.jetbrains.net/issue/TW-8056 TW-8056]
+|Feature
+|Critical
+|Fixed
+|Remote Run for Git in IDEA
+|-
+|15
+|[http://youtrack.jetbrains.net/issue/TW-14104 TW-14104]
+|Performance Problem
+|Critical
+|Fixed
+|"Searching for suitable configurations" is too slow
+|-
+|}

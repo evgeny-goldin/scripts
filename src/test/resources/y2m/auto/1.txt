@@ -1,0 +1,153 @@
+http://evgeny-goldin.org/youtrack/issues/gc?q=fix+for%3A+0.5.3.4
+http://evgeny-goldin.org/youtrack/export/exportCsvQuery/xml?projectKey=gc&query=fix+for%3A+0.5.3.4
+http://evgeny-goldin.com/wiki/Y2m#Demo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","State","Assignee","Subsystem","Fix versions","Affected versions","Fixed in build","Description"
+"gc-90","GCommons","","FileBean.copyDir() - copy directory recursively","Evgeny Goldin","Monday, October 3, 2011 5:37:29 PM IST","Wednesday, October 19, 2011 9:46:33 PM IST","Monday, October 3, 2011 9:33:16 PM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","365","{code}
+GCommons.file().copyDir( File         sourceDirectory,
+                         File         destinationDirectory,
+                         List<String> includePatterns,
+                         List<String> excludePatterns,
+                         boolean      failIfNotFound )
+{code}
+
+Tests are available: [https://github.com/evgeny-goldin/gcommons/blob/d9aea4f9dca9b1d0e39085595290ce1b505d5462/src/test/groovy/com/goldin/gcommons/beans/FileBeanSpec.groovy#L56 1], [https://github.com/evgeny-goldin/gcommons/blob/d9aea4f9dca9b1d0e39085595290ce1b505d5462/src/test/groovy/com/goldin/gcommons/beans/FileBeanSpec.groovy#L79 2]."
+"gc-67","GCommons","Star","Do not impose logging backend","Michael Osipov","Monday, April 4, 2011 4:47:47 PM IDT","Tuesday, October 18, 2011 10:26:30 AM IST","Sunday, July 24, 2011 3:54:20 PM IDT","Normal","Usability Problem","Fixed","Unassigned","No subsystem","0.5.3.4","0.5.2","339","For some strange reason GCommons imposes the dev to use Logback. The common approach in a utility lib is to use slf4j and let the client code decide which backend it prefers. More over, if someone uses GCommons and Logback in it's client code, their might be some conflict in logging configuration. Remove that dep please."
+"gc-40","GCommons","","FileBean.checksum() - add checksum support","Evgeny Goldin","Wednesday, July 14, 2010 10:53:44 PM IDT","Tuesday, October 18, 2011 2:50:34 AM IST","Tuesday, October 4, 2011 2:56:40 AM IST","Normal","Feature","Fixed","evgenyg","No subsystem","0.5.3.4","No Affected versions","367","Test is [https://github.com/evgeny-goldin/gcommons/blob/3fa16c3879cff9fc201f1d3f49ddfea5e4541755/src/test/groovy/com/goldin/gcommons/beans/FileBeanTest.groovy#L120 available]."
+"gc-84","GCommons","","FileBean.unpack() - allow to optionally use TrueZip when unpacking archives","Evgeny Goldin","Tuesday, August 16, 2011 4:45:37 PM IDT","Tuesday, October 18, 2011 2:26:42 AM IST","Tuesday, August 16, 2011 5:37:24 PM IDT","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","352","See [http://evgeny-goldin.org/groovydoc/gcommons/com/goldin/gcommons/beans/FileBean.html FileBean.unpack()] and [https://github.com/evgeny-goldin/gcommons/blob/e6e11ea2112856cce833afb14dad5c99d71cf2eb/src/test/groovy/com/goldin/gcommons/beans/FileBeanTest.groovy#L372 test]."
+"gc-85","GCommons","","FileBean.pack() - allow to optionally use TrueZip when packing archives","Evgeny Goldin","Tuesday, August 16, 2011 6:33:58 PM IDT","Tuesday, October 18, 2011 2:20:06 AM IST","Saturday, October 8, 2011 3:19:13 AM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","385","{code}
+GCommons.file().pack ( File         sourceDirectory,
+                       File         destinationArchive,
+                       List<String> includes        = null,
+                       List<String> excludes        = null,
+                       boolean      useTrueZip      = false,
+                       ...
+{code}
+Test is [https://github.com/evgeny-goldin/gcommons/blob/03a929dbb61d4d298b43279ff76e4297ea27b71f/src/test/groovy/com/goldin/gcommons/specs/FileBeanSpec.groovy#L18 availble]."
+"gc-78","GCommons","","Duplicate log messages","Evgeny Goldin","Wednesday, July 27, 2011 4:03:14 PM IDT","Tuesday, October 18, 2011 2:18:15 AM IST","Tuesday, October 4, 2011 2:54:23 AM IST","Normal","Bug","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","367",""
+"gc-77","GCommons","","FileBean.pack() - add ""fullpath"" and ""prefix"" options","Evgeny Goldin","Sunday, July 24, 2011 2:57:06 PM IDT","Tuesday, October 18, 2011 2:15:56 AM IST","Sunday, July 24, 2011 3:54:32 PM IDT","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","339","Similarly to Ant [http://evgeny-goldin.org/javadoc/ant/Types/zipfileset.html {{<zipfileset>}}].
+Test is [https://github.com/evgeny-goldin/gcommons/blob/03badf73aa11deafef4d04ec2ba214ff3ab433d5/src/test/groovy/com/goldin/gcommons/beans/FileBeanTest.groovy#L271 available].
+
+"
+"gc-88","GCommons","","FileBean.pack() - support ""fullpath"", ""prefix"" for all archives (zip/tar/tar.gz) and ""filemode"" for tar/tar.gz","Evgeny Goldin","Wednesday, September 14, 2011 3:16:11 AM IDT","Tuesday, October 18, 2011 2:13:33 AM IST","Saturday, October 8, 2011 4:45:53 AM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","385","{code}
+GCommons.file().pack ( File         sourceDirectory,
+                       File         destinationArchive,
+                       List<String> includes        = null,
+                       List<String> excludes        = null,
+                       boolean      useTrueZip      = false,
+                       boolean      failIfNotFound  = true,
+                       boolean      update          = false,
+                       List<String> defaultExcludes = null,
+                       String       fullpath        = null,
+                       String       prefix          = null )
+{code}
+Tests are available for [https://github.com/evgeny-goldin/gcommons/blob/10b611ba2884f7b6f865a580b238ff1f60d720b5/src/test/groovy/com/goldin/gcommons/specs/FileBeanSpec.groovy#L65 fullpath/prefix] and [https://github.com/evgeny-goldin/gcommons/blob/10b611ba2884f7b6f865a580b238ff1f60d720b5/src/test/groovy/com/goldin/gcommons/specs/FileBeanSpec.groovy#L117 filemode]. Note that to use filemode you need to:
+
+* Use Ant for packing archives, not TrueZip.
+* Specify *{{filemode}}* as part of include pattern: {{""*.sh|700""}} or {{""*.sh|755""}}"
+"gc-94","GCommons","","VerifyBean.equal() - use combination ""directory/pattern"" to match files","Evgeny Goldin","Thursday, October 13, 2011 12:38:30 AM IST","Friday, October 14, 2011 8:28:32 PM IST","Friday, October 14, 2011 8:16:17 PM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","388","{code}
+GCommons.verify().equal ( File    file1,
+                          File    file2,
+                          boolean verifyChecksum = true,
+                          String  pattern        = null,
+                          String  endOfLine      = null,
+                          boolean failIfNoFiles  = true )
+{code}
+
+where *{{""pattern""}}* can be {{""*.txt""}} or {{""**/*.txt""}}. If both {{""file1""}} and {{""file2""}} are directories, then {{""*.txt""}} will only check direct children of those directories while {{""**/*.txt""}} will work recursively, all levels down.
+
+Test is [https://github.com/evgeny-goldin/gcommons/blob/d3a2bc4dead7454e600086971c8f0c4cf3ebaa70/src/test/groovy/com/goldin/gcommons/tests/VerifyBeanEqualTest.groovy#L133 available]."
+"gc-95","GCommons","","VerifyBean.equal() - provide an option whether or not to fail if no files were found","Evgeny Goldin","Thursday, October 13, 2011 1:35:12 AM IST","Thursday, October 13, 2011 2:01:34 AM IST","Thursday, October 13, 2011 1:58:06 AM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","387","{code}
+int GCommons.verify().equal( File    file1,
+                             File    file2,
+                             boolean verifyChecksum = true,
+                             String  pattern        = null,
+                             String  endOfLine      = null,
+                             boolean failIfNoFiles  = true )
+{code}
+Number of files verified is returned. Test is [https://github.com/evgeny-goldin/gcommons/blob/1fa520741f0258b17c70438c7b1aa7f23beb0fe5/src/test/groovy/com/goldin/gcommons/tests/VerifyBeanEqualTest.groovy#L133 available]."
+"gc-93","GCommons","","FileBean.pack() - support ""filemode"" specified as part of include pattern","Evgeny Goldin","Monday, October 10, 2011 12:16:05 AM IST","Monday, October 10, 2011 3:04:07 AM IST","Monday, October 10, 2011 2:57:49 AM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","385","{code}
+GCommons.file().pack( sourceDirectory, destinationArchive, [ '*.php', '*.sh|755' ], [], false )
+GCommons.file().pack( sourceDirectory, destinationArchive, [ '*.php', '*.sh|755' ] )
+{code}
+where *{{""destinationArchive""}}* is a *{{""tar.gz""}}* archive and *{{""useTrueZip""}}* argument is {{false}}.
+This feature only works when *{{tar.gz}}* archives are packed with Ant.
+
+Test is [https://github.com/evgeny-goldin/gcommons/blob/10b611ba2884f7b6f865a580b238ff1f60d720b5/src/test/groovy/com/goldin/gcommons/specs/FileBeanSpec.groovy#L117 available]."
+"gc-87","GCommons","","GeneralBean.executeWithResult() returning String (stdout + stderr)","Evgeny Goldin","Tuesday, August 23, 2011 9:55:57 PM IDT","Thursday, October 6, 2011 2:48:32 AM IST","Thursday, October 6, 2011 1:48:56 AM IST","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","385","{{GCommons.general().executeWithResult( String command, strategy )}}
+where *{{""strategy""}}* is one of:
+
+* Commons-Exec
+* Groovy's ""command"".execute()
+* Java ProcessBuilder
+
+Test is [https://github.com/evgeny-goldin/gcommons/blob/master/src/test/groovy/com/goldin/gcommons/specs/GeneralBeanSpec.groovy#L13 available]."
+"gc-86","GCommons","","Ant scanner fix - set basedir with canonical path","Evgeny Goldin","Tuesday, August 16, 2011 11:33:45 PM IDT","Tuesday, October 4, 2011 4:23:42 AM IST","Tuesday, October 4, 2011 4:19:10 AM IST","Normal","Bug","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","367","Test is [https://github.com/evgeny-goldin/gcommons/blob/5d2d593c776dabc7e17d1bf93d370d4bfb71f736/src/test/groovy/com/goldin/gcommons/beans/FileBeanSpec.groovy#L104 available]."
+"gc-89","GCommons","","Treat ""sar"" extension as zip archive","Evgeny Goldin","Saturday, October 1, 2011 7:35:23 PM IDT","Monday, October 3, 2011 6:01:25 PM IST","Saturday, October 1, 2011 9:17:35 PM IDT","Normal","Feature","Fixed","Unassigned","No subsystem","0.5.3.4","No Affected versions","364","Test is [https://github.com/evgeny-goldin/gcommons/blob/2f1d6313e50e9c76128356a98d702cc147e4e43f/src/test/groovy/com/goldin/gcommons/beans/FileBeanSpec.groovy#L11 available]."
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://evgeny-goldin.org/youtrack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!-- Generated with http://goo.gl/7WHjH -->
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
+|-
+!Issue Id
+!Type
+!Summary
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-86 gc-86]
+|Bug
+|Ant scanner fix - set basedir with canonical path
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-78 gc-78]
+|Bug
+|Duplicate log messages
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-40 gc-40]
+|Feature
+|FileBean.checksum() - add checksum support
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-90 gc-90]
+|Feature
+|FileBean.copyDir() - copy directory recursively
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-77 gc-77]
+|Feature
+|FileBean.pack() - add "fullpath" and "prefix" options
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-85 gc-85]
+|Feature
+|FileBean.pack() - allow to optionally use TrueZip when packing archives
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-93 gc-93]
+|Feature
+|FileBean.pack() - support "filemode" specified as part of include pattern
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-88 gc-88]
+|Feature
+|FileBean.pack() - support "fullpath", "prefix" for all archives (zip/tar/tar.gz) and "filemode" for tar/tar.gz
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-84 gc-84]
+|Feature
+|FileBean.unpack() - allow to optionally use TrueZip when unpacking archives
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-87 gc-87]
+|Feature
+|GeneralBean.executeWithResult() returning String (stdout + stderr)
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-89 gc-89]
+|Feature
+|Treat "sar" extension as zip archive
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-95 gc-95]
+|Feature
+|VerifyBean.equal() - provide an option whether or not to fail if no files were found
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-94 gc-94]
+|Feature
+|VerifyBean.equal() - use combination "directory/pattern" to match files
+|-
+|[http://evgeny-goldin.org/youtrack/issue/gc-67 gc-67]
+|Usability Problem
+|Do not impose logging backend
+|-
+|}

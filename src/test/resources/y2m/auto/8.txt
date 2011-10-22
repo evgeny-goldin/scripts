@@ -1,0 +1,169 @@
+http://youtrack.jetbrains.net/issues?q=project%3A+Kotlin+Subsystems%3A+{Type+checker}
+http://youtrack.jetbrains.net/export/exportCsvQuery/xml?query=project%3A+Kotlin+Subsystems%3A+%7BType+checker%7D
+http://evgeny-goldin.com/wiki/Y2m#JetBrains:_project:_Kotlin_Subsystems:_.7BType_checker.7D
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","Fix versions","State","Assignee","Affected versions","Fixed in build","Subsystems","Description"
+"KT-371","Kotlin","","Resolve default parameters for constructors","Andrey Breslav","Wednesday, October 19, 2011 2:15:30 PM MSD","Wednesday, October 19, 2011 2:15:30 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+class foo(x : Int = y, y : Int = x) { // None of the references is resolved, no types checked
+
+}
+{code}"
+"KT-358","Kotlin","","Report a warning if a safely accessed variable is known to be non-null by data flow","Andrey Breslav","Thursday, October 13, 2011 6:05:31 PM MSD","Thursday, October 13, 2011 6:05:31 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+fun notContainsBreak(a: String?, b: String?) {
+  if (a != null)
+   a?.compareTo(""2"")
+}
+{code}"
+"KT-354","Kotlin","","Inner classes are not inherited","Andrey Breslav","Tuesday, October 11, 2011 6:24:55 PM MSD","Tuesday, October 11, 2011 6:24:55 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+open class Foo() {
+  open class Bar() {
+
+  }
+
+  val b = Bar()
+
+  class X() : Bar() {}
+}
+
+class X() : Foo() {
+    class Y() : Bar() {} // ERROR, but shouldn't be
+}
+{code}"
+"KT-338","Kotlin","","Support autocasts in nested declarations","Andrey Breslav","Thursday, October 6, 2011 8:13:45 PM MSD","Thursday, October 6, 2011 8:13:45 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+if (a is B) {
+  class C : X(a) {
+    this(i : Int) : this(a) {}
+  }
+}
+{code}"
+"KT-330","Kotlin","","Handle mutually recursive definitions more granularly","Andrey Breslav","Wednesday, September 28, 2011 2:05:29 PM MSD","Wednesday, September 28, 2011 2:05:29 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+
+val y = object {
+  val a = y;
+}
+
+val z = y.a;
+
+object A {
+  val x = A
+}
+
+val a = object {
+  {
+    b + 1
+  }
+  val x = b
+  val y = 1
+}
+
+val b = a.x
+val c = a.y // here
+
+val x : Int = a.y
+{code}
+The type of {{y}} at the marked line could be known, but it appears to be error type"
+"KT-328","Kotlin","","Local function in function literals cause exceptions","Andrey Breslav","Wednesday, September 28, 2011 2:03:20 PM MSD","Wednesday, September 28, 2011 2:04:10 PM MSD","","Normal","Bug","No Fix versions","Submitted","Andrey.Breslav","No Affected versions","No Fixed in build","Type checker","{code}
+fun bar() = {
+  fun foo() = bar()
+  foo()
+}
+{code}"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://youtrack.jetbrains.net/ "Issue Id, Summary, Description"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!-- Generated with http://goo.gl/7WHjH -->
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
+|-
+!Issue Id
+!Summary
+!Description
+|-
+|[http://youtrack.jetbrains.net/issue/KT-371 KT-371]
+|Resolve default parameters for constructors
+|
+<syntaxhighlight lang="text">
+class foo(x : Int = y, y : Int = x) { // None of the references is resolved, no types checked
+
+}
+</syntaxhighlight>
+|-
+|[http://youtrack.jetbrains.net/issue/KT-358 KT-358]
+|Report a warning if a safely accessed variable is known to be non-null by data flow
+|
+<syntaxhighlight lang="text">
+fun notContainsBreak(a: String?, b: String?) {
+  if (a != null)
+   a?.compareTo("2")
+}
+</syntaxhighlight>
+|-
+|[http://youtrack.jetbrains.net/issue/KT-354 KT-354]
+|Inner classes are not inherited
+|
+<syntaxhighlight lang="text">
+open class Foo() {
+  open class Bar() {
+
+  }
+
+  val b = Bar()
+
+  class X() : Bar() {}
+}
+
+class X() : Foo() {
+    class Y() : Bar() {} // ERROR, but shouldn't be
+}
+</syntaxhighlight>
+|-
+|[http://youtrack.jetbrains.net/issue/KT-338 KT-338]
+|Support autocasts in nested declarations
+|
+<syntaxhighlight lang="text">
+if (a is B) {
+  class C : X(a) {
+    this(i : Int) : this(a) {}
+  }
+}
+</syntaxhighlight>
+|-
+|[http://youtrack.jetbrains.net/issue/KT-330 KT-330]
+|Handle mutually recursive definitions more granularly
+|
+<syntaxhighlight lang="text">
+
+val y = object {
+  val a = y;
+}
+
+val z = y.a;
+
+object A {
+  val x = A
+}
+
+val a = object {
+  {
+    b + 1
+  }
+  val x = b
+  val y = 1
+}
+
+val b = a.x
+val c = a.y // here
+
+val x : Int = a.y
+</syntaxhighlight><br/>The type of <code>y</code> at the marked line could be known, but it appears to be error type
+|-
+|[http://youtrack.jetbrains.net/issue/KT-328 KT-328]
+|Local function in function literals cause exceptions
+|
+<syntaxhighlight lang="text">
+fun bar() = {
+  fun foo() = bar()
+  foo()
+}
+</syntaxhighlight>
+|-
+|}
