@@ -23,7 +23,7 @@ assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment variable should be def
 def root       = new File( args[ 0 ] )
 def mavenGoals = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'clean' ]
 def t          = System.currentTimeMillis()
-def isWindows  = System.getProperty( 'os.name' ).contains( 'windows' )
+def isWindows  = System.getProperty( 'os.name' ).toLowerCase().contains( 'windows' )
 def callback   = {
     File directory ->
 
