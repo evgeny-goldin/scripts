@@ -1,5 +1,5 @@
 
-def publishers = 'Addison.Wesley Apress Big.Nerd FT.Press IBM.Press No.Starch.Press No.Starch Oreilly Packtpub Pragmatic Prentice.Hall Prentice.Hall SitePoint QUE Sams Wiley Wrox'.tokenize()
+def publishers = 'Addison.Wesley Apress Big.Nerd FT.Press IBM.Press Manning No.Starch.Press No.Starch Oreilly Packtpub Pragmatic Prentice.Hall Prentice.Hall SitePoint QUE Sams Wiley Wrox'.tokenize()
 def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
 
 new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
