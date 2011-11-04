@@ -1,19 +1,18 @@
 
-def publishers = 'Addison.Wesley Apress Big.Nerd FT.Press IBM.Press Manning No.Starch.Press No.Starch Oreilly Packtpub Pragmatic Prentice.Hall Prentice.Hall SitePoint QUE Sams Wiley Wrox'.tokenize()
+def publishers = 'Addison.Wesley Apress Big.Nerd For.Dummies FT.Press IBM.Press Manning No.Starch.Press No.Starch Oreilly Packtpub Pragmatic Prentice.Hall Prentice.Hall SitePoint QUE Sams Wiley Wrox'.tokenize()
 def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
+def extensions = 'pdf epub'.tokenize()
 
-new File( '.' ).listFiles().findAll { it.file && it.name.endsWith( '.pdf' ) }.
-                            each    {
-                                File f ->
-                                def newName = f.name.
-                                              replaceAll  ( /20\d\d\./, '' ).
-                                              replaceFirst( /pdf$/,     '' ).
-                                              replaceAll  (( publishers + months ).collect{ /\Q$it.\E/ }.join( '|' ), '' ).
-                                              replace     ( '.',    ' '    ).
-                                              replaceAll  ( /\s*(\d+)(nd|rd|th) Edition/, ', $1Ed' ).
-                                              trim()
+new File( '.' ).listFiles().findAll { File f -> f.file && extensions.any { f.name.endsWith( it ) }}.
+                            each    { File f ->
+                                def ( body, extension ) = f.name.findAll( /^(.+)\.([^\.]+)$/ ){ it[1,2] }[ 0 ]
+                                def newBody = body.replaceAll  ( /\d{4}/, '' ).
+                                                   replaceAll  (( publishers + months ).collect{ /\Q$it.\E/ }.join( '|' ), '' ).
+                                                   replace     ( '.',    ' '    ).
+                                                   replaceAll  ( /\s*(\d+)(nd|rd|th) Edition/, ', $1Ed' ).
+                                                   trim()
 
-                                def newFile = new File( "${newName}.pdf" )
+                                def newFile = new File( f.parentFile, "$newBody.$extension" )
 
                                 if ( newFile.file )
                                 {
