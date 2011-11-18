@@ -3,6 +3,7 @@
 @Grab('com.goldin:gcommons:0.5.3.5')
 @GrabExclude('commons-net:commons-net')
 @GrabExclude('org.codehaus.groovy:groovy-all')
+@GrabExclude('xml-apis:xml-apis')
 import com.goldin.gcommons.GCommons
 
 GCommons.general() // To trigger MOP updates
@@ -19,8 +20,8 @@ lines.eachWithIndex {
 
     if (( index > 1 ) && ( line ==~ /\s*(=+)[^=]+\1\s*/ )) // == Something Anything ==
     {
-        if ( lines[ index - 1 ] ) println ""
-        if ( lines[ index - 2 ] ) println ""
+        if ( lines[ index - 1 ] ) { println '' }
+        if ( lines[ index - 2 ] ) { println '' }
     }
 
     println line.replaceAll( /\s*$/, '' )

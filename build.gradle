@@ -1,0 +1,9 @@
+
+apply plugin: 'groovy'
+
+/**
+ * CodeNarc runner task
+ */
+
+codenarcRuleSetFiles = [ 'codenarc.groovy' ]
+apply from: 'https://raw.github.com/evgeny-goldin/gradle-plugins/dev/src/main/groovy/CodeNarc.gradle'

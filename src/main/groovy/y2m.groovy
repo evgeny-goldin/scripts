@@ -24,12 +24,12 @@ Group-By-Fields - (optional) comma-separated list of fields to group table rows 
 Add #           - (optional) true/false, whether to add a '#' column with a running counter for each issue, false by default
 ------------------------------------------------------------------------------------------------------------------------------
 """
-    System.exit( 1 )
+    return
 }
 
 final String       youTrackUrl   = args[ 0 ].replaceFirst( /(\\|\/)*$/, '' )
 final File         f             = new File( args[ 1 ] ).canonicalFile
-final def          split         = { String s -> s.split( ',' )*.trim().grep().collect{ it.replace( '"', '' ) }}
+final Closure      split         = { String s -> s.split( ',' )*.trim().grep()*.replace( '"', '' ) }
 final List<String> fields        = ( args.size() > 2          ) ? split( args[ 2 ] ) : defaultFields
 final List<String> groupByFields = ( args.size() > 3          ) ? split( args[ 3 ] ) :
                                    ( fields.is( defaultFields ))? defaultGroupByFields                  : []
@@ -117,11 +117,7 @@ List<String[]> reorderLines ( List<String[]> lines, List<String> groupByFields, 
                         {
                             String fieldValue1 = line1[ fieldsMapped[ field ]]
                             String fieldValue2 = line2[ fieldsMapped[ field ]]
-
-                            if ( fieldValue1 != fieldValue2 )
-                            {
-                                return fieldValue1.compareTo( fieldValue2 )
-                            }
+                            if ( fieldValue1 != fieldValue2 ){ return fieldValue1 <=> fieldValue2 }
                         }
 
                         0

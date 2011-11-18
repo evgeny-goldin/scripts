@@ -1,12 +1,10 @@
-/**
- * http://groovy.codehaus.org/Grape
- */
+
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
 @Grab('com.goldin:gcommons:0.5.3.5')
 @GrabExclude('commons-net:commons-net')
 @GrabExclude('org.codehaus.groovy:groovy-all')
+@GrabExclude('xml-apis:xml-apis')
 import com.goldin.gcommons.GCommons
-
 import groovy.io.FileType
 
 GCommons.general() // Trigger MOP updates
@@ -18,7 +16,7 @@ GCommons.general() // Trigger MOP updates
  * - groovy mvnOp.groovy <root directory> <Maven goals>
  */
 
-assert System.getenv( 'M2_HOME' ), "[M2_HOME] environment variable should be defined"
+assert System.getenv( 'M2_HOME' ), '[M2_HOME] environment variable should be defined'
 
 def root       = new File( args[ 0 ] )
 def mavenGoals = ( args.length > 1 ) ? args[ 1 .. -1 ] : [ 'clean' ]

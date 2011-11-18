@@ -3,8 +3,9 @@
 @Grab('com.goldin:gcommons:0.5.3.5')
 @GrabExclude('commons-net:commons-net')
 @GrabExclude('org.codehaus.groovy:groovy-all')
+@GrabExclude('xml-apis:xml-apis')
 import com.goldin.gcommons.GCommons
-import com.goldin.gcommons.beans.ExecOption
+
 
 GCommons.file().with { GCommons.general().with {
 
@@ -22,10 +23,10 @@ GCommons.file().with { GCommons.general().with {
      */
 
     runJetBrainsTest( [],                                                                   'table-1.txt' )
-    runJetBrainsTest( [ "Issue Id, Subsystem, Type, State" ],                               'table-2.txt' )
-    runJetBrainsTest( [ "Issue Id, Subsystem, Summary, Description" ],                      'table-3.txt' )
-    runJetBrainsTest( [ "Issue Id, Type, State, Summary", "Type, State, Summary" ],         'table-4.txt' )
-    runJetBrainsTest( [ "Issue Id, Type, State, Summary", "Type, State, Summary", 'true' ], 'table-5.txt' )
+    runJetBrainsTest( [ 'Issue Id, Subsystem, Type, State' ],                               'table-2.txt' )
+    runJetBrainsTest( [ 'Issue Id, Subsystem, Summary, Description' ],                      'table-3.txt' )
+    runJetBrainsTest( [ 'Issue Id, Type, State, Summary', 'Type, State, Summary' ],         'table-4.txt' )
+    runJetBrainsTest( [ 'Issue Id, Type, State, Summary', 'Type, State, Summary', 'true' ], 'table-5.txt' )
 }}
 
 
