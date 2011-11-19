@@ -33,7 +33,7 @@ println "[${ files.size()}] file${ GCommons.general().s( files.size())} processe
 Set<String> processInternal ( File f, int maxNameLength )
 {
     assert f.file
-    print String.format( "%-${ maxNameLength + 2 }s - ", "[$f]" )
+    printFileName( f, maxNameLength )
 
     String       text     = f.getText( 'UTF-8' ).replaceAll( '\uFEFF', '' )
     List<String> headings = text.findAll( /(?m)^\s*=+ +(.+?) +=+\s*$/ ) {  // "= Text =" => "Text"
@@ -49,7 +49,7 @@ Set<String> processInternal ( File f, int maxNameLength )
         assert ( ! delegate ), "Broken internal links:\n* [${ delegate.join( ']\n* [' )}]"
     }
 
-    println String.format( "%-2d internal link%s", internalLinks.size(), GCommons.general().s( internalLinks.size()))
+    printNumber( 'internal', internalLinks.size())
     headings
 }
 
@@ -57,17 +57,15 @@ Set<String> processInternal ( File f, int maxNameLength )
 void processExternal( File f, Map<String, Set<String>> headings, int maxNameLength )
 {
     assert f.file && headings
+    printFileName( f, maxNameLength )
 
-    print String.format( "%-${ maxNameLength + 2 }s - ", "[$f]" )
     String      text          = f.getText( 'UTF-8' ).replaceAll( '\uFEFF', '' )
     Set<String> externalLinks = text.findAll( /\[(http.+?)\s+.+?\]/ ){ it[ 1 ] } as Set // [url text] => url
     assert    ( externalLinks || ( ! text.contains( '[http' )))
 
-    externalLinks.findAll { it.contains( '#' ) }.
+    externalLinks.findAll { it.with{ contains( '#' ) && ( ! contains( '/#' )) }}.
                   findAll {
-                      def ( String fileName, String anchor ) = it.findAll( /\/([^\/]+)#(.+?)$/ ){
-                          it[ 1, 2 ]
-                      }[ 0 ]
+                      def ( String fileName, String anchor ) = it.findAll( /\/([^\/]+)#(.+?)$/ ){ it[ 1, 2 ] }[ 0 ]
                       anchor = anchor.replace( '.3C', '<' ).
                                       replace( '.3E', '>' ).
                                       replace( '.22', '"' ).
@@ -78,5 +76,9 @@ void processExternal( File f, Map<String, Set<String>> headings, int maxNameLeng
         assert ( ! delegate ), "Broken external links:\n* [${ delegate.join( ']\n* [' )}]"
     }
 
-    println String.format( "%-2d external link%s", externalLinks.size(), GCommons.general().s( externalLinks.size()))
+    printNumber( 'external', externalLinks.size())
 }
+
+
+void printFileName( File f, int maxNameLength ) { print   String.format( "%-${ maxNameLength + 2 }s - ", "[$f]" ) }
+void printNumber( String description, int n   ) { println String.format( "%-3d $description link%s", n, GCommons.general().s( n )) }
