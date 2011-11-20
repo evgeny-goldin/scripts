@@ -12,7 +12,6 @@ import com.goldin.gcommons.GCommons
  */
 
 assert args, 'Arguments exepcted: <directory> [files include pattern]'
-final int        maxWidth  = 80
 final File       directory = GCommons.verify().directory( new File( args[ 0 ] ))
 final String     pattern   = ( args.size() > 1 ? args[ 1 ] : '**' )
 final List<File> files     = GCommons.file().files( directory, [ pattern ] )*.canonicalFile
