@@ -15,18 +15,18 @@ svn checkout http://svg-edit.googlecode.com/svn/trunk/  $SCRIPTS_ROOT/tests/svg-
 
 cd $SCRIPTS_ROOT/src/main/groovy
 
-echo Validating MediaWiki links
+echo --== Running links.groovy ==--
 $GROOVY links.groovy $SCRIPTS_ROOT/tests/wiki "**/*.txt"
 
-echo Running mvnOp.groovy
+echo --== Running mvnOp.groovy ==--
 $GROOVY mvnOp.groovy $SCRIPTS_ROOT/tests
 
-echo Running svnOp.groovy
+echo --== Running svnOp.groovy ==--
 $GROOVY svnOp.groovy $SCRIPTS_ROOT/tests
 
 cd $SCRIPTS_ROOT/src/test/groovy
 
-echo Running y2m tests
+echo --== Running y2m.groovy ==--
 $GROOVY y2m.groovy
 
 echo Removing old files
