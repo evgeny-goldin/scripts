@@ -18,9 +18,11 @@ ruleset {
         FactoryMethodName        ( enabled : false )
         Println                  ( enabled : false )
         SystemErrPrint           ( enabled : false )
-        FileCreateTempFile       ( enabled : false )
 
-        LineLength               ( length     : 170 )
-        VariableName             ( finalRegex : /[a-zA-Z0-9_]+/ )
+        LineLength               ( length                : 170 )
+        VariableName             ( finalRegex            : /[a-zA-Z0-9_]+/ )
+
+        // http://codenarc.sourceforge.net/codenarc-configuring-rules.html#Standard_Properties_for_Configuring_Rules
+        FileCreateTempFile       ( doNotApplyToFileNames : 'Timer.groovy' )
     }
 }
