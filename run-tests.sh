@@ -4,9 +4,11 @@ SCRIPTS_ROOT=`pwd`
 TESTS_ROOT=$SCRIPTS_ROOT/tests
 GROOVY='groovy -Dgroovy.grape.report.downloads=true'
 
-echo SCRIPTS_ROOT = [$SCRIPTS_ROOT]
-echo TESTS_ROOT   = [$TESTS_ROOT]
-echo GROOVY       = [$GROOVY]
+echo "--------------------------------------------------------------"
+echo "SCRIPTS_ROOT = [$SCRIPTS_ROOT]"
+echo "TESTS_ROOT   = [$TESTS_ROOT]"
+echo "GROOVY       = [$GROOVY]"
+echo "--------------------------------------------------------------"
 
 echo Removing old files
 rm -rf $TESTS_ROOT && mkdir $TESTS_ROOT && cd $TESTS_ROOT
