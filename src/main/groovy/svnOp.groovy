@@ -1,6 +1,6 @@
 
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
-@Grab('com.goldin:gcommons:0.5.3.5')
+@Grab('com.goldin:gcommons:0.5.3.6')
 @GrabExclude('commons-net:commons-net')
 @GrabExclude('org.codehaus.groovy:groovy-all')
 @GrabExclude('xml-apis:xml-apis')

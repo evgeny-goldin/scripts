@@ -1,6 +1,6 @@
 
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
-@Grab('com.goldin:gcommons:0.5.3.5')
+@Grab('com.goldin:gcommons:0.5.3.6')
 @GrabExclude('commons-net:commons-net')
 @GrabExclude('org.codehaus.groovy:groovy-all')
 @GrabExclude('xml-apis:xml-apis')
@@ -118,7 +118,7 @@ String y2m ( String title, List<String> args )
 
     final long   t         = System.currentTimeMillis()
     final String encoding  = 'UTF-8'
-    final File   y2mScript = new File( '../../main/groovy/y2m.groovy' ).canonicalFile
+    final File   y2mScript = new File( '../../main/groovy/mediawiki/y2m.groovy' ).canonicalFile
     final File   y2mFile   = GCommons.file().tempFile()
 
     assert [ y2mScript, y2mFile ].every { it.file }
