@@ -1,6 +1,6 @@
 
 def publishers = '''Addison.Wesley Apress Big.Nerd For.Dummies FriendsofED FT.Press IBM.Press Manning No.Starch.Press
-                    No.Starch Oreilly Packtpub Pragmatic Prentice.Hall Prentice.Hall SitePoint Sitepoint QUE Sams Wiley Wrox'''.
+                    No.Starch Oreilly Packtpub Peachpit.Press Pragmatic Prentice.Hall Prentice.Hall SitePoint Sitepoint QUE Sams Wiley Wrox'''.
                     stripIndent().tokenize()
 def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
 def extensions = 'pdf epub'.tokenize()
