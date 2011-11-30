@@ -10,6 +10,7 @@ import com.goldin.gcommons.GCommons
 
 /**
  * Validates MediaWiki internal and external links in the directory specified
+ * Usage: groovy links.groovy <directory> [files include pattern]
  */
 
 assert args, 'Arguments exepcted: <directory> [files include pattern]'

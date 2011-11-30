@@ -1,0 +1,1252 @@
+<div style="float:right; text-align: center">
+[[Image:Git-logo.png|link=http://git-scm.com/]]
+</div>
+
+
+= [http://www.kernel.org/pub/software/scm/git/docs Docs] =
+
+* [http://schacon.github.com/git/git.html <code>'''git'''</code> Manual Page]
+* [http://progit.org/book/ "Pro Git"]
+* [http://peepcode.com/products/git-internals-pdf Git Internals]
+* [http://book.git-scm.com/ "The Git Community Book"]
+* [http://progit.org/blog.html "Pro Git" - Blog]
+* [http://gitref.org/ Git Reference]
+* [http://marklodato.github.com/visual-git-guide/index-en.html A Visual Git Reference]
+* [http://www.eecs.harvard.edu/~cduan/technical/git/ Understanding Git Conceptually]
+* [http://www.ndpsoftware.com/git-cheatsheet.html Git Cheatsheet]
+* [http://gitready.com/ <code>'''git ready'''</code>]
+* [http://alblue.bandlem.com/search/label/gtotw AlBlue’s Blog - "Git Tip of the Week"]
+* [http://pinboard.in/u:evgenyg/t:git/ pinboard.in/u:evgenyg/t:git/]
+
+
+= [http://progit.org/book/ch1-4.html Installation (v1.7.3.1)] =
+
+* [http://progit.org/book/ch1-4.html "Pro Git" - Installing Git]
+* [http://git.kernel.org/?p=git/git.git;a=tags Git Tags]
+
+
+== Windows ==
+
+* http://code.google.com/p/msysgit/downloads/list?can=3
+* http://msysgit.googlecode.com/files/Git-1.7.3.1-preview20101002.exe
+* http://code.google.com/p/tortoisegit/downloads/list
+
+
+== Linux ==
+
+* [http://evgeny-goldin.com/blog/2010/09/18/3-ways-install-git-linux-ubuntu/ 3 ways to install Git on Linux (Ubuntu)]
+
+
+* '''apt-get''':
+
+<syntaxhighlight lang="text">
+sudo apt-get install git-core
+</syntaxhighlight>
+
+
+* '''Build from sources (download)''':
+
+<syntaxhighlight lang="text">
+sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+wget http://kernel.org/pub/software/scm/git/git-1.7.3.1.tar.gz
+tar -zxf git-1.7.3.1.tar.gz
+cd git-1.7.3.1
+make prefix=/usr/local all
+sudo make prefix=/usr/local install
+</syntaxhighlight>
+
+
+* '''Build from sources (git clone)''':
+
+<syntaxhighlight lang="text">
+sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+git clone git://git.kernel.org/pub/scm/git/git.git
+cd git
+git checkout v1.7.3.1
+make prefix=/usr/local all
+sudo make prefix=/usr/local install
+</syntaxhighlight>
+
+
+= Hosting =
+
+* http://github.com/
+** [http://help.github.com/ help.github]
+** [http://progit.org/book/ch4-10.html "Pro Git" - Hosted Git (GitHub)]
+
+
+<syntaxhighlight lang="text">
+mkdir <project>
+cd    <project>
+git   init
+touch README.makrdown
+git   add README.makrdown
+git commit -m "First commit"
+git remote add origin git@github.com:<user>/<project>.git
+git push   -u origin master
+</syntaxhighlight>
+
+
+* [http://bitbucket.org/ Bitbucket]
+* [http://gitorious.org/ Gitorious]
+* [http://gitlabhq.com/  GitLab]
+* [http://github.com/sitaramc/gitolite/wiki/ Gitolite]
+* [http://wiki.archlinux.org/index.php/Gitosis Gitosis]
+* http://git.kernel.org/
+* http://repo.or.cz/
+* [http://progit.org/book/ch4-2.html "Pro Git" - Getting Git on a Server]
+* [http://git.wiki.kernel.org/index.php/GitHosting Git Wiki - GitHosting]
+* [http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way Garry Dolley - Hosting Git repositories, The Easy (and Secure) Way]
+
+
+== [http://schacon.github.com/git/git-instaweb.html <code>'''git instaweb'''</code>] ==
+
+* [http://progit.org/book/ch4-6.html "Pro Git" - GitWeb]
+* [http://gofedora.com/how-to-install-configure-gitweb/ How To: Install and Configure GitWeb]
+* [http://asimilatorul.com/index.php/2009/10/12/git-instaweb-using-mongoose-and-msysgit/ Git instaweb using mongoose and msysGit]
+* http://git.wiki.kernel.org/index.php/Gitweb
+
+
+<syntaxhighlight lang="text">
+sudo apt-get install lighttpd
+git instaweb : Starts a web server on 'http://127.0.0.1:1234/'
+git instaweb --httpd=webrick
+git instaweb --stop
+</syntaxhighlight>
+
+
+= Git Model =
+
+* [http://book.git-scm.com/1_the_git_object_model.html "Git Community Book" - The Git Object Model]
+* [http://marklodato.github.com/visual-git-guide/index-en.html#technical-notes A Visual Git Reference - "Technical Notes"]
+* [http://eagain.net/articles/git-for-computer-scientists/ Git for Computer Scientists]
+
+
+== Git Objects ==
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Object
+! Description
+|-
+| align="center" | <code>'''blob'''</code>
+| A bunch of bytes. This is often a file, but can be a symlink or pretty much anything else.
+|-
+| align="center" | <code>'''tree'''</code>
+| Refers to blobs that have the contents of files (filename, access mode, etc is all stored in the tree), and to other trees for subdirectories.
+|-
+| align="center" | <code>'''commit'''</code>
+| Refers to a tree that represents the state of the files at the time of the commit. It also refers to <code>'''0..n'''</code> other commits that are its parents.
+|-
+| align="center" | <code>'''refs'''</code>
+| <code>'''".git/HEAD"'''</code>, <code>'''".git/refs/heads"'''</code>, <code>'''".git/refs/tags"'''</code><br/>Post-it notes slapped on a node in the DAG. Where DAG only gets added to an existing nodes and cannot be mutated, the post-its can be moved around freely. They don't get stored in the history, and they aren't directly transferred between repositories. They act as sort of bookmarks: ''"I'm working here"''.
+|-
+| align="center" | <code>'''remote refs'''</code>
+| <code>'''".git/refs/remotes"'''</code><br/>Post-it notes of a different color. The difference to normal refs is the different namespace, and the fact that remote refs are essentially controlled by the remote server.<br/><code>'''"git fetch"'''</code> updates them.
+|-
+| align="center" | <code>'''tag'''</code>
+| Both a node in the DAG and a post-it note (of yet another color). A tag points to a commit, and includes an optional message and a GPG signature.
+|}
+
+
+== Git References ==
+
+* [http://progit.org/book/ch9-3.html "Pro Git" - Git References]
+* The <code>'''"HEAD"'''</code> ref is special in that it actually points to another ref. It is a pointer to the currently active branch. Normal refs are actually in a namespace <code>'''"heads/XXX"'''</code>, but you can often skip the <code>'''"heads/"'''</code> part.
+* <code>'''.git/HEAD => .git/refs/heads/[branch name]'''</code>
+* <code>'''.git/refs/tags/[tag name]'''</code>
+* <code>'''.git/refs/remotes/[remote name]/[branch name]'''</code><br/>Can't be checked out like <code>''''refs/heads''''</code>, bookmarks to the last known state of remote branches.
+
+
+[[File:GitObjectModel.png|link=http://book.git-scm.com/1_the_git_object_model.html]]
+
+[[File:Git-Model-2.png|link=http://peepcode.com/products/git-internals-pdf]][[File:Git-storage.6.png|link=http://eagain.net/articles/git-for-computer-scientists/]]
+
+[[File:Conventions.svg.png|link=http://marklodato.github.com/visual-git-guide/index-en.html#conventions]]
+
+
+== [http://schacon.github.com/git/git.html#_low_level_commands_plumbing "Plumbing" commands] ==
+
+* [http://progit.org/book/ch9-2.html "Pro Git" - Git Objects]
+* [http://ftp.newartisans.com/pub/git.from.bottom.up.pdf Git from the bottom up]
+
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Command
+! Description
+|-
+| align="center" | [http://schacon.github.com/git/git-hash-object.html <code>'''hash-object'''</code>]
+| Computes object ID and optionally creates a blob from a file, can write it into object database
+|-
+| align="center" | [http://schacon.github.com/git/git-cat-file.html <code>'''cat-file'''</code>]
+| Provides content or type and size information for repository objects
+|-
+| align="center" | [http://schacon.github.com/git/git-update-index.html <code>'''update-index'''</code>]
+| Registers file contents in the working tree to the index
+|-
+| align="center" | [http://schacon.github.com/git/git-write-tree.html <code>'''write-tree'''</code>]
+| Creates a tree object from the current index
+|-
+| align="center" | [http://schacon.github.com/git/git-read-tree.html <code>'''read-tree'''</code>]
+| Reads tree information into the index
+|-
+| align="center" | [http://schacon.github.com/git/git-commit-tree.html <code>'''commit-tree'''</code>]
+| Creates a new commit object
+|-
+| align="center" | [http://schacon.github.com/git/git-update-ref.html <code>'''update-ref'''</code>]
+| Updates the object name stored in a ref safely
+|-
+| align="center" | [http://schacon.github.com/git/git-symbolic-ref.html <code>'''symbolic-ref'''</code>]
+| Read and modifies symbolic refs
+|-
+| align="center" | [http://schacon.github.com/git/git-verify-pack.html <code>'''verify-pack'''</code>]
+| Validates packed git archive files
+|}
+
+
+<syntaxhighlight lang="text">
+git reflog = git log -g --oneline   : Manages reflog information, a mechanism to record when tips of branches are updated
+
+git show master^                    : Shows various types of objects
+git show tag
+git show HEAD@{5}
+git show HEAD@{2.months.ago}
+git show master@{yesterday}
+
+git ls-tree master^{tree}           : Lists the contents of a tree object
+git ls-tree -r -t master^{tree}     : Recurses into sub-trees, shows tree entries even when going to recurse them
+
+git ls-files -u                     : Shows information about files in the index and the working tree (unmerged)
+
+git cat-file -t ae850bd698b2b5dfbac : Provides type and size information for repository object
+git cat-file -p ae850bd698b2b5dfbac : Pretty-prints the contents of object based on its type
+
+$git cat-file -p "master^{tree}"
+100644 blob 3c1c2aa022f6a5b22e421103eb6c07472c709c89    .gitignore
+100644 blob ae6b064c33d8c62105c1d07cf90537ece4bd32d2    README.txt
+040000 tree c4762af6d722bf8e9d79dc0e6741caffbf334b9d    maven-assert-plugin
+040000 tree 55e8650b30e002689c865e8eb15797fe86bf4a19    maven-common
+</syntaxhighlight>
+
+
+= [http://schacon.github.com/git/gitignore.html <code>'''.gitignore'''</code>] =
+
+* Glob patterns:
+** <code>''''*''''</code>, <code>''''?''''</code>
+** <code>'''[abc]'''</code> - any characrer inside brackets
+** <code>'''[0-9]'''</code>
+* End pattern with <code>''''/''''</code> to specify a directory
+* Negate pattern by starting it with <code>''''!''''</code>
+
+
+= [http://schacon.github.com/git/gitattributes.html <code>'''.gitattributes'''</code>] =
+
+* [http://progit.org/book/ch7-2.html "Pro Git" - Git Attributes]
+
+
+<syntaxhighlight lang="xml">
+git config diff.word.textconv strings
+git config diff.exif.textconv exiftool
+
+git config filter.indent.clean  indent
+git config filter.indent.smudge cat
+
+git config filter.dater.smudge expand_date (Ruby script in path)
+git config filter.dater.clean 'perl -pe "s/\\\$Date[^\\\$]*\\\$/\\\$Date\\\$/"'
+</syntaxhighlight>
+
+
+<code>'''.gitattributes'''</code>:
+
+<syntaxhighlight lang="xml">
+*.pbxproj binary      : Treats *.pbxproj files as binary data, won't try to convert or fix CRLF issues or print a diff
+*.pbxproj -crlf -diff : Same
+*.doc diff=word       : Uses 'word' filter for any file that matches *.doc pattern
+*.png diff=exif       : Uses 'exif' filter for any file that matches *.png pattern
+*.c   filter=indent   : Runs C sources through the 'indent' program before committing
+*.txt filter=dater    : Expands $Date$ keyword when *.txt files are checked out
+</syntaxhighlight>
+
+
+= Tree-ish =
+
+* [http://progit.org/book/ch6-1.html "Pro Git" - Revision Selection]
+* [http://book.git-scm.com/4_git_treeishes.html Git Community Book - Git Treeishes]
+* [http://schacon.github.com/git/git-rev-parse.html#_specifying_revisions git rev-parse]
+* [http://schacon.github.com/git/gitrevisions.html#_specifying_revisions gitrevisions]
+
+
+<u>Ways to name a commit</u>:
+
+{| border="1" cellspacing="0" cellpadding="5"
+|-
+! Name
+! Example
+! Description
+|-
+| branchname
+| <code>'''master'''</code>
+
+<code>'''dev'''</code>
+| The name of any branch is simply an alias for the most recent commit on that "branch". Branch aliases change each time a new commit is checked in to that branch.
+|-
+| tagname
+| <code>'''v0.2'''</code>
+
+<code>'''3.0.5'''</code>
+| A tag-name alias is identical to a branch alias in terms of naming a commit, but tag aliases never change.
+|-
+| <code>'''HEAD'''</code>
+|
+| Currently checked out commit.
+|-
+| Full SHA-1
+| <code>'''dae86e1950b1277e545cee180551750029cfe735'''</code>
+|
+|-
+| Partial SHA-1
+| <code>'''e65s46'''</code>
+| First 6 or 7 characters
+|-
+| Date spec
+| <code>'''master@{yesterday}'''</code>
+
+<code>'''master@{1 month ago}'''</code>
+|
+|-
+| Ordinal spec
+| <code>'''master@{5}'''</code>
+| Nth prior value of the commit specified.
+|-
+| Carrot parent
+| <code>'''e65s46^^^^^'''</code>
+
+<code>'''e65s46^2'''</code>
+
+<code>'''master^2'''</code>
+
+<code>'''master^^2^'''</code>
+| Nth parent of that commit.
+<code>'''^n'''</code> is only useful for merge commits, which have more than one parent. The first parent is the branch you were on when you merged, the second is the commit on the branch that you merged in, etc.
+
+<code>'''name^^'''</code> - the parent of the parent of the given commit name
+
+<code>'''name^2'''</code> - second parent of the given commit name
+|-
+| Tilde spec
+| <code>'''e65s46~5'''</code>
+
+<code>'''master~4'''</code>
+| N-th generation grandparent of that commit, commit’s N-th ancestor.
+
+<code>'''name~10'''</code> = <code>'''name^^^^^^^^^^'''</code>
+|-
+| Tree pointer
+| <code>'''e65s46^{tree}'''</code>
+
+<code>'''master^{tree}'''</code>
+| Tree of that commit reference (tree held by a commit), rather than the commit itself.
+|-
+| Blob spec
+| <code>'''master:/path/to/file'''</code>
+
+<code>'''HEAD^1:Makefile'''</code>
+
+<code>'''HEAD^2:Makefile'''</code>
+| Blob under a particular commit or tree, a certain file within a commit’s content tree.
+|}
+
+
+[[File:Tree-ish.png|link=http://peepcode.com/products/git-internals-pdf]]
+
+
+= Public Key =
+
+* [http://progit.org/book/ch4-3.html "Pro Git" - Generating Your SSH Public Key]
+* [http://help.github.com/linux-key-setup/ GitHub - Generating SSH keys (Linux)]
+* [http://help.github.com/msysgit-key-setup/ GitHub - Generating SSH keys (Win/msysgit)]
+
+
+<syntaxhighlight lang="xml">
+ssh-keygen -t rsa -C "your_email@youremail.com"
+cd ~/.ssh
+cat id_rsa.pub
+</syntaxhighlight>
+
+
+= Local commands =
+
+
+== [http://schacon.github.com/git/git-config.html <code>'''git config'''</code>] ==
+
+* [http://progit.org/book/ch1-5.html "Pro Git" - First-Time Git Setup]
+* [http://progit.org/book/ch7-1.html "Pro Git" - Git Configuration]
+
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Priority
+! 'git config' option
+! Linux
+! Windows
+|-
+| align="center" | 3
+| align="center" | <code>'''--system'''</code>
+| align="center" | <code>'''/etc/gitconfig'''</code>
+| align="center" | <code>'''<msysgit>/etc/gitconfig'''</code>
+|-
+| align="center" | 2
+| align="center" | <code>'''--global'''</code>
+| align="center" | <code>'''~/.gitconfig'''</code>
+| align="center" | <code>'''%HOME%/.gitconfig'''</code>
+|-
+| align="center" | 1
+| align="center" | <code>'''--file'''</code> ''(<code>'''-f'''</code>)''
+| align="center" | <code>'''.git/config'''</code>
+| align="center" | <code>'''.git/config'''</code>
+|}
+
+
+<syntaxhighlight lang="text">
+git config --list
+git config --list --global (--system, -f)
+git config user.name
+
+git config --global user.name           "Evgeny Goldin"
+git config --global user.email          "evgenyg@gmail.com"
+git config --global gc.auto             1/0
+git config --global merge.conflictstyle diff3
+git config --global core.autocrlf       true/false/input
+git config --global core.whitespace     trailing-space,space-before-tab,-indent-with-non-tab,cr-at-eol
+git config --global core.editor         emacs
+git config --global color.ui            true
+git config --global diff.external       extDiff
+
+git config --global merge.tool     kdiff3 / tkdiff / meld / xxdiff / emerge / vimdiff / gvimdiff / diffuse / ecmerge / tortoisemerge / p4merge / araxis / opendiff
+git config --global merge.tool    extMerge
+git config --global mergetool.extMerge.cmd '...'
+
+git config --global alias.st      status
+git config --global alias.unstage "reset HEAD --"
+git config --global alias.last    "log -1 HEAD"
+git config --global alias.visual  "!gitk"
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-clone.html <code>'''git clone'''</code>] ==
+
+* [http://progit.org/book/ch9-6.html "Pro Git" - Transfer Protocols]
+* [http://www.eecs.harvard.edu/~cduan/technical/git/git-4.shtml Understanding Git: Collaborating]
+* <code>''''git clone''''</code> = <code>''''git init''''</code> + <code>''''git fetch''''</code>
+* Copies all the git objects to a new directory, checks you out a single local branch named the same as the HEAD branch on the cloned repo (normally <code>''''master''''</code>), stores all the other branches under a remote reference by default named <code>''''origin''''</code>
+* Automatically creates a local <code>''''master''''</code> branch that tracks remote <code>''''origin/master''''</code> branch on the server you cloned from (assuming the remote has a master branch)
+
+
+<syntaxhighlight lang="text">
+git clone --bare my_project my_project.git  : Clones repository to create a new bare repository. By convention, bare repository directories end in .git.
+                                            : ~ "cp -Rf my_project/.git my_project.git"
+
+git clone /opt/git/project.git              : Tries to use hardlinks or directly copy the files it needs
+git clone file:///opt/git/project.git       : Fires up the processes that it normally uses to transfer data over a network which is generally a lot less efficient.
+                                              Can be used if you want a clean copy of the repository with extraneous references or objects left out.
+
+git clone ssh://user@server:project.git     : SSH protocol
+git clone user@server:project.git           : Same
+git clone server:project.git                : Same, assumes user you're currently logged in
+
+git clone git://example.com/gitproject.git  : Git protocol
+
+git clone http://example.com/gitproject.git : HTTP protocol
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-status.html <code>'''git status'''</code>] ==
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Header
+! Description
+! Next
+! Undo
+|-
+| align="center" | <code>'''"Changes to be committed"'''</code>
+| align="center" | ''Staged''
+| align="center" | <code>'''git commit'''</code>
+| align="center" | <code>'''git reset HEAD <file>'''</code>
+|-
+| align="center" | <code>'''"Changed but not updated"'''</code>
+| align="center" | ''Unstaged (modified)''
+| align="center" | <code>'''git add, git commit -a'''</code>
+| align="center" | <code>'''git checkout -- <file>'''</code>
+|-
+| align="center" | <code>'''"Untracked files"'''</code>
+| align="center" | ''Untracked''
+| align="center" | <code>'''git add'''</code>
+| align="center" | Remove / <code>'''.gitignore'''</code>
+|}
+
+
+== [http://schacon.github.com/git/git-log.html <code>'''git log'''</code>] ==
+
+* [http://progit.org/book/ch2-3.html "Pro Git" - Viewing the Commit History]
+* [http://progit.org/book/ch6-1.html "Pro Git" - Revision Selection]
+* [http://github.com/oyamauchi/git-viz "git-viz" - ASCII-art Git history visualizer]
+
+
+<syntaxhighlight lang="text">
+git log -p -2           : Generates patch, limits the number of commits to show
+git log --stat          : Generates a diffstat
+git log --graph         : Draws a text-based graphical representation of the commit history on the left hand side of the output
+git log --no-merges     : Does not print commits with more than one parent
+git log --abbrev-commit : Shows only a partial SHA-1 prefix instead of showing the full 40-byte hexadecimal commit object name
+git log -g              : Shows reflog information, instead of walking the commit ancestry chain, walks reflog entries from the most recent one to older ones
+
+git log --oneline --decorate
+git log --pretty=oneline / short / medium / full / fuller / email / raw
+git log --pretty=format:"..."
+git log --pretty="..."
+</syntaxhighlight>
+
+
+[http://progit.org/book/ch6-1.html Commit Ranges]:
+
+
+[[File:CommitRanges.png|link=http://progit.org/book/ch6-1.html]]
+
+
+<syntaxhighlight lang="text">
+git log master..experiment  : (D, C) Shows all commits reachable by 'experiment' that aren't reachable by 'master'
+git log experiment..master  : (F, E) Shows all commits in 'master' that aren't in 'experiment'
+git log origin/master..HEAD : Shows what you're about to push to a remote
+git log origin/master..     : Same, 'HEAD' is default
+
+
+git log master...experiment : (F, E, D, C)
+                            : Specifies all the commits that are reachable by either of two references but not by both of them.
+                            : Shows what is in 'master' or 'experiment' but not any common references.
+
+git log --left-right master...experiment
+< F
+< E
+> D
+> C
+
+git log contrib --not master      : Commits that are in 'contrib' branch but that aren't in 'master' branch
+git log origin/featureA ^featureA : See what changed in 'origin/featureA', exclude local commits on 'featureA' branch
+                                  : "foo ^bar" = "send me all object IDs which I need to download if I have the commit object bar, but not foo".
+git log --no-merges origin/master ^issue54
+
+git log refA..refB                : Identical
+git log ^refA refB                : Identical
+git log refB --not refA           : Identical
+
+git log refA refB ^refC           : Identical
+git log refA refB --not refC      : Identical
+
+git shortlog --no-merges master --not v1.0.1 : Summary of all the commits since your last release 'v1.0.1'
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-add.html <code>'''git add'''</code>] ==
+
+* [http://progit.org/book/ch6-2.html "Pro Git" - Interactive Staging]
+
+
+<syntaxhighlight lang="text">
+git add [files]
+git add -i      : Interactive Staging
+git add -p      : Staging Patches
+git add --patch : Same
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-replace.html <code>'''git replace'''</code>] ==
+
+* [http://progit.org/2010/03/17/replace.html Replace Kicker]
+
+
+
+== [http://schacon.github.com/git/git-rm.html <code>'''git rm'''</code>] ==
+
+* [http://help.github.com/removing-sensitive-data/ GitHub - Removing sensitive data]
+* [http://stackoverflow.com/questions/307828/git-remove-file-accidentally-added-to-the-repository Remove file accidentally added to the repository]
+* [http://bogdan.org.ua/2009/02/13/git-how-to-remove-file-commit-from-history.html Git: how to remove file and commit from history]
+
+
+== [http://schacon.github.com/git/git-diff.html <code>'''git diff'''</code>] ==
+
+<syntaxhighlight lang="text">
+git diff
+git diff --staged  : View changes staged for the next commit
+git diff --check   : Warns if changes introduce trailing whitespace or an indent that uses a space before a tab, exits with non-zero status if problems are found
+git diff --stat    : Generates a diffstat
+git diff --numstat : Similar to '--stat', but shows number of added and deleted lines in decimal notation and pathname without abbreviation
+
+git diff master           : Compares the snapshots of the last commit of the topic branch you're on and the snapshot of the last commit on the 'master' branch.
+                          : If 'master' branch has moved forward since you created the topic branch from it, then you'll get seemingly strange results.
+                          : If master is a direct ancestor of your topic branch, this isn't a problem; but if the two histories have diverged,
+                          : the diff will look like you're adding all the new stuff in your topic branch and removing everything unique to the master branch.
+git diff master...contrib : Diffs between the last commit of the branch you're on and its common ancestor with another branch,
+                          : shows only the work your current topic branch has introduced since its common ancestor with master.
+
+git diff a11bef06a3f65..cf25cc3bfb0 -- <file>
+
+git diff master..experiment > patch.file
+patch -p1 < patch.file
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-commit.html <code>'''git commit'''</code>] ==
+
+* [http://progit.org/book/ch5-2.html "Pro Git" - Commit Guidelines]
+* Git stores a commit object that contains a pointer to the snapshot of the content you staged, the author and message metadata, and zero or more pointers to the commit or commits that were the direct parents of this commit: zero parents for the first commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
+* '''<u>Don't amend your last commit if you've already pushed it</u>'''
+
+
+<syntaxhighlight lang="text">
+git commit
+git commit -am 'Commit message'
+
+git commit -a          : Automatically stages files that have been modified and deleted
+git commit -v          : Shows unified diff between the HEAD commit and what would be committed
+git commit --no-verify : Bypasses the pre-commit and commit-msg hooks
+</syntaxhighlight>
+
+
+[http://progit.org/book/ch5-2.html Commit message template]:
+
+<syntaxhighlight lang="text">
+Short (50 chars or less) summary of changes
+
+More detailed explanatory text, if necessary.  Wrap it to about 72
+characters or so.  In some contexts, the first line is treated as the
+subject of an email and the rest of the text as the body.  The blank
+line separating the summary from the body is critical (unless you omit
+the body entirely); tools like rebase can get confused if you run the
+two together.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded by a
+   single space, with blank lines in between, but conventions vary here
+</syntaxhighlight>
+
+
+[http://progit.org/book/ch6-4.html Change, reorder, squash, split commit messages]:
+
+<syntaxhighlight lang="text">
+git commit --amend   : Amends the tip of the current branch, commit you create replaces the current tip
+                     : If no files are staged - only commit message is updated, otherwise current staging area is made the snapshot for the new commit
+
+git rebase -i HEAD~3 : Changes multiple commit messages
+git commit --amend
+git rebase --continue
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-filter-branch.html <code>'''git filter-branch'''</code>] ==
+
+<syntaxhighlight lang="text">
+git filter-branch --tree-filter 'rm -f passwords.txt' HEAD : Removes 'passwords.txt' from entire history
+git filter-branch --tree-filter 'rm -f *~' HEAD            : Removes all accidentally committed editor backup files
+git filter-branch ... --all                                : Rewrites all branches and tags
+git filter-branch --subdirectory-filter trunk HEAD         : Makes the 'trunk' subdirectory be the new project root for every commit, new project root is what was in the 'trunk' subdirectory each time
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-notes.html <code>'''git notes'''</code>] ==
+
+* [http://progit.org/2010/08/25/notes.html Note to Self]
+
+
+<syntaxhighlight lang="text">
+git notes add HEAD
+git notes add/edit -m 'I approve - Scott' master~1
+
+git notes --ref=bugzilla add -m 'bug #15' 0385bcc3
+git log
+git log --show-notes=bugzilla
+git log --show-notes=*
+
+export GIT_NOTES_REF=refs/notes/bugzilla : '--ref' and '--show-notes' options are not necessary, default is 'bugzilla' now
+
+git push origin refs/notes/bugzilla
+git push origin refs/notes/*
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-grep.html <code>'''git grep'''</code>] ==
+
+<syntaxhighlight lang="text">
+git grep -n     log_syslog tag1 tag2 tree1 tree2 -- *.c
+git grep -n  -c log_syslog tag1 tag2 tree1 tree2 -- *.c
+git grep -n  -c maven master -- **/*.xml
+git grep -L  -v git tag1 tag2
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-stash.html <code>'''git stash'''</code>] ==
+
+* [http://progit.org/book/ch6-3.html "Pro Git" - Stashing]
+* Takes the dirty state of your working directory вЂ” that is, your modified tracked files and staged changes вЂ” and saves it on a stack of unfinished changes that you can reapply at any time.
+* Having a clean working directory and applying the stash on the same branch where it was created aren't necessary to successfully apply a stash:
+** You can save a stash on one branch, switch to another branch later, and try to reapply the changes.
+** You can have modified and uncommitted files in your working directory when you apply a stash. Git gives you merge conflicts if anything no longer applies cleanly.
+
+
+<syntaxhighlight lang="text">
+git stash
+git stash list
+git stash show stash@{1}
+git diff  stash@{1}
+
+git reflog                      : reflog persists independently of other changes in repository
+git reflog show stash           :
+git log stash@{32}              : When did I do it?
+git show stash@{32}             : What I was working on?
+git checkout -b temp stash@{32} : Let’s see that old working tree!
+
+git stash clear                               : DON'T! You'll lose all stash history
+git reflog expire --expire=30.days refs/stash : Outputs the stash bundles that've been kept
+
+git stash apply         : Assumes the most recent stash and tries to apply it
+git stash apply --index : Tries to reinstate not only the working tree's changes, but also the index's ones
+git stash apply stash@{1}
+git add
+git commit
+
+git stash drop [stash] : Removes a single stashed state from the stash list
+git stash pop  [stash] : Removes a single stashed state from the stash list and applies it on top of the current working tree state
+
+git stash show -p stash@{0} | git apply -R : Un-applies a Stash
+git stash show -p | git apply -R           : Same, assumes the most recent stash
+
+git stash branch newBranch : Creates a new branch, checks out the commit you were on when you stashed, reapplies your work there, drops the stash if it applies successfully
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-tag.html <code>'''git tag'''</code>] ==
+
+* [http://progit.org/book/ch2-10.html "Pro Git" - Tagging]
+* [http://nathanhoad.net/how-to-delete-a-remote-git-tag How to: Delete a remote Git tag]
+
+
+<syntaxhighlight lang="text">
+git tag                         : List all tags
+git tag -l 'v1.4.2.*'           : List tags with names that match the given pattern
+
+git tag    v0.1                 : Lightweight tag (don't supply the '-a', '-s', or '-m' option), a branch that never moves
+                                : Updates '.git/refs/tags' only
+
+git tag -a v0.1 -m 'my message' : Annotated tag, doesn't need to point to a commit; any Git object can be tagged
+                                : Updates '.git/refs/tags' and '.git/objects/'
+git tag -a v1.2 [<commit>|<object>]
+
+
+git push origin [tagname]       : Transfer tags to remote server
+git push origin --tags          : Transfer all of your tags to the remote server that are not already there
+git push origin refs/tags/*     : Same
+
+git tag -d tagName                 : Delete local tag
+git push origin :refs/tags/tagName : Delete remote tag
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-archive.html <code>'''git archive'''</code>] + [http://schacon.github.com/git/git-describe.html <code>'''describe'''</code>] ==
+
+<syntaxhighlight lang="text">
+git-archive --prefix=simplegit/ v0.1 | gzip   > simple-git-0.1.tar.gz
+git-archive --format=zip        master^ lib/  > simple-git-lib.zip
+
+git archive master --prefix='project/' | gzip      > `git describe master`.tar.gz
+it archive master --prefix='project/' --format=zip > `git describe master`.zip
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-bisect.html <code>'''git bisect'''</code>] ==
+
+* [http://progit.org/book/ch6-5.html "Pro Git" - Binary Search]
+
+
+<syntaxhighlight lang="text">
+git bisect start           : Starts the session
+git bisect bad             : Marks known bad version
+git bisect good v1.0       : Marks known good version
+git bisect start HEAD v1.0 : Same
+
+...
+git bisect good/bad        : Marks currently checked out commit as good or bad
+...
+
+git bisect reset           : Stops the session, returns tree to the commit that was checked out before 'git bisect start'
+</syntaxhighlight>
+
+
+= Branch Commands =
+
+
+== [http://schacon.github.com/git/git-checkout.html <code>'''git checkout'''</code>] ==
+
+
+<syntaxhighlight lang="text">
+git checkout -- <file>                      : Undoes unstaged (modified) changes
+git checkout -b [branch]                    : Creates a new branch and starts it at HEAD
+git checkout {--ours|--theirs} <file>       : Uses one of versions as merge resolution when inside a merge
+
+git checkout -b serverfix origin/serverfix  : Bases 'serverfix' branch off remote branch
+git checkout --track origin/serverfix       : Same (shorthand)
+git checkout --track story84 origin/story84 :
+</syntaxhighlight>
+
+
+=== [http://schacon.github.com/git/git-checkout.html#_detached_head Detached HEAD] ===
+
+* [http://sitaramc.github.com/concepts/detached-head.html detached HEAD explained]
+* [http://marklodato.github.com/visual-git-guide/index-en.html#detached A Visual Git Reference - "Committing with a Detached HEAD"]
+
+
+<syntaxhighlight lang="text">
+git checkout master^       : checkout parent of master
+git checkout HEAD~2        : checkout grandparent of current HEAD
+git checkout origin/master : checkout a non-local branch
+git checkout tagname       : checkout a tag
+
+git checkout -b newBranch      : re-attach the HEAD
+git reflog show HEAD@{now} -10 : show recent tip of branches updates
+git branch newBranch 7fdae94   : create a branch using reflog commit
+</syntaxhighlight>
+[[File:Checkout-detached.svg.png|link=http://marklodato.github.com/visual-git-guide/index-en.html]]
+
+
+== [http://schacon.github.com/git/git-branch.html <code>'''git branch'''</code>] ==
+
+* [http://progit.org/book/ch3-0.html "Pro Git" - Git Branching]
+* [http://www.eecs.harvard.edu/~cduan/technical/git/git-2.shtml Understanding Git: Branching]
+* In Git there are no branches as separate entities: there are only blobs, trees, commits and tags.
+* A branch is nothing more than a named reference to a commit. Branches and tags are identical, with the sole exception that tags can have their own descriptions, just like the commits they reference.
+* The name of any branch is simply an alias for the most recent commit on that “branch”. This is the same as using the word <code>'''HEAD'''</code> whenever that branch is checked out.
+
+
+<syntaxhighlight lang="text">
+git status               : Shows branch name in a comment
+git branch               : Lists existing branches, current branch is highlighted with an asterisk
+git branch -v            : Shows SHA-1 and commit subject line for each head, along with relationship to upstream branch (if any)
+git branch -r            : Lists the available remote branches
+
+git checkout -b [branch] : Creates a new branch and starts it at HEAD
+git branch   -d [branch] : Deletes a branch
+
+git branch --track [new-local-branch] [remote-branch] : Set up a tracking branch to work with remote branch locally, 'git pull' with no arguments will merge the correct remote head.
+git branch --track feature            origin/feature  : --track option is on by default
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-merge.html <code>'''git merge'''</code>] ==
+
+* [http://www.eecs.harvard.edu/~cduan/technical/git/git-3.shtml Understanding Git: Merging]
+* [http://schacon.github.com/git/git-merge.html#_merge_strategies Merge Strategies]
+* [http://progit.org/book/ch6-7.html "Pro Git" - Subtree Merging]
+* [http://blog.ezyang.com/2010/01/advanced-git-merge/ Five advanced Git merge techniques]
+* [http://blog.springsource.com/2010/12/21/git-and-social-coding-how-to-merge-without-fear/ Git and Social Coding: How to Merge Without Fear]
+* [http://stackoverflow.com/questions/366860/when-would-you-use-the-different-git-merge-strategies When would you use the different git merge strategies?]
+* [http://www.perforce.com/perforce/downloads/windowslist.html <code>'''p4merge'''</code>]:
+** [http://www.andymcintosh.com/?p=33 Using p4merge as a git mergetool]
+** [http://stackoverflow.com/questions/426026/git-on-windows-how-do-you-set-up-a-mergetool Git on Windows: How do you set up a mergetool?]
+** [http://progit.org/book/ch7-1.html "Pro Git" - External Merge and Diff Tools]
+
+
+<syntaxhighlight lang="text">
+git merge
+ .. resolve conflicts manually ..
+git add
+
+git merge-file             : Runs a three-way file merge
+git mergetool              : Runs merge conflict resolution tools to resolve merge conflicts
+git merge origin/serverfix : Merges remote branch 'origin/serverfix' into current local working branch
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-rebase.html <code>'''git rebase'''</code>] ==
+
+* [http://progit.org/book/ch3-6.html "Pro Git" - Rebasing]
+* [http://www.eecs.harvard.edu/~cduan/technical/git/git-5.shtml Understanding Git: Rebasing]
+* [http://wincent.com/wiki/Git_rebase_explained Git rebase explained]
+* '''<u>Do not rebase commits that you have pushed to a public repository</u>''', only rebase commits that have never been available publicly. Treat rebasing as a way to clean up and work with commits before you push them.
+* When you have work in a topic branch and have determined that you want to integrate it, you move to that branch and run the rebase command to rebuild the changes on top of your current master (or develop, and so on) branch. If that works well, you can fast-forward your master branch, and you'll end up with a linear project history.
+
+[[File:Git-history.5.png|link=http://eagain.net/articles/git-for-computer-scientists/]] <code>'''=>'''</code> [[File:Git-history.7.png|link=http://eagain.net/articles/git-for-computer-scientists/]]
+
+
+<syntaxhighlight lang="text">
+git pull --rebase
+git rebase master
+
+Conflict:
+1) Resolve manually + git add + git rebase --continue
+2) git rebase --abort
+3) git rebase --skip
+
+git rebase [basebranch] [topicbranch]  : Checks out [topicbranch] and replay it onto [basebranch]
+1) git rebase master server
+2) git checkout master
+3) git merge server
+
+git rebase origin/master
+git rebase -i
+ .. edit commits
+git rebase -i master
+
+git rebase --onto master server client : Checks out the 'client' branch, figures out the patches from the common ancestor
+                                       : of the 'client' and 'server' branches, and then replays them onto 'master'
+git checkout master
+git merge client
+
+git rebase --whitespace=fix : Fixes whitespace issues as it's rewriting the patches
+</syntaxhighlight>
+
+
+= Remote commands =
+
+
+== [http://schacon.github.com/git/git-remote.html <code>'''git remote'''</code>] ==
+
+* [http://progit.org/book/ch2-9.html "Pro Git" - Working with Remotes]
+
+
+<syntaxhighlight lang="text">
+git remote -v
+git remote add [shortname] [url]
+git remote add local_proj /opt/git/project.git
+git remote add mycap      git@github.com:schacon/capistrano.git
+git remote add official   git://github.com/jamis/capistrano.git
+git remote show [remote-name]
+git remote show origin
+git remote rename [old-name] [new-name]
+
+git remote rm [name] : Updates '.git/config' and '.git/refs/remotes/[remote_name]'.
+                       It will not remove any of the git objects, so if you decide to add it again and fetch, very little will be transferred.
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-fetch.html <code>'''git fetch'''</code>] ==
+
+* Goes out to remote project and pulls down all data that you don't have yet. When done you should have references to all the branches from that remote  which you can merge in or inspect.
+
+
+<syntaxhighlight lang="xml">
+git fetch origin
+git merge origin/master
+git push  origin master
+</syntaxhighlight>
+
+Or
+
+<syntaxhighlight lang="xml">
+git pull origin master
+git push origin master
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-pull.html <code>'''git pull'''</code>] ==
+
+* If you have a branch set up to track a remote branch, fetch + merge a remote branch into your current branch
+
+
+<syntaxhighlight lang="text">
+git pull [remote-repository-reference] [remote-head-name]                     : Merges the head named [remote-repository-reference]/[remote-head-name] into HEAD
+git pull origin/story84 = git fetch origin/story84 + git merge origin/story84 : Merges 'origin/story84' into local 'story84' branch
+
+git pull --rebase
+git pull git://github.com/onetimeguy/project.git
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-push.html <code>'''git push'''</code>] ==
+
+* <code>''''origin''''</code> is default
+* If no arguments are given to <code>'''"git push"'''</code>, it will push all the branches in the repository that are set up for tracking (every branch that you and the server have in common)
+* Git requires that the push result in a fast-forward merge on the remote repository. That means that, before the merge, the remote head points to an ancestor of the commit that it will point to after the merge.
+
+
+<syntaxhighlight lang="text">
+git push [remote-repository-reference] [remote-head-name]: Adds new commit objects sent by the pushing repository
+                                                           Sets [remote-head-name] to point to the same commit that it points to on the pushing repository
+                                                           Updates the corresponding remote head reference on the sending repository
+
+git push origin serverfix
+git push origin serverfix:serverfix
+git push origin serverfix:awesomebranch
+git push [remotename] [localbranch]:[remotebranch]
+
+git push --force                          : Usually, 'git push' refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.
+                                            This flag disables the check. This can cause the remote repository to lose commits.
+
+git push origin [tagname]                 : Transfer tags to remote server
+git push origin --tags                    : Transfer all of your tags to the remote server that are not already there
+git push origin refs/tags/*               : Same
+
+git push --set-upstream origin new-branch : Create a new branch on the remote repository.
+                                            For every branch that is up to date or successfully pushed, add upstream (tracking) reference.
+
+git push [remote-repository-reference] :[head-name] : Delete a branch on the remote repository
+git push [remotename]                  :[branch]
+git push origin                        :serverfix
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-request-pull.html <code>'''git request-pull'''</code>] ==
+
+* Takes the base branch into which you want your topic branch pulled and the Git repository URL you want them to pull from, and outputs a summary of all the changes you're asking to be pulled in.
+
+
+<syntaxhighlight lang="text">
+$ git request-pull origin/master myfork : myfork => origin/master
+The following changes since commit 1edee6b1d61823a2de3b09c160d7080b8d1b3a40:
+  John Smith (1):
+        added a new function
+
+are available in the git repository at:
+
+  git://githost/simplegit.git featureA
+
+Jessica Smith (2):
+      add limit to log function
+      change log output to 30 from 25
+
+ lib/simplegit.rb |   10 +++++++++-
+ 1 files changed, 9 insertions(+), 1 deletions(-)
+</syntaxhighlight>
+
+
+== [http://schacon.github.com/git/git-format-patch.html <code>'''git format-patch'''</code>] + [http://schacon.github.com/git/git-send-email.html <code>'''send-email'''</code>] ==
+
+<code>''''~/.gitconfig''''</code>:
+
+<syntaxhighlight lang="text">
+[imap]
+  folder = "[Gmail]/Drafts"
+  host = imaps://imap.gmail.com
+  user = user@gmail.com
+  pass = p4ssw0rd
+  port = 993
+  sslverify = false
+</syntaxhighlight>
+
+
+<syntaxhighlight lang="text">
+git format-patch -M origin/master : Prepares each commit with its patch in one file per commit
+git send-email *.patch            : Takes the patches given on the command line and emails them out
+</syntaxhighlight>
+
+
+= Refspec =
+
+* [http://progit.org/book/ch9-5.html "Pro Git" - The Refspec]
+
+
+<syntaxhighlight lang="text">
++refs/heads/master:refs/remotes/origin/master        : <src>:<dst> (references pattern on the remote side:local storage)
+                                                       '+' updates the reference even if it isn't a fast-forward
++refs/heads/*:refs/remotes/origin/*                  : Default for 'git fetch'
+
+
+git log origin/master                                : Identical
+git log remotes/origin/master                        : Identical
+git log refs/remotes/origin/master                   : Identical
+
+git fetch origin master:refs/remotes/origin/mymaster : Pulls the 'master' branch on the remote down to 'origin/mymaster' locally
+git fetch origin master:refs/remotes/origin/mymaster \
+                  topic:refs/remotes/origin/topic
+
+git push origin master:refs/heads/qa/master          : Pushes 'master' branch to 'qa/master' on the remote server
+git push origin :topic                               : Deletes <dst> ref from the remote repository
+                                                       Makes 'topic' branch on the remote nothing
+</syntaxhighlight>
+
+
+<code>'''.git/config'''</code>:
+
+
+<syntaxhighlight lang="text">
+[remote "origin"]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/*:refs/remotes/origin/*
+--
+[remote "origin"]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/master:refs/remotes/origin/master
+       fetch = +refs/heads/experiment:refs/remotes/origin/experiment
+--
+[remote "origin"]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/master:refs/remotes/origin/master
+       fetch = +refs/heads/qa/*:refs/remotes/origin/qa/*
+--
+[remote "origin"]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/*:refs/remotes/origin/*
+       push = refs/heads/master:refs/heads/qa/master
+</syntaxhighlight>
+
+
+= [http://schacon.github.com/git/gitworkflows.html Workflows] =
+
+* [http://progit.org/book/ch5-2.html "Pro Git" - Contributing to a Project]
+* [http://progit.org/book/ch5-3.html "Pro Git" - Maintaining a Project]
+* [http://sandofsky.com/blog/git-workflow.html Ben Sandofsky - Understanding the Git Workflow]
+* [http://osteele.com/archives/2008/05/my-git-workflow Oliver Steele - My Git Workflow]
+* [http://gweezlebur.com/2009/01/19/my-git-workflow.html Michael D. Ivey - My Git Workflow]
+* [http://www.eecs.harvard.edu/~cduan/technical/git/git-4.shtml Understanding Git: Collaborating]
+* [http://evgeny-goldin.com/blog/my-git-workflow/ Evgeny Goldin - My Git Workflow]
+* [http://jonrohan.me/guide/git/dead-simple-git-workflow-for-agile-teams/ Jon Rohan - Dead Simple Git Workflow]
+
+
+= [http://schacon.github.com/git/githooks.html Hooks] =
+
+* [http://progit.org/book/ch7-3.html "Pro Git" - Git Hooks]
+* [http://progit.org/book/ch7-4.html "Pro Git" - An Example Git-Enforced Policy]
+
+
+== Client-Side ==
+
+* '''<u>Aren't transferred during a clone!</u>'''
+
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Hook
+! When
+! Parameters
+! Possible Purpose
+|-
+| align="center" | <code>'''pre-commit'''</code>
+| Before obtaining the proposed commit log message and making a commit
+| 0
+| Inspect the snapshot
+|-
+| align="center" | <code>'''prepare-commit-msg'''</code>
+| After preparing the default log message, and before the editor is started
+| 1-3
+| Edit default commit message
+|-
+| align="center" | <code>'''commit-msg'''</code>
+| After commit message is stored in a file
+| 1
+| Validate project state or commit message
+|-
+| align="center" | <code>'''post-commit'''</code>
+| After a commit is made
+| 0
+| Notification
+|-
+| align="center" | <code>'''pre-rebase'''</code>
+| Before rebase
+| 0
+| Prevent a branch from getting rebased
+|-
+| align="center" | <code>'''post-checkout'''</code>
+| After successful <code>''''git checkout''''</code>
+| 3
+| Set up working directory, perform repository validity checks
+|-
+| align="center" | <code>'''post-merge'''</code>
+| After successful <code>''''git merge''''</code>
+| 1
+| Restore metadata associated with the working tree (permissions/ownership)
+|}
+
+
+== Server-Side ==
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Hook
+! When
+! Parameters
+! Possible Purpose
+|-
+| align="center" | <code>'''pre-receive'''</code>
+| After <code>''''git push''''</code> is done on local repository, just before starting to update refs on remote repository
+| Stdin
+| Make sure none of the updated references are non-fast-forwards; check user access
+|-
+| align="center" | <code>'''post-receive'''</code>
+| After <code>''''git push''''</code> is done on a local repository, after all the refs have been updated
+| Stdin
+| E-mailing a list, notifying a CI server, updating a ticket-tracking system.<br/>'''<u>Client doesn't disconnect until it has completed!</u>'''
+|-
+| align="center" | <code>'''update'''</code>
+| After <code>''''git push''''</code> is done on a local repository, before updating the ref on the remote repository. Runs once per branch.
+| 3
+| Enforce a "fast-forward only" policy
+|}
+
+
+= Maintenance =
+
+* [http://progit.org/book/ch9-4.html "Pro Git" - Packfiles]
+* [http://progit.org/book/ch9-7.html "Pro Git" - Maintenance and Data Recovery]
+
+
+<syntaxhighlight lang="text">
+git gc
+git config --global gc.auto 1/0
+
+git fsck            : Verifies the connectivity and validity of the objects in the database
+git fsck --full     : Checks also objects found in alternate object pools and in packed git archives
+
+git prune           : Prunes all unreachable objects from the object database
+git prune -n        : Doesn't remove anything, reports would be removed
+</syntaxhighlight>
+
+
+= Undo / [http://schacon.github.com/git/git-reset.html <code>'''git reset'''</code>] =
+
+* [http://progit.org/book/ch2-8.html "Pro Git" - Undoing Things]
+* [http://progit.org/2010/03/02/undoing-merges.html Undoing Merges]
+* [http://marklodato.github.com/visual-git-guide/index-en.html#basic-usage A Visual Git Reference - "Basic Usage"]
+* [http://marklodato.github.com/visual-git-guide/index-en.html#reset A Visual Git Reference - "Reset"]
+* [http://schacon.github.com/git/git-reset.html <code>'''git reset'''</code>] is a reference editor, an index editor, and a working tree editor.
+* [http://schacon.github.com/resetvcheckout.html Reset vs. Checkout]
+
+
+{| border="1" cellspacing="0" cellpadding="5" class="wikitable"
+|-
+! Command
+! Description
+|-
+| align="center" | [http://schacon.github.com/git/git-reset.html <code>'''git reset --hard HEAD'''</code>]
+| align="left"   | Reset your working directory and index back to the contents of the last commit ''(what it was before you tried the merge)''.
+|-
+| align="center" | [http://schacon.github.com/git/git-reset.html <code>'''git reset --hard ORIG_HEAD'''</code>]
+| align="left"   | Throw away last commit, undo the latest change or changes.
+|-
+| align="center" | [http://schacon.github.com/git/git-revert.html <code>'''git revert'''</code>]
+| align="left"   | Revert existing commits.
+|-
+| align="center" | [http://schacon.github.com/git/git-reset.html <code>'''git reset HEAD <file>'''</code>]
+<code>'''git reset -- <file>'''</code>
+| align="left"   | Unstage files, undo <code>'''"git add"'''</code>, copy files from the latest commit to the stage.
+<code>'''"git reset"'''</code> unstages everything.
+|-
+| align="center" | [http://schacon.github.com/git/git-checkout.html <code>'''git checkout -- <file>'''</code>]
+| align="left"   | Undo local unstaged changes, copy files from the stage to the working directory, throw away local changes.
+|-
+| align="center" | <code>'''git stash show -p [stash] | git apply -R'''</code>
+| align="left"   | Un-apply a stash.
+|-
+| align="center" | <code>'''[[#git filter-branch|git filter-branch]]'''</code>
+| align="left"   | Rewrite branches.
+|}
+
+
+[[File:Basic-usage.svg.png|link=http://marklodato.github.com/visual-git-guide/index-en.html#basic-usage]]
+
+
+= Submodules =
+
+* [http://progit.org/book/ch6-6.html "Pro Git" - Submodules]
+* [http://progit.org/book/ch6-7.html "Pro Git" - Subtree Merging]
