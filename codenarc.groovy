@@ -23,6 +23,7 @@ ruleset {
         VariableName             ( finalRegex            : /[a-zA-Z0-9_]+/ )
 
         // http://codenarc.sourceforge.net/codenarc-configuring-rules.html#Standard_Properties_for_Configuring_Rules
-        FileCreateTempFile       ( doNotApplyToFileNames : 'Timer.groovy' )
+        FileCreateTempFile       ( doNotApplyToFilesMatching : '*/src/main/groovy/Timer.groovy' )
+        AbcComplexity            ( doNotApplyToFilesMatching : '*/src/test/groovy/mediawiki/y2m.groovy' )
     }
 }

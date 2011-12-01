@@ -10,6 +10,7 @@ import com.goldin.gcommons.GCommons
 /**
  * Tests "y2m.groovy" script
  */
+@SuppressWarnings( 'ClassName' )
 class y2m
 {
     private final projectRoot = new File( '../../../..' ).canonicalFile
