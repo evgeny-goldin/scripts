@@ -13,7 +13,7 @@ import com.goldin.gcommons.GCommons
  * Usage: groovy links.groovy <directory> [files include pattern]
  */
 
-assert args, 'Arguments exepcted: <directory> [files include pattern]'
+assert args, 'Arguments expected: <directory> [files include pattern]'
 final File       directory = GCommons.verify().directory( new File( args[ 0 ] ))
 final String     pattern   = ( args.size() > 1 ? args[ 1 ] : '**' )
 final List<File> files     = GCommons.file().files( directory, [ pattern ] )*.canonicalFile

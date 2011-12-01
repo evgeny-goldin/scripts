@@ -34,9 +34,16 @@ final List<String> fields        = ( args.size() > 2          ) ? split( args[ 2
 final List<String> groupByFields = ( args.size() > 3          ) ? split( args[ 3 ] ) :
                                    ( fields.is( defaultFields ))? defaultGroupByFields                  : []
 final boolean      addCounter    = ( args.size() > 4          ) ? Boolean.valueOf( args[ 4 ] )          : false
+final String       y2mFile       = System.getProperty( 'y2mFile' )
+final long         time          = System.currentTimeMillis()
+
 
 assert youTrackUrl && f.file && fields
 assert ( ! groupByFields ) || fields.containsAll( groupByFields ), "Fields $fields don't contain $groupByFields"
+
+
+if ( y2mFile ) { println "Converting CSV YouTrack file [$f] to [$y2mFile]" }
+
 
 List<String[]> lines  = new CSVReader( new StringReader( convertWikiSyntax( convertMultilines( f.getText( encoding ))))).readAll()
 assert         lines?.size() > 1 , "No CSV data found in [$f]"
@@ -77,7 +84,6 @@ for ( line in lines ){ %><%= addCounter? '\\n|' + ( lineCounter++ ) : '' %><% fo
 |-<% } %>
 |}'''
 
-def y2mFile = System.getProperty( 'y2mFile' )
 def result  = new groovy.text.GStringTemplateEngine().
               createTemplate( tableTemplate ).
               make([ youTrackUrl  : youTrackUrl,
@@ -91,6 +97,8 @@ if ( y2mFile )
         assert ( ! file ) || delete()
         setText( result, encoding )
     }
+
+    println "Converting CSV YouTrack file [$f] to [$y2mFile] - Done (${ System.currentTimeMillis() - time } ms)"
 }
 else
 {
