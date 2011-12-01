@@ -2,6 +2,11 @@
 
 clear
 
+# http://stackoverflow.com/questions/821396/bash-possible-to-abort-shell-script-if-any-command-returns-a-non-zero-value
+set -e
+set -o pipefail
+
+
 SCRIPTS_ROOT=`pwd`
 TESTS_ROOT=$SCRIPTS_ROOT/tests
 #GROOVY='groovy -Dgroovy.grape.report.downloads=true'
