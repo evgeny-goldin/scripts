@@ -41,13 +41,12 @@ it saves on referencing the same object over and over or creating temporal varia
 It accepts a <code>'''Closure'''</code> expression returning either a single object or <code>'''List'''</code> of objects:
 
 <syntaxhighlight lang="text">
-   @With({ true })
-   @With({ 'string' })
-   @With({ 'http://gradle.org/'.toURL() })
+@With({ true })
+@With({ 'string' })
+@With({ 'http://gradle.org/'.toURL() })
 
-   @With({ [ 'string', [ 1 : 3 ], [ true ] ] })
-   @With({ [ 'http://gradle.org/'.toURL(), 'http://groovy.codehaus.org/' ] })
-
+@With({ [ 'string', [ 1 : 3 ], [ true ] ] })
+@With({ [ 'http://gradle.org/'.toURL(), 'http://groovy.codehaus.org/' ] })
 </syntaxhighlight>
 
 
@@ -131,7 +130,7 @@ class GeneralBeanSpec extends Specification
 Note, that both attributes are <code>'''int'''</code> (covering 24-days execution) and not <code>'''long'''</code> although they deal with milliseconds. This is to avoid warnings around <code>'''0L'''</code> constants and avoid appending <code>'''L'''</code> to numbers as well.
 Default values allow to display an execution time without applying any limits:
 
-'''Image at "https://dl.dropbox.com/s/so4eetmff17l8wf/Time%20Extension.png?dl=1" has to be uploaded. See [http://www.mediawiki.org/wiki/Manual:$wgAllowExternalImages#Why''disallow''external_images.3F this] and [http://www.mediawiki.org/wiki/Help:Images this] for more details.'''
+'''Image at "https://dl.dropbox.com/s/so4eetmff17l8wf/Time%20Extension.png?dl=1" needs to be uploaded. See [http://www.mediawiki.org/wiki/Manual:$wgAllowExternalImages#Why_disallow_external_images.3F this] and [http://www.mediawiki.org/wiki/Help:Images this] for more details.'''
 === [http://github.com/evgeny-goldin/spock-extensions/tree/master/src/test/groovy/com/goldin/spock/extensions Test Specifications] ===
 === Example (taken from [http://github.com/evgeny-goldin/gcommons/blob/a4abda41f5977c742b202d6d22a326699e6da7bf/src/test/groovy/com/goldin/gcommons/specs/GeneralBeanSpec.groovy this file]) ===
 

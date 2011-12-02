@@ -12,7 +12,9 @@
 assert ( args.size() == 2 ), 'Arguments expected: <markdown file> <output file>'
 
 final  File mdFile  = new File( args[ 0 ] ).canonicalFile
+//final  File mdFile  = new File( '/Users/evgenyg/Projects/scripts/src/test/resources/g2m/README.markdown' ).canonicalFile
 final  File outFile = new File( args[ 1 ] ).canonicalFile
+//final  File outFile = new File( '/Users/evgenyg/Projects/scripts/src/test/resources/g2m/README.mediawiki' ).canonicalFile
 final  time         = System.currentTimeMillis()
 assert mdFile.file
 
@@ -32,16 +34,6 @@ String convert( String mdText )
     mdText.
     // \t => 4 spaces
     replaceAll( /\t/, '    ' ).
-    // ## Title => == Title ==
-    replaceAll( /(?m)^\s*(#+)\s+(.+)$/, { "${ '=' * it[ 1 ].size() } ${ it[ 2 ] } ${ '=' * it[ 1 ].size() }" }).
-    // ![text](image link) => Message about having to upload the image
-    replaceAll( /!\[(.+?)\]\((.+?)\)/, { "'''Image at \"${ it[ 2 ] }\" has to be uploaded. See [http://www.mediawiki.org/wiki/Manual:\$wgAllowExternalImages#Why_disallow_external_images.3F this] and [http://www.mediawiki.org/wiki/Help:Images this] for more details.'''" }).
-    // [text](link) => '[link text]'
-    replaceAll( /\[(.+?)\]\((.+?)\)/, "[\$2 \$1]" ).
-    // [htpps:// => [htpp://
-    replaceAll( /\[https:\/\//, '[http://' ).
-    // code section (4 space-prepended lines) => <syntaxhighlight> section
-    replaceAll( /(    .+?\r?\n)(((    .+?)|(\s*))\r?\n)*/, { "<syntaxhighlight lang=\"text\">\n${ trimCode( it[ 0 ] ) }</syntaxhighlight>\n\n\n" }).
     // `text` => '<code>'''text'''</code>'
     replaceAll( /`(.+?)`/, "<code>'''\$1'''</code>" ).
     // **text** => '''text'''
@@ -51,7 +43,17 @@ String convert( String mdText )
     // *text* => ''text''
     replaceAll( /\*(.+?)\*/,  "''\$1''"   ).
     // _text_ => ''text''
-    replaceAll( /_(.+?)_/,    "''\$1''"   )
+    replaceAll( /_(.+?)_/,    "''\$1''"   ).
+    // ## Title => == Title ==
+    replaceAll( /(?m)^\s*(#+)\s+(.+)$/, { "${ '=' * it[ 1 ].size() } ${ it[ 2 ] } ${ '=' * it[ 1 ].size() }" }).
+    // code section (4 space-prepended lines) => <syntaxhighlight> section
+    replaceAll( /(    .+?\r?\n)(((    .+?)|(\s*))\r?\n)*/, { "<syntaxhighlight lang=\"text\">\n${ trimCode( it[ 0 ] ) }\n</syntaxhighlight>\n\n\n" }).
+    // ![text](image link) => Message about having to upload the image
+    replaceAll( /!\[(.+?)\]\((.+?)\)/, { "'''Image at \"${ it[ 2 ] }\" needs to be uploaded. See [http://www.mediawiki.org/wiki/Manual:\$wgAllowExternalImages#Why_disallow_external_images.3F this] and [http://www.mediawiki.org/wiki/Help:Images this] for more details.'''" }).
+    // [text](link) => '[link text]'
+    replaceAll( /\[(.+?)\]\((.+?)\)/, "[\$2 \$1]" ).
+    // [htpps:// => [htpp://
+    replaceAll( /\[https:\/\//, '[http://' )
 }
 
 
@@ -62,6 +64,7 @@ String convert( String mdText )
  */
 String trimCode( String s )
 {
-    int prefix = s.findAll( /(?m)^(\s+)/ ){ it[ 1 ] }*.size().min()
-    s.readLines().collect{ it.replaceAll( /^\s{$prefix}/, '' ) }.join( '\n' ) + '\n'
+    final lines        = s.readLines()
+    final prefixLength = lines.findAll{ it.trim() }.collect{ String line -> line.find( /^\s+/ ).size() }.min()
+    ( lines.collect{ it.replaceAll( /^\s{$prefixLength}/, '' ) }.join( '\n' )).replaceAll( /\s+$/, '' )
 }
