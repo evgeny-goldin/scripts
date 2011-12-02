@@ -15,12 +15,13 @@ assert args, 'Arguments expected: <directory> [files include pattern]'
 final File       directory = GCommons.verify().directory( new File( args[ 0 ] ))
 final String     pattern   = ( args.size() > 1 ? args[ 1 ] : '**' )
 final List<File> files     = GCommons.file().files( directory, [ pattern ] )*.canonicalFile
+final long       time      = System.currentTimeMillis()
 final int        maxName   = files*.path*.size().max()
 final Map        headings  = files.inject( [:] ){ Map m, File f -> m[ f.name - GCommons.file().extension( f ) - '.' ] = processInternal( f, maxName ); m }
 
 files.each { File f -> processExternal( f, headings, maxName )}
 
-println "[${ files.size()}] file${ GCommons.general().s( files.size())} processed"
+println "[${ files.size()}] file${ GCommons.general().s( files.size())} processed (${ System.currentTimeMillis() - time } ms)"
 
 
 /**
