@@ -25,7 +25,7 @@ class g2m
     {
         for ( f in new File( projectRoot, 'src/test/resources/g2m/markdown' ).listFiles())
         {
-            final expectedResult = new File( projectRoot, "src/test/resources/g2m/mediawiki/${ f.name }" )
+            final expectedResult = new File( projectRoot, "src/test/resources/g2m/mediawiki/${ f.name.replaceFirst( /\.markdown$/, '.mediawiki' ) }" )
             final result         = GCommons.file().delete( new File( expectedResult.parentFile, expectedResult.name + '.out' ))
 
             new GroovyShell().run( g2mScript, [ f.canonicalPath, result.canonicalPath ] )
