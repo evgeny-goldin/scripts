@@ -32,6 +32,11 @@ println "Converting [$mdFile] to [$outFile] - Done (${ System.currentTimeMillis(
  */
 String convert( String mdText )
 {
+    /**
+     * TODO:
+     * - GitHub bulleting
+     */
+
     mdText.
     // \t => 4 spaces
     replaceAll( /\t/, '    ' ).
