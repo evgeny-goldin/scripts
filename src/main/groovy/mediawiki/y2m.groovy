@@ -1,4 +1,5 @@
 @Grab( 'net.sf.opencsv:opencsv:2.3' )
+@GrabExclude('xml-apis:xml-apis')
 import au.com.bytecode.opencsv.CSVReader
 
 /**
