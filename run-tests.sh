@@ -22,10 +22,12 @@ echo --== Removing old files ==--
 rm -rf $TESTS_ROOT && mkdir $TESTS_ROOT && cd $TESTS_ROOT
 
 echo --== Getting projects ==--
+
 echo --== Getting [wiki] ==--
 wget --no-check-certificate -q -O wiki.zip http://github.com/evgeny-goldin/wiki/zipball/master && unzip -q wiki.zip && rm wiki.zip && mv evgeny-goldin-wiki-* wiki
 # http://twitter.com/#!/evgeny_goldin/status/140897437110910976
 # git clone  git://github.com/evgeny-goldin/wiki.git    $TESTS_ROOT/wiki
+
 echo --== Getting [gmaps4jsf] ==--
 svn checkout -q http://gmaps4jsf.googlecode.com/svn/trunk/ $TESTS_ROOT/checkout/gmaps4jsf
 
@@ -47,6 +49,9 @@ cd $SCRIPTS_ROOT/src/test/groovy/mediawiki
 
 echo --== Running [y2m.groovy] ==--
 $GROOVY y2m.groovy
+
+echo --== Running [g2m.groovy] ==--
+$GROOVY g2m.groovy
 
 echo --== Removing old files ==--
 rm -rf $TESTS_ROOT

@@ -1,8 +1,7 @@
+package mediawiki
 
 @GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
 @Grab('com.goldin:gcommons:0.5.3.6')
-@GrabExclude('commons-net:commons-net')
-@GrabExclude('org.codehaus.groovy:groovy-all')
 @GrabExclude('xml-apis:xml-apis')
 import com.goldin.gcommons.GCommons
 
@@ -13,11 +12,13 @@ import com.goldin.gcommons.GCommons
 @SuppressWarnings( 'ClassName' )
 class y2m
 {
-    private final projectRoot = new File( '../../../..' ).canonicalFile
+    private final File projectRoot = new File( System.getProperty( 'user.dir' ), '../../../..' ).canonicalFile
+    private final File y2mScript   = new File( projectRoot, 'src/main/groovy/mediawiki/y2m.groovy' )
 
     y2m()
     {
         assert projectRoot.directory && projectRoot.listFiles()*.name.any{ it == 'build.gradle' }
+        assert y2mScript.file
     }
 
 
@@ -28,7 +29,7 @@ class y2m
            /**
             * Run automatic tests
             */
-            new File( projectRoot, 'src/test/resources/y2m/auto' ).canonicalFile.listFiles().sort().with {
+            new File( projectRoot, 'src/test/resources/y2m/auto' ).listFiles().sort().with {
                 assert delegate && delegate.every { File f -> f.name.endsWith( '.txt' ) }
                 delegate.each { File f -> autoTest( f ) }
             }
@@ -89,8 +90,8 @@ class y2m
      {
          assert ( args != null ) && expectedResult
 
-         File csvFile            = new File( projectRoot, 'src/test/resources/y2m/jetbrains/issues.csv'      ).canonicalFile
-         File expectedResultFile = new File( projectRoot, "src/test/resources/y2m/jetbrains/$expectedResult" ).canonicalFile
+         File csvFile            = new File( projectRoot, 'src/test/resources/y2m/jetbrains/issues.csv'      )
+         File expectedResultFile = new File( projectRoot, "src/test/resources/y2m/jetbrains/$expectedResult" )
          compareResults( expectedResultFile.path,
                          ( [ 'http://youtrack.jetbrains.net/', csvFile.path ] + args ) as List,
                          expectedResultFile )
@@ -133,7 +134,6 @@ class y2m
 
          final long   t         = System.currentTimeMillis()
          final String encoding  = 'UTF-8'
-         final File   y2mScript = new File( projectRoot, 'src/main/groovy/mediawiki/y2m.groovy' ).canonicalFile
          final File   y2mFile   = GCommons.file().tempFile()
 
          assert [ y2mScript, y2mFile ].every { it.file }

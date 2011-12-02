@@ -10,17 +10,18 @@
 
 
 assert ( args.size() == 2 ), 'Arguments expected: <markdown file> <output file>'
-
+//
 final  File mdFile  = new File( args[ 0 ] ).canonicalFile
-//final  File mdFile  = new File( '/Users/evgenyg/Projects/scripts/src/test/resources/g2m/README.markdown' ).canonicalFile
+//final  File mdFile  = new File( System.getProperty( 'user.dir' ), 'src/test/resources/g2m/markdown/README-spock-extensions.markdown' ).canonicalFile
 final  File outFile = new File( args[ 1 ] ).canonicalFile
-//final  File outFile = new File( '/Users/evgenyg/Projects/scripts/src/test/resources/g2m/README.mediawiki' ).canonicalFile
+//final  File outFile = new File( System.getProperty( 'user.dir' ), 'src/test/resources/g2m/mediawiki/README-spock-extensions.mediawiki' ).canonicalFile
 final  time         = System.currentTimeMillis()
 assert mdFile.file
 
 println "Converting [$mdFile] to [$outFile]"
 assert outFile.parentFile.with { directory || mkdirs() }
 outFile.write( convert( mdFile.getText( 'UTF-8' )), 'UTF-8' )
+assert outFile.file
 println "Converting [$mdFile] to [$outFile] - Done (${ System.currentTimeMillis() - time } ms)"
 
 
