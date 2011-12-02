@@ -28,8 +28,8 @@ wget --no-check-certificate -q -O wiki.zip http://github.com/evgeny-goldin/wiki/
 # http://twitter.com/#!/evgeny_goldin/status/140897437110910976
 # git clone  git://github.com/evgeny-goldin/wiki.git    $TESTS_ROOT/wiki
 
-echo --== Getting [gmaps4jsf] ==--
-svn checkout -q http://gmaps4jsf.googlecode.com/svn/trunk/ $TESTS_ROOT/checkout/gmaps4jsf
+echo --== Getting [java-twitter] ==--
+svn checkout -q http://java-twitter.googlecode.com/svn/trunk/ $TESTS_ROOT/checkout/java-twitter
 
 cd $SCRIPTS_ROOT/src/main/groovy
 
