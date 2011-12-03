@@ -23,6 +23,8 @@ CSV file        - "Issues in CSV"-exported file from YouTrack
 Fields          - (optional) comma-separated list of fields to use in MediaWiki table, "${ defaultFields.join( ', ' )}" by default
 Group-By-Fields - (optional) comma-separated list of fields to group table rows by, "${ defaultGroupByFields.join( ', ' )}" for the default fields
 Add #           - (optional) true/false, whether to add a '#' column with a running counter for each issue, false by default
+
+If -Dy2mFile=file is specifed then result is written to this file instead of writing it to stdout.
 ------------------------------------------------------------------------------------------------------------------------------
 """
     return
@@ -96,6 +98,7 @@ if ( y2mFile )
 {
     new File( y2mFile ).with {
         assert ( ! file ) || delete()
+        assert parentFile.with { directory || mkdirs() }
         setText( result, encoding )
     }
 
