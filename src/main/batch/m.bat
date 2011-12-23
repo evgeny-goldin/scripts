@@ -1,1 +1,1 @@
-mvn -B -e clean install %*
+mvn -e -B clean install %*
