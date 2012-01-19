@@ -1,3 +1,3 @@
 @echo off
-git status -s
+git status
 
