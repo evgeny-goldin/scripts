@@ -1,2 +1,3 @@
-cls
-git status
+@echo off
+git status -s
+
