@@ -10,5 +10,6 @@ git rebase master
 git checkout master
 git status
 git merge dev
-git push origin
+git push origin master
+git push origin dev
 git checkout dev
