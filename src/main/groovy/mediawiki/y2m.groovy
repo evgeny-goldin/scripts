@@ -73,7 +73,11 @@ assert lines && lines.every{ it.size() == lines[ 0 ].size() }
  * MediaWiki table template
  */
 final String tableTemplate = '''
-<!-- Generated with http://goo.gl/7WHjH -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- Generated using http://goo.gl/2eZJf -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 {| border="1" cellspacing="0" cellpadding="5" class="wikitable" width="90%"
 |-<%= addCounter ? '\\n!#' : '' %><% for ( field in fields ){ %>
 !$field<% } %>
