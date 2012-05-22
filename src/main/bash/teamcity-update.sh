@@ -38,8 +38,8 @@ mv teamcity                 $tomcat/webapps
 
 echo  ========== [5] - Killing remaining Tomcat process ==========
 
-echo  [`ps | grep java | grep org.apache.catalina.startup.Bootstrap`]
-kill   `ps | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}'`
+echo  [`ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap`]
+kill   `ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}'`
 
 echo  ========== [6] - Starting Tomcat ==========
 
