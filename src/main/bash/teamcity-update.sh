@@ -3,7 +3,7 @@ echo  ========== [1] - downloading TeamCity ==========
 rm -rf teamcity
 mkdir  teamcity
 cd     teamcity
-wget   ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
+wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 
 echo  ========== [2] - done, unpacking ==========
 
