@@ -48,4 +48,4 @@ echo  ========== [7] - Listing Tomcat log file ==========
 cat ~/java/tomcat/logs/catalina.out
 
 echo  ========== [8] - Creating "teamcity-info.xml" ==========
-echo "<build><statusInfo status="SUCCESS"><text action="replace">Updated to [$tcBuild]</text></statusInfo></build>" > "teamcity-info.xml"
+echo "<build><statusInfo status=\"SUCCESS\"><text action=\"replace\">Updated to [$tcBuild]</text></statusInfo></build>" > "teamcity-info.xml"
