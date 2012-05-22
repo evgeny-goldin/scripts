@@ -49,6 +49,12 @@ echo  ========== [6] - Tomcat started, sleeping for 2 minutes ==========
 
 sleep 120
 
+echo  ========== [7] - Listing Tomcat log file ==========
+
+cat $tomcat/logs/catalina.out
+
+echo  ========== [8] - Listing memory and disk usage ==========
+
 echo -------
 echo Memory:
 echo -------
@@ -61,9 +67,5 @@ echo -----
 
 df -hl
 
-echo  ========== [7] - Listing Tomcat log file ==========
-
-cat $tomcat/logs/catalina.out
-
-echo  ========== [8] - Done! ==========
+echo  ========== [9] - Done! ==========
 echo  "##teamcity[buildStatus status='SUCCESS' text='Updated to |[$tcBuild|]']"
