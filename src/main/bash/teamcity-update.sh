@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo --------------------------------------
 echo Updating                    [$tomcat]
 echo Keeping previous version in [$backup]
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo --------------------------------------
 
 echo  ========== [1] - Downloading ==========
 echo   "##teamcity[progressMessage 'Downloading']"
