@@ -4,6 +4,7 @@ rm -rf teamcity
 mkdir  teamcity
 cd     teamcity
 wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
+echo   "##teamcity[buildStatus status='`ls *.war | cut -f 1 -d '.'`']"
 
 echo  ========== [2] - Unpacking ==========
 
