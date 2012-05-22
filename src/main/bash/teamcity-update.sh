@@ -13,6 +13,9 @@ cd    ..
 
 echo  ========== [3] - done, stopping Tomcat ==========
 
+exit
+
+
 ~/java/tomcat/bin/shutdown.sh
 sleep 15
 ~/cleanup-tomcat.sh
