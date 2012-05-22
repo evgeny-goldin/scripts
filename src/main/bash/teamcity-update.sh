@@ -35,11 +35,12 @@ echo  ========== [6] - done, starting Tomcat ==========
 ~/cleanup-tomcat.sh
 ~/java/tomcat/bin/startup.sh
 
-echo  ========== [6] - done, Tomcat started! ==========
+echo  ========== [6] - done, Tomcat started!  ==========
+echo  ========== [7] - sleeping for 2 minutes ==========
 
-sleep 60
+sleep 120
 free
 
-echo  ========== [7] - listing Tomcat log file ==========
+echo  ========== [8] - listing Tomcat log file ==========
 
 cat ~/java/tomcat/logs/catalina.out
