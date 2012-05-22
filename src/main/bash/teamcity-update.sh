@@ -22,8 +22,7 @@ echo  ========== [4] - done, moving TeamCity ==========
 rm -rf                            ~/download/old/teamcity
 mkdir                             ~/download 
 mkdir                             ~/download/old 
-mkdir                             ~/download/old/teamcity 
-mv ~/java/tomcat/webapps/teamcity ~/download/old/teamcity
+mv ~/java/tomcat/webapps/teamcity ~/download/old
 mv teamcity                       ~/java/tomcat/webapps
 rm -rf                            teamcity
 
