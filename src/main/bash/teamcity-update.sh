@@ -1,23 +1,23 @@
-echo  ========== [1] - downloading TeamCity ==========
+echo  ========== [1] - Downloading ==========
 
 rm -rf teamcity
 mkdir  teamcity
 cd     teamcity
 wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 
-echo  ========== [2] - done, unpacking ==========
+echo  ========== [2] - Unpacking ==========
 
 unzip *.war
 rm    *.war
 cd    ..
 
-echo  ========== [3] - done, stopping Tomcat ==========
+echo  ========== [3] - Stopping Tomcat ==========
 
 ~/java/tomcat/bin/shutdown.sh
 sleep 20
 ~/cleanup-tomcat.sh
 
-echo  ========== [4] - done, moving TeamCity ==========
+echo  ========== [4] - Moving TeamCity ==========
 
 rm -rf                            ~/download/old/teamcity
 mkdir                             ~/download 
@@ -26,21 +26,20 @@ mv ~/java/tomcat/webapps/teamcity ~/download/old
 mv teamcity                       ~/java/tomcat/webapps
 rm -rf                            teamcity
 
-echo  ========== [5] - done, killing remaining Tomcat process ==========
+echo  ========== [5] - Killing remaining Tomcat process ==========
 
 kill `ps | grep java | grep org.apache.catalina.startup.Bootstrap | cut -f 3 -d ' '`
 
-echo  ========== [6] - done, starting Tomcat ==========
+echo  ========== [6] - Starting Tomcat ==========
 
 ~/cleanup-tomcat.sh
 ~/java/tomcat/bin/startup.sh
 
-echo  ========== [6] - done, Tomcat started!  ==========
-echo  ========== [7] - sleeping for 2 minutes ==========
+echo  ========== [6] - Tomcat started, sleeping for 2 minutes ==========
 
 sleep 120
 free
 
-echo  ========== [8] - listing Tomcat log file ==========
+echo  ========== [7] - Listing Tomcat log file ==========
 
 cat ~/java/tomcat/logs/catalina.out
