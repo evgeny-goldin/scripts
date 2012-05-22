@@ -29,7 +29,7 @@ rm -rf                            teamcity
 
 echo  ========== [5] - done, killing remaining Tomcat process ==========
 
-kill -15 `ps | grep java | grep org.apache.catalina.startup.Bootstrap | cut -f 3 -d ' '`
+kill `ps | grep java | grep org.apache.catalina.startup.Bootstrap | cut -f 3 -d ' '`
 
 echo  ========== [6] - done, starting Tomcat ==========
 
