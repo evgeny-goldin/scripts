@@ -48,7 +48,18 @@ $tomcat/bin/startup.sh
 echo  ========== [6] - Tomcat started, sleeping for 2 minutes ==========
 
 sleep 120
-free
+
+echo -------
+echo Memory:
+echo -------
+
+free -lt
+
+echo -----
+echo Disk:
+echo -----
+
+df -hl
 
 echo  ========== [7] - Listing Tomcat log file ==========
 
