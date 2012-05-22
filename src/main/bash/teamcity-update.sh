@@ -4,7 +4,9 @@ rm -rf teamcity
 mkdir  teamcity
 cd     teamcity
 wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
-echo   "##teamcity[buildStatus status='`ls *.war | cut -f 1 -d '.'`']"
+
+tcBuild = `ls *.war | cut -f 1 -d '.'`
+echo   "##teamcity[buildStatus status='SUCCESS' text='Updating to [$tcBuild]']"
 
 echo  ========== [2] - Unpacking ==========
 
@@ -44,3 +46,6 @@ free
 echo  ========== [7] - Listing Tomcat log file ==========
 
 cat ~/java/tomcat/logs/catalina.out
+
+echo  ========== [8] - Creating "teamcity-info.xml" ==========
+echo "<build number="1.0.{build.number}"><statusInfo status="SUCCESS"><text action="replace">Updated to [$tcBuild]</text></statusInfo></build>" > "teamcity-info.xml"
