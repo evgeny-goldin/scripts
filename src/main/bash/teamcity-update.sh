@@ -5,8 +5,8 @@ mkdir  teamcity
 cd     teamcity
 wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 
-tcBuild = `ls *.war | cut -f 1 -d '.'`
-echo   "##teamcity[buildStatus status='SUCCESS' text='Updating to [$tcBuild]']"
+tcBuild=`ls *.war | cut -f 1 -d '.'`
+echo   "##teamcity[buildStatus status='SUCCESS' text='Updating to |[$tcBuild|]']"
 
 echo  ========== [2] - Unpacking ==========
 
