@@ -1,11 +1,17 @@
 #!/bin/bash
 
+# -----------------------------------------
+# Things to remember: 
+# - teamcity.startup.maintenance=false 
+# - Backup
+# -----------------------------------------
+
 echo --------------------------------------
 echo Updating                    [$tomcat]
 echo Keeping previous version in [$backup]
 echo --------------------------------------
 
-echo  ========== [1] - Downloading ==========
+echo  ========== Downloading ==========
 echo   "##teamcity[progressMessage 'Downloading']"
 
 rm -rf teamcity
@@ -16,45 +22,49 @@ wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 tcBuild=`ls *.war | cut -f 1 -d '.'`
 
 echo  "##teamcity[progressMessage 'Updating to |[$tcBuild|]']"
-echo  ========== [2] - Unpacking ==========
+echo  ========== Unpacking ==========
 
 unzip *.war
 rm    *.war
 cd    ..
 
-echo  ========== [3] - Stopping Tomcat ==========
+echo  ========== Stopping Tomcat ==========
 
 $tomcat/bin/shutdown.sh
 sleep 20
 rm -rf $tomcat/logs $tomcat/temp $tomcat/work 
 mkdir  $tomcat/logs $tomcat/temp $tomcat/work 
 
-echo  ========== [4] - Moving TeamCity ==========
+echo  ========== Moving TeamCity ==========
 
 rm    -rf                   $backup/teamcity
 mkdir -p                    $backup
 mv $tomcat/webapps/teamcity $backup
 mv teamcity                 $tomcat/webapps
 
-echo  ========== [5] - Killing remaining Tomcat process ==========
+echo  ========== Killing remaining Tomcat process ==========
 
 echo  [`ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap`]
 kill   `ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}'`
 echo  [`ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap`]
 
-echo  ========== [6] - Starting Tomcat ==========
+echo  ========== Starting Tomcat ==========
 
 $tomcat/bin/startup.sh
 
-echo  ========== [6] - Tomcat started, sleeping for 2 minutes ==========
+echo  ========== Tomcat started, sleeping for 2 minutes ==========
 
 sleep 120
 
-echo  ========== [7] - Listing Tomcat log file ==========
+echo  ========== Listing Tomcat log file ==========
 
 cat $tomcat/logs/catalina.out
 
-echo  ========== [8] - Listing memory and disk usage ==========
+echo  ========== Listing TeamCity log file ==========
+
+cat $tomcat/logs/teamcity-server.log
+
+echo  ========== Listing memory and disk usage ==========
 
 echo -------
 echo Memory:
@@ -68,5 +78,5 @@ echo -----
 
 df -hl
 
-echo  ========== [9] - Done! ==========
+echo  ========== Done! ==========
 echo  "##teamcity[buildStatus status='SUCCESS' text='Updated to |[$tcBuild|]']"
