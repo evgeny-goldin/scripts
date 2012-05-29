@@ -24,7 +24,9 @@ wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 oldBuild="TeamCity-`curl $TeamCityUrl/app/rest/server/build?guest=1`"
 newBuild="`ls *.war | cut -f 1 -d '.'`"
 
-if [ "$oldBuild" -eq "$newBuild" ] ; then
+
+if [ "$oldBuild" = "$newBuild" ];
+then
     echo  "##teamcity[buildStatus status='SUCCESS' text='|[$newBuild|] already installed']"
     exit
 else
