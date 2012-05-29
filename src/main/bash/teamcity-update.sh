@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # -----------------------------------------
-# Things to remember: 
-# - teamcity.startup.maintenance=false 
+# Things to remember:
+# - teamcity.startup.maintenance=false
 # - Backup
 # -----------------------------------------
 
 echo --------------------------------------
-echo Updating                    [$tomcat]
-echo Keeping previous version in [$backup]
+echo Updating TeamCity [$TeamCityUrl]
+echo Updating Tomcat   [$tomcat]
+echo Saving backup in  [$backup]
 echo --------------------------------------
 
 echo  ========== Downloading ==========
@@ -19,9 +20,18 @@ mkdir  teamcity
 cd     teamcity
 wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
 
-tcBuild=`ls *.war | cut -f 1 -d '.'`
+# Both new and old builds are of form "TeamCity-23361"
+oldBuild="TeamCity-`curl $TeamCityUrl/app/rest/server/build?guest=1`"
+newBuild="`ls *.war | cut -f 1 -d '.'`"
 
-echo  "##teamcity[progressMessage 'Updating to |[$tcBuild|]']"
+if [ "$oldBuild" -eq "$newBuild" ] ; then
+    echo  "##teamcity[buildStatus status='SUCCESS' text='|[$newBuild|] already installed']"
+    exit
+else
+    echo  "##teamcity[progressMessage 'Updating |[$oldBuild|] to |[$newBuild|]']"
+fi
+
+
 echo  ========== Unpacking ==========
 
 unzip *.war
@@ -32,8 +42,8 @@ echo  ========== Stopping Tomcat ==========
 
 $tomcat/bin/shutdown.sh
 sleep 20
-rm -rf $tomcat/logs $tomcat/temp $tomcat/work 
-mkdir  $tomcat/logs $tomcat/temp $tomcat/work 
+rm -rf $tomcat/logs $tomcat/temp $tomcat/work
+mkdir  $tomcat/logs $tomcat/temp $tomcat/work
 
 echo  ========== Moving TeamCity ==========
 
@@ -78,5 +88,5 @@ echo -----
 
 df -hl
 
-echo  ========== Done! ==========
-echo  "##teamcity[buildStatus status='SUCCESS' text='Updated to |[$tcBuild|]']"
+echo  ========== Done! Updated to [`curl $TeamCityUrl/app/rest/server/version?guest=1`] ==========
+echo  "##teamcity[buildStatus status='SUCCESS' text='Updated to |[$newBuild|]']"
