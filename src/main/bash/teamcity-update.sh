@@ -27,6 +27,7 @@ newBuild="`ls *.war | cut -f 1 -d '.'`"
 
 if [ "$oldBuild" = "$newBuild" ];
 then
+    rm -rf teamcity
     echo  "##teamcity[buildStatus status='SUCCESS' text='|[$newBuild|] already installed']"
     exit
 else
