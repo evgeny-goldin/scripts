@@ -6,10 +6,13 @@
 # - Backup
 # -----------------------------------------
 
+set -e
+set -o pipefail
+
 echo --------------------------------------
-echo Updating TeamCity [$TeamCityUrl]
-echo Updating Tomcat   [$tomcat]
-echo Saving backup in  [$backup]
+echo Updating TeamCity : [$TeamCityUrl]
+echo Updating Tomcat   : [$tomcat]
+echo Saving backup in  : [$backup]
 echo --------------------------------------
 
 echo  ========== Downloading ==========
