@@ -19,9 +19,9 @@ artifactName="`curl $url/teamcity-ivy.xml | grep ideaIU | grep zip | grep -v tea
 rm -rf   idea
 mkdir    idea
 cd       idea
-wget -nv "$url/$artifactName"
+wget     "$url/$artifactName"
 unzip    "$artifactName"
 rm       "$artifactName"
 cd       ..
-rm -rf   C:\Winny\java\idea
-mv       idea C:\Winny\java
+rm -rf   C:/Winny/java/idea
+mv       idea C:/Winny/java
