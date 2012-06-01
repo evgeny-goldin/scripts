@@ -16,12 +16,12 @@ fi
 url=http://buildserver/guestAuth/repository/download/bt24/lastSuccessful
 artifactName="`curl $url/teamcity-ivy.xml | grep ideaIU | grep zip | grep -v teamcity | cut -d '"' -f 2`.zip"
 
-rm -rf  idea
-mkdir   idea
-cd      idea
-wget    "$url/$artifactName"
-unzip   "$artifactName"
-rm      "$artifactName"
-cd      ..
-rm -rf  \Winny\java\idea
-mv      idea \Winny\java
+rm -rf   idea
+mkdir    idea
+cd       idea
+wget -nv "$url/$artifactName"
+unzip    "$artifactName"
+rm       "$artifactName"
+cd       ..
+rm -rf   C:\Winny\java\idea
+mv       idea C:\Winny\java
