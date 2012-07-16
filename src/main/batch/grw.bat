@@ -1,0 +1,3 @@
+gradlew -S --no-color %*
+
+
