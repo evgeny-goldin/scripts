@@ -1,2 +1,2 @@
 @echo off
-gradle cleanIdea idea
+gradlew cleanIdea idea
