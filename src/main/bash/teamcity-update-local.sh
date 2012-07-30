@@ -5,6 +5,7 @@
 # -----------------------------------------
 
 tcProcess=`tasklist | grep tomcat7.exe`
+teamcity=c:/Winny/java/TeamCity
 
 if [ "$tcProcess" != "" ]; 
 then 
@@ -23,5 +24,15 @@ wget     "$url/$artifactName"
 unzip    "$artifactName"
 rm       "$artifactName"
 cd       ..
-rm -rf   c:/Winny/java/TeamCity/webapps/bs
-mv       bs c:/Winny/java/TeamCity/webapps
+
+rm -rf   $teamcity/logs
+rm -rf   $teamcity/temp
+rm -rf   $teamcity/work
+rm -rf   $teamcity/webapps
+
+mkdir    $teamcity/logs
+mkdir    $teamcity/temp
+mkdir    $teamcity/work
+mkdir    $teamcity/webapps
+
+mv       bs $teamcity/webapps
