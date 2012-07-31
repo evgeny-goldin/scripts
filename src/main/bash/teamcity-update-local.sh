@@ -25,14 +25,6 @@ unzip    "$artifactName"
 rm       "$artifactName"
 cd       ..
 
-rm -rf   $teamcity/logs
-rm -rf   $teamcity/temp
-rm -rf   $teamcity/work
-rm -rf   $teamcity/webapps
-
-mkdir    $teamcity/logs
-mkdir    $teamcity/temp
-mkdir    $teamcity/work
-mkdir    $teamcity/webapps
-
+rm -rf   $teamcity/logs $teamcity/temp $teamcity/work $teamcity/webapps
+mkdir    $teamcity/logs $teamcity/temp $teamcity/work $teamcity/webapps
 mv       bs $teamcity/webapps
