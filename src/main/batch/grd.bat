@@ -71,10 +71,10 @@ set CMD_LINE_ARGS=%$
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\gradle-launcher-1.0.jar
+set CLASSPATH=%APP_HOME%\lib\gradle-launcher-1.1.jar
 
 @rem Execute Gradle
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.launcher.GradleMain -S --no-color %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000 "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.launcher.GradleMain %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
