@@ -1,5 +1,5 @@
 
-def publishers = '''Addison.Wesley Apress Big.Nerd For.Dummies FriendsofED FT.Press IBM.Press Manning Microsoft.Press No.Starch.Press
+def publishers = '''Addison.Wesley Apress Big.Nerd For.Dummies FriendsofED FT.Press IBM.Press Manning Microsoft.Press New.Riders No.Starch.Press
                     No.Starch Oreilly Packtpub Peachpit Peachpit.Press Pragmatic Prentice.Hall Prentice.Hall SitePoint Sitepoint QUE Sams Wiley Wrox'''.
                     stripIndent().tokenize()
 def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
