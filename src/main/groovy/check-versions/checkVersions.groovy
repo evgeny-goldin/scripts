@@ -3,6 +3,7 @@
 @Grab('com.google.guava:guava:13.0.1')
 import com.google.common.io.ByteStreams
 import com.google.common.io.InputSupplier
+import org.apache.ivy.plugins.repository.Repository
 
 import java.util.regex.Pattern
 import java.util.zip.Adler32
@@ -25,7 +26,7 @@ for ( entry in URLs )
     final url          = entry.key
     final oldCheksum   = entry.value[ 0 ]
     final excludeRegex = ( entry.value.size() > 1 ? entry.value[ 1 ] : null ) as String
-    text               = url.toURL().text
+    text               = url.toURL().getText( 'UTF-8' )
 
     if ( excludeRegex )
     {
