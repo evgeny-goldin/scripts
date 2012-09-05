@@ -1,7 +1,8 @@
 # IDEA files
+.idea
 *.ipr
-*.iws
 *.iml
+*.iws
 .gradle
 build
 out
