@@ -1,8 +1,8 @@
 
-@GrabResolver( name='com.goldin', root='http://evgeny-goldin.org/artifactory/repo/' )
-@Grab('com.goldin:gcommons:0.5.3.6')
+@GrabResolver( name='evgenyg.artifactoryonline.com', root='http://evgenyg.artifactoryonline.com/evgenyg/repo/' )
+@Grab('com.github.goldin:gcommons:0.6-SNAPSHOT')
 @GrabExclude('xml-apis:xml-apis')
-import com.goldin.gcommons.GCommons
+import com.github.goldin.gcommons.GCommons
 import groovy.io.FileType
 
 GCommons.general() // Trigger MOP updates
