@@ -35,7 +35,7 @@ for ( entry in URLs )
 
     println( "URL [$url], old checksum [$oldCheksum]\n---\n$text\n---\n" )
 
-    final checksum   = checksum( text )
+    final  checksum  = checksum( text )
     assert checksum == oldCheksum, "URL [$url] checksum has changed to [$checksum]"
 }
 
