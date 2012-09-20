@@ -31,11 +31,11 @@
 
 
 <!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/11/_/download/superbatch/css/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css" media="all">
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/11/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css?ieonly=true" media="all">
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/11/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css?media=print" media="print">
 <link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
 <!--[if IE]>
 <link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
@@ -110,7 +110,7 @@
         <!-- include system javascript resources -->
 
 
-    <script type="text/javascript" src="/s/en/2172/5/11/_/download/superbatch/js/batch.js" ></script>
+    <script type="text/javascript" src="/s/en/2172/5/12/_/download/superbatch/js/batch.js" ></script>
 <script type="text/javascript" src="/s/en/2172/5/1.8/_/download/batch/com.atlassian.confluence.plugins.share-page:mail-page-resources/com.atlassian.confluence.plugins.share-page:mail-page-resources.js" ></script>
 <script type="text/javascript" src="/s/en/2172/5/1.16-SEC1/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
 <script type="text/javascript" src="/s/en/2172/5/1.16-SEC1/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
@@ -382,9 +382,9 @@
 
     <h1 id="title-heading" class="pagetitle">
                     <a href="/display/TW"><img class="logo global custom" src="/download/attachments/37945345/global.logo?version=1&amp;modificationDate=1300649551000" alt=""></a>
-        <span id="title-text">
-                                <a href="/display/TW/Previous+Releases+Downloads">Previous Releases Downloads</a>
-                    </span>
+		<span id="title-text">
+					            <a href="/display/TW/Previous+Releases+Downloads">Previous Releases Downloads</a>
+    				</span>
     </h1>
 
 
@@ -762,10 +762,10 @@
                         <li class="page-metadata-modification-info">
                                     Added by <a href="/display/~yaegor"
                           class="url fn confluence-userlink" data-username="yaegor"
-                   >Yegor Yarko</a>, last edited by <a href="/display/~eugene%2Bpetrenko"
-                          class="url fn confluence-userlink" data-username="eugene+petrenko"
-                   >Eugene Petrenko</a> on Aug 29, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=47101163">view change</a>)</span>
+                   >Yegor Yarko</a>, last edited by <a href="/display/~pavel.sher"
+                          class="url fn confluence-userlink" data-username="pavel.sher"
+                   >Pavel Sher</a> on Sep 20, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=48104130">view change</a>)</span>
                                                 </li>
                     </ul>
           <div id="version-comment" class="noteMacro" style="display: none;">
@@ -785,10 +785,12 @@
 
         <div class="wiki-content">
            <!-- wiki content -->
-            <p><b>The current TeamCity version is 7.1 (build 23907, release date: 7 August 2012)</b>, it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
+            <p><b>The current TeamCity version is 7.1 (build 24069, release date: 7 August 2012)</b>, it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
 
 <p>Below is a list of previous TeamCity releases.<br/>
 If you are upgrading, please check that all your licenses will be still valid with the new version. A license is valid if its maintenance period covers the release date of the last minor version release (release date marked with bold).</p>
+
+
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.4"></a>TeamCity 7.0.4</h3>
 <p>Release date: 12 July 2012<br/>
