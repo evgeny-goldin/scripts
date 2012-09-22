@@ -18,7 +18,7 @@ import java.util.zip.Adler32
  */
 
 
-final URLs = [ 'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 2963519938, /(content|value)="\w+"/    ],
+final URLs = [ 'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 604272997,  /(content|value)="\w+"/    ],
                'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 4059162509, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)|(Artifactory\/\d+\.\d+\.\d+)/ ]]
 
 for ( entry in URLs )

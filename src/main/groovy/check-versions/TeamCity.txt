@@ -762,10 +762,10 @@
                         <li class="page-metadata-modification-info">
                                     Added by <a href="/display/~yaegor"
                           class="url fn confluence-userlink" data-username="yaegor"
-                   >Yegor Yarko</a>, last edited by <a href="/display/~pavel.sher"
-                          class="url fn confluence-userlink" data-username="pavel.sher"
-                   >Pavel Sher</a> on Sep 20, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=48104130">view change</a>)</span>
+                   >Yegor Yarko</a>, last edited by <a href="/display/~yaegor"
+                          class="url fn confluence-userlink" data-username="yaegor"
+                   >Yegor Yarko</a> on Sep 21, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=48104312">view change</a>)</span>
                                                 </li>
                     </ul>
           <div id="version-comment" class="noteMacro" style="display: none;">
@@ -785,12 +785,17 @@
 
         <div class="wiki-content">
            <!-- wiki content -->
-            <p><b>The current TeamCity version is 7.1 (build 24069, release date: 7 August 2012)</b>, it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
+            <p>The current TeamCity version is 7.1.1 (build 24074, released on 21 September 2012), it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
 
 <p>Below is a list of previous TeamCity releases.<br/>
-If you are upgrading, please check that all your licenses will be still valid with the new version. A license is valid if its maintenance period covers the release date of the last minor version release (release date marked with bold).</p>
+If you are upgrading, please check that all your licenses will be still valid with the new version. A license is valid if its maintenance period covers the release date of the last major/minor version release (release date marked with bold below).</p>
 
-
+<h3><a name="PreviousReleasesDownloads-TeamCity7.1"></a>TeamCity 7.1</h3>
+<p><b>Release date: 7 August 2012</b><br/>
+Build: 23907<br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.4"></a>TeamCity 7.0.4</h3>
 <p>Release date: 12 July 2012<br/>
