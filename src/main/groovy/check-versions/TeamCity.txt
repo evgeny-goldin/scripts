@@ -10,18 +10,18 @@
 
 
 
-            <meta http-equiv="X-UA-Compatible" content="IE=8">
+            <meta http-equiv="X-UA-Compatible" >
 <meta charset="UTF-8">
 
 <!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
 <meta id="confluence-context-path" name="confluence-context-path" content="">
 <meta name="ajs-context-path" content="">
-<meta name="ajs-version-number" content="3.5.16">
+<meta name="ajs-version-number" >
 <meta name="ajs-build-number" >
 <meta id="atlassian-token" name="atlassian-token" >
 <meta id="confluence-space-key" name="confluence-space-key" >
 <meta name="ajs-remote-user" content="">
-<meta name="ajs-static-resource-url-prefix" content="/s/en/2172/5/_">
+<meta name="ajs-static-resource-url-prefix" >
 
 <script type="text/javascript">
     // Deprecated global variables. To be removed in a future version of Confluence.
@@ -31,28 +31,28 @@
 
 
 <!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/12/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
+<link type="text/css" rel="stylesheet" href= media="print">
+<link type="text/css" rel="stylesheet" href= media="all">
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.8/_/download/batch/com.atlassian.confluence.plugins.share-page:mail-page-resources/com.atlassian.confluence.plugins.share-page:mail-page-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.16-SEC1/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/1.0.16/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/0.8/_/download/batch/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/en/2172/5/3.5.16/_/download/batch/com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts/com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
+<link type="text/css" rel="stylesheet" href= media="all">
 
 <!-- end system css resources -->
 
-    <link rel="stylesheet" href="/s/en/2172/5/1/_/styles/combined.css?spaceKey=TW" type="text/css">
+    <link rel="stylesheet" href= type="text/css">
 
     <meta name="confluence-request-time" >
 
@@ -103,23 +103,23 @@
             <meta name="ajs-use-keyboard-shortcuts" >
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/en/2172/5/_/images/logo/confluence_16.png">
+    <link rel="icon" type="image/png" href=>
 
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="Confluence"/>
 
         <!-- include system javascript resources -->
 
 
-    <script type="text/javascript" src="/s/en/2172/5/12/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.8/_/download/batch/com.atlassian.confluence.plugins.share-page:mail-page-resources/com.atlassian.confluence.plugins.share-page:mail-page-resources.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.16-SEC1/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.16-SEC1/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.0.16/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.0.16/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.9/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/0.8/_/download/batch/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/3.5.16/_/download/batch/com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts/com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts.js" ></script>
-<script type="text/javascript" src="/s/en/2172/5/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
+    <script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
+<script type="text/javascript" src= ></script>
 
 
     <!-- end system javascript resources -->
@@ -129,7 +129,7 @@
 
     <link rel="canonical" href="http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads">
     <link rel="shortlink" href="http://confluence.jetbrains.net/x/dIE1AQ">
-    <meta name="wikilink" content="[TW:Previous Releases Downloads]">
+    <meta name="wikilink" >
     <meta name="page-version" >
 
 </head>
@@ -149,13 +149,13 @@
 
 
 <fieldset class="hidden parameters">
-    <input type="hidden" id="shortcutDialogTip" value="Shortcut tip: Pressing <b>{shortcut}</b> also opens this dialog box">
+    <input type="hidden" id="shortcutDialogTip" >
         <input type="hidden" title="i18n.close.name" >
         <input type="hidden" title="i18n.cancel.name" >
 </fieldset><fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogHeading" >
+    <input type="hidden" id="statusDialogAccessibilityLabel" >
+    <input type="hidden" id="statusDialogLatestLabel" >
     <input type="hidden" id="statusDialogUpdateButtonLabel" >
     <input type="hidden" id="statusDialogCancelButtonLabel" >
 </fieldset>
@@ -163,7 +163,7 @@
 <fieldset class="hidden parameters">
     <input type="hidden" id="globalSettingsAttachmentMaxSize" >
     <input type="hidden" id="userLocale" >
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/en/2172/5/_">
+    <input type="hidden" id="staticResourceUrlPrefix" >
     <input type="hidden" id="contextPath" value="">
 </fieldset>
 
@@ -396,40 +396,40 @@
 
 
 <div id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageHeading" >
     <input type="hidden" id="linkToThisPageLink" >
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageTinyLink" >
+    <input type="hidden" id="linkToThisPageWikiMarkup" >
     <input type="hidden" id="linkToThisPageClose" >
 </div>
 <fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Previous Releases Downloads&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogViewPageTitle" >
+    <input type="hidden" title="movePageDialogEditPageTitle" >
     <input type="hidden" title="movePageDialogMoveButton" >
     <input type="hidden" title="movePageDialogCancelButton" >
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" >
     <input type="hidden" title="movePageDialogSearchPanel" >
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogHistoryPanel" >
+    <input type="hidden" title="movePageDialogHistoryNoResults" >
+    <input type="hidden" title="movePageDialogLocationPanel" >
+    <input type="hidden" title="movePageDialogLocationNotFound" >
     <input type="hidden" title="movePageDialogBrowsePanel" >
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Previous Releases Downloads"/>
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" >
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" >
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" >
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" >
+    <input type="hidden" title="movePageDialogSearchError" >
+    <input type="hidden" title="movePageDialogSearchNoResults" >
+    <input type="hidden" title="movePageDialogSearchResultCount" >
+    <input type="hidden" title="movePageDialogMoveFailed" >
+    <input type="hidden" title="movePageDialogCannotChangeSpace" >
+    <input type="hidden" title="pageTitle" />
     <input type="hidden" title="parentPageTitle" />
     <input type="hidden" title="fromPageTitle" value=""/>
     <input type="hidden" title="spaceKey" />
     <input type="hidden" title="spaceName" />
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
+    <input type="hidden" title="movePageDialogInvalidLocation" />
+    <input type="hidden" title="movePageDialogOrderingTitle" />
     <input type="hidden" title="movePageDialogBackButton" />
     <input type="hidden" title="movePageDialogMoveAndOrderButton" />
     <input type="hidden" title="movePageDialogNextButton" />
@@ -641,7 +641,7 @@
 
 
 
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=TW&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/en/2172/5/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=TW&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src= height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
 <a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=TW&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
 
 
@@ -655,7 +655,7 @@
 
 
 
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=TW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/en/2172/5/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=TW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src= height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
 <a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=TW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
 
 
@@ -663,11 +663,11 @@
             </div>
             <div id="page-permissions-input-box">
                                 <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder"  name="permissionNames" size="30" autocomplete="off"/>
                 </span>
                 <input
     type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/en/2172/5/_/images/border/spacer.gif"/>
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src=/>
                 <input type="button" id="add-typed-names" >
             </div>
         </div>
@@ -1070,7 +1070,7 @@ Build: 10669<br/>
 
 <fieldset class="hidden parameters">
     <legend>Labels parameters</legend>
-    <input type="hidden" id="domainName" value="http://confluence.jetbrains.net">
+    <input type="hidden" id="domainName" >
     <input type="hidden" id="pageId" >
     <input type="hidden" id="spaceKey" >
 </fieldset>
@@ -1099,12 +1099,12 @@ Build: 10669<br/>
 
                 <div class="caption">Enter labels to add to this page:</div>
                 <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                    <input autocomplete="off" id="labelsString" name="labelsString" 40">
                     <input id="add-labels-editor-button" type="submit" class="add-labels" >
                     <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" >
                 </div>
                 <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/en/2172/5/_/images/icons/wait.gif">&nbsp;
+                    <img class="waiting" alt="Please wait" src=>&nbsp;
                     <span id="labelOperationStatus" class="smalltext"></span>
                 </div>
                 <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
@@ -1128,8 +1128,8 @@ Build: 10669<br/>
 
 
 <fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+    <input type="hidden" id="deleteCommentConfirmMessage" >
+    <input type="hidden" id="collapseTooltip" >
         </fieldset>
 
 <fieldset class="hidden parameters i18n">
@@ -1176,7 +1176,7 @@ Build: 10669<br/>
             <input type="hidden" id="add-watcher-username" name="username" value=""/>
             <label for="add-watcher-user">User</label>
             <input id="add-watcher-user" name="userFullName" type="search" class="autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
+               Full name or username" autocomplete="off"
                data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
                data-template="{title}" data-none-message="No matching users found.">
             <input id="add-watcher-submit" type="submit" name="add" >

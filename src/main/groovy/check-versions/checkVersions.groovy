@@ -17,22 +17,19 @@ import java.util.zip.Adler32
  */
 
 
-final URLs = [ 'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 604272997,  /(content|value)="\w+"/    ],
-               'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3333616075, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)|(Artifactory\/\d+\.\d+\.\d+)/ ]]
+final URLs = [
+    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 724296023,  /(content|value)=".+?"/, /"\/s\/en\/2172\/.+?"/ ],
+    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3333616075, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/, /(Artifactory\/\d+\.\d+\.\d+)/ ]
+]
 
 for ( entry in URLs )
 {
-    final url          = entry.key
-    final oldCheksum   = entry.value[ 0 ]
-    final excludeRegex = ( entry.value.size() > 1 ? entry.value[ 1 ] : null ) as String
-    text               = url.toURL().getText( 'UTF-8' )
+    final url            = entry.key
+    final oldCheksum     = entry.value.head()
+    final excludeRegexes = entry.value.tail()
+    text                 = excludeRegexes.inject( url.toURL().getText( 'UTF-8' )) { String text, String regex -> text.replaceAll( regex, '' ) } as String
 
-    if ( excludeRegex )
-    {
-        text = text.replaceAll( Pattern.compile( excludeRegex ), '' )
-    }
-
-    println( "URL [$url], old checksum [$oldCheksum]\n---\n$text\n---\n" )
+    println( "URL [$url], old checksum [$oldCheksum]\n-----\n$text\n-----\n" )
 
     final  checksum  = checksum( text )
     assert checksum == oldCheksum, "URL [$url] checksum has changed to [$checksum]"
