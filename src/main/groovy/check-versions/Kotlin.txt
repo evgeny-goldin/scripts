@@ -12,6 +12,7 @@
 <a href="0.1.100/"">0.1.100/</a>                      -
 <a href="0.1.2580/"">0.1.2580/</a>                     -
 <a href="0.1.3395/"">0.1.3395/</a>                     -
+<a href="0.4.68/"">0.4.68/</a>                       -
 <a href="maven-metadata.xml">maven-metadata.xml</a>
 <a href="maven-metadata.xml.md5">maven-metadata.xml.md5</a>
 <a href="maven-metadata.xml.sha1">maven-metadata.xml.sha1</a>
