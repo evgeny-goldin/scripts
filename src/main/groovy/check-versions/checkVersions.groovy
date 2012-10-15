@@ -3,17 +3,15 @@
 @Grab('com.google.guava:guava:13.0.1')
 import com.google.common.io.ByteStreams
 import com.google.common.io.InputSupplier
-
-import java.util.regex.Pattern
 import java.util.zip.Adler32
 
 
 /**
  * Validates pages checksum to notify of new versions released.
  * URLs map: key   - URL to watch
- *           value - one or two-elements array:
- *                   [0] - page checksum
- *                   [1] - (optional) regex of elements to remove before checking the checksum
+ *           value - one or more elements list:
+ *                   [0]    - (required) page checksum
+ *                   [1..N] - (optional) regexes of elements to remove before checking the checksum
  */
 
 
