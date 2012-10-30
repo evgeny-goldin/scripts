@@ -7,7 +7,9 @@ git  status
 echo Press Enter to continue ..
 read
 
-ggll
+git remote update
+git fetch
+git --no-pager log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -20
 echo Press Enter to continue ..
 read
 
