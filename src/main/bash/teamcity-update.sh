@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # -----------------------------------------
-# Things to remember:
+# Remember!
 # - teamcity.startup.maintenance=false
-# - Backup
+# http://goo.gl/n0jmV
 # -----------------------------------------
 
 set -e
 set -o pipefail
 
 echo --------------------------------------
-echo Updating TeamCity : [$TeamCityUrl]
-echo Updating Tomcat   : [$tomcat]
-echo Saving backup in  : [$backup]
+echo Updating TeamCity     : [$TeamCityUrl]
+echo Updating Tomcat       : [$tomcat]
+echo Saving old version in : [$backup]
 echo --------------------------------------
 
 echo  ========== Downloading ==========
@@ -31,7 +31,7 @@ newBuild="`ls *.war | cut -f 1 -d '.'`"
 if [ "$oldBuild" = "$newBuild" ];
 then
     rm -rf teamcity
-    echo  "##teamcity[buildStatus status='SUCCESS' text='|[$newBuild|] already installed']"
+    echo  "##teamcity[buildStatus status='SUCCESS' text='|[$newBuild|] is already installed']"
     exit
 else
     echo  "##teamcity[progressMessage 'Updating |[$oldBuild|] to |[$newBuild|]']"
@@ -72,11 +72,11 @@ echo  ========== Tomcat started, sleeping for 2 minutes ==========
 
 sleep 120
 
-echo  ========== Listing Tomcat log file ==========
+echo  ========== Listing [$tomcat/logs/catalina.out] ==========
 
 cat $tomcat/logs/catalina.out
 
-echo  ========== Listing TeamCity log file ==========
+echo  ========== Listing [$tomcat/logs/teamcity-server.log] ==========
 
 cat $tomcat/logs/teamcity-server.log
 
@@ -92,7 +92,7 @@ echo -----
 echo Disk:
 echo -----
 
-df -hl
+df -h .
 
 echo  ========== Done! Updated to [`curl $TeamCityUrl/app/rest/server/version?guest=1`] ==========
 echo  "##teamcity[buildStatus status='SUCCESS' text='Updated to |[$newBuild|]']"
