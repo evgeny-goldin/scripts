@@ -2,14 +2,14 @@
 <html>
 <head>
             <title>Previous Releases Downloads - TeamCity - Confluence</title>
+    
+        
 
-
-
-
-
-
-
-
+                        
+    
+                        
+    
+    
             <meta http-equiv="X-UA-Compatible" >
 <meta charset="UTF-8">
 
@@ -28,7 +28,7 @@
     var contextPath = '';
 </script>
 
-
+    
 
 <!-- include system css resources -->
 <link type="text/css" rel="stylesheet" href= media="all">
@@ -101,15 +101,15 @@
     </li>
 </script>
             <meta name="ajs-use-keyboard-shortcuts" >
-
+    
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/png" href=>
 
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="Confluence"/>
 
         <!-- include system javascript resources -->
-
-
+                        
+    
     <script type="text/javascript" src= ></script>
 <script type="text/javascript" src= ></script>
 <script type="text/javascript" src= ></script>
@@ -121,19 +121,19 @@
 <script type="text/javascript" src= ></script>
 <script type="text/javascript" src= ></script>
 
-
+    
     <!-- end system javascript resources -->
 
+    
 
-
-
+    
     <link rel="canonical" href="http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads">
     <link rel="shortlink" href="http://confluence.jetbrains.net/x/dIE1AQ">
     <meta name="wikilink" >
     <meta name="page-version" >
 
 </head>
-
+    
 <body             onload="placeFocus()"
      id="com-atlassian-confluence" class="theme-default ">
 <ul id="assistive-skip-links" class="assistive">
@@ -167,7 +167,7 @@
     <input type="hidden" id="contextPath" value="">
 </fieldset>
 
-
+    
 <div id="header" class="">
         <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
         <fieldset>
@@ -181,122 +181,122 @@
                     </fieldset>
     </form>
     <ul id="header-menu-bar" class="ajs-menu-bar">
-
-
+                    
+        
             <li class="normal ajs-menu-item">
         <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="assistive ajs-drop-down">
                         <ul  id="browse-menu-link-leading"                 class="section-leading first">
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-pages-link" href="/pages/listpages.action?key=TW"  class=""   title="Browse pages in the TeamCity space">
                    <span>Pages</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=TW"  class=""   title="Browse blogs in the TeamCity space">
                    <span>Blog</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=TW"  class=""   title="Browse labels in the TeamCity space">
                    <span>Labels</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=TW"  class=""   title="Browse attachments in the TeamCity space">
                    <span>Attachments</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  href="/spaces/space-bookmarks.action?spaceKey=TW"  class=""   title="Browse bookmarks in the TeamCity space">
                    <span>Bookmarks</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=TW"  class=""   title="Browse mail in the TeamCity space">
                    <span>Mail</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=TW"  class=""   title="Browse additional space functions in the TeamCity space">
                    <span>Advanced</span></a>        </li>
                             </ul>
                         <ul  id="browse-menu-link-global"                 class="section-global">
                                         <li>
-
-
-
+    
+        
+    
     <a  id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-35/whatsnew/iframe"  class=""   title="">
                    <span>What’s New</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="people-directory-link" href="/peopledirectory.action"  class=""   title="Browse the Confluence people directory">
                    <span>People Directory</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="space-directory-link" href="/spacedirectory/view.action"  class=""   title="Browse the Confluence space directory">
                    <span>Space Directory</span></a>        </li>
                                         <li>
-
-
-
+    
+            
+    
     <a  id="keyboard-shortcuts-link" href="#"  class=""   title="View available keyboard shortcuts">
                    <span>Keyboard Shortcuts</span></a>        </li>
                                         <li>
-
-
-
+    
+            
+    
     <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
                    <span>Confluence Gadgets</span></a>        </li>
                             </ul>
                     </div>
     </li>
-
+        
                                                          <li class="ajs-menu-item normal">
-
-
-
+        
+        
+    
     <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FTW%2FPrevious%2BReleases%2BDownloads"  class="user-item login-link"   title="">
                    <span>Log In</span></a>        </li>
                             <li class="ajs-menu-item normal">
-
-
-
+    
+        
+    
     <a  id="signup-link" href="/signup.action"  class="user-item signup-link"   title="">
                    <span>Sign Up</span></a>        </li>
                             </ul>
-
-
+    
+    
     <ol id="breadcrumbs">
-
-
+                    
+                        
         <li class="first" >
                                             <span><a href="/dashboard.action" title="Go to Dashboard">Dashboard</a></span>
                 </li>
-
-
+                    
+                
         <li>
                                             <span><a href="/display/TW">TeamCity</a></span>
                 </li>
-
-
+                    
+                
         <li>
                                             <span><a href="/display/TW/Home">Home</a></span>
                 </li>
-
-
+                    
+                
         <li>
                                             <span>Previous Releases Downloads</span>
                 </li>
@@ -305,72 +305,72 @@
 </div><!-- \#header -->
 
 <div id="main" >
-
-
+    
+    
     <div id="navigation" class="content-navigation view">
         <fieldset class="hidden parameters">
             <input type="hidden" id="pageId" >
         </fieldset>
         <ul class="ajs-menu-bar">
-
-
+                                
+                        
             <li class="normal ajs-menu-item">
         <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="assistive ajs-drop-down">
                         <ul  id="action-menu-link-primary"                 class="section-primary first">
                                         <li>
-
-
-
+    
+        
+    
     <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=20283764"  class="action-view-attachments"  accessKey="a"  title="View Attachments">
                    <span><u>A</u>ttachments (0)</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=20283764"  class="action-view-history"   title="">
                    <span>Page History</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=20283764"  class="action-page-permissions"   title="Edit restrictions">
                    <span>Restrictions</span></a>        </li>
                             </ul>
                         <ul  id="action-menu-link-secondary"                 class="section-secondary">
                                         <li>
-
-
-
+    
+        
+    
     <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=20283764"  class="action-view-info"   title="">
                    <span>Info</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=20283764"  class=""   title="Link to this Page">
                    <span>Link to this Page&hellip;</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=TW&amp;openId=20283764#selectedPageInHierarchy"  class=""   title="">
                    <span>View in Hierarchy</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=20283764"  class="action-view-source popup-link"   title="">
                    <span>View Wiki Markup</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="action-export-pdf-link" href="/spaces/flyingpdf/pdfpageexport.action?pageId=20283764"  class=""   title="">
                    <span>Export to PDF</span></a>        </li>
                                         <li>
-
-
-
+    
+        
+    
     <a  id="action-export-word-link" href="/exportword?pageId=20283764"  class="action-export-word"   title="">
                    <span>Export to Word</span></a>        </li>
                             </ul>
@@ -379,19 +379,19 @@
             </ul>
     </div>
 
-
+    
     <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/TW"><img class="logo global custom" src="/download/attachments/37945345/global.logo?version=1&amp;modificationDate=1300649551000" alt=""></a>
-		<span id="title-text">
-					            <a href="/display/TW/Previous+Releases+Downloads">Previous Releases Downloads</a>
-    				</span>
+                    <a href="/display/TW"><img class="logo global custom" src="/download/attachments/37945345/global.logo?version=1&amp;modificationDate=1300649551000" alt=""></a>        
+        <span id="title-text">
+                                <a href="/display/TW/Previous+Releases+Downloads">Previous Releases Downloads</a>
+                    </span>
     </h1>
 
+    
 
-
-
+                        
     <div id="content" class="page view">
-
+    
 
 
 
@@ -445,7 +445,7 @@
     </div>
     <div class="form">
         <fieldset>
-
+                
 
     <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
             <div class="row">
@@ -522,14 +522,14 @@
     <div id="move-page-search-container" class="row">
         <div class="search-form">
             <fieldset>
-
+                    
 
     <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-
+                    
 
     <label  for="move-page-search-query" class="assistive">Search keywords</label>
                 <input class="search-query" id="move-page-search-query">
-
+                    
 
     <label  for="move-page-search-space" class="assistive">Search in space</label>
                                     <select id="move-page-search-space" class="search-space" disabled="disabled">
@@ -633,11 +633,11 @@
             <div class="page-permissions-label">To:</div>
             <div id="page-permissions-chooser-box">
                                 <span id="page-permissions-choose-user" class="ajs-button">
+                    
 
 
 
-
-
+    
 
 
 
@@ -647,13 +647,13 @@
 
                 </span>
                 <span id="page-permissions-choose-group" class="ajs-button">
+                    
 
 
 
+    
 
-
-
-
+ 
 
 <a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=TW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src= height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
 <a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=TW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
@@ -696,7 +696,7 @@
 
 <script type="text/x-template" title="permissions-row-template">
     <tr class="permission-row">
-
+                                
                 <td class="page-permissions-marker-cell" width="20%">
             <span>Viewing restricted to:</span>
         </td>
@@ -738,34 +738,34 @@
 </fieldset>
 
 
+        
+    
+    
+        
+                            
+    
 
+                    
 
-
-
-
-
-
-
-
-
+        
         <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
 <div id="page-metadata-start" class="assistive"></div>
 
     <div class="page-metadata">
         <ul>
                             <li class="page-metadata-item noprint">
-
-
-
+    
+            
+    
     <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
                    <span>Page restrictions apply</span></a>        </li>
                         <li class="page-metadata-modification-info">
                                     Added by <a href="/display/~yaegor"
                           class="url fn confluence-userlink" data-username="yaegor"
-                   >Yegor Yarko</a>, last edited by <a href="/display/~yaegor"
-                          class="url fn confluence-userlink" data-username="yaegor"
-                   >Yegor Yarko</a> on Sep 21, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=48104312">view change</a>)</span>
+                   >Yegor Yarko</a>, last edited by <a href="/display/~pavel.sher"
+                          class="url fn confluence-userlink" data-username="pavel.sher"
+                   >Pavel Sher</a> on Nov 12, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=49450939">view change</a>)</span>
                                                 </li>
                     </ul>
           <div id="version-comment" class="noteMacro" style="display: none;">
@@ -777,7 +777,7 @@
 
 <a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
 <div id="page-metadata-end" class="assistive"></div>
-
+        
         <fieldset class="hidden parameters">
                         <input type="hidden" title="browsePageTreeMode" >
             <input type="hidden" title="parentPageId" >
@@ -785,10 +785,17 @@
 
         <div class="wiki-content">
            <!-- wiki content -->
-            <p>The current TeamCity version is 7.1.1 (build 24074, released on 21 September 2012), it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
+            <p>The current TeamCity version is 7.1.2 (build 24170, released on 12 November 2012), it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
 
 <p>Below is a list of previous TeamCity releases.<br/>
 If you are upgrading, please check that all your licenses will be still valid with the new version. A license is valid if its maintenance period covers the release date of the last major/minor version release (release date marked with bold below).</p>
+
+<h3><a name="PreviousReleasesDownloads-TeamCity7.1.1"></a>TeamCity 7.1.1</h3>
+<p>Release date: 21 September 2012<br/>
+Build: 24074<br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.1"></a>TeamCity 7.1</h3>
 <p><b>Release date: 7 August 2012</b><br/>
@@ -1064,8 +1071,8 @@ Build: 10669<br/>
 </rdf:RDF>
 -->
 
-
-
+            
+    
 
 
 <fieldset class="hidden parameters">
@@ -1117,16 +1124,16 @@ Build: 10669<br/>
     </div>
 </div>
 
+            
+            
 
 
 
 
+            
+    
 
-
-
-
-
-
+        
 <fieldset class="parameters hidden">
     <input type="hidden" id="deleteCommentConfirmMessage" >
     <input type="hidden" id="collapseTooltip" >
@@ -1142,27 +1149,27 @@ Build: 10669<br/>
 
 
 <div id="comments-section" class="pageSection">
-
-
-
-
+    
+    
+    
+    
                                     </div>
 
 
-
+            
 </div>
 
 
+    
 
 
 
+    
+    
 
-
-
-
-
-
-
+    
+    
+    
 
 
 <script type="text/x-template" title="manage-watchers-dialog">
@@ -1215,20 +1222,20 @@ Build: 10669<br/>
 </div><!-- \#main -->
 
 <div id="footer">
-
+                        
     <ul id="poweredby">
         <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.5.16, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.5.16, the Enterprise Wiki.</li>
+        <li class="print-only">Printed by Atlassian Confluence 3.5.16, the Enterprise Wiki.</li>        
         <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
         <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
     </ul>
 
-
+    
 
             <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ?
+var gaJsHost = (("https:" == document.location.protocol) ? 
 "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost +
+document.write(unescape("%3Cscript src='" + gaJsHost + 
 "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
