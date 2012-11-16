@@ -7,3 +7,5 @@ apply plugin: 'groovy'
 
 codenarcRuleSetFiles = [ 'codenarc.groovy' ]
 apply from: 'https://raw.github.com/evgeny-goldin/gradle-plugins/dev/src/main/groovy/CodeNarc.gradle'
+
+clean { delete( "$rootDir/out" ) }
