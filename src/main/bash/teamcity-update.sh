@@ -47,9 +47,11 @@ cd    ..
 echo  ========== Stopping Tomcat ==========
 
 $tomcat/bin/shutdown.sh
-sleep 20
+sleep 30
+
 rm -rf $tomcat/logs $tomcat/temp $tomcat/work
 mkdir  $tomcat/logs $tomcat/temp $tomcat/work
+
 
 echo  ========== Moving TeamCity ==========
 
@@ -58,11 +60,20 @@ mkdir -p                    $backup
 mv $tomcat/webapps/teamcity $backup
 mv teamcity                 $tomcat/webapps
 
-echo  ========== Killing remaining Tomcat process ==========
+echo  ========== Killing remaining Java processes ==========
 
-echo  [`ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap`]
-kill   `ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}'`
-echo  [`ps -AF | grep java | grep org.apache.catalina.startup.Bootstrap`]
+echo "Java processes before:"
+echo  [`ps -AF | grep java | grep -v grep`]
+
+ps -AF | grep java | grep -v grep | awk '{print $2}' | while read pid;
+do 
+    echo "kill $pid"
+    kill $pid
+done
+
+sleep 10
+echo "Java processes after:"
+echo  [`ps -AF | grep java | grep -v grep`]
 
 echo  ========== Starting Tomcat ==========
 
