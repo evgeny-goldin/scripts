@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Gradle Distributions</title>
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23708003-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+      <style type="text/css" media="screen">
+  img {
+    border:0;
+  }
+
+  ul li img {
+    vertical-align:middle;
+  }
+
+  ul.items li a {
+    padding: 2px 0;
+  }
+  
+  ul.items li {
+    margin: 3px 0;
+  }
+  
+  span.name {
+    width: 42em;
+    display: inline-block;
+  }
+
+  span.size, span.date {
+    color:#AAA;
+    display: inline-block;
+  }
+
+  span.date {
+    width: 15em;
+  }
+  span.size {
+    width: 5em;
+  }
+  
+  ul,ul li {
+    list-style:none;
+  }  
+</style>
+  </head>
+<body>
+  <div id="header">
+    <h1>Gradle Distributions</h1>
+  </div>
+  <div id="contents">
+    <div class="breadcrumb">
+      <ul>
+                <li><a href="http://services.gradle.org/">services.gradle.org</a>/</li>
+                                      <li><a href="http://services.gradle.org/distributions">distributions</a>/</li>
+                        </ul>
+    </div>
+          
+<ul class="items">
+  <li>
+    <a href="/distributions/gradle-1.3-rc-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-2-all.zip</span>
+      <span class="date">15-Nov-2012 15:53 +0000</span>
+      <span class="size">46.76M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-rc-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-2-bin.zip</span>
+      <span class="date">15-Nov-2012 15:53 +0000</span>
+      <span class="size">35.65M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-rc-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-2-src.zip</span>
+      <span class="date">15-Nov-2012 15:53 +0000</span>
+      <span class="size">7.92M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-1-all.zip</span>
+      <span class="date">12-Nov-2012 13:52 +0000</span>
+      <span class="size">46.76M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-1-bin.zip</span>
+      <span class="date">12-Nov-2012 13:52 +0000</span>
+      <span class="size">35.65M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-rc-1-src.zip</span>
+      <span class="date">12-Nov-2012 13:52 +0000</span>
+      <span class="size">7.92M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-all.zip</span>
+      <span class="date">12-Sep-2012 10:46 +0000</span>
+      <span class="size">43.26M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-bin.zip</span>
+      <span class="date">12-Sep-2012 10:46 +0000</span>
+      <span class="size">33.22M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-src.zip</span>
+      <span class="date">12-Sep-2012 10:46 +0000</span>
+      <span class="size">7.46M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-rc-1-all.zip</span>
+      <span class="date">04-Sep-2012 17:49 +0000</span>
+      <span class="size">43.33M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-rc-1-bin.zip</span>
+      <span class="date">04-Sep-2012 17:49 +0000</span>
+      <span class="size">33.23M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.2-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.2-rc-1-src.zip</span>
+      <span class="date">04-Sep-2012 17:49 +0000</span>
+      <span class="size">7.54M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-all.zip</span>
+      <span class="date">31-Jul-2012 13:24 +0000</span>
+      <span class="size">41.77M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-bin.zip</span>
+      <span class="date">31-Jul-2012 13:24 +0000</span>
+      <span class="size">32.48M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-src.zip</span>
+      <span class="date">31-Jul-2012 13:24 +0000</span>
+      <span class="size">7.21M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-2-all.zip</span>
+      <span class="date">26-Jul-2012 07:51 +0000</span>
+      <span class="size">41.84M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-2-bin.zip</span>
+      <span class="date">26-Jul-2012 07:51 +0000</span>
+      <span class="size">32.48M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-2-src.zip</span>
+      <span class="date">26-Jul-2012 07:51 +0000</span>
+      <span class="size">7.28M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-1-all.zip</span>
+      <span class="date">24-Jul-2012 13:44 +0000</span>
+      <span class="size">41.71M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-1-bin.zip</span>
+      <span class="date">24-Jul-2012 13:44 +0000</span>
+      <span class="size">32.35M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.1-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.1-rc-1-src.zip</span>
+      <span class="date">24-Jul-2012 13:44 +0000</span>
+      <span class="size">7.28M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-all.zip</span>
+      <span class="date">12-Jun-2012 02:56 +0200</span>
+      <span class="size">37.44M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-bin.zip</span>
+      <span class="date">12-Jun-2012 02:56 +0200</span>
+      <span class="size">28.56M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-src.zip</span>
+      <span class="date">12-Jun-2012 02:56 +0200</span>
+      <span class="size">6.92M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-3-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-3-all.zip</span>
+      <span class="date">30-Apr-2012 01:51 +0200</span>
+      <span class="size">37.39M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-3-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-3-bin.zip</span>
+      <span class="date">30-Apr-2012 01:51 +0200</span>
+      <span class="size">28.56M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-3-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-3-src.zip</span>
+      <span class="date">30-Apr-2012 01:51 +0200</span>
+      <span class="size">6.88M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-2-all.zip</span>
+      <span class="date">25-Apr-2012 01:52 +0200</span>
+      <span class="size">37.38M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-2-bin.zip</span>
+      <span class="date">25-Apr-2012 01:52 +0200</span>
+      <span class="size">28.56M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-2-src.zip</span>
+      <span class="date">25-Apr-2012 01:52 +0200</span>
+      <span class="size">6.87M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-1-all.zip</span>
+      <span class="date">11-Apr-2012 12:13 +0100</span>
+      <span class="size">38.02M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-1-bin.zip</span>
+      <span class="date">11-Apr-2012 12:13 +0100</span>
+      <span class="size">28.55M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-rc-1-src.zip</span>
+      <span class="date">11-Apr-2012 12:13 +0100</span>
+      <span class="size">7.58M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-9-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-9-all.zip</span>
+      <span class="date">13-Mar-2012 17:10 +0100</span>
+      <span class="size">39.79M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-9-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-9-bin.zip</span>
+      <span class="date">13-Mar-2012 17:10 +0100</span>
+      <span class="size">28.72M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-9-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-9-src.zip</span>
+      <span class="date">13-Mar-2012 17:10 +0100</span>
+      <span class="size">6.74M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8a-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8a-all.zip</span>
+      <span class="date">20-Feb-2012 18:53 +0100</span>
+      <span class="size">37.38M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8a-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8a-bin.zip</span>
+      <span class="date">20-Feb-2012 18:53 +0100</span>
+      <span class="size">28.56M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8a-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8a-src.zip</span>
+      <span class="date">20-Feb-2012 18:53 +0100</span>
+      <span class="size">6.64M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8-all.zip</span>
+      <span class="date">14-Feb-2012 02:24 +0100</span>
+      <span class="size">37.37M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8-bin.zip</span>
+      <span class="date">14-Feb-2012 02:24 +0100</span>
+      <span class="size">28.56M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-8-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-8-src.zip</span>
+      <span class="date">14-Feb-2012 02:24 +0100</span>
+      <span class="size">6.62M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2a-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2a-src.zip</span>
+      <span class="date">30-Jan-2012 10:28 -0600</span>
+      <span class="size">4.66M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2a-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2a-all.zip</span>
+      <span class="date">30-Jan-2012 10:27 -0600</span>
+      <span class="size">33.28M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2a-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2a-bin.zip</span>
+      <span class="date">30-Jan-2012 10:25 -0600</span>
+      <span class="size">26.78M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-7-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-7-all.zip</span>
+      <span class="date">05-Jan-2012 10:24 +0000</span>
+      <span class="size">40.92M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-7-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-7-bin.zip</span>
+      <span class="date">05-Jan-2012 10:24 +0000</span>
+      <span class="size">31.93M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-7-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-7-src.zip</span>
+      <span class="date">05-Jan-2012 10:24 +0000</span>
+      <span class="size">6.68M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-6-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-6-all.zip</span>
+      <span class="date">17-Nov-2011 06:54 +0100</span>
+      <span class="size">38.82M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-6-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-6-bin.zip</span>
+      <span class="date">17-Nov-2011 06:54 +0100</span>
+      <span class="size">30.75M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-6-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-6-src.zip</span>
+      <span class="date">17-Nov-2011 06:54 +0100</span>
+      <span class="size">5.69M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-5-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-5-all.zip</span>
+      <span class="date">25-Oct-2011 05:56 +0200</span>
+      <span class="size">38.32M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-5-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-5-bin.zip</span>
+      <span class="date">25-Oct-2011 05:56 +0200</span>
+      <span class="size">30.33M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-5-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-5-src.zip</span>
+      <span class="date">25-Oct-2011 05:56 +0200</span>
+      <span class="size">5.59M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-4-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-4-all.zip</span>
+      <span class="date">28-Jul-2011 10:38 +0200</span>
+      <span class="size">39.44M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-4-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-4-bin.zip</span>
+      <span class="date">28-Jul-2011 10:38 +0200</span>
+      <span class="size">32.12M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-4-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-4-src.zip</span>
+      <span class="date">28-Jul-2011 10:38 +0200</span>
+      <span class="size">5.14M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-3-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-3-all.zip</span>
+      <span class="date">25-Apr-2011 17:40 +1000</span>
+      <span class="size">33.41M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-3-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-3-bin.zip</span>
+      <span class="date">25-Apr-2011 17:40 +1000</span>
+      <span class="size">26.83M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-3-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-3-src.zip</span>
+      <span class="date">25-Apr-2011 17:40 +1000</span>
+      <span class="size">4.71M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-all.zip</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">33.24M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-all.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-all.zip.md5</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-all.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-all.zip.sha1</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-bin.zip</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">26.78M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-bin.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-bin.zip.md5</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-bin.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-bin.zip.sha1</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-src.zip</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">4.63M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-src.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-src.zip.md5</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-2-src.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-2-src.zip.sha1</span>
+      <span class="date">07-Apr-2011 16:32 +1000</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-all.zip</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">31.75M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-all.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-all.zip.md5</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-all.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-all.zip.sha1</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-bin.zip</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">25.65M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-bin.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-bin.zip.md5</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-bin.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-bin.zip.sha1</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-src.zip</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">4.41M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-src.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-src.zip.md5</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.0-milestone-1-src.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.0-milestone-1-src.zip.sha1</span>
+      <span class="date">27-Feb-2011 14:13 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.2-all.zip</span>
+      <span class="date">23-Jan-2011 13:34 +1100</span>
+      <span class="size">35.76M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.2-bin.zip</span>
+      <span class="date">23-Jan-2011 13:34 +1100</span>
+      <span class="size">29.82M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.2-src.zip</span>
+      <span class="date">23-Jan-2011 13:34 +1100</span>
+      <span class="size">4.25M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.1-all.zip</span>
+      <span class="date">02-Jan-2011 11:40 +1100</span>
+      <span class="size">35.30M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.1-bin.zip</span>
+      <span class="date">02-Jan-2011 11:40 +1100</span>
+      <span class="size">29.49M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9.1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9.1-src.zip</span>
+      <span class="date">02-Jan-2011 11:40 +1100</span>
+      <span class="size">4.24M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-all.zip</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">35.28M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-all.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-all.zip.md5</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-all.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-all.zip.sha1</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-bin.zip</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">29.49M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-bin.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-bin.zip.md5</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-bin.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-bin.zip.sha1</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-src.zip</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">4.21M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-src.zip.md5">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-src.zip.md5</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">32B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-src.zip.sha1">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-src.zip.sha1</span>
+      <span class="date">19-Dec-2010 12:50 +1100</span>
+      <span class="size">40B</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-3-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-3-all.zip</span>
+      <span class="date">20-Nov-2010 13:17 +1100</span>
+      <span class="size">34.78M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-3-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-3-bin.zip</span>
+      <span class="date">20-Nov-2010 13:17 +1100</span>
+      <span class="size">29.32M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-3-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-3-src.zip</span>
+      <span class="date">20-Nov-2010 13:17 +1100</span>
+      <span class="size">4.13M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-2-all.zip</span>
+      <span class="date">27-Oct-2010 08:24 +1100</span>
+      <span class="size">34.06M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-2-bin.zip</span>
+      <span class="date">27-Oct-2010 08:24 +1100</span>
+      <span class="size">28.64M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-2-src.zip</span>
+      <span class="date">27-Oct-2010 08:24 +1100</span>
+      <span class="size">4.06M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-1-all.zip</span>
+      <span class="date">04-Aug-2010 08:04 +1100</span>
+      <span class="size">30.66M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-1-bin.zip</span>
+      <span class="date">04-Aug-2010 08:04 +1100</span>
+      <span class="size">25.26M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.9-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.9-rc-1-src.zip</span>
+      <span class="date">04-Aug-2010 08:04 +1100</span>
+      <span class="size">3.74M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.8-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.8-all.zip</span>
+      <span class="date">28-Sep-2009 14:01 +0200</span>
+      <span class="size">22.67M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.8-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.8-bin.zip</span>
+      <span class="date">28-Sep-2009 14:01 +0200</span>
+      <span class="size">17.98M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.8-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.8-src.zip</span>
+      <span class="date">28-Sep-2009 14:01 +0200</span>
+      <span class="size">2.54M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.7-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.7-all.zip</span>
+      <span class="date">20-Jul-2009 08:50 +0200</span>
+      <span class="size">20.45M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.7-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.7-bin.zip</span>
+      <span class="date">20-Jul-2009 08:50 +0200</span>
+      <span class="size">19.48M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-0.7-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-0.7-src.zip</span>
+      <span class="date">20-Jul-2009 08:50 +0200</span>
+      <span class="size">2.11M</span>
+    </a>
+  </li>
+</ul>
+      </div>
+  <!-- Lead Lander-->
+  <script type="text/javascript" language="javascript">llactid=20600</script> 
+  <script type="text/javascript" language="javascript" src="/common/js/trackalyze.js"></script>
+</body>
+</html>
