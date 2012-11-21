@@ -71,6 +71,30 @@
           
 <ul class="items">
   <li>
+    <a href="/distributions/gradle-1.3-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-all.zip</span>
+      <span class="date">20-Nov-2012 11:37 +0000</span>
+      <span class="size">46.69M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-bin.zip</span>
+      <span class="date">20-Nov-2012 11:37 +0000</span>
+      <span class="size">35.65M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.3-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.3-src.zip</span>
+      <span class="date">20-Nov-2012 11:37 +0000</span>
+      <span class="size">7.84M</span>
+    </a>
+  </li>
+  <li>
     <a href="/distributions/gradle-1.3-rc-2-all.zip">
       <img src="/img/file.gif">
       <span class="name">gradle-1.3-rc-2-all.zip</span>
