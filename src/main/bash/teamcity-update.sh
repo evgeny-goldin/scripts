@@ -63,17 +63,24 @@ mv teamcity                 $tomcat/webapps
 echo  ========== Killing remaining Java processes ==========
 
 echo "Java processes before:"
-echo  [`ps -AF | grep java | grep -v grep`]
+echo  [`ps -Af | grep java | grep -v grep`]
 
-ps -AF | grep java | grep -v grep | awk '{print $2}' | while read pid;
+ps -Af | grep java | grep -v grep | awk '{print $2}' | while read pid;
 do 
     echo "kill $pid"
     kill $pid
 done
 
 sleep 10
+
+ps -Af | grep java | grep -v grep | awk '{print $2}' | while read pid;
+do 
+    echo "kill -9 $pid"
+    kill -9 $pid
+done
+
 echo "Java processes after:"
-echo  [`ps -AF | grep java | grep -v grep`]
+echo  [`ps -Af | grep java | grep -v grep`]
 
 echo  ========== Starting Tomcat ==========
 
