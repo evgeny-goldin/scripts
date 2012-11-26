@@ -44,10 +44,9 @@ unzip *.war
 rm    *.war
 cd    ..
 
-echo  ========== Stopping Tomcat and Agents ==========
+echo  ========== Stopping Tomcat ==========
 
 $tomcat/bin/shutdown.sh
-stop
 
 sleep 30
 
@@ -64,23 +63,32 @@ mv teamcity                 $tomcat/webapps
 
 echo  ========== Killing remaining Java processes ==========
 
-echo "Java processes before:"
-echo  [`ps -Af | grep java | grep -v grep`]
+echo "Tomcat processes before:"
+echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
 
-ps -Af | grep java | grep -v grep | awk '{print $2}' | while read pid;
+ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
 do 
     echo "kill $pid"
     kill $pid
 done
 
-ps -Af | grep java | grep -v grep | awk '{print $2}' | while read pid;
+sleep 30
+
+ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
 do 
     echo "kill -9 $pid"
     kill -9 $pid
 done
 
-echo "Java processes after:"
-echo  [`ps -Af | grep java | grep -v grep`]
+ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
+do 
+    echo 'Tomcat is still running!'
+    echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
+    exit 1
+done
+
+echo "Tomcat processes after:"
+echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
 
 echo  ========== Starting Tomcat ==========
 
