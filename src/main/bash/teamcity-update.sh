@@ -65,6 +65,7 @@ echo  ========== Killing remaining Tomcat processes ==========
 
 echo "Tomcat processes before:"
 echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
+set +e
 
 ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
 do 
@@ -77,6 +78,7 @@ do
     kill -9 $pid
 done
 
+set -e
 echo "Tomcat processes after:"
 echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
 
