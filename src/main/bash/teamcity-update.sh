@@ -16,7 +16,7 @@ echo Saving old version in : [$backup]
 echo --------------------------------------
 
 echo  ========== Downloading ==========
-echo   "##teamcity[progressMessage 'Downloading']"
+echo   "##teamcity[progressMessage 'Downloading ..']"
 
 rm -rf teamcity
 mkdir  teamcity
