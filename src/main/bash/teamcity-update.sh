@@ -44,9 +44,11 @@ unzip *.war
 rm    *.war
 cd    ..
 
-echo  ========== Stopping Tomcat ==========
+echo  ========== Stopping Tomcat and Agents ==========
 
 $tomcat/bin/shutdown.sh
+stop
+
 sleep 30
 
 rm -rf $tomcat/logs $tomcat/temp $tomcat/work
@@ -70,8 +72,6 @@ do
     echo "kill $pid"
     kill $pid
 done
-
-sleep 10
 
 ps -Af | grep java | grep -v grep | awk '{print $2}' | while read pid;
 do 
