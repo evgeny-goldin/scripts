@@ -61,7 +61,7 @@ mkdir -p                    $backup
 mv $tomcat/webapps/teamcity $backup
 mv teamcity                 $tomcat/webapps
 
-echo  ========== Killing remaining Java processes ==========
+echo  ========== Killing remaining Tomcat processes ==========
 
 echo "Tomcat processes before:"
 echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
@@ -70,21 +70,11 @@ ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2
 do 
     echo "kill $pid"
     kill $pid
-done
 
-sleep 30
+    sleep 10
 
-ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
-do 
     echo "kill -9 $pid"
     kill -9 $pid
-done
-
-ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap | awk '{print $2}' | while read pid;
-do 
-    echo 'Tomcat is still running!'
-    echo  [`ps -Af | grep java | grep org.apache.catalina.startup.Bootstrap`]
-    exit 1
 done
 
 echo "Tomcat processes after:"
