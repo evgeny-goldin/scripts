@@ -13,4 +13,9 @@ if [ -d "$dropbox" -a -d "$data" -a -d "$backup" ]; then
     rsync -rv "$dropbox"          "$backup"
     rsync -rv "$data/Books"       "$backup"
     rsync -rv "$data/Tr/TheBest/" "$backup"
+else
+    echo Not all folders are available
+    echo $dropbox
+    echo $data
+    echo $backup
 fi
