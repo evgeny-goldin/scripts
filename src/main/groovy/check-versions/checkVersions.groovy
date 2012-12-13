@@ -16,9 +16,9 @@ import java.util.zip.Adler32
 
 
 final URLs = [
-    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 89105169,  /(content|value)=".+?"/, /"\/s\/en\/2172\/.+?"/ ],
-    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 889453545, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/, /(Artifactory\/\d+\.\d+\.\d+)/ ],
-    'http://services.gradle.org/distributions'                                     : [ 3795661861 ] 
+    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 4175323664, /(content|value)=".+?"/, /"\/s\/en\/2172\/.+?"/ ],
+    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/, /(Artifactory\/\d+\.\d+\.\d+)/ ],
+    'http://services.gradle.org/distributions'                                     : [ 3795661861 ]
 ]
 
 for ( entry in URLs )
@@ -37,6 +37,6 @@ for ( entry in URLs )
 
 long checksum( String text )
 {
-    ByteStreams.getChecksum( new InputSupplier(){ InputStream getInput(){ new ByteArrayInputStream( text.getBytes( 'UTF-8' )) }}, 
+    ByteStreams.getChecksum( new InputSupplier(){ InputStream getInput(){ new ByteArrayInputStream( text.getBytes( 'UTF-8' )) }},
                              new Adler32())
 }
