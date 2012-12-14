@@ -18,7 +18,8 @@ import java.util.zip.Adler32
 final URLs = [
     'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 4175323664, /(content|value)=".+?"/, /"\/s\/en\/2172\/.+?"/ ],
     'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/, /(Artifactory\/\d+\.\d+\.\d+)/ ],
-    'http://services.gradle.org/distributions'                                     : [ 3795661861 ]
+    'http://services.gradle.org/distributions'                                     : [ 3795661861 ],
+    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 2788262781 ]
 ]
 
 for ( entry in URLs )

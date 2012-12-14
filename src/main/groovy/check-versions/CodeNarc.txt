@@ -1,0 +1,870 @@
+<!doctype html>
+<!-- Server: sfs-consume-5 -->
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <meta id="webtracker" name="webtracker" content='{"event_id": "f3030e78-4608-11e2-8776-0200ac1d1d91", "project": "codenarc", "non_clicker": 0.8526005406557271, "active_tests": ["6384-3"], "clicker": 0.1494505620986291}'>
+        <meta name="description" content="CodeNarc is a static analysis tool for Groovy source code, enabling monitoring and enforcement of many coding standards and best practices. CodeNarc …">
+        <meta name="keywords" content="Design, Quality Assurance, Testing,  Open Source, Open Source Software, Development, Community, Source Code, Secure,  Downloads, Free Software">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CodeNarc -  Browse /codenarc at SourceForge.net</title>
+        <link rel="shortcut icon" href="http://a.fsdn.com/con/img/sftheme/favicon.ico">
+        <script type="text/javascript">
+            /*global unescape, window, console, jQuery, $, net, SF, COMSCORE, DD_belatedPNG */
+            // Setup our namespace
+            if (!window.SF) { window.SF = {}; }
+            if (!window.net) { window.net = {}; }
+            if (!window.net.sf) { window.net.sf = {}; }
+            SF.cdn = 'http://a.fsdn.com/con';
+            SF.deploy_time = '1355417413';
+        </script>
+        <script src="http://a.fsdn.com/con/js/min/sf.head.js?1355417413" type="text/javascript"></script>
+
+<!--[if lt IE 7 ]>
+  <script src="http://a.fsdn.com/con/js/sftheme/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu:regular' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    @font-face {
+        font-family: "Pictos";
+        src: url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.eot');
+        src: local("☺"), url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.woff') format('woff'), url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.ttf') format('truetype'), url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.svg') format('svg');
+    }
+</style>
+ <link rel="stylesheet" href="http://a.fsdn.com/con/css/sf.css?1355417413" type="text/css">
+
+
+<script type="text/javascript">
+    SF.adblock = true;
+    var immersion_adcode = "";
+</script>
+        <script type="text/javascript" src="http://a.fsdn.com/con/js/adframe.js?1355417413"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+
+            function _add_tracking(prefix, tracking_id, send_user) {
+                _gaq.push([prefix+'._setAccount', tracking_id]);
+                _gaq.push([prefix+'._trackPageview']);
+            }
+                _gaq.push(['1._setAccount', 'UA-32013-6']);
+                _gaq.push(['2._setAccount', 'UA-36130941-1']);
+
+                _gaq.push(['1._trackPageview']);
+                _gaq.push(['2._trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body id="pg_files" class="
+    user
+     bluesteel
+">
+
+        <div id="busy-spinner"></div>
+
+<header id="site-header">
+    <div class="wrapper">
+        <a href="/" class="logo">
+            <span>SourceForge</span>
+        </a>
+        <form method="get" action="/directory/">
+            <input type="text" id="words" name="q" placeholder="Search">
+        </form>
+        <!--Switch to {language}-->
+        <nav id="nav-site">
+            <a href="/directory/" title="Browse our software.">Browse</a>
+            <a href="/blog/" title="Read the latest news from the SF HQ.">Blog</a>
+            <a href="/support" title="Contact us for help and feedback.">Help</a>
+        </nav>
+        <nav id="nav-account">
+
+              <div class="logged_out">
+                <a href="https://sourceforge.net/account/login.php">Log In</a>
+                <span>or</span>
+                <a href="https://sourceforge.net/user/registration">Join</a>
+              </div>
+
+        </nav>
+    </div>
+</header>
+<header id="site-sec-header">
+    <div class="wrapper">
+        <nav id="nav-hubs">
+
+            <h4>Solution Centers</h4>
+
+            <a href="http://ibmsmartercommerce.sourceforge.net/">Smarter Commerce</a>
+
+            <a href="http://goparallel.sourceforge.net/">Go Parallel</a>
+
+            <a href="http://html5center.sourceforge.net/">HTML5</a>
+
+            <a href="http://ibmsmarteritservices.sourceforge.net/">Smarter IT</a>
+
+
+        </nav>
+        <nav id="nav-collateral">
+            <a href="http://library.geeknetmedia.com">Resources</a>
+
+            <a href="https://sourceforge.net/user/registration">Newsletters</a>
+
+        </nav>
+    </div>
+</header>
+
+
+<header id="page-header">
+    <section id="project-header" itemscope itemtype="http://schema.org/softwareapplication">
+
+    <div class="ads">
+
+
+
+
+<script type="text/javascript">
+    if ('p1_leader'.indexOf('immersion') > 0) {
+        document.write('<div id="p1_leader" class="ad leaderboard"><script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.sourceforge/cons_softdev_p1_leader;pg=/project/showfiles.php;psrch=0;logged_in=0;tpc=codenarc;tpc=development;tpc=groovy;tpc=quality_assurance;tpc=testing;tpc=design;tpc=education;aud=developers;dcopt=ist;tile=1;sz=728x90;u=e%3Af3030e78-4608-11e2-8776-0200ac1d1d91;ord=8553636658384499?"></'+'script></div>');
+    } else if (!immersion_adcode) {
+        document.write('<iframe id="p1_leader" height="90" class="ad leaderboard" src="/static/ads/iframe_ad.html?position=p1_leader&amp;ad=http%3A%2F%2Fad.doubleclick.net%2Fadj%2Fostg.sourceforge%2Fcons_softdev_p1_leader%3Bpg%3D%2Fproject%2Fshowfiles.php%3Bpsrch%3D0%3Blogged_in%3D0%3Btpc%3Dcodenarc%3Btpc%3Ddevelopment%3Btpc%3Dgroovy%3Btpc%3Dquality_assurance%3Btpc%3Dtesting%3Btpc%3Ddesign%3Btpc%3Deducation%3Baud%3Ddevelopers%3Bdcopt%3Dist%3Btile%3D1%3Bsz%3D728x90%3Bu%3De%253Af3030e78-4608-11e2-8776-0200ac1d1d91%3Bord%3D8553636658384499%3F&amp;class=leaderboard" seamless frameborder="0" scrolling="no"></iframe>');
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    if ('logo_sponsorship'.indexOf('immersion') > 0) {
+        document.write('<div id="logo_sponsorship" class="ad hub"><script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.sourceforge/cons_pg_files_logo_sponsorship;pg=/project/showfiles.php;psrch=0;logged_in=0;tpc=codenarc;tpc=development;tpc=groovy;tpc=quality_assurance;tpc=testing;tpc=design;tpc=education;aud=developers;tile=2;sz=200x90;u=e%3Af3030e78-4608-11e2-8776-0200ac1d1d91;ord=8553636658384499?"></'+'script></div>');
+    } else if (!immersion_adcode) {
+        document.write('<iframe id="logo_sponsorship" height="90" class="ad hub" src="/static/ads/iframe_ad.html?position=logo_sponsorship&amp;ad=http%3A%2F%2Fad.doubleclick.net%2Fadj%2Fostg.sourceforge%2Fcons_pg_files_logo_sponsorship%3Bpg%3D%2Fproject%2Fshowfiles.php%3Bpsrch%3D0%3Blogged_in%3D0%3Btpc%3Dcodenarc%3Btpc%3Ddevelopment%3Btpc%3Dgroovy%3Btpc%3Dquality_assurance%3Btpc%3Dtesting%3Btpc%3Ddesign%3Btpc%3Deducation%3Baud%3Ddevelopers%3Btile%3D2%3Bsz%3D200x90%3Bu%3De%253Af3030e78-4608-11e2-8776-0200ac1d1d91%3Bord%3D8553636658384499%3F&amp;class=hub" seamless frameborder="0" scrolling="no"></iframe>');
+    }
+</script>
+    </div>
+    <div style="clear:both"></div>
+
+
+<section id="project-title">
+    <h1 itemprop="name">
+            <a href="/projects/codenarc/" itemprop="url">CodeNarc</a></h1>
+    <p id="maintainers" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <b title="Group" class="ico ico-group" data-icon="g"></b>
+    <a href="/users/chrismair" itemprop="url"><span itemprop="name">chrismair</span></a>
+    </p>
+
+</section>
+<nav>
+    <div class="firstwave">
+ <ul class="b-hornav">
+  <li id="menu_consume_summary">
+   <a href="/projects/codenarc/?source=navbar">
+    <span>
+     <span>
+      Summary
+     </span>
+    </span>
+   </a>
+  </li>
+  <li id="menu_consume_files" class="selected">
+   <a href="/projects/codenarc/files/?source=navbar">
+    <span>
+     <span>
+      Files
+     </span>
+    </span>
+   </a>
+   <div class="diamond">
+   </div>
+  </li>
+  <li id="menu_consume_reviews">
+   <a href="/projects/codenarc/reviews/?source=navbar">
+    <span>
+     <span>
+      Reviews
+     </span>
+    </span>
+   </a>
+  </li>
+  <li id="menu_project_support">
+   <a href="/projects/codenarc/support?source=navbar">
+    <span>
+     <span>
+      Support
+     </span>
+    </span>
+   </a>
+  </li>
+  <li id="menu_project_develop">
+   <a href="/projects/codenarc/develop?source=navbar">
+    <span>
+     <span>
+      Develop
+     </span>
+    </span>
+   </a>
+   <ul>
+    <li id="menu_project_website">
+     <a href="http://codenarc.sourceforge.net?source=navbar">
+      Web Site
+     </a>
+    </li>
+    <li id="menu_project_screenshots">
+     <a href="/project/screenshots.php?group_id=250145&amp;source=navbar">
+      Screenshots
+     </a>
+    </li>
+    <li id="menu_project_news">
+     <a href="/news/?group_id=250145&amp;source=navbar">
+      News
+     </a>
+    </li>
+    <li id="menu_stats">
+     <a href="/projects/codenarc/stats/traffic?source=navbar">
+      Project Statistics
+     </a>
+    </li>
+    <li id="menu_download_stats_dist">
+     <a href="/downloads/codenarc/stats_timeline?source=navbar">
+      Download Stats
+     </a>
+    </li>
+   </ul>
+  </li>
+  <li id="menu_tracker">
+   <a href="/tracker/?group_id=250145&amp;source=navbar">
+    <span>
+     <span>
+      Tracker
+     </span>
+    </span>
+   </a>
+   <ul>
+    <li id="menu_tracker_1126573">
+     <a href="/tracker/?group_id=250145&amp;atid=1126573&amp;source=navbar">
+      Bugs
+     </a>
+    </li>
+    <li id="menu_tracker_1126575">
+     <a href="/tracker/?group_id=250145&amp;atid=1126575&amp;source=navbar">
+      Feature Requests
+     </a>
+    </li>
+    <li id="menu_tracker_stats" class="tools">
+     <a href="/projects/codenarc/stats/tracker?source=navbar">
+      Statistics for Trackers
+     </a>
+    </li>
+    <li id="menu_tracker_search">
+     <a href="/search/?group_id=250145&amp;type_of_search=artifact&amp;source=navbar">
+      Search Trackers
+     </a>
+    </li>
+   </ul>
+  </li>
+  <li id="menu_mail">
+   <a href="/mail/?group_id=250145&amp;source=navbar">
+    <span>
+     <span>
+      Mailing&nbsp;Lists
+     </span>
+    </span>
+   </a>
+   <ul>
+    <li id="menu_mlist_codenarc-user">
+     <a href="/mailarchive/forum.php?forum_name=codenarc-user&amp;source=navbar">
+      codenarc-user
+     </a>
+    </li>
+    <li id="menu_mlist_codenarc-developer">
+     <a href="/mailarchive/forum.php?forum_name=codenarc-developer&amp;source=navbar">
+      codenarc-developer
+     </a>
+    </li>
+    <li id="menu_mail_search" class="tools">
+     <a href="/search/?group_id=250145&amp;type_of_search=mlists&amp;source=navbar">
+      Search Mail Lists
+     </a>
+    </li>
+   </ul>
+  </li>
+  <li id="menu_forums">
+   <a href="/projects/codenarc/forums?source=navbar">
+    <span>
+     <span>
+      Forums
+     </span>
+    </span>
+   </a>
+   <ul>
+    <li id="menu_forum_906055">
+     <a href="/projects/codenarc/forums/forum/906055?source=navbar">
+      Help
+     </a>
+    </li>
+    <li id="menu_forum_906054">
+     <a href="/projects/codenarc/forums/forum/906054?source=navbar">
+      Open Discussion
+     </a>
+    </li>
+    <li id="menu_forums_stats" class="tools">
+     <a href="/projects/codenarc/stats/forums?source=navbar">
+      Statistics for Forums
+     </a>
+    </li>
+    <li id="menu_forums_search">
+     <a href="/search/?group_id=250145&amp;type_of_search=forums&amp;source=navbar">
+      Search Forums
+     </a>
+    </li>
+   </ul>
+  </li>
+  <li id="menu_code">
+   <a href="/scm/?type=svn&amp;group_id=250145&amp;source=navbar">
+    <span>
+     <span>
+      Code
+     </span>
+    </span>
+   </a>
+   <ul>
+    <li id="menu_svn_about">
+     <a href="/scm/?type=svn&amp;group_id=250145&amp;source=navbar">
+      SVN
+     </a>
+    </li>
+    <li id="menu_svn_browse">
+     <a href="http://codenarc.svn.sourceforge.net/viewvc/codenarc/?source=navbar">
+      SVN Browse
+     </a>
+    </li>
+    <li id="menu_svn_stats">
+     <a href="/projects/codenarc/stats/scm?repo=SVNRepository&amp;source=navbar">
+      SVN Statistics
+     </a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</div>
+</nav>
+
+    </section>
+</header>
+
+
+        <div id="messages">
+        </div>
+
+        <div id="page-body">
+    <noscript>
+        <p>The interactive file manager requires Javascript. Please enable it or use <a href="https://sourceforge.net/apps/trac/sourceforge/wiki/Release%20files%20for%20download#SCP">sftp or scp</a>.
+        <br/>You may still <em>browse</em> the files here.</p>
+    </noscript>
+    <div id="files"><div class="download-bar">
+            Looking for the latest version? <strong>
+            <a href="/projects/codenarc/files/latest/download?source=files" title="/codenarc/CodeNarc Version 0.18/CodeNarc-0.18-bin.tar.gz:  released on 2012-12-13 03:49:35 UTC">
+                <span>Download CodeNarc-0.18-bin.tar.gz (11.0 MB)</span>
+            </a>
+            </strong>
+        </div><div class="files-breadcrumb">
+            <span class="actions"><a href="/api/file/index/project-id/250145/mtime/desc/limit/20/rss" title="Monitor this project's files using RSS" data-icon="f" class="ico ico-feed"></a></span>
+
+                <a id="home" href="/projects/codenarc/files/" title="Files root directory">
+
+            Home
+
+                </a>
+                /
+
+
+            <span class="current-dir">codenarc</span>
+        </div>
+
+        <table id="files_list" title="This is a list of the files for this project">
+            <col class="name-column">
+            <col class="date-column">
+            <col class="size-column">
+            <col class="downloads-column">
+            <col class="status-column">
+            <thead>
+                <tr>
+                    <th title="The file or folder's name" id="files_name_h" class="first">Name</th>
+                    <th title="The file or folder's last modified date" id="files_date_h" class="opt">Modified</th>
+                    <th title="The file size" id="files_size_h" class="opt">Size</th>
+                    <th title="The weekly download count" id="files_downloads_h" class="opt">Downloads</th>
+                    <th title="A snapshot of the file or folder's status" id="files_status_h" class="typesort">Status</th>
+                </tr>
+
+                    <tr>
+                        <th colspan="5" class="first" id="parent_folder"><a href=".." title="One level up"><span data-icon="{" class="onelevup ico ico-uparrow"></span>Parent folder</a></th>
+                    </tr>
+
+            </thead>
+            <tfoot>
+                <tr>
+                    <td id="totals"><span class="label">Totals: </span>20 Items</td>
+                    <td class="opt">&nbsp;</td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h">
+
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+
+                <tr title="CodeNarc Version 0.18" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.18/"
+                           title="Click to enter CodeNarc Version 0.18"
+                           class="name">
+                        CodeNarc Version 0.18</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2012-12-13 03:51:33 UTC">2012-12-13</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.18/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:0,0,0,0,0,4,1&amp;chds=0,4" title="5 downloads" alt="5 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.17" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.17/"
+                           title="Click to enter CodeNarc Version 0.17"
+                           class="name">
+                        CodeNarc Version 0.17</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2012-03-24 00:40:57 UTC">2012-03-24</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.17/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:0,0,1,0,0,0,0&amp;chds=0,4" title="535 downloads" alt="535 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.16.1" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.16.1/"
+                           title="Click to enter CodeNarc Version 0.16.1"
+                           class="name">
+                        CodeNarc Version 0.16.1</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-11-13 18:41:07 UTC">2011-11-13</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.16.1/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:2,0,0,0,0,0,0&amp;chds=0,4" title="307 downloads" alt="307 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.16" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.16/"
+                           title="Click to enter CodeNarc Version 0.16"
+                           class="name">
+                        CodeNarc Version 0.16</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-11-11 02:35:05 UTC">2011-11-11</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.16/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="28 downloads" alt="28 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.15" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.15/"
+                           title="Click to enter CodeNarc Version 0.15"
+                           class="name">
+                        CodeNarc Version 0.15</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-08-04 00:42:11 UTC">2011-08-04</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.15/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:2,0,0,0,0,0,0&amp;chds=0,4" title="274 downloads" alt="274 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.14" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.14/"
+                           title="Click to enter CodeNarc Version 0.14"
+                           class="name">
+                        CodeNarc Version 0.14</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-06-10 01:12:50 UTC">2011-06-10</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.14/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="145 downloads" alt="145 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.13" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.13/"
+                           title="Click to enter CodeNarc Version 0.13"
+                           class="name">
+                        CodeNarc Version 0.13</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-03-06 19:42:24 UTC">2011-03-06</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.13/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="221 downloads" alt="221 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.12" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.12/"
+                           title="Click to enter CodeNarc Version 0.12"
+                           class="name">
+                        CodeNarc Version 0.12</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2011-01-19 03:00:38 UTC">2011-01-19</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.12/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="157 downloads" alt="157 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.11" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.11/"
+                           title="Click to enter CodeNarc Version 0.11"
+                           class="name">
+                        CodeNarc Version 0.11</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2010-11-13 15:28:39 UTC">2010-11-13</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.11/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="135 downloads" alt="135 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.10" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.10/"
+                           title="Click to enter CodeNarc Version 0.10"
+                           class="name">
+                        CodeNarc Version 0.10</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2010-09-26 13:10:27 UTC">2010-09-26</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.10/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,1&amp;chds=0,4" title="737 downloads" alt="737 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.9" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.9/"
+                           title="Click to enter CodeNarc Version 0.9"
+                           class="name">
+                        CodeNarc Version 0.9</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2010-05-12 00:58:39 UTC">2010-05-12</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.9/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="177 downloads" alt="177 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.8.1" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.8.1/"
+                           title="Click to enter CodeNarc Version 0.8.1"
+                           class="name">
+                        CodeNarc Version 0.8.1</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2010-02-03 02:32:23 UTC">2010-02-03</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.8.1/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="138 downloads" alt="138 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.8" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.8/"
+                           title="Click to enter CodeNarc Version 0.8"
+                           class="name">
+                        CodeNarc Version 0.8</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2010-01-17 16:24:00 UTC">2010-01-17</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.8/stats/timeline" class="fs-stats ui-corner-all folder"><img class="fs-sparklines folder" src="http://a.fsdn.com/con/img/gallery/opa75.png" data-src="http://chart.apis.google.com/chart?cht=ls&amp;chs=20x16&amp;chco=0685c6&amp;chm=B,0685c6,0,0,0&amp;chd=t:1,0,0,0,0,0,0&amp;chds=0,4" title="66 downloads" alt="66 downloads" width="20" height="16" /></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.7" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.7/"
+                           title="Click to enter CodeNarc Version 0.7"
+                           class="name">
+                        CodeNarc Version 0.7</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-08-26 02:36:53 UTC">2009-08-26</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.7/stats/timeline" title="416 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.6" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.6/"
+                           title="Click to enter CodeNarc Version 0.6"
+                           class="name">
+                        CodeNarc Version 0.6</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-07-18 21:06:14 UTC">2009-07-18</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.6/stats/timeline" title="485 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.5" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.5/"
+                           title="Click to enter CodeNarc Version 0.5"
+                           class="name">
+                        CodeNarc Version 0.5</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-05-25 11:18:48 UTC">2009-05-25</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.5/stats/timeline" title="85 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.4" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.4/"
+                           title="Click to enter CodeNarc Version 0.4"
+                           class="name">
+                        CodeNarc Version 0.4</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-03-31 23:48:15 UTC">2009-03-31</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.4/stats/timeline" title="59 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.3" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.3/"
+                           title="Click to enter CodeNarc Version 0.3"
+                           class="name">
+                        CodeNarc Version 0.3</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-03-03 02:16:06 UTC">2009-03-03</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.3/stats/timeline" title="58 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.2" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.2/"
+                           title="Click to enter CodeNarc Version 0.2"
+                           class="name">
+                        CodeNarc Version 0.2</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-02-07 14:53:12 UTC">2009-02-07</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.2/stats/timeline" title="61 downloads, none recently."></a></td>
+                </tr>
+                <tr title="CodeNarc Version 0.1" class="folder warn">
+                    <th scope="row" headers="files_name_h"><span data-icon="o" class="ico ico-folder"></span>
+                        <a href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.1/"
+                           title="Click to enter CodeNarc Version 0.1"
+                           class="name">
+                        CodeNarc Version 0.1</a></th>
+                    <td headers="files_date_h" class="opt"><abbr title="2009-01-24 12:49:06 UTC">2009-01-24</abbr></td>
+                    <td headers="files_size_h" class="opt"></td>
+                    <td headers="files_downloads_h" class="opt"></td>
+                    <td headers="files_status_h" class="status folder"><a class="fs-stats ui-corner-all no-recent-downloads folder" href="/projects/codenarc/files/codenarc/CodeNarc%20Version%200.1/stats/timeline" title="76 downloads, none recently."></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="files-drawer" class="fs-widget fs-drawer consumer">
+        </div>
+    </div>
+
+
+    <div id="sidebar-ads">
+        <div class="ads">
+
+
+
+
+<script type="text/javascript">
+    if ('p84_medrec'.indexOf('immersion') > 0) {
+        document.write('<div id="p84_medrec" class="ad medrec"><script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.sourceforge/cons_softdev_p84_medrec;pg=/project/showfiles.php;psrch=0;logged_in=0;tpc=codenarc;tpc=development;tpc=groovy;tpc=quality_assurance;tpc=testing;tpc=design;tpc=education;aud=developers;tile=3;sz=300x250,300x600;u=e%3Af3030e78-4608-11e2-8776-0200ac1d1d91;ord=8553636658384499?"></'+'script></div>');
+    } else if (!immersion_adcode) {
+        document.write('<iframe id="p84_medrec" height="250" class="ad medrec" src="/static/ads/iframe_ad.html?position=p84_medrec&amp;ad=http%3A%2F%2Fad.doubleclick.net%2Fadj%2Fostg.sourceforge%2Fcons_softdev_p84_medrec%3Bpg%3D%2Fproject%2Fshowfiles.php%3Bpsrch%3D0%3Blogged_in%3D0%3Btpc%3Dcodenarc%3Btpc%3Ddevelopment%3Btpc%3Dgroovy%3Btpc%3Dquality_assurance%3Btpc%3Dtesting%3Btpc%3Ddesign%3Btpc%3Deducation%3Baud%3Ddevelopers%3Btile%3D3%3Bsz%3D300x250%2C300x600%3Bu%3De%253Af3030e78-4608-11e2-8776-0200ac1d1d91%3Bord%3D8553636658384499%3F&amp;class=medrec" seamless frameborder="0" scrolling="no"></iframe>');
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    if ('p85_medrec'.indexOf('immersion') > 0) {
+        document.write('<div id="p85_medrec" class="ad medrec"><script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.sourceforge/cons_softdev_p85_medrec;pg=/project/showfiles.php;psrch=0;logged_in=0;tpc=codenarc;tpc=development;tpc=groovy;tpc=quality_assurance;tpc=testing;tpc=design;tpc=education;aud=developers;tile=4;sz=300x250;u=e%3Af3030e78-4608-11e2-8776-0200ac1d1d91;ord=8553636658384499?"></'+'script></div>');
+    } else if (!immersion_adcode) {
+        document.write('<iframe id="p85_medrec" height="250" class="ad medrec" src="/static/ads/iframe_ad.html?position=p85_medrec&amp;ad=http%3A%2F%2Fad.doubleclick.net%2Fadj%2Fostg.sourceforge%2Fcons_softdev_p85_medrec%3Bpg%3D%2Fproject%2Fshowfiles.php%3Bpsrch%3D0%3Blogged_in%3D0%3Btpc%3Dcodenarc%3Btpc%3Ddevelopment%3Btpc%3Dgroovy%3Btpc%3Dquality_assurance%3Btpc%3Dtesting%3Btpc%3Ddesign%3Btpc%3Deducation%3Baud%3Ddevelopers%3Btile%3D4%3Bsz%3D300x250%3Bu%3De%253Af3030e78-4608-11e2-8776-0200ac1d1d91%3Bord%3D8553636658384499%3F&amp;class=medrec" seamless frameborder="0" scrolling="no"></iframe>');
+    }
+</script>
+        </div>
+    </div>
+
+
+        </div>
+
+
+
+
+<footer id="site-footer">
+    <div class="wrapper">
+        <nav>
+            <h5>SourceForge</h5>
+            <a href="/about">About</a>
+            <a href="/blog/category/sitestatus/">Site Status</a>
+            <a href="http://twitter.com/sfnet_ops">@sfnet_ops</a>
+        </nav>
+        <nav>
+            <h5>Find and Develop Software</h5>
+            <a href="/create/">Create a Project</a>
+            <a href="/directory/">Software Directory</a>
+            <a href="/top">Top Downloaded Projects</a>
+        </nav>
+        <nav>
+            <h5>Community</h5>
+            <a href="/blog/">Blog</a>
+            <a href="http://twitter.com/sourceforge">@sourceforge</a>
+            <a href="http://seeker.dice.com/jobsearch/servlet/JobSearch?caller=0&amp;source=76&amp;LOCATION_OPTION=2&amp;EXTRA_STUFF=0&amp;N=0&amp;Hf=0&amp;Ntk=JobSearchRanking&amp;op=300&amp;values=&amp;FREE_TEXT=&amp;Ntx=mode+matchall&amp;EXCLUDE_KEY1=p_JobTitle&amp;EXCLUDE_TEXT1=&amp;EXCLUDE_KEY2=p_JobTitle&amp;EXCLUDE_TEXT2=&amp;EXCLUDE_KEY3=p_JobTitle&amp;EXCLUDE_TEXT3=&amp;EXCLUDE_KEY4=p_JobTitle&amp;EXCLUDE_TEXT4=&amp;EXCLUDE_KEY5=p_JobTitle&amp;EXCLUDE_TEXT5=&amp;EXCLUDE_KEY6=p_JobTitle&amp;EXCLUDE_TEXT6=&amp;EXCLUDE_KEY7=p_JobTitle&amp;EXCLUDE_TEXT7=&amp;EXCLUDE_KEY8=p_JobTitle&amp;EXCLUDE_TEXT8=&amp;locationRadio=on&amp;RADIUS=64.37376&amp;WHERE=&amp;COUNTRY=1525&amp;STAT_PROV=0&amp;METRO_AREA=33.78715899%2C-84.39164034&amp;AREA_CODES=&amp;AC_COUNTRY=1525&amp;TRAVEL=0&amp;TAXTERM=0&amp;SORTSPEC=0&amp;FRMT=0&amp;DAYSBACK=30&amp;NUM_PER_PAGE=30&amp;source_page=pg_files">Job Board</a>
+        </nav>
+        <nav>
+            <h5>Help</h5>
+            <a href="/apps/trac/sourceforge/wiki/WikiStart">Site Documentation</a>
+            <a href="/support">Support Request</a>
+            <a href="http://sourceforge.net/p/forge/documentation/Support%20via%20IRC/">Real-Time Support</a>
+        </nav>
+    </div>
+</footer>
+<footer id="site-copyright-footer">
+    <div class="wrapper">
+        <div id="copyright">
+            Copyright &copy; 2012 SourceForge. All Rights Reserved.<br />
+            SourceForge is a <a href="http://www.diceholdingsinc.com/phoenix.zhtml?c=211152&amp;p=irol-landing">Dice Holdings, Inc.</a> company.
+        </div>
+        <nav>
+            <a href="http://geeknetmedia.com/terms-of-use/">Terms</a>
+            <a href="http://geeknetmedia.com/privacy-statement/">Privacy</a>
+            <a href="http://geeknetmedia.com/opt-out-choices/">Cookies/Opt Out</a>
+            <a href="http://geeknetmedia.com">Advertise</a>
+            <a href="http://sourceforge.jp/">SourceForge.JP</a>
+            <a href="http://www.accelacomm.com/jaw/sflnk/114/50136577/">Share Opinions</a>
+        </nav>
+    </div>
+</footer>
+            <script src="http://a.fsdn.com/con/js/min/sf.js-it.js?1355417413" type="text/javascript"></script>
+
+        <!-- Begin comScore Tag -->
+        <script type="text/javascript">
+            document.write(unescape("%3Cscript src='" + (document.location.protocol === "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            if (window.COMSCORE) {
+                COMSCORE.beacon({
+                    c1: 2,
+                    c2: 6035546,
+                    c3: "",
+                    c4: "",
+                    c5: "",
+                    c6: "",
+                    c15: ""
+                });
+            }
+        </script>
+        <noscript>
+            <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6035546&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cj=1" alt="comScore2" />
+        </noscript>
+        <!-- End comScore Tag -->
+<script type="text/javascript" src="http://a.fsdn.com/con/js/files.js?1355417413"></script>
+
+
+<script type="text/html" id="default_platforms_tmpl">
+    <%
+    var defaults = [
+            { value: 'windows', label: 'Windows' },
+            { value: 'mac', label: 'Mac OS X' },
+            { value: 'linux', label: 'Linux' },
+            { value: 'bsd', label: 'BSD' },
+            { value: 'solaris', label: 'Solaris' },
+            { value: 'others', label: 'Others' }
+        ];
+    %><% if (this.length) { %><div class="drawer-label">
+        <span>Default Download For:</span>
+    </div>
+    <div class="drawer-value">
+        <ul>
+            <% for (i in defaults) { %>
+            <% var v = defaults[i].value, l = defaults[i].label; %><% if (this.indexOf(v) >= 0) { %><li><span title="<%= l %>" class="platform-icon <%= v %>"><%= l %></span><% } %><% } %>
+        </ul>
+    </div><% } %></script>
+
+<script type="text/html" id="file_drawer_tmpl">
+<form class="bp" action="/projects/codenarc/files/<%= this.full_path %>" method="put" id="file_properties_content">
+    <table id="drawer_row">
+        <col class="name-column">
+        <col class="date-column">
+        <col class="size-column">
+        <col class="downloads-column">
+        <col class="status-column">
+        <tbody>
+            <tr title="<%= this.name %>">
+                <td><a href="<% if (this.type === 'f') { %><%= this.download_url %><% } else { %><%= this.url %><% } %>" class="name"><%= this.name %></a>
+                </td>
+                <td class="files-date"></td>
+                <td class="files-size"></td>
+                <td class="files-downloads"></td>
+                <td class="files-status status"></td>
+            </tr></tbody>
+    </table>
+    <div id="file-details">
+        <% if (this.type === 'f') { %>
+        <div id="file-info">
+            <% if (this.staged) { %><div>This file is staged until <%= new Date(this.stage * 1000).toUTCString() %>.</div><% } %>
+
+            <div class="label">
+                <span>SHA1:</span>
+            </div>
+            <div class="value">
+                <pre class="selectable"><%= this.sha1 %></pre>
+            </div>
+
+            <div class="label">
+                <span>MD5:</span>
+            </div>
+            <div class="value">
+                <pre class="selectable"><%= this.md5 %></pre>
+            </div><% if (this.legacy_release_notes) { %>
+            <div class="value no-label">
+                <span><a href="<%= this.legacy_release_notes %>">Release Notes</a></span>
+            </div>
+            <% } %>
+        </div>
+
+        <div id="download-info">
+            <div class="label">
+                <span>Downloads:</span>
+            </div>
+            <div class="value">
+                <span><%= (this.downloads === null ? 'Not counted' : this.downloads) %></span>
+            </div><div class="default">
+                <span style="display: block; position: static;" class="busy-spinner ui-corner-all"></span>
+            </div>
+        </div>
+        <% } %></div>
+</form>
+</script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#files').files();
+        $.ajax({
+            url: window.location.pathname + '/list',
+            success: function(data) { net.sf.files = data; },
+            dataType: "json",
+            global: false
+        });
+    });
+    jQuery(window).load(function() {
+        $('.fs-sparklines').each(function(){
+          $(this).attr('src', $(this).attr('data-src'));
+        });
+
+        var tsConfig = {
+            widgets: ['zebra'],
+            sortForce: [[4, 0]],
+            headers: {
+                1: { sorter: 'abbrdate' },
+                2: { sorter: 'filesize' },
+                3: { sorter: 'localnum' },
+                4: { sorter: 'type'}
+            },
+            textExtraction: function (node) {
+                return node.innerHTML;
+            }
+        };
+
+        if ($('#files_list tbody tr').length) {
+            $('#files_list').tablesorter(tsConfig);
+            $('#files_list tr th#parent_folder').unbind();
+            $('#files_list tr th.header').not('.typesort').not('#parent_folder').addClass('usersortable').append('<span class="ui-icon fs-toggle"><\/span>');
+        }
+    });
+</script>
+
+    </body>
+</html>
