@@ -16,10 +16,17 @@ import java.util.zip.Adler32
 
 
 final URLs = [
-    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 4175323664, /(content|value)=".+?"/, /"\/s\/en\/2172\/.+?"/ ],
-    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/, /(Artifactory\/\d+\.\d+\.\d+)/ ],
+    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 4175323664, /(content|value)=".+?"/,
+                                                                                                   /"\/s\/en\/2172\/.+?"/ ],
+    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
+                                                                                                   /(Artifactory\/\d+\.\d+\.\d+)/ ],
     'http://services.gradle.org/distributions'                                     : [ 3795661861 ],
-    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 2788262781, /sfs-consume-\d+/, /<meta id="webtracker".+?>/, /document.write\(.+?\)/, /(?s)<footer id="site-copyright-footer">.+?<\/footer>/ ]
+    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 2789492120, /sfs-consume-\d+/,
+                                                                                                   /<meta id="webtracker".+?>/,
+                                                                                                   /document.write\(.+?\)/,
+                                                                                                   /\d+ downloads/,
+                                                                                                   /<td headers="files_status_h" class="status folder">.+?<\/td>/,
+                                                                                                   /(?s)<footer id="site-copyright-footer">.+?<\/footer>/ ]
 ]
 
 for ( entry in URLs )
@@ -27,7 +34,9 @@ for ( entry in URLs )
     final url            = entry.key
     final oldCheksum     = entry.value.head()
     final excludeRegexes = entry.value.tail()
-    text                 = excludeRegexes.inject( url.toURL().getText( 'UTF-8' )) { String text, String regex -> text.replaceAll( regex, '' ) } as String
+    text                 = excludeRegexes.inject( url.toURL().getText( 'UTF-8' )) {
+        String text, String regex -> text.replaceAll( regex, '' )
+    } as String
 
     println( "URL [$url], old checksum [$oldCheksum]\n-----\n$text\n-----\n" )
 
