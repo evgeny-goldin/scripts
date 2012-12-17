@@ -21,12 +21,12 @@ final URLs = [
     'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
     'http://services.gradle.org/distributions'                                     : [ 3795661861 ],
-    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 2789492120, /sfs-consume-\d+/,
-                                                                                                   /<meta id="webtracker".+?>/,
-                                                                                                   /document.write\(.+?\)/,
-                                                                                                   /\d+ downloads/,
+    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 242142996,  /(?s)^.+Looking for the latest version/,
                                                                                                    /<td headers="files_status_h" class="status folder">.+?<\/td>/,
-                                                                                                   /(?s)<footer id="site-copyright-footer">.+?<\/footer>/ ]
+                                                                                                   /document.write\(.+?\)/,
+                                                                                                   /(?s)<footer id="site-copyright-footer">.+?<\/footer>/,
+                                                                                                   /<script src="http:\/\/a.fsdn.com.+?<\/script>/,
+                                                                                                   /<script type="text\/javascript" src="http:\/\/a.fsdn.com.+?<\/script>/ ]
 ]
 
 for ( entry in URLs )
