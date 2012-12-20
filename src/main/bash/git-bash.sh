@@ -1,7 +1,7 @@
 #!/bin/bash
 
 branch=''
-star=''
+mark=''
 
 status=`git status 2> /dev/null`
 regex="nothing to commit, working directory clean$"
@@ -11,9 +11,9 @@ then
     branch=`echo $status | head -1 | awk '{print $4}'`
     if [[ ! $status =~ $regex ]]; 
     then
-        star='!'    
+        mark='!'    
     fi
-    echo "<$branch$star>"
+    echo "<$branch$mark>"
 else
     echo ""
 fi
