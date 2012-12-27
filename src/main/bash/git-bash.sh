@@ -13,7 +13,7 @@ then
     
     if [[ $status =~ $noBranchRegex ]]; 
     then
-        mark="?"
+        branch="[`git rev-parse --short --verify HEAD`]"
     else    
         branch=`echo $status | head -1 | awk '{print $4}'`
     fi
