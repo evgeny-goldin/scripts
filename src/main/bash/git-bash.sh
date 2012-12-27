@@ -4,12 +4,19 @@ branch=''
 mark=''
 
 status=`git status 2> /dev/null`
+noBranchRegex="# Not currently on any branch"
 pushRegex="# Your branch is ahead of"
 cleanRegex="nothing to commit, working directory clean$"
 
 if [ "$status" != "" ];
 then
-    branch=`echo $status | head -1 | awk '{print $4}'`
+    
+    if [[ $status =~ $noBranchRegex ]]; 
+    then
+        mark="?"
+    else    
+        branch=`echo $status | head -1 | awk '{print $4}'`
+    fi
     
     if [[ $status =~ $pushRegex ]]; 
     then
