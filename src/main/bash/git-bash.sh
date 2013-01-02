@@ -5,6 +5,7 @@ mark=''
 
 status=`git status 2> /dev/null`
 noBranchRegex="# Not currently on any branch"
+divergedRegex="have diverged"
 pushRegex="# Your branch is ahead of"
 cleanRegex="nothing to commit, working directory clean$"
 
@@ -19,6 +20,11 @@ then
         branch=`echo $status | head -1 | awk '{print $4}'`
     fi
     
+    if [[ $status =~ $divergedRegex ]]; 
+    then
+        mark="$mark?"
+    fi
+
     if [[ $status =~ $pushRegex ]]; 
     then
         mark="$mark^"
