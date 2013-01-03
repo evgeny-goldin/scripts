@@ -1,75 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
 
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Gradle Distributions</title>
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23708003-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-      <style type="text/css" media="screen">
-  img {
-    border:0;
-  }
-
-  ul li img {
-    vertical-align:middle;
-  }
-
-  ul.items li a {
-    padding: 2px 0;
-  }
-  
-  ul.items li {
-    margin: 3px 0;
-  }
-  
-  span.name {
-    width: 42em;
-    display: inline-block;
-  }
-
-  span.size, span.date {
-    color:#AAA;
-    display: inline-block;
-  }
-
-  span.date {
-    width: 15em;
-  }
-  span.size {
-    width: 5em;
-  }
-  
-  ul,ul li {
-    list-style:none;
-  }  
-</style>
-  </head>
-<body>
-  <div id="header">
-    <h1>Gradle Distributions</h1>
-  </div>
-  <div id="contents">
-    <div class="breadcrumb">
-      <ul>
-                <li><a href="http://services.gradle.org/">services.gradle.org</a>/</li>
-                                      <li><a href="http://services.gradle.org/distributions">distributions</a>/</li>
-                        </ul>
-    </div>
-          
-<ul class="items">
   <li>
     <a href="/distributions/gradle-1.3-all.zip">
       <img src="/img/file.gif">
@@ -958,10 +887,4 @@
       <span class="size">2.11M</span>
     </a>
   </li>
-</ul>
-      </div>
-  <!-- Lead Lander-->
-  <script type="text/javascript" language="javascript">llactid=20600</script> 
-  <script type="text/javascript" language="javascript" src="/common/js/trackalyze.js"></script>
-</body>
-</html>
+
