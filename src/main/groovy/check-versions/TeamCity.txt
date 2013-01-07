@@ -751,27 +751,7 @@
         <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
 <div id="page-metadata-start" class="assistive"></div>
 
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
 
-
-
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~yaegor"
-                          class="url fn confluence-userlink" data-username="yaegor"
-                   >Yegor Yarko</a>, last edited by <a href="/display/~pavel.sher"
-                          class="url fn confluence-userlink" data-username="pavel.sher"
-                   >Pavel Sher</a> on Dec 13, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=20283764&originalId=49456695">view change</a>)</span>
-                                                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
     </div>
 
 
