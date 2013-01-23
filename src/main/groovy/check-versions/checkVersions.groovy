@@ -24,6 +24,7 @@ final URLs = [
     'http://services.gradle.org/distributions'                                     : [ 494834646,  /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
     'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 3971608245, /(?s)^.+Looking for the latest version/,
+                                                                                                   /(?s)<div id="files-sidebar">.+/,
                                                                                                    /<td headers="files_status_h" class="status folder">.+?<\/td>/,
                                                                                                    /(?s)<div id="sidebar-ads">.+/,
                                                                                                    /document.write\(.+?\)/,
