@@ -21,7 +21,7 @@ final URLs = [
                                                                                                    /(?s)<div class="page-metadata">.+?<\/div>/],
     'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 3480225374, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
-    'http://services.gradle.org/distributions'                                     : [ 1018065140, /(?s)^.+?<ul class="items">/,
+    'http://services.gradle.org/distributions'                                     : [ 1158170063, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
     'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 3971608245, /(?s)^.+Looking for the latest version/,
                                                                                                    /(?s)<div id="files-sidebar">.+/,
