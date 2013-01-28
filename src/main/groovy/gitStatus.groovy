@@ -1,8 +1,9 @@
 
 @GrabResolver( name='evgenyg.artifactoryonline.com', root='http://evgenyg.artifactoryonline.com/evgenyg/repo/' )
-@Grab('com.github.goldin:gcommons:0.6.2')
-@GrabExclude('xml-apis:xml-apis')
-@GrabExclude('asm:asm')
+@Grab( 'com.github.goldin:gcommons:0.6.3-SNAPSHOT' )
+@Grab( 'org.slf4j:slf4j-nop:1.7.2' )
+@GrabExclude( 'xml-apis:xml-apis' )
+@GrabExclude( 'asm:asm' )
 import com.github.goldin.gcommons.GCommons
 import groovy.io.FileType
 
@@ -18,20 +19,25 @@ GCommons.general() // Trigger MOP updates
  * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
-def root       = new File( args[ 0 ] )
-def t          = System.currentTimeMillis()
-def callback   = {
+final root       = new File( args[ 0 ] )
+final t          = System.currentTimeMillis()
+final colorStart = '\033[1;31m'
+final colorEnd   = '\033[0m'
+final callback   = {
     File directory ->
 
-    println "==> [$directory.canonicalPath]"
-
+    final exec = { String command -> command.execute( [], directory ).text.trim() } 
+    
     if ( directory.listFiles().any{ it.name == '.git' } )
     {
-        final clean      ='git status'.execute().text.contains( 'nothing to commit, working directory clean' )
-        final branchName = "git rev-parse --abbrev-ref HEAD".execute().text
-        final pushed     = "git log origin/$branchName..HEAD".execute().text == ''
+        final clean      = exec( 'git status' ).contains( 'nothing to commit, working directory clean' )
+        final branchName = exec( 'git rev-parse --abbrev-ref HEAD' )
+        final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
+        final problems   = ! ( clean && pushed )
 
-        println "[$clean][$branchName][$pushed]"
+        println "[${ problems ? colorStart : '' }${ directory.canonicalPath }${ problems ? colorEnd : '' }]: " + 
+                "[${ clean    ? 'clean'  : "$colorStart**not committed**$colorEnd" }], " + 
+                "[${ pushed   ? 'pushed' : "$colorStart**not pushed**$colorEnd" }]"
         false // Stop recursion at this point
     }
     else
