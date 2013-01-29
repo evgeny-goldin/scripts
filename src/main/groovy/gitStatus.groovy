@@ -70,7 +70,7 @@ results.each {
     final pushed     = status[ 1 ]
     final problems   = ! ( clean && pushed )
 
-    println "[${ problems ? redColorStart : '' }${ path }${ problems ? redColorEnd : '' }]:".padRight( maxPathSize + 3 + ( problems ? 11 : 0 )) +
+    println "[${ problems ? redColorStart : '' }${ path }${ problems ? redColorEnd : '' }]:".padRight( maxPathSize + 4 + ( problems ? 11 : 0 )) +
             "[${ clean    ? "${ greenColorStart }clean${ greenColorEnd }"  : "${ redColorStart }dirty${ redColorEnd }" }], " + 
             "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }waiting${ redColorEnd }" }]"    
 }
