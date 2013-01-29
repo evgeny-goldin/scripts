@@ -20,11 +20,14 @@ GCommons.general() // Trigger MOP updates
  * - groovy svnOp.groovy <directory> status         // "svn status"
  */
 
-final root       = new File( args[ 0 ] )
-final t          = System.currentTimeMillis()
-final colorStart = '\033[1;31m'
-final colorEnd   = '\033[0m'
-final callback   = {
+final root            = new File( args[ 0 ] )
+final redColorStart   = '\033[1;31m'
+final redColorEnd     = '\033[0m'
+final greenColorStart = '\033[1;32m'
+final greenColorEnd   = '\033[0m'
+final results         = [:]
+int   dotsPrinted     = 0 
+final callback        = {
     File directory ->
 
     final exec = { String command -> command.execute( [], directory ).text.trim() } 
@@ -34,11 +37,11 @@ final callback   = {
         final clean      = exec( 'git status' ).contains( 'nothing to commit, working directory clean' )
         final branchName = exec( 'git rev-parse --abbrev-ref HEAD' )
         final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
-        final problems   = ! ( clean && pushed )
 
-        println "[${ problems ? colorStart : '' }${ directory.canonicalPath }${ problems ? colorEnd : '' }]: " + 
-                "[${ clean    ? 'clean'  : "$colorStart**not committed**$colorEnd" }], " + 
-                "[${ pushed   ? 'pushed' : "$colorStart**not pushed**$colorEnd" }]"
+        results[ directory.canonicalPath ] = [ clean, pushed ]
+        print '.'
+
+        dotsPrinted++
         false // Stop recursion at this point
     }
     else
@@ -47,7 +50,7 @@ final callback   = {
     }
 }
 
-println "Checking Git projects starting from [$root.canonicalPath]"
+print "Checking Git projects starting from [$root.canonicalPath]"
 
 if ( callback( root ))
 {
@@ -56,4 +59,18 @@ if ( callback( root ))
                    detectLoops : true ], callback )
 }
 
-println "Done, [${ ( System.currentTimeMillis() - t ).intdiv( 1000 ) }] sec"
+println "\rChecking Git projects starting from [$root.canonicalPath]" + ( ' ' * dotsPrinted ) + '\nDone'
+
+final maxPathSize = results.keySet()*.size().max()
+
+results.each {
+    String path, List status ->
+
+    final clean      = status[ 0 ]
+    final pushed     = status[ 1 ]
+    final problems   = ! ( clean && pushed )
+
+    println "[${ problems ? redColorStart : '' }${ path }${ problems ? redColorEnd : '' }]:".padRight( maxPathSize + 3 + ( problems ? 11 : 0 )) +
+            "[${ clean    ? "${ greenColorStart }clean${ greenColorEnd }"  : "${ redColorStart }dirty${ redColorEnd }" }], " + 
+            "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }rotten${ redColorEnd }" }]"    
+}
