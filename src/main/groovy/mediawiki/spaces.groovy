@@ -1,6 +1,7 @@
 
 @GrabResolver( name='evgenyg.artifactoryonline.com', root='http://evgenyg.artifactoryonline.com/evgenyg/repo/' )
 @Grab('com.github.goldin:gcommons:0.6.3-SNAPSHOT')
+@Grab('org.slf4j:slf4j-nop:1.7.2')
 @GrabExclude('xml-apis:xml-apis')
 @GrabExclude('org.sonatype.sisu.inject:cglib')
 import com.github.goldin.gcommons.GCommons
