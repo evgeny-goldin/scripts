@@ -72,5 +72,5 @@ results.each {
 
     println "[${ problems ? redColorStart : '' }${ path }${ problems ? redColorEnd : '' }]:".padRight( maxPathSize + 3 + ( problems ? 11 : 0 )) +
             "[${ clean    ? "${ greenColorStart }clean${ greenColorEnd }"  : "${ redColorStart }dirty${ redColorEnd }" }], " + 
-            "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }rotten${ redColorEnd }" }]"    
+            "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }waiting${ redColorEnd }" }]"    
 }
