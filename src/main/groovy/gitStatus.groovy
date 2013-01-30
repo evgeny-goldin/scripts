@@ -21,6 +21,7 @@ GCommons.general() // Trigger MOP updates
  */
 
 final root            = new File( args[ 0 ] )
+final message         = "Checking Git projects starting from [${ root.canonicalPath }]"
 final redColorStart   = '\033[1;31m'
 final redColorEnd     = '\033[0m'
 final greenColorStart = '\033[1;32m'
@@ -50,7 +51,7 @@ final callback        = {
     }
 }
 
-print "Checking Git projects starting from [$root.canonicalPath]"
+print message
 
 if ( callback( root ))
 {
@@ -59,7 +60,7 @@ if ( callback( root ))
                    detectLoops : true ], callback )
 }
 
-println "\rChecking Git projects starting from [$root.canonicalPath]" + ( ' ' * dotsPrinted ) + '\nDone'
+println '\r' + message + ( ' ' * dotsPrinted )
 
 final maxPathSize = results.keySet()*.size().max()
 
