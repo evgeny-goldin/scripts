@@ -21,7 +21,7 @@ GCommons.general() // Trigger MOP updates
  */
 
 final root            = new File( args[ 0 ] )
-final message         = "Checking Git projects starting from [${ root.canonicalPath }]"
+final message         = "Checking Git projects starting from [${ root.canonicalPath }] "
 final redColorStart   = '\033[1;31m'
 final redColorEnd     = '\033[0m'
 final greenColorStart = '\033[1;32m'
