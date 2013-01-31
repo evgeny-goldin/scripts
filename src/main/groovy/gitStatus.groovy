@@ -27,9 +27,9 @@ final redColorEnd     = '\033[0m'
 final greenColorStart = '\033[1;32m'
 final greenColorEnd   = '\033[0m'
 final results         = [:]
-int   dotsPrinted     = 0 
-final removeDots      = { print '\r' + message + ( ' ' * dotsPrinted ) + '\r' + message; dotsPrinted = 0 } 
-final printDot        = { print '.'; dotsPrinted++; if ( dotsPrinted > 15 ){ removeDots() }}
+final sticks          = [ '|', '/', '-', '\\', '|', '/', '-', '\\' ]
+int   counter         = 0L
+final printStick      = { final j = ( counter % sticks.size()); print "\r${ message }${ sticks[ j ] }"; counter++; if ( j == ( sticks.size() - 1 )){ counter = 0 }}
 final callback        = {
     File directory ->
 
@@ -43,12 +43,12 @@ final callback        = {
 
         results[ directory.canonicalPath ] = [ clean, pushed ]
 
-        printDot()    
+        printStick()    
         false // Stop recursion at this point
     }
     else
     {
-        printDot()
+        printStick()
         true  // Continue recursion
     }
 }
@@ -62,8 +62,7 @@ if ( callback( root ))
                    detectLoops : true ], callback )
 }
 
-removeDots()
-println()
+println ( '\r' + message + ' ' )
 
 final maxPathSize = results.keySet()*.size().max()
 
