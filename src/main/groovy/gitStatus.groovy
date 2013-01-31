@@ -28,6 +28,8 @@ final greenColorStart = '\033[1;32m'
 final greenColorEnd   = '\033[0m'
 final results         = [:]
 int   dotsPrinted     = 0 
+final removeDots      = { print '\r' + message + ( ' ' * dotsPrinted ) + '\r' + message; dotsPrinted = 0 } 
+final printDot        = { print '.'; dotsPrinted++; if ( dotsPrinted > 15 ){ removeDots() }}
 final callback        = {
     File directory ->
 
@@ -40,13 +42,13 @@ final callback        = {
         final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
 
         results[ directory.canonicalPath ] = [ clean, pushed ]
-        print '.'
 
-        dotsPrinted++
+        printDot()    
         false // Stop recursion at this point
     }
     else
     {
+        printDot()
         true  // Continue recursion
     }
 }
@@ -60,7 +62,8 @@ if ( callback( root ))
                    detectLoops : true ], callback )
 }
 
-println '\r' + message + ( ' ' * dotsPrinted )
+removeDots()
+println()
 
 final maxPathSize = results.keySet()*.size().max()
 
