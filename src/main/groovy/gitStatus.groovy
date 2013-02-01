@@ -29,10 +29,13 @@ final greenColorEnd   = '\033[0m'
 final results         = [:]
 final sticks          = [ '|', '/', '-', '\\', '|', '/', '-', '\\' ]
 int   counter         = 0L
+long  foldersChecked  = 0
+final t               = System.currentTimeMillis() 
 final printStick      = { final j = ( counter % sticks.size()); print "\r${ message }${ sticks[ j ] }"; counter++; if ( j == ( sticks.size() - 1 )){ counter = 0 }}
 final callback        = {
     File directory ->
 
+    foldersChecked++
     final exec = { String command -> command.execute( [], directory ).text.trim() } 
     
     if ( directory.listFiles().any{ it.name == '.git' } )
@@ -63,6 +66,7 @@ if ( callback( root ))
 }
 
 println ( '\r' + message + ' ' )
+println "[$foldersChecked] folder${ foldersChecked == 1 ? '' : 's' } checked in [${ System.currentTimeMillis() - t }] ms"
 
 final maxPathSize = results.keySet()*.size().max()
 
