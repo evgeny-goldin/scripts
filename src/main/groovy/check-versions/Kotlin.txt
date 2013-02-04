@@ -14,9 +14,10 @@
 <a href="0.1.3395/"">0.1.3395/</a>                     -
 <a href="0.4.297/"">0.4.297/</a>                      -
 <a href="0.4.68/"">0.4.68/</a>                       -
-<a href="maven-metadata.xml">maven-metadata.xml</a>
-<a href="maven-metadata.xml.md5">maven-metadata.xml.md5</a>
-<a href="maven-metadata.xml.sha1">maven-metadata.xml.sha1</a>
+<a href="0.5.1/"">0.5.1/</a>                        -
+<a href="maven-metadata.xml">maven-metadata.xml</a>         
+<a href="maven-metadata.xml.md5">maven-metadata.xml.md5</a>     
+<a href="maven-metadata.xml.sha1">maven-metadata.xml.sha1</a>    
 </pre>
 <hr/>
 <address style="font-size:small;"> Server at repository.jetbrains.com Port 80</address>
