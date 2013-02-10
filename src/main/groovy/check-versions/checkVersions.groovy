@@ -1,10 +1,8 @@
 
-@GrabResolver( name='evgenyg.artifactoryonline.com', root='http://evgenyg.artifactoryonline.com/evgenyg/repo/' )
-@Grab('com.google.guava:guava:13.0.1')
+@Grab( 'com.google.guava:guava:14.0-rc2' )
 import com.google.common.io.ByteStreams
 import com.google.common.io.InputSupplier
 import java.util.zip.Adler32
-
 
 /**
  * Validates pages checksum to notify of new versions released.
@@ -34,24 +32,21 @@ final URLs = [
                                                                                                    /<script type="text\/javascript" src="http:\/\/a.fsdn.com.+?<\/script>/ ]
 ]
 
-for ( entry in URLs )
-{
-    final url            = entry.key
-    final oldCheksum     = entry.value.head()
-    final excludeRegexes = entry.value.tail()
-    text                 = excludeRegexes.inject( url.toURL().getText( 'UTF-8' )) {
-        String text, String regex -> text.replaceAll( regex, '' )
-    } as String
 
-    println( "URL [$url], old checksum [$oldCheksum]\n-----\n$text\n-----\n" )
+URLs.each {
+    String url, List data ->
 
-    final  checksum  = checksum( text )
-    assert checksum == oldCheksum, "URL [$url] checksum has changed to [$checksum]"
+    final oldChecksum     = data.head()
+    final text            = data.tail().inject( url.toURL().getText( 'UTF-8' )) { String s, String regex -> s.replaceAll( regex, '' )}
+    final checksum        = checksum( text )
+    final checksumChanged = ( checksum != oldChecksum )
+
+    println ( "URL [$url], checksum [$oldChecksum] => [$checksum], changed [$checksumChanged]\n-----\n$text\n-----\n" )
+    assert  ( ! checksumChanged ), "URL [$url] checksum has changed"
 }
 
 
 long checksum( String text )
 {
-    ByteStreams.getChecksum( new InputSupplier(){ InputStream getInput(){ new ByteArrayInputStream( text.getBytes( 'UTF-8' )) }},
-                             new Adler32())
+    ByteStreams.getChecksum({ new ByteArrayInputStream( text.getBytes( 'UTF-8' )) } as InputSupplier, new Adler32())
 }
