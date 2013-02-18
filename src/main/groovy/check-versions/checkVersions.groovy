@@ -22,7 +22,7 @@ final URLs = [
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
     'http://services.gradle.org/distributions'                                     : [ 1158170063, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
-    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 3971608245, /(?s)^.+Looking for the latest version/,
+    'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 2797057814, /(?s)^.+Looking for the latest version/,
                                                                                                    /(?s)<div id="files-sidebar">.+/,
                                                                                                    /<td headers="files_status_h" class="status folder">.+?<\/td>/,
                                                                                                    /(?s)<div id="sidebar-ads">.+/,
