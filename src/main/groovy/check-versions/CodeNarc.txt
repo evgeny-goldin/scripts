@@ -56,7 +56,7 @@
                            title="Click to enter CodeNarc Version 0.18.1"
                            class="name">
                         CodeNarc Version 0.18.1</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2013-02-17 23:43:48 UTC">&lt; 10 hours ago</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -67,7 +67,7 @@
                            title="Click to enter CodeNarc Version 0.18"
                            class="name">
                         CodeNarc Version 0.18</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2012-12-13 03:51:33 UTC">2012-12-13</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -78,7 +78,7 @@
                            title="Click to enter CodeNarc Version 0.17"
                            class="name">
                         CodeNarc Version 0.17</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2012-03-24 00:40:57 UTC">2012-03-24</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -89,7 +89,7 @@
                            title="Click to enter CodeNarc Version 0.16.1"
                            class="name">
                         CodeNarc Version 0.16.1</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-11-13 18:41:07 UTC">2011-11-13</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -100,7 +100,7 @@
                            title="Click to enter CodeNarc Version 0.16"
                            class="name">
                         CodeNarc Version 0.16</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-11-11 02:35:05 UTC">2011-11-11</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -111,7 +111,7 @@
                            title="Click to enter CodeNarc Version 0.15"
                            class="name">
                         CodeNarc Version 0.15</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-08-04 00:42:11 UTC">2011-08-04</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -122,7 +122,7 @@
                            title="Click to enter CodeNarc Version 0.14"
                            class="name">
                         CodeNarc Version 0.14</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-06-10 01:12:50 UTC">2011-06-10</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -133,7 +133,7 @@
                            title="Click to enter CodeNarc Version 0.13"
                            class="name">
                         CodeNarc Version 0.13</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-03-06 19:42:24 UTC">2011-03-06</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -144,7 +144,7 @@
                            title="Click to enter CodeNarc Version 0.12"
                            class="name">
                         CodeNarc Version 0.12</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2011-01-19 03:00:38 UTC">2011-01-19</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -155,7 +155,7 @@
                            title="Click to enter CodeNarc Version 0.11"
                            class="name">
                         CodeNarc Version 0.11</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2010-11-13 15:28:39 UTC">2010-11-13</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -166,7 +166,7 @@
                            title="Click to enter CodeNarc Version 0.10"
                            class="name">
                         CodeNarc Version 0.10</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2010-09-26 13:10:27 UTC">2010-09-26</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -177,7 +177,7 @@
                            title="Click to enter CodeNarc Version 0.9"
                            class="name">
                         CodeNarc Version 0.9</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2010-05-12 00:58:39 UTC">2010-05-12</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -188,7 +188,7 @@
                            title="Click to enter CodeNarc Version 0.8.1"
                            class="name">
                         CodeNarc Version 0.8.1</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2010-02-03 02:32:23 UTC">2010-02-03</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -199,7 +199,7 @@
                            title="Click to enter CodeNarc Version 0.8"
                            class="name">
                         CodeNarc Version 0.8</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2010-01-17 16:24:00 UTC">2010-01-17</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -210,7 +210,7 @@
                            title="Click to enter CodeNarc Version 0.7"
                            class="name">
                         CodeNarc Version 0.7</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-08-26 02:36:53 UTC">2009-08-26</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -221,7 +221,7 @@
                            title="Click to enter CodeNarc Version 0.6"
                            class="name">
                         CodeNarc Version 0.6</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-07-18 21:06:14 UTC">2009-07-18</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -232,7 +232,7 @@
                            title="Click to enter CodeNarc Version 0.5"
                            class="name">
                         CodeNarc Version 0.5</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-05-25 11:18:48 UTC">2009-05-25</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -243,7 +243,7 @@
                            title="Click to enter CodeNarc Version 0.4"
                            class="name">
                         CodeNarc Version 0.4</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-03-31 23:48:15 UTC">2009-03-31</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -254,7 +254,7 @@
                            title="Click to enter CodeNarc Version 0.3"
                            class="name">
                         CodeNarc Version 0.3</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-03-03 02:16:06 UTC">2009-03-03</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -265,7 +265,7 @@
                            title="Click to enter CodeNarc Version 0.2"
                            class="name">
                         CodeNarc Version 0.2</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-02-07 14:53:12 UTC">2009-02-07</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
@@ -276,7 +276,7 @@
                            title="Click to enter CodeNarc Version 0.1"
                            class="name">
                         CodeNarc Version 0.1</a></th>
-                    <td headers="files_date_h" class="opt"><abbr title="2009-01-24 12:49:06 UTC">2009-01-24</abbr></td>
+                    
                     <td headers="files_size_h" class="opt"></td>
                     <td headers="files_downloads_h" class="opt"></td>
                     
