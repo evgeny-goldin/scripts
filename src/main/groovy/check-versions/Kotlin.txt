@@ -8,6 +8,7 @@
 <pre>Name                     Last modified      Size</pre>
 <hr/>
 <pre><a href="../">../</a>
+<a href="0.0.1/"">0.0.1/</a>                        -
 <a href="0.1-SNAPSHOT/"">0.1-SNAPSHOT/</a>                 -
 <a href="0.1.100/"">0.1.100/</a>                      -
 <a href="0.1.2580/"">0.1.2580/</a>                     -
