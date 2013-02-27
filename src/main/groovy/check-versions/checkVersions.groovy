@@ -18,7 +18,7 @@ final URLs = [
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
     'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 3546232234, /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],
-    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 2169510368, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
+    'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 2348950582, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
     'http://services.gradle.org/distributions'                                     : [ 1158170063, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
