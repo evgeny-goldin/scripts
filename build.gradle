@@ -2,11 +2,14 @@
 apply plugin: 'groovy'
 apply from:   'src/main/gradle/wrapper.gradle'
 
+defaultTasks 'codenarc'
+
 /**
  * CodeNarc runner task
  */
 
 ext.codenarcRuleSetFiles = [ 'codenarc.groovy' ]
-apply from: 'https://raw.github.com/evgeny-goldin/gradle-plugins/master/codenarc/CodeNarc.gradle'
+apply from: 'http://evgenyg.artifactoryonline.com/evgenyg/libs-releases-local/CodeNarc.gradle'
+
 
 clean { delete( "$rootDir/out" ) }
