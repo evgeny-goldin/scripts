@@ -20,7 +20,7 @@ final URLs = [
                                                                                                    /(?s)<dt class="gray">.+/ ],
     'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 2348950582, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
-    'http://services.gradle.org/distributions'                                     : [ 1158170063, /(?s)^.+?<ul class="items">/,
+    'http://services.gradle.org/distributions'                                     : [ 4278124575, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
     'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 11162705,   /(?s)^.+Looking for the latest version/,
                                                                                                    /(?s)<div id="files-sidebar">.+/,
@@ -43,7 +43,7 @@ URLs.each {
     final checksumChanged = ( checksum != oldChecksum )
 
     println ( "URL [$url], checksum [$oldChecksum] => [$checksum], changed [$checksumChanged]\n-----\n$text\n-----\n" )
-    assert  ( ! checksumChanged ), "URL [$url] checksum has changed"
+    assert  ( ! checksumChanged ), "URL [$url] checksum has changed: [$oldChecksum] => [$checksum]"
 }
 
 

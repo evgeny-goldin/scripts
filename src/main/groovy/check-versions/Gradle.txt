@@ -1,5 +1,53 @@
 
   <li>
+    <a href="/distributions/gradle-1.5-rc-2-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-2-all.zip</span>
+      <span class="date">17-Mar-2013 01:15 +0000</span>
+      <span class="size">48.41M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.5-rc-2-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-2-bin.zip</span>
+      <span class="date">17-Mar-2013 01:15 +0000</span>
+      <span class="size">36.45M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.5-rc-2-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-2-src.zip</span>
+      <span class="date">17-Mar-2013 01:15 +0000</span>
+      <span class="size">8.67M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.5-rc-1-all.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-1-all.zip</span>
+      <span class="date">11-Mar-2013 12:03 +0000</span>
+      <span class="size">48.40M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.5-rc-1-bin.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-1-bin.zip</span>
+      <span class="date">11-Mar-2013 12:03 +0000</span>
+      <span class="size">36.45M</span>
+    </a>
+  </li>
+  <li>
+    <a href="/distributions/gradle-1.5-rc-1-src.zip">
+      <img src="/img/file.gif">
+      <span class="name">gradle-1.5-rc-1-src.zip</span>
+      <span class="date">11-Mar-2013 12:03 +0000</span>
+      <span class="size">8.67M</span>
+    </a>
+  </li>
+  <li>
     <a href="/distributions/gradle-1.4-all.zip">
       <img src="/img/file.gif">
       <span class="name">gradle-1.4-all.zip</span>
