@@ -12,6 +12,7 @@ Build: 24266<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.3.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.3.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
+<p><a href="/display/TW/TeamCity+7.1.3+%28build+24266%29+Release+Notes" title="TeamCity 7.1.3 (build 24266) Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.1.2"></a>TeamCity 7.1.2</h3>
 <p>Release date: 12 November 2012<br/>
@@ -20,12 +21,16 @@ Build: 24170<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.2.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.2.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
+<p><a href="/display/TW/TeamCity+7.1.2+%28build+24170%29+Release+Notes" title="TeamCity 7.1.2 (build 24170) Release Notes">Release notes</a></p>
+
 <h3><a name="PreviousReleasesDownloads-TeamCity7.1.1"></a>TeamCity 7.1.1</h3>
 <p>Release date: 21 September 2012<br/>
 Build: 24074<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.1.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
+
+<p><a href="/display/TW/TeamCity+7.1.1+%28build+24074%29+Release+Notes" title="TeamCity 7.1.1 (build 24074) Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.1"></a>TeamCity 7.1</h3>
 <p><b>Release date: 7 August 2012</b><br/>
@@ -34,12 +39,16 @@ Build: 23907<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
+<p><a href="/display/TW/TeamCity+7.1+Release+Notes" title="TeamCity 7.1 Release Notes">Release notes</a></p>
+
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.4"></a>TeamCity 7.0.4</h3>
 <p>Release date: 12 July 2012<br/>
 Build: 21474<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.4.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.4.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.4.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
+
+<p><a href="/display/TW/Faradi+7.0.4+%28build+21474%29+Release+Notes" title="Faradi 7.0.4 (build 21474) Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.3"></a>TeamCity 7.0.3</h3>
 <p>Release date: 15 May 2012<br/>
@@ -48,12 +57,16 @@ Build: 21424<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.3.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.3.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
+<p><a href="/display/TW/Farady+7.0.3+%28build+21424%29+Release+Notes" title="Farady 7.0.3 (build 21424) Release Notes">Release notes</a></p>
+
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.2"></a>TeamCity 7.0.2</h3>
 <p>Release date: 6 April 2012<br/>
 Build: 21349<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.2.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.2.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.2.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
+
+<p><a href="/display/TW/Faradi+7.0.2+%28build+21349%29+Release+Notes" title="Faradi 7.0.2 (build 21349) Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0.1"></a>TeamCity 7.0.1</h3>
 <p>Release date: 20 March 2012<br/>
@@ -62,12 +75,16 @@ Build: 21326<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.1.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.1.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
 
+<p><a href="/display/TW/Faradi+7.0.1+%28build+21326%29+Release+Notes" title="Faradi 7.0.1 (build 21326) Release Notes">Release notes</a></p>
+
 <h3><a name="PreviousReleasesDownloads-TeamCity7.0"></a>TeamCity 7.0</h3>
 <p><b>Release date: 22 February 2012</b><br/>
 Build: 21241<br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
 <a href="http://download.jetbrains.com/teamcity/TeamCity-7.0.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
+
+<p><a href="/display/TW/TeamCity+7.0+Release+Notes" title="TeamCity 7.0 Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity6.5.6"></a>TeamCity 6.5.6</h3>
 <p>Release date: 9 December 2011<br/>
