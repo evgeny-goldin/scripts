@@ -1,7 +1,7 @@
 
                 </dl>
                 <dl class="gray smallertext leftfloated block35">
-                    <dt><a class="gray underline_link_gray" href="http://youtrack.jetbrains.com/releaseNotes/JT?q=%23jt+Fix+versions:+4.2+%23Fixed+%23Verified&title=YouTrack+4.2+Release+Notes&token=t6irm24f28cp171g3k6j2txhd&showDescription=false&showComments=false">Release notes</a></dt>
+                    <dt><a class="gray underline_link_gray" href="http://youtrack.jetbrains.com/releaseNotes/JT?q=fixed+in%3A+4.2.1+%23Fixed+%23Verified&title=YouTrack+4.2.1+Release+Notes&token=1svvu53h17hzucehs3ksryowy&showDescription=false&showComments=false">Release notes</a></dt>
                     <dt><a class="gray underline_link_gray" href="system_requirements.html" title="System requirements">System Requirements</a></dt>
                     <dt><a class="gray underline_link_gray" href="installation_instructions_exe.html" title="Run YouTrack">Installation Instructions</a></dt>
                     <dt><a class="gray underline_link_gray" href="http://confluence.jetbrains.com/display/TSYSPUB/YouTrack+Release+Downloads+Archive">Previous versions</a></dt>

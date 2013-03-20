@@ -16,7 +16,7 @@ import java.util.zip.Adler32
 final URLs = [
     'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 1826548399, /(?s).+<div class="wiki-content">/,
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
-    'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 3546232234, /(?s).+?<dt>WAR<\/dt>/,
+    'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 898774250,  /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],
     'http://repository.jetbrains.com/kotlin/org/jetbrains/kotlin/kotlin-compiler/' : [ 2348950582, /(\d\d-\w+-\d{4} \d\d:\d\d)|(\d+ bytes)/,
                                                                                                    /(Artifactory\/\d+\.\d+\.\d+)/ ],
