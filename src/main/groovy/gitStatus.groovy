@@ -43,8 +43,9 @@ final callback        = {
         final clean      = exec( 'git status' ).contains( 'nothing to commit, working directory clean' )
         final branchName = exec( 'git rev-parse --abbrev-ref HEAD' )
         final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
+        final origin     = exec( "git remote -v" ).readLines().find{ it.with{ contains( 'origin' ) && contains( '(push)' ) }}.tokenize()[ 1 ]
 
-        results[ directory.canonicalPath ] = [ clean, pushed ]
+        results[ directory.canonicalPath ] = [ clean, pushed, origin ]
 
         printStick()    
         false // Stop recursion at this point
@@ -75,9 +76,11 @@ results.each {
 
     final clean      = status[ 0 ]
     final pushed     = status[ 1 ]
+    final origin     = status[ 2 ]
     final problems   = ! ( clean && pushed )
 
     println "[${ problems ? redColorStart : '' }${ path }${ problems ? redColorEnd : '' }]:".padRight( maxPathSize + 4 + ( problems ? 11 : 0 )) +
             "[${ clean    ? "${ greenColorStart }clean${ greenColorEnd }"  : "${ redColorStart }dirty${ redColorEnd }" }], " + 
-            "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }waiting${ redColorEnd }" }]"    
+            "[${ pushed   ? "${ greenColorStart }pushed${ greenColorEnd }" : "${ redColorStart }waiting${ redColorEnd }" }]" +
+            " ($origin)"
 }
