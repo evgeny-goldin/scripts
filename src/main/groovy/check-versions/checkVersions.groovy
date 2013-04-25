@@ -14,7 +14,7 @@ import java.util.zip.Adler32
 
 
 final URLs = [
-    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 1826548399, /(?s).+<div class="wiki-content">/,
+    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 2223232451, /(?s).+<div class="wiki-content">/,
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
     'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 898774250,  /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],

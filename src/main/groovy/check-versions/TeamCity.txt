@@ -1,9 +1,18 @@
 
            <!-- wiki content -->
-            <p>The current TeamCity version is 7.1.4 (build 24331, released on 7 February 2013), it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
+            <p>The current TeamCity version is 7.1.5 (build 24400, released on 17 April 2013), it can be downloaded from the <a href="http://www.jetbrains.com/teamcity/download/" class="external-link" rel="nofollow">download page</a>.</p>
 
 <p>Below is a list of previous TeamCity releases.<br/>
 If you are upgrading, please check that all your licenses will be still valid with the new version. A license is valid if its maintenance period covers the release date of the last major/minor version release (release date marked with bold below).</p>
+
+<h3><a name="PreviousReleasesDownloads-TeamCity7.1.4"></a>TeamCity 7.1.4</h3>
+<p>Release date: 7 February 2013<br/>
+Build: 24331<br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.4.exe" class="external-link" rel="nofollow">Windows installer</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.4.tar.gz" class="external-link" rel="nofollow">Archive with bundled Tomcat (any platform)</a><br/>
+<a href="http://download.jetbrains.com/teamcity/TeamCity-7.1.4.war" class="external-link" rel="nofollow">Java EE container (war)</a></p>
+
+<p><a href="/display/TW/TeamCity+7.1.3+%28build+24266%29+Release+Notes" title="TeamCity 7.1.3 (build 24266) Release Notes">Release notes</a></p>
 
 <h3><a name="PreviousReleasesDownloads-TeamCity7.1.3"></a>TeamCity 7.1.3</h3>
 <p>Release date: 13 December 2012<br/>
