@@ -14,11 +14,11 @@ import java.util.zip.Adler32
 
 
 final URLs = [
-    'http://confluence.jetbrains.net/display/TW/Previous+Releases+Downloads'       : [ 2223232451, /(?s).+<div class="wiki-content">/,
+    'http://confluence.jetbrains.com/display/TW/Previous+Releases+Downloads'       : [ 2223232451, /(?s).+<div class="wiki-content">/,
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
     'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 898774250,  /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],
-    'http://services.gradle.org/distributions'                                     : [ 1769058917, /(?s)^.+?<ul class="items">/,
+    'http://services.gradle.org/distributions'                                     : [ 3437334446, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
     'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 11162705,   /(?s)^.+Looking for the latest version/,
                                                                                                    /(?s)<div id="files-sidebar">.+/,
