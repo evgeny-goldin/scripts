@@ -18,7 +18,7 @@ final URLs = [
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
     'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 2076456293, /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],
-    'http://services.gradle.org/distributions'                                     : [ 3437334446, /(?s)^.+?<ul class="items">/,
+    'http://services.gradle.org/distributions'                                     : [ 3432015049, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
     'http://sourceforge.net/projects/codenarc/files/codenarc/'                     : [ 11162705,   /(?s)^.+Looking for the latest version/,
                                                                                                    /(?s)<div id="files-sidebar">.+/,
