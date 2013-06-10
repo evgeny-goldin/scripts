@@ -16,7 +16,9 @@ import java.util.zip.Adler32
 final URLs = [
     'http://confluence.jetbrains.com/display/TW/Previous+Releases+Downloads'       : [ 2223232451, /(?s).+<div class="wiki-content">/,
                                                                                                    /(?s)<rdf:RDF xmlns:rdf.+/ ],
-    'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 2076456293, /(?s).+?<dt>WAR<\/dt>/,
+    'http://confluence.jetbrains.com/display/TW/TeamCity+EAP+(Latest)'             : [ 2238254748, /(?s).+Current build: /,
+                                                                                                   /(?s)<\/h3>.+/ ],                                                                                                   
+    'http://www.jetbrains.com/youtrack/download/get_youtrack.html'                 : [ 3554546197, /(?s).+?<dt>WAR<\/dt>/,
                                                                                                    /(?s)<dt class="gray">.+/ ],
     'http://services.gradle.org/distributions'                                     : [ 3432015049, /(?s)^.+?<ul class="items">/,
                                                                                                    /(?s)<\/ul>.+$/ ],
@@ -43,6 +45,8 @@ URLs.each {
     println ( "URL [$url], checksum [$oldChecksum] => [$checksum], changed [$checksumChanged]\n-----\n$text\n-----\n" )
     assert  ( ! checksumChanged ), "URL [$url] checksum has changed: [$oldChecksum] => [$checksum]"
 }
+
+println "All is well"
 
 
 long checksum( String text )
