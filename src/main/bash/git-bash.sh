@@ -4,7 +4,8 @@ branch=''
 mark=''
 
 status=`git status 2> /dev/null`
-noBranchRegex="# Not currently on any branch"
+noBranchRegex1="# Not currently on any branch"
+noBranchRegex2="# HEAD detached at"
 divergedRegex="have diverged"
 pushRegex="# Your branch is ahead of"
 cleanRegex="nothing to commit, working directory clean$"
@@ -12,7 +13,7 @@ cleanRegex="nothing to commit, working directory clean$"
 if [ "$status" != "" ];
 then
     
-    if [[ $status =~ $noBranchRegex ]]; 
+    if [[ $status =~ $noBranchRegex1 ]] || [[ $status =~ $noBranchRegex2 ]]; 
     then
         # [`git rev-parse --short --verify HEAD`] shows current commit
         branch="[`git describe --all --tags --long`]"
