@@ -21,7 +21,7 @@ echo   "##teamcity[progressMessage 'Downloading ..']"
 rm -rf teamcity
 mkdir  teamcity
 cd     teamcity
-wget   -nv ftp://ftp.intellij.net/pub/.teamcity/nightly/*.war
+wget   -nv ftp://anonymous@ftp.intellij.net/pub/.teamcity/nightly/8.0.x/*.war
 
 # Both new and old builds are of form "TeamCity-23361"
 oldBuild="TeamCity-`curl $TeamCityUrl/app/rest/server/build?guest=1`"
