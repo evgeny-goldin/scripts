@@ -36,7 +36,13 @@ then
         mark="$mark!"
     fi
 
-    echo "<$branch$mark>"
+    # https://blogs.atlassian.com/2013/07/git-upstreams-forks/
+    curr_branch=$(git rev-parse --abbrev-ref HEAD);
+    curr_remote=$(git config branch.$curr_branch.remote);
+    curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
+    numbers=`git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|'`;
+
+    echo "<$branch$mark>[$numbers]"
 else
     echo ""
 fi
