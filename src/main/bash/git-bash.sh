@@ -18,7 +18,7 @@ then
         # [`git rev-parse --short --verify HEAD`] shows current commit
         branch="[`git describe --all --tags --long`]"
     else    
-        branch=`echo $status | head -1 | awk '{print $4}'`
+        branch=`echo $status | head -1 | awk '{print $3}'`
     fi
     
     if [[ $status =~ $divergedRegex ]]; 
