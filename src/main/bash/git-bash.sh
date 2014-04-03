@@ -4,8 +4,8 @@ branch=''
 mark=''
 
 status=`git status 2> /dev/null`
-noBranchRegex1="# Not currently on any branch"
-noBranchRegex2="# HEAD detached at"
+noBranchRegex1="Not currently on any branch"
+noBranchRegex2="HEAD detached at"
 divergedRegex="have diverged"
 pushRegex="# Your branch is ahead of"
 cleanRegex="nothing to commit, working directory clean$"
