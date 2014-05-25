@@ -12,44 +12,54 @@ cleanRegex="nothing to commit, working directory clean$"
 
 if [ "$status" != "" ];
 then
-    
-    if [[ $status =~ $noBranchRegex1 ]] || [[ $status =~ $noBranchRegex2 ]]; 
+
+    if [[ $status =~ $noBranchRegex1 ]] || [[ $status =~ $noBranchRegex2 ]];
     then
         # [`git rev-parse --short --verify HEAD`] shows current commit
         branch="[`git describe --all --tags --long`]"
-    else    
+    else
         branch=`echo $status | head -1 | awk '{print $3}'`
     fi
-    
-    if [[ $status =~ $divergedRegex ]]; 
+
+    if [[ $status =~ $divergedRegex ]];
     then
         mark="$mark?"
     fi
 
-    if [[ $status =~ $pushRegex ]]; 
+    if [[ $status =~ $pushRegex ]];
     then
         mark="$mark^"
     fi
 
-    if [[ ! $status =~ $cleanRegex ]]; 
+    if [[ ! $status =~ $cleanRegex ]];
     then
         mark="$mark!"
     fi
 
     # https://blogs.atlassian.com/2013/07/git-upstreams-forks/
 
-    curr_branch=$(git rev-parse --abbrev-ref HEAD);
+    curr_branch=$(git rev-parse --abbrev-ref HEAD 2>&1);
+
+    if [[ "$curr_branch" =~ "fatal: " ]]; then
+      echo "<not initialized yet>"
+      exit
+    fi
+
     curr_remote=$(git config branch.$curr_branch.remote);
     curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
 
     if [ "$curr_remote" == "" ] || [ "$curr_merge_branch" == "" ] ;
     then
-        numbers=`git rev-list --left-right --count $curr_branch...origin/master | tr -s '\t' '|'`;
+        numbers=`git rev-list --left-right --count $curr_branch...origin/master 2>&1 | tr -s '\t' '|'`;
     else
-        numbers=`git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|'`;
-    fi    
+        numbers=`git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch 2>&1 | tr -s '\t' '|'`;
+    fi
 
-    echo "<$branch$mark>[$numbers]"
+    if [[ "$numbers" =~ "fatal: " ]]; then
+      echo "<not initialized yet>"
+    else
+      echo "<$branch$mark>[$numbers]"
+    fi
 else
     echo ""
 fi
