@@ -40,13 +40,15 @@ final callback        = {
     
     if ( directory.listFiles().any{ it.name == '.git' } )
     {
-        final clean      = exec( 'git status' ).contains( 'nothing to commit, working directory clean' )
-        final branchName = exec( 'git rev-parse --abbrev-ref HEAD' )
-        final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
-        final origin     = exec( "git remote -v" ).readLines().find{ it.with{ contains( 'origin' ) && contains( '(push)' ) }}.tokenize()[ 1 ]
-
-        results[ directory.canonicalPath ] = [ clean, pushed, origin ]
-
+        final originRepo = exec( "git remote -v" ).readLines().find{ it.with{ contains( 'origin' ) && contains( '(push)' ) }}
+        if ( originRepo ) 
+        {
+            final clean      = exec( 'git status' ).contains( 'nothing to commit, working directory clean' )
+            final branchName = exec( 'git rev-parse --abbrev-ref HEAD' )
+            final pushed     = ( exec( "git log origin/$branchName..HEAD" ) == '' )
+            final origin     = originRepo.tokenize()[ 1 ]
+            results[ directory.canonicalPath ] = [ clean, pushed, origin ]
+        }
         printStick()    
         false // Stop recursion at this point
     }
