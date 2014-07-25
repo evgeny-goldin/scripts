@@ -1,6 +1,6 @@
 
 def publishers = '''Addison.Wesley Apress Artima AWP Big.Nerd For.Dummies Leanpub PP FriendsofED FT.Press IBM.Press Manning Microsoft.Press New.Riders No.Starch.Press
-                    No.Starch Oreilly Pactpub Packtpub Peachpit Peachpit.Press Pragmatic Prentice.Hall Prentice.Hall SitePoint Sitepoint QUE Sams Wiley Wrox'''.
+                    No.Starch Oreilly OReilly Pactpub Packtpub Peachpit Peachpit.Press Pragmatic Prentice.Hall Prentice.Hall SitePoint Sitepoint QUE Sams Wiley Wrox'''.
                     stripIndent().tokenize()
 def months     = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.tokenize()
 def extensions = 'pdf epub'.tokenize()
@@ -27,4 +27,3 @@ new File( '.' ).listFiles().findAll { File f -> f.file && extensions.any { f.nam
                                     println "=> [$f.name] renamed to [$newFile.name]"
                                 }
                             }
-
