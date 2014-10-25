@@ -59,7 +59,7 @@ then
     if [[ "$numbers" =~ "fatal: " ]]; then
       echo "<not initialized yet>"
     else
-      echo "<$branch$mark|$commit>[$numbers]"
+      echo "<$branch$mark>[$commit][$numbers]"
     fi
 else
     echo ""
