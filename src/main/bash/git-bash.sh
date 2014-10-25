@@ -8,7 +8,7 @@ noBranchRegex1="Not currently on any branch"
 noBranchRegex2="HEAD detached at"
 divergedRegex="have diverged"
 pushRegex="# Your branch is ahead of"
-cleanRegex="nothing to commit, working directory clean$"
+cleanRegex="nothing to commit, working directory clean"
 
 if [ "$status" != "" ];
 then
@@ -20,6 +20,7 @@ then
     else
         branch=`echo $status | head -1 | awk '{print $3}'`
     fi
+    commit=$(git log -1 --format=format:%h)
 
     if [[ $status =~ $divergedRegex ]];
     then
@@ -58,7 +59,7 @@ then
     if [[ "$numbers" =~ "fatal: " ]]; then
       echo "<not initialized yet>"
     else
-      echo "<$branch$mark>[$numbers]"
+      echo "<$branch$mark|$commit>[$numbers]"
     fi
 else
     echo ""
