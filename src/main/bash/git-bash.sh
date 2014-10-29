@@ -3,7 +3,7 @@
 branch=''
 mark=''
 
-status=`git status 2> /dev/null`
+status=$(git status 2> /dev/null)
 noBranchRegex1="Not currently on any branch"
 noBranchRegex2="HEAD detached at"
 divergedRegex="have diverged"
@@ -15,10 +15,9 @@ then
 
     if [[ $status =~ $noBranchRegex1 ]] || [[ $status =~ $noBranchRegex2 ]];
     then
-        # [`git rev-parse --short --verify HEAD`] shows current commit
-        branch="[`git describe --all --tags --long`]"
+        branch="[$(git describe --all --tags --long)]"
     else
-        branch=`echo $status | head -1 | awk '{print $3}'`
+        branch=$(git branch | grep \* | awk '{print $2}')
     fi
     commit=$(git log -1 --format=format:%h)
 
@@ -51,9 +50,9 @@ then
 
     if [ "$curr_remote" == "" ] || [ "$curr_merge_branch" == "" ] ;
     then
-        numbers=`git rev-list --left-right --count $curr_branch...origin/master 2>&1 | tr -s '\t' '|'`;
+        numbers=$(git rev-list --left-right --count $curr_branch...origin/master 2>&1 | tr -s '\t' '|');
     else
-        numbers=`git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch 2>&1 | tr -s '\t' '|'`;
+        numbers=$(git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch 2>&1 | tr -s '\t' '|');
     fi
 
     if [[ "$numbers" =~ "fatal: " ]]; then
