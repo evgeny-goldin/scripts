@@ -14,20 +14,6 @@ directory       = "#{ENV['HOME']}/export"
 sleep_period    = 5
 
 
-def read_urls( files, matcher = '^.+$', max_size = 9223372036854775807 )
-  raise 'Files are undefined' if files.nil?
-  urls   = []
-  regexp = Regexp.new( matcher )
-  files.each { |file|
-    url  = file['uri']
-    size = ( file['size'] || 0 ).to_i
-    urls << url if (( regexp =~ url ) && ( size <= max_size ))
-  }
-  puts "Found [#{urls.size}] matching urls"
-  urls
-end
-
-
 def read_files( artifactory_url, repo_name, username, password )
   # https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-FileList
   # https://evgenyg.artifactoryonline.com/evgenyg/api/storage/jcenter-cache?list&deep=1&listFolders=0
@@ -47,6 +33,20 @@ def read_files( artifactory_url, repo_name, username, password )
   files        = JSON.parse( body )['files']
   raise "Response has no 'files': #{body}" if files.nil?
   files
+end
+
+
+def read_urls( files, matcher = '^.+$', max_size = 9223372036854775807 )
+  raise 'Files are undefined' if files.nil?
+  urls   = []
+  regexp = Regexp.new( matcher )
+  files.each { |file|
+    url  = file['uri']
+    size = ( file['size'] || 0 ).to_i
+    urls << url if (( regexp =~ url ) && ( size <= max_size ))
+  }
+  puts "Found [#{urls.size}] matching urls"
+  urls
 end
 
 
