@@ -1,4 +1,5 @@
 #!/bin/bash
+set +x
 
 branch=''
 mark=''
@@ -46,7 +47,7 @@ then
     fi
 
     curr_remote=$(git config branch.$curr_branch.remote);
-    curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
+    curr_merge_branch=$(git config branch.$curr_branch.merge | sed 's|refs/heads/||');
 
     if [ "$curr_remote" == "" ] || [ "$curr_merge_branch" == "" ] ;
     then
