@@ -1,7 +1,11 @@
 #!/bin/bash
 
-set -x
+# set -x
 set -e
+
+echo '==================='
+date
+echo '==================='
 
 result_file=~/Temp/whoer.txt
 
