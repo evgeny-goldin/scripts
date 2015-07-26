@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$(pwd)/disconnect.sh >> ~/Temp/disconnect.log 2>&1
+$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/disconnect.sh >> ~/Temp/disconnect.log 2>&1
