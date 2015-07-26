@@ -21,6 +21,6 @@ else
     echo "===> $provider not found in '$result_file'"
   else
     echo "===> !!! $provider found in '$result_file', turning the network off"
-    /usr/sbin/scselect Off
+    scselect Off
   fi
 fi
